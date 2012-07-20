@@ -3,7 +3,7 @@ settings = Storage()
 from os import uname
 
 settings.migrate = True
-settings.title = 'Runestone Interactive'
+settings.title = 'Macalester COMP 123'
 settings.subtitle = 'eBooks for Python'
 settings.author = 'Brad Miller'
 settings.author_email = 'info@interactivepython.org'
@@ -19,7 +19,7 @@ settings.login_config = ''
 settings.course_id = 'devcourse'
 settings.plugins = []
 
-if 'local' in uname()[1] or 'Darwin' in uname()[0]:
+if 'local' in uname()[1] or 'Darwin' in uname()[0] or 'Linux' in uname()[0]:
 	settings.database_uri = 'sqlite://storage.sqlite'
 elif 'webfaction' in uname()[1]:
 	settings.database_uri = 'postgres://bnmnetp_courselib:f635ac32@web318.webfaction.com/bnmnetp_courselib'

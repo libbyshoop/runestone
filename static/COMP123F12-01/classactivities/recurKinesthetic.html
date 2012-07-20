@@ -1,0 +1,292 @@
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Happy Robots and Recursion &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/edu-python.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/simplemodal.js"></script>
+    <script type="text/javascript" src="../_static/jquery.textarea.js"></script>
+    <script type="text/javascript" src="../_static/edu-python.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.js"></script>
+    <script type="text/javascript" src="../_static/builtin.js"></script>
+    <script type="text/javascript" src="../_static/assess.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../index.html" />
+<script type="text/javascript"> 
+eBookConfig = {}
+eBookConfig.host = 'http://141.140.167.226:8000' ? 'http://141.140.167.226:8000' : 'http://127.0.0.1:8000',
+eBookConfig.app = eBookConfig.host+'/courselib',
+eBookConfig.ajaxURL = eBookConfig.app+'/ajax/',
+eBookConfig.course = 'COMP123F12-01',
+eBookConfig.logLevel = 10,
+eBookConfig.loginRequired = true
+</script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/classactivities/recurKinesthetic.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul><!--<div id="runestonebox">
+  <h3>Runestone Links</h3>
+  <ul>
+    <li>
+      <a href="https://github.com/bnmnetp/runestone/issues/new">Report a Problem</a>
+    </li>
+    <li>
+      <a href="http://runestoneinteractive.org">About Runestone</a>
+    </li>
+    <li>
+      <a href="/courselib/admin/index">Instructors Page</a>
+    </li>
+  </ul>
+</div>
+-->
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="happy-robots-and-recursion">
+<h1>Happy Robots and Recursion<a class="headerlink" href="#happy-robots-and-recursion" title="Permalink to this headline">¶</a></h1>
+<p><strong>COMP 123</strong></p>
+<p>To understand how recursion works, we need the
+&#8220;happy robots&#8221; metaphor from earlier this term.</p>
+<p>When a function call happens, imagine that Python selects a
+&#8220;happy robot&#8221;. Python gives that robot a <em>copy</em> of the function
+definition, and the robot assigns its input parameters to the
+values of the arguments in the function call. The robot then
+performs its actions, which might include making function calls of
+is own.</p>
+<p>We are going to act out the process involved in a call to a
+recursive function, taking on the roles of the happy robots for the
+process. Divide up into groups of about 5-7 people. Each person
+should take two or three slips of paper.</p>
+<p>Examine the Python program listed below:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">fact</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">recAns</span> <span class="o">=</span> <span class="n">fact</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">recAns</span>
+</pre></div>
+</div>
+
+<div id="recur_01" >
+<textarea cols="50" rows="12" id="recur_01_code" class="active_code">
+def fact(n):
+    if n == 0:
+        return 1
+    else:
+        recAns = fact(n - 1)
+        return n * recAns
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (recur_01)</span> </p>
+<button onclick="runit('recur_01',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('recur_01');">Save</button>
+<button class="ac_opt" onclick="requestCode('recur_01');">Load</button>
+<br />
+
+<canvas id="recur_01_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="recur_01_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>Act out, step by step, what would happen for a call to <tt class="docutils literal"><span class="pre">fact{4}</span></tt>.
+One volunteer should be the happy robot for this first call. Each
+person, when called upon to be a happy robot, should write down on
+a slip of paper the value of your parameter variable, and then
+should work through the steps of the function. When happy robot
+person A reaches the recursive call, s/he should pick another group
+member to be the happy robot for the recursive call, happy robot
+person B. Person A should then wait until person B completes their
+work and passes back a value. To pass back a value, write it on a
+slip of paper and hand it back to the person who called you.</p>
+<p>Once you successfully act out this function call, try the more
+complicated function below instead, with the call
+<tt class="docutils literal"><span class="pre">sumList([3,</span> <span class="pre">6,</span> <span class="pre">2,</span> <span class="pre">4],</span> <span class="pre">1,</span> <span class="pre">3)</span></tt>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">sumList</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">startPos</span><span class="p">,</span> <span class="n">endPos</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">startPos</span> <span class="o">&gt;</span> <span class="n">endPos</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ans</span> <span class="o">=</span> <span class="n">sumList</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">startPos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">endPos</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">lst</span><span class="p">[</span><span class="n">startPos</span><span class="p">]</span><span class="o">+</span> <span class="n">ans</span>
+</pre></div>
+</div>
+
+<div id="recur_02" >
+<textarea cols="50" rows="12" id="recur_02_code" class="active_code">
+def sumList(lst, startPos, endPos):
+    if startPos > endPos:
+        return 0
+    else:
+        ans = sumList(lst, startPos + 1, endPos)
+        return lst[startPos]+ ans
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (recur_02)</span> </p>
+<button onclick="runit('recur_02',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('recur_02');">Save</button>
+<button class="ac_opt" onclick="requestCode('recur_02');">Load</button>
+<br />
+
+<canvas id="recur_02_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="recur_02_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>If you want a bigger challenge, try a function like the one below
+that performs more than one recursive call. Be sure to keep track
+of which group members are currently active, and which ones have
+finished, so that you can reuse people. Consider the call
+<tt class="docutils literal"><span class="pre">fib(4)</span></tt>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">prev</span> <span class="o">=</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">prevPrev</span> <span class="o">=</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">prev</span> <span class="o">+</span><span class="n">prevPrev</span>
+</pre></div>
+</div>
+
+<div id="recur_03" >
+<textarea cols="50" rows="12" id="recur_03_code" class="active_code">
+def fibonacci(m):
+    if m == 0:
+        return 0
+    elif m == 1:
+        return 1
+    else:
+        prev = fibonacci(m - 1)
+        prevPrev = fibonacci(m - 2)
+        return prev +prevPrev
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (recur_03)</span> </p>
+<button onclick="runit('recur_03',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('recur_03');">Save</button>
+<button class="ac_opt" onclick="requestCode('recur_03');">Load</button>
+<br />
+
+<canvas id="recur_03_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="recur_03_pre" class="active_out">
+
+</pre>
+
+</div>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Brad Miller, David Ranum.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32029811-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,2016 @@
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Functions &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/edu-python.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/simplemodal.js"></script>
+    <script type="text/javascript" src="../_static/jquery.textarea.js"></script>
+    <script type="text/javascript" src="../_static/edu-python.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.js"></script>
+    <script type="text/javascript" src="../_static/builtin.js"></script>
+    <script type="text/javascript" src="../_static/assess.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../index.html" />
+    <link rel="next" title="Drawing a Circle" href="../Labs/lab04_01.html" />
+    <link rel="prev" title="Plotting a sine Wave" href="../Labs/sinlab.html" />
+<script type="text/javascript"> 
+eBookConfig = {}
+eBookConfig.host = 'http://141.140.167.226:8000' ? 'http://141.140.167.226:8000' : 'http://127.0.0.1:8000',
+eBookConfig.app = eBookConfig.host+'/courselib',
+eBookConfig.ajaxURL = eBookConfig.app+'/ajax/',
+eBookConfig.course = 'COMP123F12-01',
+eBookConfig.logLevel = 10,
+eBookConfig.loginRequired = true
+</script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../Labs/lab04_01.html" title="Drawing a Circle"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../Labs/sinlab.html" title="Plotting a sine Wave"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Functions</a><ul>
+<li><a class="reference internal" href="#index-0">Functions</a></li>
+<li><a class="reference internal" href="#functions-that-return-values">Functions that return values</a></li>
+<li><a class="reference internal" href="#variables-and-parameters-are-local">Variables and parameters are local</a></li>
+<li><a class="reference internal" href="#the-accumulator-pattern">The Accumulator Pattern</a></li>
+<li><a class="reference internal" href="#functions-can-call-other-functions">Functions can call other functions</a></li>
+<li><a class="reference internal" href="#flow-of-execution-summary">Flow of execution summary</a></li>
+<li><a class="reference internal" href="#a-turtle-bar-chart">A Turtle Bar Chart</a></li>
+<li><a class="reference internal" href="#glossary">Glossary</a></li>
+<li><a class="reference internal" href="#exercises">Exercises</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../Labs/sinlab.html"
+                        title="previous chapter">Plotting a sine Wave</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../Labs/lab04_01.html"
+                        title="next chapter">Drawing a Circle</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/Functions/functions.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul><!--<div id="runestonebox">
+  <h3>Runestone Links</h3>
+  <ul>
+    <li>
+      <a href="https://github.com/bnmnetp/runestone/issues/new">Report a Problem</a>
+    </li>
+    <li>
+      <a href="http://runestoneinteractive.org">About Runestone</a>
+    </li>
+    <li>
+      <a href="/courselib/admin/index">Instructors Page</a>
+    </li>
+  </ul>
+</div>
+-->
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="functions">
+<h1>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="index-0">
+<span id="id1"></span><h2>Functions<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h2>
+<a id="function_intro_thumb" > <img src="../_static/function_intro.png" /></a>
+<div id="function_intro" class="video_popup" >
+<video controls  >
+    <source src="http://knuth.luther.edu/~pythonworks/thinkcsVideos/FunctionsIntro.mov" type="video/mp4"></source>
+    <source src="http://knuth.luther.edu/~pythonworks/thinkcsVideos/FunctionsIntro.webm" type="video/webm"></source>
+    No supported video types
+</video>
+</div>
+<script>
+   jQuery(function($) {
+      $('#function_intro_thumb').click(function(e) {
+         $('#function_intro').show();
+         $('#function_intro_thumb').hide();
+         logBookEvent({'event':'video','act':'play','div_id': 'function_intro'});
+         // Log the run event
+      });
+   });
+</script>
+<p>In Python, a <strong>function</strong> is a named sequence of statements
+that belong together.  Their primary purpose is to help us
+organize programs into chunks that match how we think about
+the solution to the problem.</p>
+<p>The syntax for a <strong>function definition</strong> is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">NAME</span><span class="p">(</span> <span class="n">PARAMETERS</span> <span class="p">):</span>
+    <span class="n">STATEMENTS</span>
+</pre></div>
+</div>
+<p>You can make up any names you want for the functions you create, except that
+you can&#8217;t use a name that is a Python keyword, and the names must follow the rules
+for legal identifiers. The parameters specifies
+what information, if any, you have to provide in order to use the new function.  Another way to say this is that the parameters specify what the function needs to do it&#8217;s work.</p>
+<p>There can be any number of statements inside the function, but they have to be
+indented from the <tt class="docutils literal"><span class="pre">def</span></tt>. In the examples in this book, we will use the
+standard indentation of four spaces. Function definitions are the second of
+several <strong>compound statements</strong> we will see, all of which have the same
+pattern:</p>
+<ol class="arabic simple">
+<li>A header line which begins with a keyword and ends with a colon.</li>
+<li>A <strong>body</strong> consisting of one or more Python statements, each
+indented the same amount &#8211; <em>4 spaces is the Python standard</em> &#8211; from
+the header line.</li>
+</ol>
+<p>We&#8217;ve already seen the <cite>for</cite> loop which follows this pattern.</p>
+<p>In a function definition, the keyword in the header is <tt class="docutils literal"><span class="pre">def</span></tt>, which is
+followed by the name of the function and some <em>parameters</em> enclosed in
+parentheses. The parameter list may be empty, or it may contain any number of
+parameters separated from one another by commas. In either case, the parentheses are required.</p>
+<p>We need to say a bit more about the parameters.  In the definition, the parameter list is more specifically known
+as the <strong>formal parameters</strong>.  This list of names describes those things that the function will
+need to receive from the user of the function.  When you use a function, you provide values to the formal parameters.</p>
+<p>The figure below shows this relationship.  A function needs certain information to do its work.  These values, often called <strong>arguments</strong> or <strong>actual parameters</strong>, are passed to the function by the user.</p>
+<img alt="../_images/blackboxproc.png" src="../_images/blackboxproc.png" />
+<p>This type of diagram is often called a <strong>black-box diagram</strong> because it only states the requirements from the perspective of the user.  The user must know the name of the function and what arguments need to be passed.  The details of how the function works are hidden inside the &#8220;black-box&#8221;.</p>
+<p>Suppose we&#8217;re working with turtles and a common operation we need is to draw
+squares.  It would make sense if we did not have to duplicate all the steps each time we want to make a square.   &#8220;Draw a square&#8221; can be thought of as an <em>abstraction</em> of a number of smaller steps.  We will need to provide two pieces of information for the function to do its work: a turtle to do the drawing and a size for the side of the square.  We could represent this using the following black-box diagram.</p>
+<img alt="../_images/turtleproc.png" src="../_images/turtleproc.png" />
+<p>Here is a function to capture this idea.  Give it a try.</p>
+
+<div id="ch04_1" >
+<textarea cols="50" rows="12" id="ch04_1_code" class="active_code">
+import turtle
+
+def drawSquare(t, sz):
+    """Make turtle t draw a square of with side sz."""
+
+    for i in range(4):
+        t.forward(sz)
+        t.left(90)
+
+
+wn = turtle.Screen()              # Set up the window and its attributes
+wn.bgcolor("lightgreen")
+
+alex = turtle.Turtle()            # create alex
+drawSquare(alex, 50)             # Call the function to draw the square
+
+wn.exitonclick()
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch04_1)</span> </p>
+<button onclick="runit('ch04_1',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch04_1');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch04_1');">Load</button>
+<br />
+
+<canvas id="ch04_1_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch04_1_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>This function is named <tt class="docutils literal"><span class="pre">drawSquare</span></tt>.  It has two parameters &#8212; one to tell
+the function which turtle to move around and the other to tell it the size
+of the square we want drawn.  In the function definition they are called <tt class="docutils literal"><span class="pre">t</span></tt> and <tt class="docutils literal"><span class="pre">sz</span></tt> respectively.   Make sure you know where the body of the function
+ends &#8212; it depends on the indentation and the blank lines don&#8217;t count for
+this purpose!</p>
+<div class="admonition-docstrings admonition">
+<p class="first admonition-title">docstrings</p>
+<p>If the first thing after the function header is a string (some tools insist that
+it must be a triple-quoted string), it is called a <strong>docstring</strong>
+and gets special treatment in Python and in some of the programming tools.</p>
+<p>Another way to retrieve this information is to use the interactive
+interpreter, and enter the expression <tt class="docutils literal"><span class="pre">&lt;function_name&gt;.__doc__</span></tt>, which will retrieve the
+docstring for the function.  So the string you write as documentation at the start of a function is
+retrievable by python tools <em>at runtime</em>.  This is different from comments in your code,
+which are completely eliminated when the program is parsed.</p>
+<p class="last">By convention, Python programmers use docstrings for the key documentation of
+their functions.</p>
+</div>
+<p>Defining a new function does not make the function run. To do that we need a
+<strong>function call</strong>.  This is also known as a <strong>function invocation</strong>. We&#8217;ve already seen how to call some built-in functions like
+<strong>print</strong>, <strong>range</strong> and <strong>int</strong>. Function calls contain the name of the function being
+executed followed by a list of values, called <em>arguments</em>, which are assigned
+to the parameters in the function definition.  So in the second to the last line of
+the program, we call the function, and pass <tt class="docutils literal"><span class="pre">alex</span></tt> as the turtle to be manipulated,
+and 50 as the size of the square we want.</p>
+<p>Once we&#8217;ve defined a function, we can call it as often as we like and its
+statements will be executed each time we call it.  In this case, we could use it to get
+one of our turtles to draw a square and then we can move the turtle and have it draw a different square in a
+different location.  Note that we lift the tail so that when <tt class="docutils literal"><span class="pre">alex</span></tt> moves there is no trace.  We put the tail
+back down before drawing the next square.</p>
+
+<div id="ch04_1a" >
+<textarea cols="50" rows="12" id="ch04_1a_code" class="active_code">
+import turtle
+
+def drawSquare(t, sz):
+    """Make turtle t draw a square of with side sz."""
+
+    for i in range(4):
+        t.forward(sz)
+        t.left(90)
+
+
+wn = turtle.Screen()          # Set up the window and its attributes
+wn.bgcolor("lightgreen")
+
+alex = turtle.Turtle()        # create alex
+drawSquare(alex, 50)          # Call the function to draw the square
+
+alex.penup()
+alex.goto(100,100)
+alex.pendown()
+
+drawSquare(alex,75)           # Draw another square
+
+wn.exitonclick()
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch04_1a)</span> </p>
+<button onclick="runit('ch04_1a',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch04_1a');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch04_1a');">Load</button>
+<br />
+
+<canvas id="ch04_1a_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch04_1a_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>In the next example, we&#8217;ve changed the <tt class="docutils literal"><span class="pre">drawSquare</span></tt>
+function a little and we get <tt class="docutils literal"><span class="pre">tess</span></tt> to draw 15 squares with some variations.  Once the function has
+been defined, we can call it as many times as we like with whatever actual parameters we like.</p>
+
+<div id="ch04_2" >
+<textarea cols="50" rows="12" id="ch04_2_code" class="active_code">
+import turtle
+
+def drawMulticolorSquare(t, sz):
+    """Make turtle t draw a multi-colour square of sz."""
+    for i in ['red','purple','hotpink','blue']:
+        t.color(i)
+        t.forward(sz)
+        t.left(90)
+
+wn = turtle.Screen()             # Set up the window and its attributes
+wn.bgcolor("lightgreen")
+
+tess = turtle.Turtle()           # create tess and set some attributes
+tess.pensize(3)
+
+size = 20                        # size of the smallest square
+for i in range(15):
+    drawMulticolorSquare(tess, size)
+    size = size + 10             # increase the size for next time
+    tess.forward(10)             # move tess along a little
+    tess.right(18)               # and give her some extra turn
+
+wn.exitonclick()
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch04_2)</span> </p>
+<button onclick="runit('ch04_2',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch04_2');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch04_2');">Load</button>
+<br />
+
+<canvas id="ch04_2_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch04_2_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<div class="admonition-scratch-editor admonition">
+<p class="first admonition-title">Scratch Editor</p>
+<div class="last">
+<button id="butt_scratch_1" onclick="createActiveCode('scratch_1',''); $('#butt_scratch_1').hide();">Open Editor</button>
+<div id="scratch_1"></div>
+<br />
+</div></div>
+<p><strong>Check your understanding</strong></p>
+
+    <div id="test_question5_1_1">
+    <p>5.1.1: What is a function in Python?</p>
+    <form name="test_question5_1_1_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="test_question5_1_1_opt_a" />
+    <label for= "test_question5_1_1_opt_a">  a) A named sequence of statements.</label><br />
+    
+    <input type="radio" name="group1" value="b" id="test_question5_1_1_opt_b" />
+    <label for= "test_question5_1_1_opt_b">  b) Any sequence of statements.</label><br />
+    
+    <input type="radio" name="group1" value="c" id="test_question5_1_1_opt_c" />
+    <label for= "test_question5_1_1_opt_c">  c) A mathematical expression that calculates a value.</label><br />
+    
+    <input type="radio" name="group1" value="d" id="test_question5_1_1_opt_d" />
+    <label for= "test_question5_1_1_opt_d">  d) A statement of the form x = 5 + 4.</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('test_question5_1_1','a',['Yes, a function is a named sequence of statements.', 'While functions contain sequences of statements, not all sequences of statements are considered functions.', 'While some functions do calculate values, the python idea of a function is slightly different from the mathematical idea of a function in that not all functions calculate values.  Consider, for example, the turtle functions in this section.   They made the turtle draw a specific shape, rather than calculating a value.', 'This statement is called an assignment statement.  It assigns the value on the right (9), to the name on the left (x).'])"/> 
+    </form>
+    <div id="test_question5_1_1_feedback">
+    </div>
+    </div>
+    
+    <div id="test_question5_1_2">
+    <p>5.1.2: What is one main purpose of a function?</p>
+    <form name="test_question5_1_2_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="test_question5_1_2_opt_a" />
+    <label for= "test_question5_1_2_opt_a">  a) To improve the speed of execution</label><br />
+    
+    <input type="radio" name="group1" value="b" id="test_question5_1_2_opt_b" />
+    <label for= "test_question5_1_2_opt_b">  b) To help the programmer organize programs into chunks that match how they think about the solution to the problem.</label><br />
+    
+    <input type="radio" name="group1" value="c" id="test_question5_1_2_opt_c" />
+    <label for= "test_question5_1_2_opt_c">  c) All Python programs must be written using functions</label><br />
+    
+    <input type="radio" name="group1" value="d" id="test_question5_1_2_opt_d" />
+    <label for= "test_question5_1_2_opt_d">  d) To calculate values.</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('test_question5_1_2','b',['Functions have little effect on how fast the program runs.', 'While functions are not required, they help the programmer better think about the solution by organizing pieces of the solution into logical chunks that can be reused.', 'In the first several chapters, youíve seen many examples of Python programs written without the use of functions.  While writing and using functions is desirable and essential for good programming style as your programs get longer, it is not required.', 'Not all functions calculate values.'])"/> 
+    </form>
+    <div id="test_question5_1_2_feedback">
+    </div>
+    </div>
+    
+    <div id="test_question5_1_3">
+    <p>5.1.3: Which of the following is a valid function header (first line of a function definition)?</p>
+    <form name="test_question5_1_3_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="test_question5_1_3_opt_a" />
+    <label for= "test_question5_1_3_opt_a">  a) def drawCircle(t):</label><br />
+    
+    <input type="radio" name="group1" value="b" id="test_question5_1_3_opt_b" />
+    <label for= "test_question5_1_3_opt_b">  b) def drawCircle:</label><br />
+    
+    <input type="radio" name="group1" value="c" id="test_question5_1_3_opt_c" />
+    <label for= "test_question5_1_3_opt_c">  c) drawCircle(t, sz):</label><br />
+    
+    <input type="radio" name="group1" value="d" id="test_question5_1_3_opt_d" />
+    <label for= "test_question5_1_3_opt_d">  d) def drawCircle(t, sz)</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('test_question5_1_3','a',['A function may take zero or more parameters.  It does not have to have two.  In this case the size of the circle might be specified in the body of the function.', 'A function needs to specify its parameters in its header.', 'A function definition needs to include the keyword def.', 'A function definition header must end in a colon (:).'])"/> 
+    </form>
+    <div id="test_question5_1_3_feedback">
+    </div>
+    </div>
+    
+    <div id="test_question5_1_4">
+    <p>5.1.4: What is the name of the following function?
+<pre>
+def drawSquare(t, sz):
+    """Make turtle t draw a square of with side sz."""
+    for i in range(4):
+        t.forward(sz)
+        t.left(90)
+</pre></p>
+    <form name="test_question5_1_4_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="test_question5_1_4_opt_a" />
+    <label for= "test_question5_1_4_opt_a">  a) def drawSquare(t, sz)</label><br />
+    
+    <input type="radio" name="group1" value="b" id="test_question5_1_4_opt_b" />
+    <label for= "test_question5_1_4_opt_b">  b) drawSquare</label><br />
+    
+    <input type="radio" name="group1" value="c" id="test_question5_1_4_opt_c" />
+    <label for= "test_question5_1_4_opt_c">  c) drawSquare(t, sz)</label><br />
+    
+    <input type="radio" name="group1" value="d" id="test_question5_1_4_opt_d" />
+    <label for= "test_question5_1_4_opt_d">  d) Make turtle t draw a square with side sz.</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('test_question5_1_4','b',['This line is the complete function header (except for the semi-colon) which includes the name as well as several other components.', 'Yes, the name of the function is given after the keyword def and before the list of parameters.', 'This includes the function name and its parameters', 'This is a comment stating what the function does.'])"/> 
+    </form>
+    <div id="test_question5_1_4_feedback">
+    </div>
+    </div>
+    
+    <div id="test_question5_1_5">
+    <p>5.1.5: What are the parameters of the following function?
+<pre>
+def drawSquare(t, sz):
+    """Make turtle t draw a square of with side sz."""
+    for i in range(4):
+        t.forward(sz)
+        t.left(90)
+</pre></p>
+    <form name="test_question5_1_5_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="test_question5_1_5_opt_a" />
+    <label for= "test_question5_1_5_opt_a">  a) i</label><br />
+    
+    <input type="radio" name="group1" value="b" id="test_question5_1_5_opt_b" />
+    <label for= "test_question5_1_5_opt_b">  b) t</label><br />
+    
+    <input type="radio" name="group1" value="c" id="test_question5_1_5_opt_c" />
+    <label for= "test_question5_1_5_opt_c">  c) t, sz</label><br />
+    
+    <input type="radio" name="group1" value="d" id="test_question5_1_5_opt_d" />
+    <label for= "test_question5_1_5_opt_d">  d) t, sz, i</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('test_question5_1_5','c',['i is a variable used inside of the function, but not a parameter, which is passed in to the function.', 't is only one of the parameters to this function.', 'Yes, the function specifies two parameters: t and sz.', 'the parameters include only those variables whose values that the function expects to receive as input.  They are specified in the header of the function.'])"/> 
+    </form>
+    <div id="test_question5_1_5_feedback">
+    </div>
+    </div>
+    
+    <div id="test_question5_1_6">
+    <p>5.1.6: Considering the function below, which of the following statements correctly invokes, or calls, this function (i.e., causes it to run)?  Assume we already have a turtle named alex.
+<pre>
+def drawSquare(t, sz):
+    """Make turtle t draw a square of with side sz."""
+    for i in range(4):
+        t.forward(sz)
+        t.left(90)
+</pre></p>
+    <form name="test_question5_1_6_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="test_question5_1_6_opt_a" />
+    <label for= "test_question5_1_6_opt_a">  a) def drawSquare(t, sz)</label><br />
+    
+    <input type="radio" name="group1" value="b" id="test_question5_1_6_opt_b" />
+    <label for= "test_question5_1_6_opt_b">  b) drawSquare</label><br />
+    
+    <input type="radio" name="group1" value="c" id="test_question5_1_6_opt_c" />
+    <label for= "test_question5_1_6_opt_c">  c) drawSquare(10)</label><br />
+    
+    <input type="radio" name="group1" value="d" id="test_question5_1_6_opt_d" />
+    <label for= "test_question5_1_6_opt_d">  d) drawSquare(alex, 10):</label><br />
+    
+    <input type="radio" name="group1" value="e" id="test_question5_1_6_opt_e" />
+    <label for= "test_question5_1_6_opt_e">  e) drawSquare(alex, 10)</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('test_question5_1_6','e',['No, t and sz are the names of the formal parameters to this function.  When the function is called, it requires actual values to be passed in.', 'A function call always requires parentheses after the name of the function.', 'This function takes two parameters (arguments)', 'A colon is only required in a function definition.  It will cause an error with a function call.', 'Since alex was already previously defined and 10 is a value, we have passed in two correct values for this function.'])"/> 
+    </form>
+    <div id="test_question5_1_6_feedback">
+    </div>
+    </div>
+    
+    <div id="test_question5_1_7">
+    <p>5.1.7: True or false: A function can be called several times by placing a function call in the body of a loop.</p>
+    <form name="test_question5_1_7_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="test_question5_1_7_opt_a" />
+    <label for= "test_question5_1_7_opt_a">  a) True</label><br />
+    
+    <input type="radio" name="group1" value="b" id="test_question5_1_7_opt_b" />
+    <label for= "test_question5_1_7_opt_b">  b) False</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('test_question5_1_7','a',['Yes, you can call a function multiple times by putting the call in a loop.', 'One of the purposes of a function is to allow you to call it more than once.   Placing it in a loop allows it to executed multiple times as the body of the loop runs multiple times.'])"/> 
+    </form>
+    <div id="test_question5_1_7_feedback">
+    </div>
+    </div>
+    </div>
+<div class="section" id="functions-that-return-values">
+<h2>Functions that return values<a class="headerlink" href="#functions-that-return-values" title="Permalink to this headline">¶</a></h2>
+<p>Most functions require arguments, values that control how the function does its
+job. For example, if you want to find the absolute value of a number, you have
+to indicate what the number is. Python has a built-in function for computing
+the absolute value:</p>
+
+<div id="ch04_4" >
+<textarea cols="50" rows="12" id="ch04_4_code" class="active_code">
+print(abs(5))
+
+print(abs(-5))
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch04_4)</span> </p>
+<button onclick="runit('ch04_4',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch04_4');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch04_4');">Load</button>
+<br />
+
+<pre id="ch04_4_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>In this example, the arguments to the <tt class="docutils literal"><span class="pre">abs</span></tt> function are 5 and -5.</p>
+<p>Some functions take more than one argument. For example the math module contains a function
+called
+<tt class="docutils literal"><span class="pre">pow</span></tt> which takes two arguments, the base and the exponent.</p>
+
+<div id="ch04_5" >
+<textarea cols="50" rows="12" id="ch04_5_code" class="active_code">
+import math
+print(math.pow(2, 3))
+
+print(math.pow(7, 4))
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch04_5)</span> </p>
+<button onclick="runit('ch04_5',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch04_5');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch04_5');">Load</button>
+<br />
+
+<pre id="ch04_5_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Of course, we have already seen that raising a base to an exponent can be done with the ** operator.</p>
+</div>
+<p>Another built-in function that takes more than one argument is <tt class="docutils literal"><span class="pre">max</span></tt>.</p>
+
+<div id="ch04_6" >
+<textarea cols="50" rows="12" id="ch04_6_code" class="active_code">
+print(max(7, 11))
+print(max(4, 1, 17, 2, 12))
+print(max(3 * 11, 5**3, 512 - 9, 1024**0))
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch04_6)</span> </p>
+<button onclick="runit('ch04_6',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch04_6');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch04_6');">Load</button>
+<br />
+
+<pre id="ch04_6_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p><tt class="docutils literal"><span class="pre">max</span></tt> can be sent any number of arguments, separated by commas, and will
+return the maximum value sent. The arguments can be either simple values or
+expressions. In the last example, 503 is returned, since it is larger than 33,
+125, and 1.  Note that <tt class="docutils literal"><span class="pre">max</span></tt> also works on lists of values.</p>
+<p>Furthermore, functions like <tt class="docutils literal"><span class="pre">range</span></tt>, <tt class="docutils literal"><span class="pre">int</span></tt>, <tt class="docutils literal"><span class="pre">abs</span></tt> all return values that
+can be used to build more complex expressions.</p>
+<p>So an important difference between these functions and one like <tt class="docutils literal"><span class="pre">drawSquare</span></tt> is that
+<tt class="docutils literal"><span class="pre">drawSquare</span></tt> was not executed because we wanted it to compute a value &#8212; on the contrary,
+we wrote <tt class="docutils literal"><span class="pre">drawSquare</span></tt> because we wanted it to execute a sequence of steps that caused
+the turtle to draw a specific shape.</p>
+<p>Functions that return values are sometimes called <strong>fruitful functions</strong>.
+In many other languages, a chunk that doesn&#8217;t return a value is called a <strong>procedure</strong>,
+but we will stick here with the Python way of also calling it a function, or if we want
+to stress it, a <em>non-fruitful</em> function.</p>
+<p>Fruitful functions still allow the user to provide information (arguments).  However there is now an additional
+piece of data that is returned from the function.</p>
+<img alt="../_images/blackboxfun.png" src="../_images/blackboxfun.png" />
+<p>How do we write our own fruitful function?  Lets start with a very simple
+mathematical function <tt class="docutils literal"><span class="pre">square</span></tt>.  The square function will take one number
+as a parameter and return the result of squaring that number.  Here is the
+black-box diagram with the Python code following.</p>
+<img alt="../_images/squarefun.png" src="../_images/squarefun.png" />
+
+<div id="ch04_square" >
+<textarea cols="50" rows="12" id="ch04_square_code" class="active_code">
+def square(x):
+    y = x * x
+    return y
+
+toSquare = 10
+result = square(toSquare)
+print("The result of ", toSquare, " squared is ", result)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch04_square)</span> </p>
+<button onclick="runit('ch04_square',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch04_square');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch04_square');">Load</button>
+<br />
+
+<canvas id="ch04_square_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch04_square_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>The <strong>return</strong> statement is followed an expression which is evaluated.  Its
+result is returned to the caller as the &#8220;fruit&#8221; of calling this function.
+Because the return statement can contain any Python expression we could have
+avoided creating the <strong>temporary variable</strong> <tt class="docutils literal"><span class="pre">y</span></tt> and simply used
+<tt class="docutils literal"><span class="pre">return</span> <span class="pre">x*x</span></tt>.
+Try modifying the square function above to see that this works just the same.
+On the other hand, using <strong>temporary variables</strong> like <tt class="docutils literal"><span class="pre">y</span></tt> in the program above makes
+debugging
+easier.  These temporary variables are referred to as <strong>local variables</strong>.</p>
+<p>Notice something important here. The name of the variable we pass as an
+argument &#8212; <tt class="docutils literal"><span class="pre">toSquare</span></tt> &#8212; has nothing to do with the name of the formal parameter
+&#8212; <tt class="docutils literal"><span class="pre">x</span></tt>.  It is as if  <tt class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">toSquare</span></tt> is executed when <tt class="docutils literal"><span class="pre">square</span></tt> is called.
+It doesn&#8217;t matter what the value was named in
+the caller. In <tt class="docutils literal"><span class="pre">square</span></tt>, it&#8217;s name is <tt class="docutils literal"><span class="pre">x</span></tt>.  You can see this very clearly in
+codelens, where the global variables and the local variables for the square
+function are in separate boxes.</p>
+<p>As you step through the example in codelens notice that the <strong>return</strong> statement not only causes the
+function to return a value, but it also returns the flow of control back to the place in the program
+where the function call was made.</p>
+
+<table border="1" id="pyOutputPane_ch04_clsquare" class="pyOutputPane">
+<tr>
+<td valign="top">
+Source Code
+<br />
+
+<div id="pyCodeOutputDiv_ch04_clsquare" class="pyCodeOutputDiv">
+<table id="pyCodeOutput_ch04_clsquare" class="pyCodeOutput"></table>
+
+</div>
+
+<div id="vcrControls_ch04_clsquare" class="vcrControls">
+  <button id="jmpFirstInstr_ch04_clsquare", type="button">&lt;&lt; First</button>
+  <button id="jmpStepBack_ch04_clsquare", type="button">&lt; Back</button>
+  Step <span id="curInstr_ch04_clsquare">?</span> of <span id="totalInstrs_ch04_clsquare">?</span>
+  <button id="jmpStepFwd_ch04_clsquare", type="button">Forward &gt;</button>
+  <button id="jmpLastInstr_ch04_clsquare", type="button">Last &gt;&gt;</button>
+
+  <p><span id="warningOutput_ch04_clsquare" class="warningOutput"></span></p>
+</div>
+</td></tr>
+<tr>
+<td valign="top">
+
+<div id="dataViz_ch04_clsquare"></div>
+
+</td>
+</tr>
+<tr>
+<td>
+<div id="errorOutput_ch04_clsquare" class="errorOutput"></div>
+
+Program output:
+<br/>
+<pre id="pyStdout_ch04_clsquare" class="active_out"></pre>
+</td>
+</tr>
+</table>
+<p class="cl_caption"><span class="ac_caption_text"> </span></p>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    myvis = new PythonTutor.Visualizer("def square(x):\n    y = x * x\n    return y\n\ntoSquare = 10\nsquareResult = square(toSquare)\nprint(\"The result of \", toSquare, \" squared is \", squareResult)",[{"globals": {}, "stdout": "", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"square": ["function", 1, "<function square at 0x40b22a8>"]}, "stdout": "", "func_name": "<module>", "line": 5, "stack_locals": [], "event": "step_line"}, {"globals": {"square": ["function", 1, "<function square at 0x40b22a8>"], "toSquare": 10}, "stdout": "", "func_name": "<module>", "line": 6, "stack_locals": [], "event": "step_line"}, {"globals": {"square": ["function", 1, "<function square at 0x40b22a8>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 1, "stack_locals": [["square", {"x": 10}]], "event": "call"}, {"globals": {"square": ["function", 1, "<function square at 0x40b22a8>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 2, "stack_locals": [["square", {"x": 10}]], "event": "step_line"}, {"globals": {"square": ["function", 1, "<function square at 0x40b22a8>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 3, "stack_locals": [["square", {"y": 100, "x": 10}]], "event": "step_line"}, {"globals": {"square": ["function", 1, "<function square at 0x40b22a8>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 3, "stack_locals": [["square", {"y": 100, "x": 10, "__return__": 100}]], "event": "return"}, {"globals": {"square": ["function", 1, "<function square at 0x40b22a8>"], "toSquare": 10, "squareResult": 100}, "stdout": "", "func_name": "<module>", "line": 7, "stack_locals": [], "event": "step_line"}, {"globals": {"square": ["function", 1, "<function square at 0x40b22a8>"], "toSquare": 10, "squareResult": 100}, "stdout": "('The result of ', 10, ' squared is ', 100)\n", "func_name": "<module>", "line": 7, "stack_locals": [], "event": "return"}],'ch04_clsquare');
+});
+
+</script>
+<p>Another important thing to notice as you step through this codelens
+demonstration is the highlighting of line numbers.  Codelens boldfaces the line numbers that it has executed.
+When you first start running this codelens demonstration you will notice that
+line 1 is bolded.  The next line to be bolded is line 5.  Why is this?
+Because function definition is not the same as function execution.  Lines 2
+and 3 will not be bolded until the function is called on line 6.</p>
+<p>Short variable names are more economical and sometimes make
+code easier to read:
+E = mc<sup>2</sup> would not be nearly so memorable if Einstein had
+used longer variable names!  If you do prefer short names,
+make sure you also have some comments to enlighten the reader
+about what the variables are used for.</p>
+<p>All Python functions return <tt class="docutils literal"><span class="pre">None</span></tt> unless there is an explicit return statement with
+a value other than <tt class="docutils literal"><span class="pre">None.</span></tt>
+Consider the following common mistake made by beginning Python
+programmers.  As you step through this pay very close attention to the return
+value in the local variables listing.  Then look at what is printed when the
+function returns.</p>
+
+<table border="1" id="pyOutputPane_ch04_clsquare_bad" class="pyOutputPane">
+<tr>
+<td valign="top">
+Source Code
+<br />
+
+<div id="pyCodeOutputDiv_ch04_clsquare_bad" class="pyCodeOutputDiv">
+<table id="pyCodeOutput_ch04_clsquare_bad" class="pyCodeOutput"></table>
+
+</div>
+
+<div id="vcrControls_ch04_clsquare_bad" class="vcrControls">
+  <button id="jmpFirstInstr_ch04_clsquare_bad", type="button">&lt;&lt; First</button>
+  <button id="jmpStepBack_ch04_clsquare_bad", type="button">&lt; Back</button>
+  Step <span id="curInstr_ch04_clsquare_bad">?</span> of <span id="totalInstrs_ch04_clsquare_bad">?</span>
+  <button id="jmpStepFwd_ch04_clsquare_bad", type="button">Forward &gt;</button>
+  <button id="jmpLastInstr_ch04_clsquare_bad", type="button">Last &gt;&gt;</button>
+
+  <p><span id="warningOutput_ch04_clsquare_bad" class="warningOutput"></span></p>
+</div>
+</td></tr>
+<tr>
+<td valign="top">
+
+<div id="dataViz_ch04_clsquare_bad"></div>
+
+</td>
+</tr>
+<tr>
+<td>
+<div id="errorOutput_ch04_clsquare_bad" class="errorOutput"></div>
+
+Program output:
+<br/>
+<pre id="pyStdout_ch04_clsquare_bad" class="active_out"></pre>
+</td>
+</tr>
+</table>
+<p class="cl_caption"><span class="ac_caption_text"> </span></p>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    myvis = new PythonTutor.Visualizer("def square(x):\n    y = x * x\n    print(y)   # Bad! should use return instead!\n\ntoSquare = 10\nsquareResult = square(toSquare)\nprint(\"The result of \", toSquare, \" squared is \", squareResult)",[{"globals": {}, "stdout": "", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"square": ["function", 2, "<function square at 0x4448410>"]}, "stdout": "", "func_name": "<module>", "line": 5, "stack_locals": [], "event": "step_line"}, {"globals": {"square": ["function", 2, "<function square at 0x4448410>"], "toSquare": 10}, "stdout": "", "func_name": "<module>", "line": 6, "stack_locals": [], "event": "step_line"}, {"globals": {"square": ["function", 2, "<function square at 0x4448410>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 1, "stack_locals": [["square", {"x": 10}]], "event": "call"}, {"globals": {"square": ["function", 2, "<function square at 0x4448410>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 2, "stack_locals": [["square", {"x": 10}]], "event": "step_line"}, {"globals": {"square": ["function", 2, "<function square at 0x4448410>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 3, "stack_locals": [["square", {"y": 100, "x": 10}]], "event": "step_line"}, {"globals": {"square": ["function", 2, "<function square at 0x4448410>"], "toSquare": 10}, "stdout": "100\n", "func_name": "square", "line": 3, "stack_locals": [["square", {"y": 100, "x": 10, "__return__": null}]], "event": "return"}, {"globals": {"square": ["function", 2, "<function square at 0x4448410>"], "toSquare": 10, "squareResult": null}, "stdout": "100\n", "func_name": "<module>", "line": 7, "stack_locals": [], "event": "step_line"}, {"globals": {"square": ["function", 2, "<function square at 0x4448410>"], "toSquare": 10, "squareResult": null}, "stdout": "100\n('The result of ', 10, ' squared is ', None)\n", "func_name": "<module>", "line": 7, "stack_locals": [], "event": "return"}],'ch04_clsquare_bad');
+});
+
+</script>
+<div class="admonition-scratch-editor admonition" id="index-1">
+<p class="first admonition-title">Scratch Editor</p>
+<div class="last">
+<button id="butt_scratch_2" onclick="createActiveCode('scratch_2',''); $('#butt_scratch_2').hide();">Open Editor</button>
+<div id="scratch_2"></div>
+<br />
+</div></div>
+<p><strong>Check your understanding</strong></p>
+
+    <div id="test_question5_2_1">
+    <p>5.2.1: What is wrong with the following function definition:
+<pre>
+def addEm(x, y, z):
+    return x+y+z
+    print('the answer is', x+y+z)
+</pre></p>
+    <form name="test_question5_2_1_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="test_question5_2_1_opt_a" />
+    <label for= "test_question5_2_1_opt_a">  a) You should never use a print statement in a function definition.</label><br />
+    
+    <input type="radio" name="group1" value="b" id="test_question5_2_1_opt_b" />
+    <label for= "test_question5_2_1_opt_b">  b) You should not have any statements in a function after the return statement.  Once the function gets to the return statement it will immediately stop executing the function.</label><br />
+    
+    <input type="radio" name="group1" value="c" id="test_question5_2_1_opt_c" />
+    <label for= "test_question5_2_1_opt_c">  c) You must calculate the value of x+y+z before you return it.</label><br />
+    
+    <input type="radio" name="group1" value="d" id="test_question5_2_1_opt_d" />
+    <label for= "test_question5_2_1_opt_d">  d) A function cannot return a number.</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('test_question5_2_1','b',['Although you should not mistake print for return, you may include print statements inside your functions.', 'This is a very common mistake so be sure to watch out for it when you write your code!', 'Python will automatically calculate the value x+y+z and then return it in the statement as it is written', 'Functions can return any legal data, including (but not limited to) numbers, strings, turtles, etc.'])"/> 
+    </form>
+    <div id="test_question5_2_1_feedback">
+    </div>
+    </div>
+    
+    <div id="test_question5_2_2">
+    <p>5.2.2: What will the following function return?
+<pre>
+def addEm(x, y, z):
+    print x+y+z
+</pre></p>
+    <form name="test_question5_2_2_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="test_question5_2_2_opt_a" />
+    <label for= "test_question5_2_2_opt_a">  a) Nothing (no value)</label><br />
+    
+    <input type="radio" name="group1" value="b" id="test_question5_2_2_opt_b" />
+    <label for= "test_question5_2_2_opt_b">  b) The value of x+y+z</label><br />
+    
+    <input type="radio" name="group1" value="c" id="test_question5_2_2_opt_c" />
+    <label for= "test_question5_2_2_opt_c">  c) The string 'x+y+z'</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('test_question5_2_2','a',['We have accidentally used print where we mean return.  This is a VERY COMMON mistake so watch out!  This mistake is also particularly difficult to find because when you run the function the output looks the same.  It is not until you try to assign its value to a variable that you can notice a difference.', 'Careful!  This is a very common mistake.  Here we have printed the value x+y+z but we have not returned it.  To return a value we MUST use the return keyword.', 'x+y+z calculates a number (assuming x+y+z are numbers) which represents the sum of the values x, y and z.'])"/> 
+    </form>
+    <div id="test_question5_2_2_feedback">
+    </div>
+    </div>
+    </div>
+<div class="section" id="variables-and-parameters-are-local">
+<h2>Variables and parameters are local<a class="headerlink" href="#variables-and-parameters-are-local" title="Permalink to this headline">¶</a></h2>
+<p>An assignment statement in a function creates a <strong>local variable</strong> for the
+variable on the left hand side of the assignment operator. This variable only
+exists inside the function, and you cannot use it outside. For example,
+consider again the <tt class="docutils literal"><span class="pre">square</span></tt> function:</p>
+
+<table border="1" id="pyOutputPane_bad_local" class="pyOutputPane">
+<tr>
+<td valign="top">
+Source Code
+<br />
+
+<div id="pyCodeOutputDiv_bad_local" class="pyCodeOutputDiv">
+<table id="pyCodeOutput_bad_local" class="pyCodeOutput"></table>
+
+</div>
+
+<div id="vcrControls_bad_local" class="vcrControls">
+  <button id="jmpFirstInstr_bad_local", type="button">&lt;&lt; First</button>
+  <button id="jmpStepBack_bad_local", type="button">&lt; Back</button>
+  Step <span id="curInstr_bad_local">?</span> of <span id="totalInstrs_bad_local">?</span>
+  <button id="jmpStepFwd_bad_local", type="button">Forward &gt;</button>
+  <button id="jmpLastInstr_bad_local", type="button">Last &gt;&gt;</button>
+
+  <p><span id="warningOutput_bad_local" class="warningOutput"></span></p>
+</div>
+</td></tr>
+<tr>
+<td valign="top">
+
+<div id="dataViz_bad_local"></div>
+
+</td>
+</tr>
+<tr>
+<td>
+<div id="errorOutput_bad_local" class="errorOutput"></div>
+
+Program output:
+<br/>
+<pre id="pyStdout_bad_local" class="active_out"></pre>
+</td>
+</tr>
+</table>
+<p class="cl_caption"><span class="ac_caption_text"> </span></p>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    myvis = new PythonTutor.Visualizer("def square(x):\n    y = x * x\n    return y\n\nz = square(10)\nprint(y)",[{"globals": {}, "stdout": "", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"square": ["function", 2, "<function square at 0x4448410>"]}, "stdout": "", "func_name": "<module>", "line": 5, "stack_locals": [], "event": "step_line"}, {"globals": {"square": ["function", 2, "<function square at 0x4448410>"]}, "stdout": "", "func_name": "square", "line": 1, "stack_locals": [["square", {"x": 10}]], "event": "call"}, {"globals": {"square": ["function", 2, "<function square at 0x4448410>"]}, "stdout": "", "func_name": "square", "line": 2, "stack_locals": [["square", {"x": 10}]], "event": "step_line"}, {"globals": {"square": ["function", 2, "<function square at 0x4448410>"]}, "stdout": "", "func_name": "square", "line": 3, "stack_locals": [["square", {"y": 100, "x": 10}]], "event": "step_line"}, {"globals": {"square": ["function", 2, "<function square at 0x4448410>"]}, "stdout": "", "func_name": "square", "line": 3, "stack_locals": [["square", {"y": 100, "x": 10, "__return__": 100}]], "event": "return"}, {"globals": {"square": ["function", 2, "<function square at 0x4448410>"], "z": 100}, "stdout": "", "func_name": "<module>", "line": 6, "stack_locals": [], "event": "step_line"}, {"globals": {"square": ["function", 2, "<function square at 0x4448410>"], "z": 100}, "stdout": "", "exception_msg": "NameError: name 'y' is not defined", "func_name": "<module>", "line": 6, "stack_locals": [], "event": "exception"}],'bad_local');
+});
+
+</script>
+<p>If you press the &#8216;last &gt;&gt;&#8217; button you will see an error message.
+When we try to use <tt class="docutils literal"><span class="pre">y</span></tt> on line 6 (outside the function) Python looks for a global
+variable named <tt class="docutils literal"><span class="pre">y</span></tt> but does not find one.  This results in the
+error: <tt class="docutils literal"><span class="pre">Name</span> <span class="pre">Error:</span> <span class="pre">'y'</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">defined.</span></tt></p>
+<p>The variable <tt class="docutils literal"><span class="pre">y</span></tt> only exists while the function is being executed &#8212;
+we call this its <strong>lifetime</strong>.
+When the execution of the function terminates (returns),
+the local variables  are destroyed.  Codelens helps you  visualize this
+because the local variables disappear after the function returns.</p>
+<p>Formal parameters are also local and act like local variables.
+For example, the lifetime of <tt class="docutils literal"><span class="pre">x</span></tt> begins when <tt class="docutils literal"><span class="pre">square</span></tt> is
+called,
+and the lifetime ends when the function completes its execution.</p>
+<p>So it is not possible for a function to set some local variable to a
+value, complete its execution, and then when it is called again next
+time, recover the local variable.  Each call of the function creates
+new local variables, and their lifetimes expire when the function returns
+to the caller.</p>
+<p>Conversely, a function may access a global variable.  But this is considered
+<strong>bad form</strong> by nearly all programmers.  Look at the following,
+nonsensical variation of the square function.</p>
+
+<div id="badsquare_1" >
+<textarea cols="50" rows="12" id="badsquare_1_code" class="active_code">
+def badsquare(x):
+    y = x ** power
+    return y
+
+power = 2
+result = badsquare(10)
+print(result)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (badsquare_1)</span> </p>
+<button onclick="runit('badsquare_1',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('badsquare_1');">Save</button>
+<button class="ac_opt" onclick="requestCode('badsquare_1');">Load</button>
+<br />
+
+<canvas id="badsquare_1_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="badsquare_1_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>Although the <tt class="docutils literal"><span class="pre">badsquare</span></tt> function works, it is silly and poorly written.  But
+it illustrates an important rule about how variables are looked up in Python.
+First, Python looks at the variables that are defined as local variables in
+the function.  We call this the <strong>local scope</strong>.  If the variable name is not
+found in the local scope, then Python looks at the global variables,
+or <strong>global scope</strong>.  This is exactly the case illustrated in the code above.
+<tt class="docutils literal"><span class="pre">power</span></tt> is not found locally in <tt class="docutils literal"><span class="pre">badsquare</span></tt> but it does exist globally.
+The appropriate way to write this function would be to pass power as a parameter.
+For practice, you should rewrite bad square to have a second parameter called power.</p>
+<p>Assignment statements in the local function can
+not change variables defined outside the function.  Consider the following
+codelens example:</p>
+
+<table border="1" id="pyOutputPane_cl_powerof_bad" class="pyOutputPane">
+<tr>
+<td valign="top">
+Source Code
+<br />
+
+<div id="pyCodeOutputDiv_cl_powerof_bad" class="pyCodeOutputDiv">
+<table id="pyCodeOutput_cl_powerof_bad" class="pyCodeOutput"></table>
+
+</div>
+
+<div id="vcrControls_cl_powerof_bad" class="vcrControls">
+  <button id="jmpFirstInstr_cl_powerof_bad", type="button">&lt;&lt; First</button>
+  <button id="jmpStepBack_cl_powerof_bad", type="button">&lt; Back</button>
+  Step <span id="curInstr_cl_powerof_bad">?</span> of <span id="totalInstrs_cl_powerof_bad">?</span>
+  <button id="jmpStepFwd_cl_powerof_bad", type="button">Forward &gt;</button>
+  <button id="jmpLastInstr_cl_powerof_bad", type="button">Last &gt;&gt;</button>
+
+  <p><span id="warningOutput_cl_powerof_bad" class="warningOutput"></span></p>
+</div>
+</td></tr>
+<tr>
+<td valign="top">
+
+<div id="dataViz_cl_powerof_bad"></div>
+
+</td>
+</tr>
+<tr>
+<td>
+<div id="errorOutput_cl_powerof_bad" class="errorOutput"></div>
+
+Program output:
+<br/>
+<pre id="pyStdout_cl_powerof_bad" class="active_out"></pre>
+</td>
+</tr>
+</table>
+<p class="cl_caption"><span class="ac_caption_text"> </span></p>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    myvis = new PythonTutor.Visualizer("def powerof(x,p):\n    power = p   # Another dumb mistake\n    y = x ** power\n    return y\n\npower = 3\nresult = powerof(10,2)\nprint(result)",[{"globals": {}, "stdout": "", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"powerof": ["function", 3, "<function powerof at 0x4448c08>"]}, "stdout": "", "func_name": "<module>", "line": 6, "stack_locals": [], "event": "step_line"}, {"globals": {"powerof": ["function", 3, "<function powerof at 0x4448c08>"], "power": 3}, "stdout": "", "func_name": "<module>", "line": 7, "stack_locals": [], "event": "step_line"}, {"globals": {"powerof": ["function", 3, "<function powerof at 0x4448c08>"], "power": 3}, "stdout": "", "func_name": "powerof", "line": 1, "stack_locals": [["powerof", {"p": 2, "x": 10}]], "event": "call"}, {"globals": {"powerof": ["function", 3, "<function powerof at 0x4448c08>"], "power": 3}, "stdout": "", "func_name": "powerof", "line": 2, "stack_locals": [["powerof", {"p": 2, "x": 10}]], "event": "step_line"}, {"globals": {"powerof": ["function", 3, "<function powerof at 0x4448c08>"], "power": 3}, "stdout": "", "func_name": "powerof", "line": 3, "stack_locals": [["powerof", {"p": 2, "power": 2, "x": 10}]], "event": "step_line"}, {"globals": {"powerof": ["function", 3, "<function powerof at 0x4448c08>"], "power": 3}, "stdout": "", "func_name": "powerof", "line": 4, "stack_locals": [["powerof", {"y": 100, "p": 2, "power": 2, "x": 10}]], "event": "step_line"}, {"globals": {"powerof": ["function", 3, "<function powerof at 0x4448c08>"], "power": 3}, "stdout": "", "func_name": "powerof", "line": 4, "stack_locals": [["powerof", {"y": 100, "p": 2, "__return__": 100, "power": 2, "x": 10}]], "event": "return"}, {"globals": {"powerof": ["function", 3, "<function powerof at 0x4448c08>"], "result": 100, "power": 3}, "stdout": "", "func_name": "<module>", "line": 8, "stack_locals": [], "event": "step_line"}, {"globals": {"powerof": ["function", 3, "<function powerof at 0x4448c08>"], "result": 100, "power": 3}, "stdout": "100\n", "func_name": "<module>", "line": 8, "stack_locals": [], "event": "return"}],'cl_powerof_bad');
+});
+
+</script>
+<p>Now step through the code.  What do you notice about the values of <tt class="docutils literal"><span class="pre">power</span></tt>
+in the local scope compared to the global scope?</p>
+<p>The value of <tt class="docutils literal"><span class="pre">power</span></tt> in the local scope was different than the global scope.
+That is because in this example <tt class="docutils literal"><span class="pre">power</span></tt> was used on the left hand side of the
+assignment statement <tt class="docutils literal"><span class="pre">power</span> <span class="pre">=</span> <span class="pre">p</span></tt>.  When a variable name is used on the
+left hand side of an assignment statement Python creates a local variable.
+When a local variable has the same name as a global variable we say that the
+local shadows the global.  A <strong>shadow</strong> means that the global variable cannot
+be accessed by Python because the local variable will be found first. This is
+another good reason not to use global variables. As you can see,
+it makes your code confusing and difficult to
+understand.</p>
+<p>To cement all of these ideas even further lets look at one final example.
+Inside the <tt class="docutils literal"><span class="pre">square</span></tt> function we are going to make an assignment to the
+parameter <tt class="docutils literal"><span class="pre">x</span></tt>  There&#8217;s no good reason to do this other than to emphasize
+the fact that the parameter <tt class="docutils literal"><span class="pre">x</span></tt> is a local variable.  If you step through
+the example in codelens you will see that although <tt class="docutils literal"><span class="pre">x</span></tt> is 0 in the local
+variables for <tt class="docutils literal"><span class="pre">square</span></tt> x remains 2 in the global scope.  This is confusing
+to many beginning programmers who think that an assignment to a
+formal parameter will cause a change to the value of the variable that was
+used as the actual parameter; especially when the two share the same name.
+But this example demonstrates that that is clearly not how Python operates.</p>
+
+<table border="1" id="pyOutputPane_cl_change_parm" class="pyOutputPane">
+<tr>
+<td valign="top">
+Source Code
+<br />
+
+<div id="pyCodeOutputDiv_cl_change_parm" class="pyCodeOutputDiv">
+<table id="pyCodeOutput_cl_change_parm" class="pyCodeOutput"></table>
+
+</div>
+
+<div id="vcrControls_cl_change_parm" class="vcrControls">
+  <button id="jmpFirstInstr_cl_change_parm", type="button">&lt;&lt; First</button>
+  <button id="jmpStepBack_cl_change_parm", type="button">&lt; Back</button>
+  Step <span id="curInstr_cl_change_parm">?</span> of <span id="totalInstrs_cl_change_parm">?</span>
+  <button id="jmpStepFwd_cl_change_parm", type="button">Forward &gt;</button>
+  <button id="jmpLastInstr_cl_change_parm", type="button">Last &gt;&gt;</button>
+
+  <p><span id="warningOutput_cl_change_parm" class="warningOutput"></span></p>
+</div>
+</td></tr>
+<tr>
+<td valign="top">
+
+<div id="dataViz_cl_change_parm"></div>
+
+</td>
+</tr>
+<tr>
+<td>
+<div id="errorOutput_cl_change_parm" class="errorOutput"></div>
+
+Program output:
+<br/>
+<pre id="pyStdout_cl_change_parm" class="active_out"></pre>
+</td>
+</tr>
+</table>
+<p class="cl_caption"><span class="ac_caption_text"> </span></p>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    myvis = new PythonTutor.Visualizer("def square(x):\n    y = x * x\n    x = 0       # assign a new value to the parameter x\n    return y\n\nx = 2\nz = square(x)\nprint(z)",[{"globals": {}, "stdout": "", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"square": ["function", 4, "<function square at 0x40b2230>"]}, "stdout": "", "func_name": "<module>", "line": 6, "stack_locals": [], "event": "step_line"}, {"globals": {"x": 2, "square": ["function", 4, "<function square at 0x40b2230>"]}, "stdout": "", "func_name": "<module>", "line": 7, "stack_locals": [], "event": "step_line"}, {"globals": {"x": 2, "square": ["function", 4, "<function square at 0x40b2230>"]}, "stdout": "", "func_name": "square", "line": 1, "stack_locals": [["square", {"x": 2}]], "event": "call"}, {"globals": {"x": 2, "square": ["function", 4, "<function square at 0x40b2230>"]}, "stdout": "", "func_name": "square", "line": 2, "stack_locals": [["square", {"x": 2}]], "event": "step_line"}, {"globals": {"x": 2, "square": ["function", 4, "<function square at 0x40b2230>"]}, "stdout": "", "func_name": "square", "line": 3, "stack_locals": [["square", {"y": 4, "x": 2}]], "event": "step_line"}, {"globals": {"x": 2, "square": ["function", 4, "<function square at 0x40b2230>"]}, "stdout": "", "func_name": "square", "line": 4, "stack_locals": [["square", {"y": 4, "x": 0}]], "event": "step_line"}, {"globals": {"x": 2, "square": ["function", 4, "<function square at 0x40b2230>"]}, "stdout": "", "func_name": "square", "line": 4, "stack_locals": [["square", {"y": 4, "x": 0, "__return__": 4}]], "event": "return"}, {"globals": {"x": 2, "square": ["function", 4, "<function square at 0x40b2230>"], "z": 4}, "stdout": "", "func_name": "<module>", "line": 8, "stack_locals": [], "event": "step_line"}, {"globals": {"x": 2, "square": ["function", 4, "<function square at 0x40b2230>"], "z": 4}, "stdout": "4\n", "func_name": "<module>", "line": 8, "stack_locals": [], "event": "return"}],'cl_change_parm');
+});
+
+</script>
+<div class="admonition-scratch-editor admonition">
+<p class="first admonition-title">Scratch Editor</p>
+<div class="last">
+<button id="butt_scratch_3" onclick="createActiveCode('scratch_3',''); $('#butt_scratch_3').hide();">Open Editor</button>
+<div id="scratch_3"></div>
+<br />
+</div></div>
+<p><strong>Check your understanding</strong></p>
+
+    <div id="test_question5_3_1">
+    <p>5.3.1: What is a variable's scope?</p>
+    <form name="test_question5_3_1_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="test_question5_3_1_opt_a" />
+    <label for= "test_question5_3_1_opt_a">  a) Its value</label><br />
+    
+    <input type="radio" name="group1" value="b" id="test_question5_3_1_opt_b" />
+    <label for= "test_question5_3_1_opt_b">  b) The range of code where a variable has a certain value.</label><br />
+    
+    <input type="radio" name="group1" value="c" id="test_question5_3_1_opt_c" />
+    <label for= "test_question5_3_1_opt_c">  c) Its name</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('test_question5_3_1','b',['Value is the contents of the variable.  Scope concerns where the variable is &quot;known&quot;.', '', 'The name of a variable is just an identifier or alias.  Scope concerns where the variable is &quot;known&quot;.'])"/> 
+    </form>
+    <div id="test_question5_3_1_feedback">
+    </div>
+    </div>
+    
+    <div id="test_question5_3_2">
+    <p>5.3.2: What is a local variable?</p>
+    <form name="test_question5_3_2_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="test_question5_3_2_opt_a" />
+    <label for= "test_question5_3_2_opt_a">  a) A temporary variable that is only used inside a function</label><br />
+    
+    <input type="radio" name="group1" value="b" id="test_question5_3_2_opt_b" />
+    <label for= "test_question5_3_2_opt_b">  b) The same as a parameter</label><br />
+    
+    <input type="radio" name="group1" value="c" id="test_question5_3_2_opt_c" />
+    <label for= "test_question5_3_2_opt_c">  c) Another name for any variable</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('test_question5_3_2','a',['Yes, a local variable is a temporary variable that is only known in the function it is defined in.', 'While parameters may be considered local variables, functions may also define and use additional local variables.', 'Variables that are used outside a function are not local, but rather global variables.'])"/> 
+    </form>
+    <div id="test_question5_3_2_feedback">
+    </div>
+    </div>
+    
+    <div id="test_question5_3_3">
+    <p>5.3.3: Can you use the same name for a local variable as a global variable?</p>
+    <form name="test_question5_3_3_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="test_question5_3_3_opt_a" />
+    <label for= "test_question5_3_3_opt_a">  a) Yes, and there is no reason not to.</label><br />
+    
+    <input type="radio" name="group1" value="b" id="test_question5_3_3_opt_b" />
+    <label for= "test_question5_3_3_opt_b">  b) Yes, but it is considered bad form.</label><br />
+    
+    <input type="radio" name="group1" value="c" id="test_question5_3_3_opt_c" />
+    <label for= "test_question5_3_3_opt_c">  c) No, it will cause an error.</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('test_question5_3_3','b',['While there is no problem as far as Python is concerned, it is generally considered bad style because of the potential for the programmer to get confused.', 'it is generally considered bad style because of the potential for the programmer to get confused.  If you must use global variables (also generally bad form) make sure they have unique names.', 'Python manages global and local scope separately and has clear rules for how to handle variables with the same name in different scopes, so this will not cause a Python error.'])"/> 
+    </form>
+    <div id="test_question5_3_3_feedback">
+    </div>
+    </div>
+    </div>
+<div class="section" id="the-accumulator-pattern">
+<h2>The Accumulator Pattern<a class="headerlink" href="#the-accumulator-pattern" title="Permalink to this headline">¶</a></h2>
+<a id="function_accumulator_pattern_thumb" > <img src="../_static/accumulatorpattern.png" /></a>
+<div id="function_accumulator_pattern" class="video_popup" >
+<video controls  >
+    <source src="http://knuth.luther.edu/~pythonworks/thinkcsVideos/accumulatorpattern.mov" type="video/mp4"></source>
+    <source src="http://knuth.luther.edu/~pythonworks/thinkcsVideos/accumulatorpattern.webm" type="video/webm"></source>
+    No supported video types
+</video>
+</div>
+<script>
+   jQuery(function($) {
+      $('#function_accumulator_pattern_thumb').click(function(e) {
+         $('#function_accumulator_pattern').show();
+         $('#function_accumulator_pattern_thumb').hide();
+         logBookEvent({'event':'video','act':'play','div_id': 'function_accumulator_pattern'});
+         // Log the run event
+      });
+   });
+</script>
+<p>In the previous example, we wrote a function that computes the square of a number.  The algorithm we used
+in the function was simple: multiply the number by itself.
+In this section we will reimplement the square function and use a different algorithm, one that relies on addition instead
+of multiplication.</p>
+<p>If you want to multiply two numbers together, the most basic approach is to think of it as repeating the process of
+adding one number to itself.  The number of repetitions is where the second number comes into play.  For example, if we
+wanted to multiply three and five, we could think about it as adding three to itself five times.  Three plus three is six, plus three is nine, plus three is 12, and finally plus three is 15.  Generalizing this, if we want to implement
+the idea of squaring a number, call it <cite>n</cite>, we would add <cite>n</cite> to itself <cite>n</cite> times.</p>
+<p>Do this by hand first and try to isolate exactly what steps you take.  You&#8217;ll
+find you need to keep some &#8220;running total&#8221; of the sum so far, either on a piece
+of paper, or in your head.  Remembering things from one step to the next is
+precisely why we have variables in a program.  This means that we will need some variable
+to remember the &#8220;running total&#8221;.  It should be initialized with a value of zero.  Then, we need to <strong>update</strong> the &#8220;running total&#8221; the correct number of times.  For each repetition, we&#8217;ll want
+to update the running total by adding the number to it.</p>
+<p>In words we could say it this way.  To square the value of <cite>n</cite>, we will repeat the process of updating a running total <cite>n</cite> times.  To update the running total, we take the old value of the &#8220;running total&#8221; and add <cite>n</cite>.  That sum becomes the new
+value of the &#8220;running total&#8221;.</p>
+<p>Here is the program in activecode.  Note that the function definition is the same as it was before.  All that has changed
+is the details of how the squaring is done.  This is a great example of &#8220;black box&#8221; design.  We can change out the details inside of the box and still use the function exactly as we did before.</p>
+
+<div id="sq_accum1" >
+<textarea cols="50" rows="12" id="sq_accum1_code" class="active_code">
+def square(x):
+    runningtotal = 0
+    for counter in range(x):
+        runningtotal = runningtotal + x
+
+    return runningtotal
+
+toSquare = 10
+squareResult = square(toSquare)
+print("The result of", toSquare, "squared is", squareResult)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (sq_accum1)</span> </p>
+<button onclick="runit('sq_accum1',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('sq_accum1');">Save</button>
+<button class="ac_opt" onclick="requestCode('sq_accum1');">Load</button>
+<br />
+
+<canvas id="sq_accum1_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="sq_accum1_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">What would happen if we put the assignment <tt class="docutils literal"><span class="pre">runningTotal</span> <span class="pre">=</span> <span class="pre">0</span></tt> inside
+the for statement?  Not sure? Try it and find out.</p>
+</div>
+<p>In the program above, notice that the variable <tt class="docutils literal"><span class="pre">runningtotal</span></tt> starts out with a value of 0.  Next, the iteration is performed <tt class="docutils literal"><span class="pre">x</span></tt> times.  Inside the for loop, the update occurs. <tt class="docutils literal"><span class="pre">runningtotal</span></tt> is reassigned a new value which is the old value plus the value of <tt class="docutils literal"><span class="pre">x</span></tt>.</p>
+<p>This pattern of iterating the updating of a variable is commonly
+referred to as the <strong>accumulator pattern</strong>.  We refer to the variable as the <strong>accumulator</strong>.  This pattern will come up over and over again.  Remember that the key
+to making it work successfully is to be sure to initialize the variable before you start the iteration.
+Once inside the iteration, it is required that you update the accumulator.</p>
+<p>Here is the same program in codelens.  Step thru the function and watch the &#8220;running total&#8221; accumulates the result.</p>
+
+<table border="1" id="pyOutputPane_sq_accum3" class="pyOutputPane">
+<tr>
+<td valign="top">
+Source Code
+<br />
+
+<div id="pyCodeOutputDiv_sq_accum3" class="pyCodeOutputDiv">
+<table id="pyCodeOutput_sq_accum3" class="pyCodeOutput"></table>
+
+</div>
+
+<div id="vcrControls_sq_accum3" class="vcrControls">
+  <button id="jmpFirstInstr_sq_accum3", type="button">&lt;&lt; First</button>
+  <button id="jmpStepBack_sq_accum3", type="button">&lt; Back</button>
+  Step <span id="curInstr_sq_accum3">?</span> of <span id="totalInstrs_sq_accum3">?</span>
+  <button id="jmpStepFwd_sq_accum3", type="button">Forward &gt;</button>
+  <button id="jmpLastInstr_sq_accum3", type="button">Last &gt;&gt;</button>
+
+  <p><span id="warningOutput_sq_accum3" class="warningOutput"></span></p>
+</div>
+</td></tr>
+<tr>
+<td valign="top">
+
+<div id="dataViz_sq_accum3"></div>
+
+</td>
+</tr>
+<tr>
+<td>
+<div id="errorOutput_sq_accum3" class="errorOutput"></div>
+
+Program output:
+<br/>
+<pre id="pyStdout_sq_accum3" class="active_out"></pre>
+</td>
+</tr>
+</table>
+<p class="cl_caption"><span class="ac_caption_text"> </span></p>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    myvis = new PythonTutor.Visualizer("def square(x):\n    runningtotal = 0\n    for counter in range(x):\n        runningtotal = runningtotal + x\n\n    return runningtotal\n\ntoSquare = 10\nsquareResult = square(toSquare)\nprint(\"The result of\", toSquare, \"squared is\", squareResult)",[{"globals": {}, "stdout": "", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"square": ["function", 5, "<function square at 0x4448e60>"]}, "stdout": "", "func_name": "<module>", "line": 8, "stack_locals": [], "event": "step_line"}, {"globals": {"square": ["function", 5, "<function square at 0x4448e60>"], "toSquare": 10}, "stdout": "", "func_name": "<module>", "line": 9, "stack_locals": [], "event": "step_line"}, {"globals": {"square": ["function", 5, "<function square at 0x4448e60>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 1, "stack_locals": [["square", {"x": 10}]], "event": "call"}, {"globals": {"square": ["function", 5, "<function square at 0x4448e60>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 2, "stack_locals": [["square", {"x": 10}]], "event": "step_line"}, {"globals": {"square": ["function", 5, "<function square at 0x4448e60>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 3, "stack_locals": [["square", {"x": 10, "runningtotal": 0}]], "event": "step_line"}, {"globals": {"square": ["function", 5, "<function square at 0x4448e60>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 4, "stack_locals": [["square", {"x": 10, "counter": 0, "runningtotal": 0}]], "event": "step_line"}, {"globals": {"square": ["function", 5, "<function square at 0x4448e60>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 3, "stack_locals": [["square", {"x": 10, "counter": 0, "runningtotal": 10}]], "event": "step_line"}, {"globals": {"square": ["function", 5, "<function square at 0x4448e60>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 4, "stack_locals": [["square", {"x": 10, "counter": 1, "runningtotal": 10}]], "event": "step_line"}, {"globals": {"square": ["function", 5, "<function square at 0x4448e60>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 3, "stack_locals": [["square", {"x": 10, "counter": 1, "runningtotal": 20}]], "event": "step_line"}, {"globals": {"square": ["function", 5, "<function square at 0x4448e60>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 4, "stack_locals": [["square", {"x": 10, "counter": 2, "runningtotal": 20}]], "event": "step_line"}, {"globals": {"square": ["function", 5, "<function square at 0x4448e60>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 3, "stack_locals": [["square", {"x": 10, "counter": 2, "runningtotal": 30}]], "event": "step_line"}, {"globals": {"square": ["function", 5, "<function square at 0x4448e60>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 4, "stack_locals": [["square", {"x": 10, "counter": 3, "runningtotal": 30}]], "event": "step_line"}, {"globals": {"square": ["function", 5, "<function square at 0x4448e60>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 3, "stack_locals": [["square", {"x": 10, "counter": 3, "runningtotal": 40}]], "event": "step_line"}, {"globals": {"square": ["function", 5, "<function square at 0x4448e60>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 4, "stack_locals": [["square", {"x": 10, "counter": 4, "runningtotal": 40}]], "event": "step_line"}, {"globals": {"square": ["function", 5, "<function square at 0x4448e60>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 3, "stack_locals": [["square", {"x": 10, "counter": 4, "runningtotal": 50}]], "event": "step_line"}, {"globals": {"square": ["function", 5, "<function square at 0x4448e60>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 4, "stack_locals": [["square", {"x": 10, "counter": 5, "runningtotal": 50}]], "event": "step_line"}, {"globals": {"square": ["function", 5, "<function square at 0x4448e60>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 3, "stack_locals": [["square", {"x": 10, "counter": 5, "runningtotal": 60}]], "event": "step_line"}, {"globals": {"square": ["function", 5, "<function square at 0x4448e60>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 4, "stack_locals": [["square", {"x": 10, "counter": 6, "runningtotal": 60}]], "event": "step_line"}, {"globals": {"square": ["function", 5, "<function square at 0x4448e60>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 3, "stack_locals": [["square", {"x": 10, "counter": 6, "runningtotal": 70}]], "event": "step_line"}, {"globals": {"square": ["function", 5, "<function square at 0x4448e60>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 4, "stack_locals": [["square", {"x": 10, "counter": 7, "runningtotal": 70}]], "event": "step_line"}, {"globals": {"square": ["function", 5, "<function square at 0x4448e60>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 3, "stack_locals": [["square", {"x": 10, "counter": 7, "runningtotal": 80}]], "event": "step_line"}, {"globals": {"square": ["function", 5, "<function square at 0x4448e60>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 4, "stack_locals": [["square", {"x": 10, "counter": 8, "runningtotal": 80}]], "event": "step_line"}, {"globals": {"square": ["function", 5, "<function square at 0x4448e60>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 3, "stack_locals": [["square", {"x": 10, "counter": 8, "runningtotal": 90}]], "event": "step_line"}, {"globals": {"square": ["function", 5, "<function square at 0x4448e60>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 4, "stack_locals": [["square", {"x": 10, "counter": 9, "runningtotal": 90}]], "event": "step_line"}, {"globals": {"square": ["function", 5, "<function square at 0x4448e60>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 3, "stack_locals": [["square", {"x": 10, "counter": 9, "runningtotal": 100}]], "event": "step_line"}, {"globals": {"square": ["function", 5, "<function square at 0x4448e60>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 6, "stack_locals": [["square", {"x": 10, "counter": 9, "runningtotal": 100}]], "event": "step_line"}, {"globals": {"square": ["function", 5, "<function square at 0x4448e60>"], "toSquare": 10}, "stdout": "", "func_name": "square", "line": 6, "stack_locals": [["square", {"__return__": 100, "x": 10, "counter": 9, "runningtotal": 100}]], "event": "return"}, {"globals": {"square": ["function", 5, "<function square at 0x4448e60>"], "toSquare": 10, "squareResult": 100}, "stdout": "", "func_name": "<module>", "line": 10, "stack_locals": [], "event": "step_line"}, {"globals": {"square": ["function", 5, "<function square at 0x4448e60>"], "toSquare": 10, "squareResult": 100}, "stdout": "('The result of', 10, 'squared is', 100)\n", "func_name": "<module>", "line": 10, "stack_locals": [], "event": "return"}],'sq_accum3');
+});
+
+</script>
+<div class="admonition-scratch-editor admonition" id="index-2">
+<p class="first admonition-title">Scratch Editor</p>
+<div class="last">
+<button id="butt_scratch_4" onclick="createActiveCode('scratch_4',''); $('#butt_scratch_4').hide();">Open Editor</button>
+<div id="scratch_4"></div>
+<br />
+</div></div>
+<p><strong>Check your understanding</strong></p>
+
+    <div id="test_question5_4_1">
+    <p>5.4.1: Consider the following code:
+<pre>
+def square(x):
+    runningtotal = 0
+    for counter in range(x):
+        runningtotal = runningtotal + x
+    return runningtotal
+</pre>
+What happens if you put the initialization of runningtotal (the
+line runningtotal = 0) inside the for loop as the first
+instruction in the loop?</p>
+    <form name="test_question5_4_1_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="test_question5_4_1_opt_a" />
+    <label for= "test_question5_4_1_opt_a">  a) The square function will return x instead of x*x</label><br />
+    
+    <input type="radio" name="group1" value="b" id="test_question5_4_1_opt_b" />
+    <label for= "test_question5_4_1_opt_b">  b) The square function will cause an error</label><br />
+    
+    <input type="radio" name="group1" value="c" id="test_question5_4_1_opt_c" />
+    <label for= "test_question5_4_1_opt_c">  c) The square function will work as expected and return x*x</label><br />
+    
+    <input type="radio" name="group1" value="d" id="test_question5_4_1_opt_d" />
+    <label for= "test_question5_4_1_opt_d">  d) The square function will return 0 instead of x*x</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('test_question5_4_1','a',['The variable runningtotal will be reset to 0 each time through the loop.   However because this assignment happens as the first instruction, the next instruction in the loop will set it back to x.   When the loop finishes, it will have the value x, which is what is returned.', 'Assignment statements are perfectly legal inside loops and will not cause an error.', 'By putting the statement that sets runningtotal to 0 inside the loop, that statement gets executed every time through the loop, instead of once before the loop begins.  The result is that runningtotal is ìclearedî (reset to 0) each time through the loop.', 'The line runningtotal=0 is the first line in the for loop, but immediately after this line, the line runningtotal = runningtotal + x will execute, giving runningtotal a non-zero value  (assuming x is non-zero).'])"/> 
+    </form>
+    <div id="test_question5_4_1_feedback">
+    </div>
+    </div>
+    </div>
+<div class="section" id="functions-can-call-other-functions">
+<h2>Functions can call other functions<a class="headerlink" href="#functions-can-call-other-functions" title="Permalink to this headline">¶</a></h2>
+<p>It is important to understand that each of the functions we write can be used
+and called from other functions we write.  This is one of the most important
+ways that computer scientists take a large problem and break it down into a
+group of smaller problems. This process of breaking a problem into smaller
+subproblems is called <strong>functional decomposition</strong>.</p>
+<p>Here&#8217;s a simple example of functional decomposition using two functions. The
+first function called <tt class="docutils literal"><span class="pre">square</span></tt> simply computes the square of a given number.
+The second function called <tt class="docutils literal"><span class="pre">sum_of_squares</span></tt> makes use of square to compute
+the sum of three numbers that have been squared.</p>
+
+<table border="1" id="pyOutputPane_sumofsquares" class="pyOutputPane">
+<tr>
+<td valign="top">
+Source Code
+<br />
+
+<div id="pyCodeOutputDiv_sumofsquares" class="pyCodeOutputDiv">
+<table id="pyCodeOutput_sumofsquares" class="pyCodeOutput"></table>
+
+</div>
+
+<div id="vcrControls_sumofsquares" class="vcrControls">
+  <button id="jmpFirstInstr_sumofsquares", type="button">&lt;&lt; First</button>
+  <button id="jmpStepBack_sumofsquares", type="button">&lt; Back</button>
+  Step <span id="curInstr_sumofsquares">?</span> of <span id="totalInstrs_sumofsquares">?</span>
+  <button id="jmpStepFwd_sumofsquares", type="button">Forward &gt;</button>
+  <button id="jmpLastInstr_sumofsquares", type="button">Last &gt;&gt;</button>
+
+  <p><span id="warningOutput_sumofsquares" class="warningOutput"></span></p>
+</div>
+</td></tr>
+<tr>
+<td valign="top">
+
+<div id="dataViz_sumofsquares"></div>
+
+</td>
+</tr>
+<tr>
+<td>
+<div id="errorOutput_sumofsquares" class="errorOutput"></div>
+
+Program output:
+<br/>
+<pre id="pyStdout_sumofsquares" class="active_out"></pre>
+</td>
+</tr>
+</table>
+<p class="cl_caption"><span class="ac_caption_text"> </span></p>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    myvis = new PythonTutor.Visualizer("def square(x):\n    y = x * x\n    return y\n\ndef sum_of_squares(x,y,z):\n    a = square(x)\n    b = square(y)\n    c = square(z)\n\n    return a+b+c\n\na = -5\nb = 2\nc = 10\nresult = sum_of_squares(a,b,c)\nprint(result)",[{"globals": {}, "stdout": "", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"square": ["function", 6, "<function square at 0x461bb90>"]}, "stdout": "", "func_name": "<module>", "line": 5, "stack_locals": [], "event": "step_line"}, {"globals": {"sum_of_squares": ["function", 7, "<function sum_of_squares at 0x461bc80>"], "square": ["function", 6, "<function square at 0x461bb90>"]}, "stdout": "", "func_name": "<module>", "line": 12, "stack_locals": [], "event": "step_line"}, {"globals": {"a": -5, "sum_of_squares": ["function", 7, "<function sum_of_squares at 0x461bc80>"], "square": ["function", 6, "<function square at 0x461bb90>"]}, "stdout": "", "func_name": "<module>", "line": 13, "stack_locals": [], "event": "step_line"}, {"globals": {"a": -5, "sum_of_squares": ["function", 7, "<function sum_of_squares at 0x461bc80>"], "square": ["function", 6, "<function square at 0x461bb90>"], "b": 2}, "stdout": "", "func_name": "<module>", "line": 14, "stack_locals": [], "event": "step_line"}, {"globals": {"a": -5, "sum_of_squares": ["function", 7, "<function sum_of_squares at 0x461bc80>"], "c": 10, "square": ["function", 6, "<function square at 0x461bb90>"], "b": 2}, "stdout": "", "func_name": "<module>", "line": 15, "stack_locals": [], "event": "step_line"}, {"globals": {"a": -5, "sum_of_squares": ["function", 7, "<function sum_of_squares at 0x461bc80>"], "c": 10, "square": ["function", 6, "<function square at 0x461bb90>"], "b": 2}, "stdout": "", "func_name": "sum_of_squares", "line": 5, "stack_locals": [["sum_of_squares", {"y": 2, "x": -5, "z": 10}]], "event": "call"}, {"globals": {"a": -5, "sum_of_squares": ["function", 7, "<function sum_of_squares at 0x461bc80>"], "c": 10, "square": ["function", 6, "<function square at 0x461bb90>"], "b": 2}, "stdout": "", "func_name": "sum_of_squares", "line": 6, "stack_locals": [["sum_of_squares", {"y": 2, "x": -5, "z": 10}]], "event": "step_line"}, {"globals": {"a": -5, "sum_of_squares": ["function", 7, "<function sum_of_squares at 0x461bc80>"], "c": 10, "square": ["function", 6, "<function square at 0x461bb90>"], "b": 2}, "stdout": "", "func_name": "square", "line": 1, "stack_locals": [["square", {"x": -5}], ["sum_of_squares", {"y": 2, "x": -5, "z": 10}]], "event": "call"}, {"globals": {"a": -5, "sum_of_squares": ["function", 7, "<function sum_of_squares at 0x461bc80>"], "c": 10, "square": ["function", 6, "<function square at 0x461bb90>"], "b": 2}, "stdout": "", "func_name": "square", "line": 2, "stack_locals": [["square", {"x": -5}], ["sum_of_squares", {"y": 2, "x": -5, "z": 10}]], "event": "step_line"}, {"globals": {"a": -5, "sum_of_squares": ["function", 7, "<function sum_of_squares at 0x461bc80>"], "c": 10, "square": ["function", 6, "<function square at 0x461bb90>"], "b": 2}, "stdout": "", "func_name": "square", "line": 3, "stack_locals": [["square", {"y": 25, "x": -5}], ["sum_of_squares", {"y": 2, "x": -5, "z": 10}]], "event": "step_line"}, {"globals": {"a": -5, "sum_of_squares": ["function", 7, "<function sum_of_squares at 0x461bc80>"], "c": 10, "square": ["function", 6, "<function square at 0x461bb90>"], "b": 2}, "stdout": "", "func_name": "square", "line": 3, "stack_locals": [["square", {"y": 25, "x": -5, "__return__": 25}], ["sum_of_squares", {"y": 2, "x": -5, "z": 10}]], "event": "return"}, {"globals": {"a": -5, "sum_of_squares": ["function", 7, "<function sum_of_squares at 0x461bc80>"], "c": 10, "square": ["function", 6, "<function square at 0x461bb90>"], "b": 2}, "stdout": "", "func_name": "sum_of_squares", "line": 7, "stack_locals": [["sum_of_squares", {"y": 2, "x": -5, "z": 10, "a": 25}]], "event": "step_line"}, {"globals": {"a": -5, "sum_of_squares": ["function", 7, "<function sum_of_squares at 0x461bc80>"], "c": 10, "square": ["function", 6, "<function square at 0x461bb90>"], "b": 2}, "stdout": "", "func_name": "square", "line": 1, "stack_locals": [["square", {"x": 2}], ["sum_of_squares", {"y": 2, "x": -5, "z": 10, "a": 25}]], "event": "call"}, {"globals": {"a": -5, "sum_of_squares": ["function", 7, "<function sum_of_squares at 0x461bc80>"], "c": 10, "square": ["function", 6, "<function square at 0x461bb90>"], "b": 2}, "stdout": "", "func_name": "square", "line": 2, "stack_locals": [["square", {"x": 2}], ["sum_of_squares", {"y": 2, "x": -5, "z": 10, "a": 25}]], "event": "step_line"}, {"globals": {"a": -5, "sum_of_squares": ["function", 7, "<function sum_of_squares at 0x461bc80>"], "c": 10, "square": ["function", 6, "<function square at 0x461bb90>"], "b": 2}, "stdout": "", "func_name": "square", "line": 3, "stack_locals": [["square", {"y": 4, "x": 2}], ["sum_of_squares", {"y": 2, "x": -5, "z": 10, "a": 25}]], "event": "step_line"}, {"globals": {"a": -5, "sum_of_squares": ["function", 7, "<function sum_of_squares at 0x461bc80>"], "c": 10, "square": ["function", 6, "<function square at 0x461bb90>"], "b": 2}, "stdout": "", "func_name": "square", "line": 3, "stack_locals": [["square", {"y": 4, "x": 2, "__return__": 4}], ["sum_of_squares", {"y": 2, "x": -5, "z": 10, "a": 25}]], "event": "return"}, {"globals": {"a": -5, "sum_of_squares": ["function", 7, "<function sum_of_squares at 0x461bc80>"], "c": 10, "square": ["function", 6, "<function square at 0x461bb90>"], "b": 2}, "stdout": "", "func_name": "sum_of_squares", "line": 8, "stack_locals": [["sum_of_squares", {"y": 2, "x": -5, "z": 10, "b": 4, "a": 25}]], "event": "step_line"}, {"globals": {"a": -5, "sum_of_squares": ["function", 7, "<function sum_of_squares at 0x461bc80>"], "c": 10, "square": ["function", 6, "<function square at 0x461bb90>"], "b": 2}, "stdout": "", "func_name": "square", "line": 1, "stack_locals": [["square", {"x": 10}], ["sum_of_squares", {"y": 2, "x": -5, "z": 10, "b": 4, "a": 25}]], "event": "call"}, {"globals": {"a": -5, "sum_of_squares": ["function", 7, "<function sum_of_squares at 0x461bc80>"], "c": 10, "square": ["function", 6, "<function square at 0x461bb90>"], "b": 2}, "stdout": "", "func_name": "square", "line": 2, "stack_locals": [["square", {"x": 10}], ["sum_of_squares", {"y": 2, "x": -5, "z": 10, "b": 4, "a": 25}]], "event": "step_line"}, {"globals": {"a": -5, "sum_of_squares": ["function", 7, "<function sum_of_squares at 0x461bc80>"], "c": 10, "square": ["function", 6, "<function square at 0x461bb90>"], "b": 2}, "stdout": "", "func_name": "square", "line": 3, "stack_locals": [["square", {"y": 100, "x": 10}], ["sum_of_squares", {"y": 2, "x": -5, "z": 10, "b": 4, "a": 25}]], "event": "step_line"}, {"globals": {"a": -5, "sum_of_squares": ["function", 7, "<function sum_of_squares at 0x461bc80>"], "c": 10, "square": ["function", 6, "<function square at 0x461bb90>"], "b": 2}, "stdout": "", "func_name": "square", "line": 3, "stack_locals": [["square", {"y": 100, "x": 10, "__return__": 100}], ["sum_of_squares", {"y": 2, "x": -5, "z": 10, "b": 4, "a": 25}]], "event": "return"}, {"globals": {"a": -5, "sum_of_squares": ["function", 7, "<function sum_of_squares at 0x461bc80>"], "c": 10, "square": ["function", 6, "<function square at 0x461bb90>"], "b": 2}, "stdout": "", "func_name": "sum_of_squares", "line": 10, "stack_locals": [["sum_of_squares", {"a": 25, "c": 100, "b": 4, "y": 2, "x": -5, "z": 10}]], "event": "step_line"}, {"globals": {"a": -5, "sum_of_squares": ["function", 7, "<function sum_of_squares at 0x461bc80>"], "c": 10, "square": ["function", 6, "<function square at 0x461bb90>"], "b": 2}, "stdout": "", "func_name": "sum_of_squares", "line": 10, "stack_locals": [["sum_of_squares", {"a": 25, "c": 100, "b": 4, "__return__": 129, "y": 2, "x": -5, "z": 10}]], "event": "return"}, {"globals": {"a": -5, "c": 10, "square": ["function", 6, "<function square at 0x461bb90>"], "sum_of_squares": ["function", 7, "<function sum_of_squares at 0x461bc80>"], "b": 2, "result": 129}, "stdout": "", "func_name": "<module>", "line": 16, "stack_locals": [], "event": "step_line"}, {"globals": {"a": -5, "c": 10, "square": ["function", 6, "<function square at 0x461bb90>"], "sum_of_squares": ["function", 7, "<function sum_of_squares at 0x461bc80>"], "b": 2, "result": 129}, "stdout": "129\n", "func_name": "<module>", "line": 16, "stack_locals": [], "event": "return"}],'sumofsquares');
+});
+
+</script>
+<p>Even though this is a pretty simple idea, in practice this example
+illustrates many very important Python concepts, including local and global
+variables along with parameter passing.  Note that when you step through this
+example, codelens bolds line 1 and line 5 as the functions are defined.  The
+body of square is not executed until it is called from the <tt class="docutils literal"><span class="pre">sum_of_squares</span></tt>
+function for the first time on line 6.  Also notice that when <tt class="docutils literal"><span class="pre">square</span></tt> is
+called there are two groups of local variables, one for <tt class="docutils literal"><span class="pre">square</span></tt> and one
+for <tt class="docutils literal"><span class="pre">sum_of_squares</span></tt>.  As you step through you will notice that <tt class="docutils literal"><span class="pre">x,</span>
+<span class="pre">``</span> <span class="pre">and</span> <span class="pre">``y</span></tt> are local variables in both functions and may even have
+different values.  This illustrates that even though they are named the same
+they are very different.</p>
+<p>Lets look at another example that uses two functions, but illustrates another
+important computer science problem solving technique called
+<strong>generalization</strong>.  Let&#8217;s assume now we want to write a
+function to draw a square.  The generalization step is to realize that a
+square is just a special kind of rectangle.</p>
+<p>To draw a rectangle we need to be able to call the function with different
+arguments for width and height.  Unlike the case of the square,
+we cannot repeat the same thing 4 times, because the four sides are not equal.
+However, it is the case that drawing the bottom and right sides are the
+same sequence as drawing the top and left sides.  So we eventually come up with
+this rather nice code that can draw a rectangle.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">drawRectangle</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get turtle t to draw a rectangle of width w and height h.&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The parameter names are deliberately chosen as single letters to ensure they&#8217;re not misunderstood.
+In real programs, once you&#8217;ve had more experience, we will insist on better variable names than this.
+The point is that the program doesn&#8217;t &#8220;understand&#8221; that you&#8217;re drawing a rectangle or that the
+parameters represent the width and the height.  Concepts like rectangle, width, and height are
+the meaning we humans have, not concepts that the program or the computer understands.</p>
+<p><em>Thinking like a computer scientist</em> involves looking for patterns and
+relationships.  In the code above, we&#8217;ve done that to some extent.  We did
+not just draw four sides. Instead, we spotted that we could draw the
+rectangle as two halves and used a loop to repeat that pattern twice.</p>
+<p>But now we might spot that a square is a special kind of rectangle.  A square
+simply uses the same value for both the height and the width.
+We already have a function that draws a rectangle, so we can use that to draw
+our square.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">drawSquare</span><span class="p">(</span><span class="n">tx</span><span class="p">,</span> <span class="n">sz</span><span class="p">):</span>        <span class="c"># a new version of drawSquare</span>
+    <span class="n">drawRectangle</span><span class="p">(</span><span class="n">tx</span><span class="p">,</span> <span class="n">sz</span><span class="p">,</span> <span class="n">sz</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here is the entire example with the necessary set up code.</p>
+
+<div id="ch04_3" >
+<textarea cols="50" rows="12" id="ch04_3_code" class="active_code">
+import turtle
+
+def drawRectangle(t, w, h):
+    """Get turtle t to draw a rectangle of width w and height h."""
+    for i in range(2):
+        t.forward(w)
+        t.left(90)
+        t.forward(h)
+        t.left(90)
+
+def drawSquare(tx, sz):        # a new version of drawSquare
+    drawRectangle(tx, sz, sz)
+
+wn = turtle.Screen()             # Set up the window
+wn.bgcolor("lightgreen")
+
+tess = turtle.Turtle()           # create tess
+
+drawSquare(tess, 50)
+
+wn.exitonclick()
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch04_3)</span> </p>
+<button onclick="runit('ch04_3',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch04_3');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch04_3');">Load</button>
+<br />
+
+<canvas id="ch04_3_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch04_3_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>There are some points worth noting here:</p>
+<ul class="simple">
+<li>Functions can call other functions.</li>
+<li>Rewriting <cite>drawSquare</cite> like this captures the relationship
+that we&#8217;ve spotted.</li>
+<li>A caller of this function might say <cite>drawSquare(tess, 50)</cite>.  The parameters
+of this function, <tt class="docutils literal"><span class="pre">tx</span></tt> and <tt class="docutils literal"><span class="pre">sz</span></tt>, are assigned the values of the tess object, and
+the int 50 respectively.</li>
+<li>In the body of the function they are just like any other variable.</li>
+<li>When the call is made to <cite>drawRectangle</cite>, the values in variables <cite>tx</cite> and <cite>sz</cite>
+are fetched first, then the call happens.  So as we enter the top of
+function <cite>drawRectangle</cite>, its variable <cite>t</cite> is assigned the tess object, and <cite>w</cite> and
+<cite>h</cite> in that function are both given the value 50.</li>
+</ul>
+<p>So far, it may not be clear why it is worth the trouble to create all of these
+new functions. Actually, there are a lot of reasons, but this example
+demonstrates two:</p>
+<ol class="arabic simple">
+<li>Creating a new function gives you an opportunity to name a group of
+statements. Functions can simplify a program by hiding a complex computation
+behind a single command. The function (including its name) can capture your
+mental chunking, or <em>abstraction</em>, of the problem.</li>
+<li>Creating a new function can make a program smaller by eliminating repetitive
+code.</li>
+<li>Sometimes you can write functions that allow you to solve a specific
+problem using a more general solution.</li>
+</ol>
+<div class="admonition-lab admonition">
+<p class="first admonition-title">Lab</p>
+<ul class="last simple">
+<li><a class="reference external" href="lab04_01.html">Drawing a Circle</a> In this guided lab exercise we will work
+through a simple problem solving exercise related to drawing a circle with the turtle.</li>
+</ul>
+</div>
+<div class="admonition-scratch-editor admonition" id="index-3">
+<p class="first admonition-title">Scratch Editor</p>
+<div class="last">
+<button id="butt_scratch_5" onclick="createActiveCode('scratch_5',''); $('#butt_scratch_5').hide();">Open Editor</button>
+<div id="scratch_5"></div>
+<br />
+</div></div>
+</div>
+<div class="section" id="flow-of-execution-summary">
+<h2>Flow of execution summary<a class="headerlink" href="#flow-of-execution-summary" title="Permalink to this headline">¶</a></h2>
+<p>When you are working with functions it is really important to know the order
+in which statements are executed. This is called the <strong>flow of
+execution</strong> and we&#8217;ve already talked about it a number of times in this
+chapter.</p>
+<p>Execution always begins at the first statement of the program.  Statements are
+executed one at a time, in order, from top to bottom.
+Function definitions do not alter the flow of execution of the program, but
+remember that statements inside the function are not executed until the
+function is called.</p>
+<p>Function calls are like a detour in the flow of execution. Instead of going to
+the next statement, the flow jumps to the first line of the called function,
+executes all the statements there, and then comes back to pick up where it left
+off.</p>
+<p>That sounds simple enough, until you remember that one function can call
+another. While in the middle of one function, the program might have to execute
+the statements in another function. But while executing that new function, the
+program might have to execute yet another function!</p>
+<p>Fortunately, Python is adept at keeping track of where it is, so each time a
+function completes, the program picks up where it left off in the function that
+called it. When it gets to the end of the program, it terminates.</p>
+<p>What&#8217;s the moral of this sordid tale? When you read a program, don&#8217;t read from
+top to bottom. Instead, follow the flow of execution.  At this risk of
+sounding repetitive this means that you will read the def statements as you
+are scanning from top to bottom, but you should skip the body of the function
+until you reach a point where that function is called.</p>
+<span class="target" id="index-4"></span><div class="admonition-scratch-editor admonition" id="index-5">
+<p class="first admonition-title">Scratch Editor</p>
+<div class="last">
+<button id="butt_scratch_6" onclick="createActiveCode('scratch_6',''); $('#butt_scratch_6').hide();">Open Editor</button>
+<div id="scratch_6"></div>
+<br />
+</div></div>
+<p><strong>Check your understanding</strong></p>
+
+    <div id="test_question5_6_1">
+    <p>5.6.1: Consider the following Python code. Note that line numbers are included on the left.
+<pre>
+1    def pow(b, p):
+2        y = b ** p
+3        return y
+4
+5    def square(x):
+6        a = pow(x, 2)
+7        return a
+8
+9    n = 5
+10   result = square(n)
+11   print(result)
+</pre>
+Which of the following best reflects the order in which these lines of code are processed in Python?</p>
+    <form name="test_question5_6_1_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="test_question5_6_1_opt_a" />
+    <label for= "test_question5_6_1_opt_a">  a) 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11</label><br />
+    
+    <input type="radio" name="group1" value="b" id="test_question5_6_1_opt_b" />
+    <label for= "test_question5_6_1_opt_b">  b) 1, 2, 3, 5, 6, 7, 9, 10, 11</label><br />
+    
+    <input type="radio" name="group1" value="c" id="test_question5_6_1_opt_c" />
+    <label for= "test_question5_6_1_opt_c">  c) 9, 10, 11, 1, 2, 3, 5, 6, 7</label><br />
+    
+    <input type="radio" name="group1" value="d" id="test_question5_6_1_opt_d" />
+    <label for= "test_question5_6_1_opt_d">  d) 9, 10, 5, 6, 7, 1, 2, 3, 11</label><br />
+    
+    <input type="radio" name="group1" value="e" id="test_question5_6_1_opt_e" />
+    <label for= "test_question5_6_1_opt_e">  e) 1, 5, 9, 10, 6, 2, 3, 7, 11</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('test_question5_6_1','e',['Although Python typically processes lines in order from top to bottom, function definitions and calls are an exception to this rule.', 'Although Python typically processes lines in order from top to bottom, function definitions and calls are an exception to this rule.  Although this order skips blank lines, it still lists the lines of code in order.', 'This is close, in that Python will not execute the functions until after they are called, but there are two problems here.  First, Python does not know which lines are function definitions until it processes them, so it must at least process the function headers before skipping over the functions. Section, notice that line 10 involves a function call.  Python must execute the function square before moving on to line 11.', 'This is close, in that Python will not execute the functions until after they are called, but there is one problem here.  Python does not know which lines are function definitions until it processes them, so it must at least process the function headers before skipping over the functions.', 'Python starts at line 1, notices that it is a function definition and skips over all of the lines in the function definition until it finds a line that it no longer included in the function (line 5).  It then notices line 5 is also a function definition and again skips over the function body to line 9.  On line 10 it notices it has a function to execute, so it goes back and executes the body of that function.  Notice that that function includes another function call.  Finally, it will return to line 11 after the function square is complete.'])"/> 
+    </form>
+    <div id="test_question5_6_1_feedback">
+    </div>
+    </div>
+    
+    <div id="test_question5_6_2">
+    <p>5.6.2: Consider the following Python code. Note that line numbers are included on the left.
+<pre>
+1    def pow(b, p):
+2        y = b ** p
+3        return y
+4
+5    def square(x):
+6        a = pow(x, 2)
+7        return a
+8
+9    n = 5
+10   result = square(n)
+11   print(result)
+</pre>
+What does this function print?</p>
+    <form name="test_question5_6_2_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="test_question5_6_2_opt_a" />
+    <label for= "test_question5_6_2_opt_a">  a) 25</label><br />
+    
+    <input type="radio" name="group1" value="b" id="test_question5_6_2_opt_b" />
+    <label for= "test_question5_6_2_opt_b">  b) 5</label><br />
+    
+    <input type="radio" name="group1" value="c" id="test_question5_6_2_opt_c" />
+    <label for= "test_question5_6_2_opt_c">  c) 125</label><br />
+    
+    <input type="radio" name="group1" value="d" id="test_question5_6_2_opt_d" />
+    <label for= "test_question5_6_2_opt_d">  d) 32</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('test_question5_6_2','a',['The function square returns the square of its input (via a call to pow)', 'What is printed is the output of the square function.  5 is the input to the square function.', 'Notice that pow is called from within square with a base (b) of 5 and a power (p) of two.', 'Notice that pow is called from within square with a base (b) of 5 and a power (p) of two.'])"/> 
+    </form>
+    <div id="test_question5_6_2_feedback">
+    </div>
+    </div>
+    </div>
+<div class="section" id="a-turtle-bar-chart">
+<h2>A Turtle Bar Chart<a class="headerlink" href="#a-turtle-bar-chart" title="Permalink to this headline">¶</a></h2>
+<p>Recall from our discussion of modules that there were a number of things that turtles can do.
+Here are a couple more tricks (remember that they are all described in the module documentation).</p>
+<ul class="simple">
+<li>We can get a turtle to display text on the canvas at the turtle&#8217;s current position.  The method is called <cite>write</cite>.
+For example,   <tt class="docutils literal"><span class="pre">alex.write(&quot;Hello&quot;)</span></tt> would write the string <cite>hello</cite> at the current position.</li>
+<li>One can fill a shape (circle, semicircle, triangle, etc.) with a fill color.  It is a two-step process.
+First you call the method <cite>begin_fill</cite>, for example <tt class="docutils literal"><span class="pre">alex.begin_fill()</span></tt>.  Then you draw the shape.
+Finally, you call <cite>end_fill</cite> ( <tt class="docutils literal"><span class="pre">alex.end_fill()</span></tt>).</li>
+<li>We&#8217;ve previously set the color of our turtle - we can now also set it&#8217;s fill color, which need not
+be the same as the turtle and the pen color.  To do this, we use a method called <cite>fillcolor</cite>,
+for example, <tt class="docutils literal"><span class="pre">alex.fillcolor(&quot;red&quot;)</span></tt>.</li>
+</ul>
+<p>Ok, so can we get tess to draw a bar chart?  Let us start with some data to be charted,</p>
+<p><tt class="docutils literal"><span class="pre">xs</span> <span class="pre">=</span> <span class="pre">[48,</span> <span class="pre">117,</span> <span class="pre">200,</span> <span class="pre">240,</span> <span class="pre">160,</span> <span class="pre">260,</span> <span class="pre">220]</span></tt></p>
+<p>Corresponding to each data measurement, we&#8217;ll draw a simple rectangle of that height, with a fixed width.
+Here is what we would like to create.</p>
+<img alt="../_images/tess_bar_1.png" src="../_images/tess_bar_1.png" />
+<p>We can quickly see that drawing a bar will be similar to drawing a rectangle or a square.  Since we will need to do it
+a number of times, it makes sense to create a function, <tt class="docutils literal"><span class="pre">drawBar</span></tt>, that will need a turtle and the height of the bar.  We will assume that the width of the bar will be 40 units.  Once we have the function, we can use a simple for loop to process the list of data values.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">drawBar</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Get turtle t to draw one bar, of height. &quot;&quot;&quot;</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>               <span class="c"># Point up</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>        <span class="c"># Draw up the left side</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>            <span class="c"># width of bar, along the top</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>        <span class="c"># And down again!</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>               <span class="c"># put the turtle facing the way we found it.</span>
+
+<span class="o">...</span>
+<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">:</span>                 <span class="c"># assume xs and tess are ready</span>
+    <span class="n">drawBar</span><span class="p">(</span><span class="n">tess</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It is a nice start!  The important thing here
+was the mental chunking.  To solve the problem we first broke it into smaller pieces.  In particular,
+our chunk
+is to draw one bar.  We then implemented that chunk with a function. Then, for the whole
+chart, we repeatedly called our function.</p>
+<p>Next, at the top of each bar, we&#8217;ll print the value of the data.
+We&#8217;ll do this in the body of <tt class="docutils literal"><span class="pre">drawBar</span></tt>, by adding   <tt class="docutils literal"><span class="pre">t.write('</span>&nbsp; <span class="pre">'</span> <span class="pre">+</span> <span class="pre">str(height))</span></tt>
+as the new third line of the body.
+We&#8217;ve put a little space in front of the number, and turned the
+number into a string.  Without this extra space we tend
+to cramp our text awkwardly against the bar to the left.
+Finally, we&#8217;ll add the two methods needed  to fill each bar.</p>
+<p>The one remaining problem is related the fact that our turtle lives in a world where the center is at position (0,0).  In this problem, it would help if (0,0) were in the lower left hand corner.  To solve this we can use our <tt class="docutils literal"><span class="pre">setworldcoordinates</span></tt> method to rescale the window.  While we are at it, we should make the window fit the data.  The tallest bar will correspond to the maximum data value.  The width of the window will need to be proportional to the number of bars (the number of data values) where each has a width of 40.  Using this information, we can compute the coordinate
+system that makes sense for the data set.  To make it look nice, we&#8217;ll add a bit of space at the bottom and at the left as a border.</p>
+<p>Here is the complete program.  Try it and then change the data to see that it can adapt to the new values.</p>
+
+<div id="ch05_barchart" >
+<textarea cols="50" rows="12" id="ch05_barchart_code" class="active_code">
+import turtle
+
+def drawBar(t, height):
+    """ Get turtle t to draw one bar, of height. """
+    t.begin_fill()               # start filling this shape
+    t.left(90)
+    t.forward(height)
+    t.write('  '+ str(height))
+    t.right(90)
+    t.forward(40)
+    t.right(90)
+    t.forward(height)
+    t.left(90)
+    t.end_fill()                 # stop filling this shape
+
+
+
+xs = [48,117,200,240,160,260,220]  # here is the data
+maxheight = max(xs)
+numbars = len(xs)
+border = 10
+
+tess = turtle.Turtle()           # create tess and set some attributes
+tess.color("blue")
+tess.fillcolor("red")
+tess.pensize(3)
+
+wn = turtle.Screen()             # Set up the window and its attributes
+wn.bgcolor("lightgreen")
+wn.setworldcoordinates(0-border,0-border,40*numbars+border,maxheight+border)
+
+
+for a in xs:
+    drawBar(tess, a)
+
+wn.exitonclick()
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch05_barchart)</span> </p>
+<button onclick="runit('ch05_barchart',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch05_barchart');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch05_barchart');">Load</button>
+<br />
+
+<canvas id="ch05_barchart_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch05_barchart_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<div class="admonition-scratch-editor admonition">
+<p class="first admonition-title">Scratch Editor</p>
+<div class="last">
+<button id="butt_scratch_7" onclick="createActiveCode('scratch_7',''); $('#butt_scratch_7').hide();">Open Editor</button>
+<div id="scratch_7"></div>
+<br />
+</div></div>
+</div>
+<div class="section" id="glossary">
+<h2>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h2>
+<dl class="glossary docutils">
+<dt id="term-argument">argument</dt>
+<dd>A value provided to a function when the function is called. This value
+is assigned to the corresponding parameter in the function.  The argument
+can be the result of an expression which may involve operators,
+operands and calls to other fruitful functions.</dd>
+<dt id="term-body">body</dt>
+<dd>The second part of a compound statement. The body consists of a
+sequence of statements all indented the same amount from the beginning
+of the header.  The standard amount of indentation used within the
+Python community is 4 spaces.</dd>
+<dt id="term-compound-statement">compound statement</dt>
+<dd><p class="first">A statement that consists of two parts:</p>
+<ol class="arabic simple">
+<li>header - which begins with a keyword determining the statement
+type, and ends with a colon.</li>
+<li>body - containing one or more statements indented the same amount
+from the header.</li>
+</ol>
+<p>The syntax of a compound statement looks like this:</p>
+<div class="last highlight-python"><div class="highlight"><pre><span class="n">keyword</span> <span class="n">expression</span><span class="p">:</span>
+    <span class="n">statement</span>
+    <span class="n">statement</span> <span class="o">...</span>
+</pre></div>
+</div>
+</dd>
+<dt id="term-docstring">docstring</dt>
+<dd>If the first thing in a function body is a string (or, we&#8217;ll see later, in other situations
+too) that is attached to the function as its <tt class="docutils literal"><span class="pre">__doc__</span></tt> attribute.</dd>
+<dt id="term-flow-of-execution">flow of execution</dt>
+<dd>The order in which statements are executed during a program run.</dd>
+<dt id="term-function">function</dt>
+<dd>A named sequence of statements that performs some useful operation.
+Functions may or may not take parameters and may or may not produce a
+result.</dd>
+<dt id="term-function-call">function call</dt>
+<dd>A statement that executes a function. It consists of the name of the
+function followed by a list of arguments enclosed in parentheses.</dd>
+<dt id="term-function-composition">function composition</dt>
+<dd>Using the output from one function call as the input to another.</dd>
+<dt id="term-function-definition">function definition</dt>
+<dd>A statement that creates a new function, specifying its name,
+parameters, and the statements it executes.</dd>
+<dt id="term-fruitful-function">fruitful function</dt>
+<dd>A function that returns a value when it is called.</dd>
+<dt id="term-header-line">header line</dt>
+<dd>The first part of a compound statement. A header line begins with a keyword and
+ends with a colon (:)</dd>
+<dt id="term-import-statement">import statement</dt>
+<dd>A statement which permits functions and variables defined in another Python
+module to be brought into the environment of another script.  To use the
+features of the turtle, we need to first import the turtle module.</dd>
+<dt id="term-lifetime">lifetime</dt>
+<dd>Variables and objects have lifetimes &#8212; they are created at some point during
+program execution, and will be destroyed at some time.</dd>
+<dt id="term-local-variable">local variable</dt>
+<dd>A variable defined inside a function. A local variable can only be used
+inside its function.  Parameters of a function are also a special kind
+of local variable.</dd>
+<dt id="term-parameter">parameter</dt>
+<dd>A name used inside a function to refer to the value which was passed
+to it as an argument.</dd>
+<dt id="term-refactor">refactor</dt>
+<dd>A fancy word to describe reorganizing your program code, usually to make
+it more understandable.  Typically, we have a program that is already working,
+then we go back to &#8220;tidy it up&#8221;.  It often involves choosing better variable
+names, or spotting repeated patterns and moving that code into a function.</dd>
+</dl>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Use the drawsquare function we wrote in this chapter in a program to draw
+the image shown below.
+Assume each side is 20 units.
+(Hint: notice that the turtle has already moved away from the ending point of the last
+square when the program ends.)</p>
+<img alt="../_images/five_squares.png" src="../_images/five_squares.png" />
+
+<button id="butt_ex_5_1" onclick="createActiveCode('ex_5_1','import turtle\n\ndef drawSquare(t, sz):\n    %22%22%22Get turtle t to draw a square of sz side%22%22%22\n\n    for i in range(4):\n        t.forward(sz)\n        t.left(90)\n\nwn = turtle.Screen()\nwn.bgcolor(%22lightgreen%22)\n\nalex = turtle.Turtle()\nalex.color(%22pink%22)\n\ndrawSquare(alex,20)\n\nwn.exitonclick()'); $('#butt_ex_5_1').hide();">Open Editor</button>
+<div id="ex_5_1"></div>
+<br />
+</li>
+<li><p class="first">Write a program to draw this. Assume the innermost square is 20 units per side,
+and each successive square is 20 units bigger, per side, than the one inside it.</p>
+<img alt="../_images/nested_squares.png" src="../_images/nested_squares.png" />
+
+<button id="butt_ex_5_2" onclick="createActiveCode('ex_5_2',''); $('#butt_ex_5_2').hide();">Open Editor</button>
+<div id="ex_5_2"></div>
+<br />
+</li>
+<li><p class="first">Write a non-fruitful function <cite>drawPoly(someturtle, somesides, somesize)</cite> which makes a turtle
+draw a regular polygon.
+When called with <cite>drawPoly(tess, 8, 50)</cite>, it will draw a shape like this:</p>
+<img alt="../_images/regularpolygon.png" src="../_images/regularpolygon.png" />
+
+<button id="butt_ex_5_3" onclick="createActiveCode('ex_5_3',''); $('#butt_ex_5_3').hide();">Open Editor</button>
+<div id="ex_5_3"></div>
+<br />
+</li>
+<li><p class="first">Draw this pretty pattern.</p>
+<blockquote>
+<div><img alt="../_images/tess08.png" src="../_images/tess08.png" />
+
+<button id="butt_ex_5_4" onclick="createActiveCode('ex_5_4',''); $('#butt_ex_5_4').hide();">Open Editor</button>
+<div id="ex_5_4"></div>
+<br />
+</div></blockquote>
+</li>
+<li><p class="first">The two spirals in this picture differ only by the turn angle.  Draw both.</p>
+<img alt="../_images/tess_spirals.png" src="../_images/tess_spirals.png" style="height: 240px;" />
+
+<button id="butt_ex_5_5" onclick="createActiveCode('ex_5_5',''); $('#butt_ex_5_5').hide();">Open Editor</button>
+<div id="ex_5_5"></div>
+<br />
+</li>
+<li><p class="first">Write a non-fruitful function <cite>drawEquitriangle(someturtle, somesize)</cite> which calls <cite>drawPoly</cite> from the
+previous question to have its turtle draw a equilateral triangle.</p>
+
+<button id="butt_ex_5_6" onclick="createActiveCode('ex_5_6',''); $('#butt_ex_5_6').hide();">Open Editor</button>
+<div id="ex_5_6"></div>
+<br />
+</li>
+<li><p class="first">Write a fruitful function <cite>sumTo(n)</cite> that returns the sum of all integer numbers up to and
+including <cite>n</cite>.   So <cite>sumTo(10)</cite> would be <cite>1+2+3...+10</cite> which would return the value 55.  Use the
+equation  (n * (n + 1)) / 2.</p>
+
+<button id="butt_ex_5_7" onclick="createActiveCode('ex_5_7','from test import testEqual\n\ndef sumTo(n):\n    # your code here\n\n# Now lets see how well this works\nt = sumTo(0)\ntestEqual(t, 0)\nt = sumTo(10)\ntestEqual(t, 55)\nt = sumTo(1)\ntestEqual(t,1)'); $('#butt_ex_5_7').hide();">Open Editor</button>
+<div id="ex_5_7"></div>
+<br />
+</li>
+<li><p class="first">Write a function <cite>areaOfCircle(r)</cite> which returns the area of a circle of radius <cite>r</cite>.  Make sure you use the math module in your solution.</p>
+
+<button id="butt_ex_5_8" onclick="createActiveCode('ex_5_8','from test import testEqual\n\ndef areaOfCircle(r):\n    # your code here\n\nt = areaOfCircle(0)\ntestEqual(t,0)\nt = areaOfCircle(1)\ntestEqual(t,math.pi)\nt = areaOfCircle(100)\ntestEqual(t,31415.926535897932)'); $('#butt_ex_5_8').hide();">Open Editor</button>
+<div id="ex_5_8"></div>
+<br />
+</li>
+<li><p class="first">Write a non-fruitful function to draw a five pointed star, where the length of each side is 100 units.</p>
+<img alt="../_images/star.png" src="../_images/star.png" />
+
+<button id="butt_ex_5_9" onclick="createActiveCode('ex_5_9',''); $('#butt_ex_5_9').hide();">Open Editor</button>
+<div id="ex_5_9"></div>
+<br />
+</li>
+<li><p class="first">Extend your program above.  Draw five stars, but between each, pick up the pen,
+move forward by 350 units, turn right by 144, put the pen down, and draw the next star.
+You&#8217;ll get something like this:</p>
+<img alt="../_images/five_stars.png" src="../_images/five_stars.png" />
+<p>What would it look like if you didn&#8217;t pick up the pen?</p>
+
+<button id="butt_ex_5_10" onclick="createActiveCode('ex_5_10',''); $('#butt_ex_5_10').hide();">Open Editor</button>
+<div id="ex_5_10"></div>
+<br />
+</li>
+<li><p class="first">Extend the star function to draw an n pointed star.  (Hint: n must be an odd number greater or
+equal to 3).</p>
+
+<button id="butt_ex_5_11" onclick="createActiveCode('ex_5_11',''); $('#butt_ex_5_11').hide();">Open Editor</button>
+<div id="ex_5_11"></div>
+<br />
+</li>
+<li><p class="first">Write a function called drawSprite that will draw a sprite.  The function will need parameters for
+the turtle, the number of legs, and the length of the legs.  Invoke the function to create a sprite
+with 15 legs of length 120.</p>
+
+<button id="butt_ex_5_12" onclick="createActiveCode('ex_5_12',''); $('#butt_ex_5_12').hide();">Open Editor</button>
+<div id="ex_5_12"></div>
+<br />
+</li>
+<li><p class="first">Rewrite the function <cite>sumTo(n)</cite> that returns the sum of all integer numbers up to and
+including <cite>n</cite>.   This time use the accumulator pattern.</p>
+
+<button id="butt_ex_5_13" onclick="createActiveCode('ex_5_13','from test import testEqual\n\ndef sumTo(n):\n    # your code here\n\n# Now lets see how well this works\nt = sumTo(0)\ntestEqual(t,0)\ntestEqual(sumTo(10),55)\ntestEqual(sumTo(1),1)'); $('#butt_ex_5_13').hide();">Open Editor</button>
+<div id="ex_5_13"></div>
+<br />
+</li>
+<li><p class="first">Write a function called <cite>mySqrt</cite> that will approximate the square root of a number, call it n, by using
+Newton&#8217;s algorithm.
+Newton&#8217;s approach is an iterative guessing algorithm where the initial guess is n/2 and each subsequent guess
+is computed using   the formula:  newguess = (1/2) * (oldguess + (n/oldguess)).</p>
+
+<button id="butt_ex_5_14" onclick="createActiveCode('ex_5_14',''); $('#butt_ex_5_14').hide();">Open Editor</button>
+<div id="ex_5_14"></div>
+<br />
+</li>
+<li><p class="first">Write a function called <cite>myPi</cite> that will return an approximation of PI (3.14159...).  Use the Liebniz approximation
+as described in class.</p>
+
+<button id="butt_ex_5_15" onclick="createActiveCode('ex_5_15',''); $('#butt_ex_5_15').hide();">Open Editor</button>
+<div id="ex_5_15"></div>
+<br />
+</li>
+<li><p class="first">Write a function called <cite>myPi</cite> that will return an approximation of PI (3.14159...).  Use the Madhava approximation
+as described in class.</p>
+
+<button id="butt_ex_5_16" onclick="createActiveCode('ex_5_16',''); $('#butt_ex_5_16').hide();">Open Editor</button>
+<div id="ex_5_16"></div>
+<br />
+</li>
+<li><p class="first">Write a function called <cite>fancySquare</cite> that will draw a square with fancy corners (spites on the corners).  You should
+implement and use the <cite>drawSprite</cite> function from above.  For an even more interesting look, how about adding small
+triangles to the ends of the sprite legs.</p>
+
+<button id="butt_ex_5_17" onclick="createActiveCode('ex_5_17',''); $('#butt_ex_5_17').hide();">Open Editor</button>
+<div id="ex_5_17"></div>
+<br />
+</li>
+</ol>
+<div class="admonition-scratch-editor admonition">
+<p class="first admonition-title">Scratch Editor</p>
+<div class="last">
+<button id="butt_scratch_9" onclick="createActiveCode('scratch_9',''); $('#butt_scratch_9').hide();">Open Editor</button>
+<div id="scratch_9"></div>
+<br />
+</div></div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../Labs/lab04_01.html" title="Drawing a Circle"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../Labs/sinlab.html" title="Plotting a sine Wave"
+             >previous</a> |</li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Brad Miller, David Ranum.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32029811-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>

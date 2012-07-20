@@ -6,24 +6,30 @@
     no Front-Cover Texts, and no Back-Cover Texts.  A copy of the license
     is included in the section entitled "GNU Free Documentation License".
 
-
-======================
-Your Project Name Here
-======================
-
-.. image:: _static/python-logo.png
-    :scale: 75%
+.. image:: _static/macalester.png
+    :scale: 25%
     :alt: ThinkCSPy Logo
+
+======================
+ COMP 123 Python Book
+======================
 
 
 General Introduction
-::::::::::::::::::::
+:::::::::::::::::::::
 
 .. toctree::
    :maxdepth: 2
 
    GeneralIntro/introduction.rst
 
+Activity 1
+----------
+
+.. toctree::
+    :maxdepth: 2
+
+    classactivities/0_Basic_Intro.rst
 
 Simple Python Data
 ::::::::::::::::::
@@ -33,17 +39,33 @@ Simple Python Data
 
    SimplePythonData/simpledata.rst
 
+Activity 2(Basic_Conditionals)
+------------------------------
+
+.. toctree::
+    :maxdepth: 2
+
+    classactivities/Basic_Conditionals.rst
+
 Python Turtle Graphics
-::::::::::::::::::::::
+:::::::::::::::::::::::
 
 .. toctree::
    :maxdepth: 2
 
    PythonTurtle/helloturtle.rst
 
+Activity 3(Basic_Functions)
+---------------------------
+
+.. toctree::
+    :maxdepth: 2
+
+    classactivities/funcKinesthetic.rst
+
 
 Python Modules
-::::::::::::::
+:::::::::::::::
 
 .. toctree::
    :maxdepth: 2
@@ -58,8 +80,17 @@ Functions
 
    Functions/functions.rst
 
+Activity 4
+-----------
+
+.. toctree::
+    :maxdepth: 2
+
+    classactivities/functions.rst
+    classactivities/functions2.rst
+
 Selection
-:::::::::
+::::::::::
 
 .. toctree::
    :maxdepth: 2
@@ -74,6 +105,23 @@ More About Iteration
    :maxdepth: 2
 
    MoreAboutIteration/moreiteration.rst
+
+Activity 5(Function loops)
+--------------------------
+
+.. toctree::
+    :maxdepth: 2
+
+    classactivities/functionsloops.rst
+
+Activity 6(Iterations and loops)
+--------------------------------
+
+.. toctree::
+    :maxdepth: 2
+
+    classactivities/iteration.rst
+    classactivities/loops.rst
 
 
 Strings
@@ -110,6 +158,15 @@ Dictionaries
 
    Dictionaries/dictionaries.rst
 
+Activity 7(Data types)
+----------------------
+
+.. toctree::
+    :maxdepth: 2
+
+    classactivities/datatypes.rst
+    classactivities/datatypesPractice.rst
+
 Recursion
 :::::::::
 
@@ -136,6 +193,8 @@ Abstraction and Data Structures
    :maxdepth: 2
 
    Introduction/introduction.rst
+
+
 
 Analysis
 ::::::::
@@ -168,6 +227,19 @@ Recursion
    Recursion/graphical.rst
    Recursion/recursioncomplex.rst
    Recursion/recursionexercises.rst
+
+Activity 8(Recursion)
+---------------------
+
+.. toctree::
+    :maxdepth: 2
+
+    classactivities/recurFourSteps.rst
+    classactivities/recurKinesthetic.rst
+    classactivities/recursion.rst
+    classactivities/recurexamples.rst
+    classactivities/recursions.rst
+
 
 
 Sorting and Searching
@@ -206,6 +278,76 @@ Graphs and Graph Algorithms
    Graphs/graphdfs.rst
    Graphs/graphshortpath.rst
    Graphs/graphexercises.rst
+
+
+Debugging Activity
+-------------------
+
+.. toctree::
+    :maxdepth: 2
+
+    classactivities/WingDebugger.rst
+
+Activity 9
+----------
+
+.. toctree::
+    :maxdepth: 2
+
+    classactivities/IntroToJES.rst
+    classactivities/JESIntro.rst
+    classactivities/backgroundsubst.rst
+    classactivities/BlendingImageSound.rst
+    classactivities/LoopOverRanges.rst
+    classactivities/MakingPictures.rst
+    classactivities/MakingSounds.rst
+    classactivities/MakingPicturesandSounds.rst
+    classactivities/posterblur.rst
+    classactivities/rotatereverse.rst
+
+Media
+-----
+
+.. toctree::
+    :maxdepth: 2
+
+    classactivities/Chapter4-5-samples.rst
+
+FilesAndText
+------------
+
+.. toctree::
+    :maxdepth: 2
+
+    classactivities/textprocessing.rst
+    classactivities/fileWrite.rst
+    classactivities/dataInTables.rst
+
+Introduction To Wing
+--------------------
+
+.. toctree::
+    :maxdepth: 2
+
+    classactivities/IntroductionWing.rst
+
+Book Questions
+--------------
+
+.. toctree::
+    :maxdepth: 2
+
+    classactivities/chapter6sounds.rst
+
+WMR Activities
+--------------
+
+.. toctree::
+    :maxdepth: 2
+
+    classactivities/wmr/MapReduceIntro.rst
+    classactivities/wmr/WmrActivities.rst
+    classactivities/wmr/wmr_py.rst
 
 
 Acknowledgements

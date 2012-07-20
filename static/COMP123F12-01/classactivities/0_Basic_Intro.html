@@ -1,0 +1,482 @@
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Basic Python &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/edu-python.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/simplemodal.js"></script>
+    <script type="text/javascript" src="../_static/jquery.textarea.js"></script>
+    <script type="text/javascript" src="../_static/edu-python.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.js"></script>
+    <script type="text/javascript" src="../_static/builtin.js"></script>
+    <script type="text/javascript" src="../_static/assess.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../index.html" />
+<script type="text/javascript"> 
+eBookConfig = {}
+eBookConfig.host = 'http://141.140.167.226:8000' ? 'http://141.140.167.226:8000' : 'http://127.0.0.1:8000',
+eBookConfig.app = eBookConfig.host+'/courselib',
+eBookConfig.ajaxURL = eBookConfig.app+'/ajax/',
+eBookConfig.course = 'COMP123F12-01',
+eBookConfig.logLevel = 10,
+eBookConfig.loginRequired = true
+</script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Basic Python</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#python">Python</a></li>
+<li><a class="reference internal" href="#idle">IDLE</a><ul>
+<li><a class="reference internal" href="#try-these-examples">Try these examples</a></li>
+<li><a class="reference internal" href="#create-your-own-script">Create your own script</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#data-types">Data Types</a><ul>
+<li><a class="reference internal" href="#numbers">Numbers</a></li>
+<li><a class="reference internal" href="#try-a-new-script">Try a new script</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#strings">Strings</a><ul>
+<li><a class="reference internal" href="#a-string-script">A string script</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/classactivities/0_Basic_Intro.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul><!--<div id="runestonebox">
+  <h3>Runestone Links</h3>
+  <ul>
+    <li>
+      <a href="https://github.com/bnmnetp/runestone/issues/new">Report a Problem</a>
+    </li>
+    <li>
+      <a href="http://runestoneinteractive.org">About Runestone</a>
+    </li>
+    <li>
+      <a href="/courselib/admin/index">Instructors Page</a>
+    </li>
+  </ul>
+</div>
+-->
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="basic-python">
+<h1>Basic Python<a class="headerlink" href="#basic-python" title="Permalink to this headline">¶</a></h1>
+<p><strong>COMP 123</strong></p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Today you will learn a bit about Python, and some basic kinds of data Python can manipulate. You’ll learn
+how to store values in variables, and how to build expressions that can be evaluated to produce a value. You
+will learn how to put sequences of Python statements and expressions in a file, called a script, which can be
+saved and re-run at a later point.</p>
+</div>
+<div class="section" id="python">
+<h2>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<p>Python provides an interactive shell that we use to communicate with it, much like a calculator provides an
+interface that we use to communicate with it. With Python, you can type a series of Python statements into
+the shell, and get immediate responses to each one. You can also package up a series of statements as a
+script. When you run the script, Python executes each statement in order. Most modern operating systems
+allow you to run a Python script as if it were an executable application, just by double-clicking on the Python
+file containing the script. Behind the scenes, the Python shell is started up, and the statements are executed
+in the shell one after another.
+We can also write programs other than scripts in Python, but we’ll get to that later.</p>
+</div>
+<div class="section" id="idle">
+<h2>IDLE<a class="headerlink" href="#idle" title="Permalink to this headline">¶</a></h2>
+<p>IDLE is a Python programming environment that is typically packaged with Python when you download it.
+IDLE gives you a window that contains the interactive shell, but also allows you to open editor windows,
+where you can type in, edit, and save scripts and programs. IDLE saves files as plain text, with a .py
+extension.</p>
+<p>You can find IDLE on both Macs and PCs in the Math/CS department. Find and start up IDLE. (Be sure
+that the version of Python you are running is version 2.7 or earlier. Python 3.0 is different from what we
+will use this term.)</p>
+<p>You may see several windows open when you start up IDLE. The one we want is labeled “Python Shell.”
+Note that the menus associated with different kinds of windows in IDLE are different. The version of Python
+is printed at the top of the Python Shell when we start up IDLE.</p>
+<p>Under the “Help” menu is a simple guide to IDLE, and also a local copy of the Python documentation.
+This may be helpful to you over the next few weeks.</p>
+<p>Under the “File” menu, select “New Window.” This will open a window with an editor for Python scripts
+and programs. A program editor is like a word processor, but one designed to help you write programs in a
+programming language.</p>
+<div class="section" id="try-these-examples">
+<h3>Try these examples<a class="headerlink" href="#try-these-examples" title="Permalink to this headline">¶</a></h3>
+<p>Try the examples below in the interactive shell, typing each one
+in turn. Note: variables in computer science are similar to
+variables in math, but not identical. Think of a variable as being
+a name for a box in the computer&#8217;s memory, where you can stick a
+value of some kind.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="68%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">5</span> <span class="pre">+</span> <span class="pre">2</span></tt></td>
+<td>Compute the sum of two numbers.</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">100</span></tt></td>
+<td>Assign the value 100 to variable x.</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">(2</span> <span class="pre">*</span> <span class="pre">x)</span> <span class="pre">-</span> <span class="pre">33</span></tt></td>
+<td>Compute the value <span class="math">\(2x - 33\)</span>.</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">2</span> <span class="pre">**</span> <span class="pre">4</span></tt></td>
+<td>Compute the value <span class="math">\(2^4\)</span>, (** means exponentiation)</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">(x</span> <span class="pre">-</span> <span class="pre">(5</span> <span class="pre">*</span> <span class="pre">4))</span></tt></td>
+<td>Assign the value of the expression to variable z.</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">print</span> <span class="pre">10</span> <span class="pre">*</span> <span class="pre">3,</span> <span class="pre">x,</span> <span class="pre">z</span></tt></td>
+<td>Print the values of each expression on a line.</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">strng</span> <span class="pre">=</span> <span class="pre">'Hello</span> <span class="pre">there'</span></tt></td>
+<td>Assign variable strng to be the string.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+
+<button id="butt_ch01_1" onclick="createActiveCode('ch01_1','print(5+2) #Compute the sum of two numbers.\nx=100 #Assign the value 100 to variable x.\nprint(2*x)-33 #Compute the value 2x-33\nprint(2**4) # Compute the value\nz=(x-(5*4)) #Assign the value of the expression to variable z.\nprint 10*3,x,z #Print the values of each expression on a line.\nstrng=%22Hello there%22 #Assign variable strng to be the string.\nprint strng #print strng'); $('#butt_ch01_1').hide();">Open Editor</button>
+<div id="ch01_1"></div>
+<br />
+</div>
+<div class="section" id="create-your-own-script">
+<h3>Create your own script<a class="headerlink" href="#create-your-own-script" title="Permalink to this headline">¶</a></h3>
+<p>Suppose I want to fence in my backyard. Given the length and width
+of the space, I can figure out how much fencing I need by computing
+the perimeter of the rectangle. Define a variable <tt class="docutils literal"><span class="pre">w</span></tt> to hold the
+value 50 (the width in feet of my yard), and define variable <tt class="docutils literal"><span class="pre">l</span></tt> to
+be the value 75 (the length in feet of my yard). Then write a
+Python expression to calculate how many feet of fencing I would
+need to enclose my yard. Try it out in the shell.</p>
+<p>Choose &#8220;New Window&#8221; to open an editor window. Copy the statements
+you used to compute the length of fencing into this window. Make
+sure each statement starts at the beginning of the line (no leading
+spaces). Save this file as <tt class="docutils literal"><span class="pre">fencing.py</span></tt>, and then try running the
+script. To run your script in the Python shell, select &#8220;Run Module&#8221;
+from the &#8220;Run&#8221; menu. Does it work? When you run a script from a
+file, Python automatically suppresses the values of each expression
+in the file. Thus, if you want to see the result of your
+calculations, you will need to add <tt class="docutils literal"><span class="pre">print</span></tt> statements to see the
+final result. Next, change the values of <tt class="docutils literal"><span class="pre">w</span></tt> and <tt class="docutils literal"><span class="pre">l</span></tt> to new values.
+Does the script work correctly on these new values? Add a comment
+above your Python statements that describes what your script does.</p>
+
+<button id="butt_ch01_2" onclick="createActiveCode('ch01_2',''); $('#butt_ch01_2').hide();">Open Editor</button>
+<div id="ch01_2"></div>
+<br />
+</div>
+</div>
+<div class="section" id="data-types">
+<h2>Data Types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="numbers">
+<h3>Numbers<a class="headerlink" href="#numbers" title="Permalink to this headline">¶</a></h3>
+<p>Python has two main kinds of numbers: integers, and real, or
+floating point, numbers. (There are other kinds of numbers, as
+well, but we probably won&#8217;t use any of them). Below is a table
+showing basic numeric operations. Many more common mathematical
+operations are in the math module, which you can add in when you
+need it.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="34%" />
+<col width="66%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Example</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>3 + 12</td>
+<td>Adds two numbers, returning the result</td>
+</tr>
+<tr class="row-odd"><td>45 - 19</td>
+<td>Subtracts second from first, returning the result</td>
+</tr>
+<tr class="row-even"><td>5*100</td>
+<td>Multiplies two numbers, returning the result</td>
+</tr>
+<tr class="row-odd"><td>55.0 / 2</td>
+<td>Divides first by the second, returning the result</td>
+</tr>
+<tr class="row-even"><td>30 % 4</td>
+<td>Computes the remainder of first divided by second</td>
+</tr>
+<tr class="row-odd"><td>2**3</td>
+<td>Raises first to the power of the second</td>
+</tr>
+<tr class="row-even"><td>max(1, 5, 3)</td>
+<td>A function that returns the largest of values</td>
+</tr>
+<tr class="row-odd"><td>min(1, 5, 3)</td>
+<td>A function that returns the smallest of values</td>
+</tr>
+<tr class="row-even"><td>abs(-3)</td>
+<td><dl class="first last docutils">
+<dt>A function that returns the absolute value of</dt>
+<dd>its argument</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td>int(3.2)</td>
+<td>Converts its argument to an integer</td>
+</tr>
+<tr class="row-even"><td>float(2)</td>
+<td>Converts its argument to a floating point</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Integers and floats are treated as different, though related, kinds
+of data. This is why we have explicit operators to convert from one
+type to the other. Try the following in the Python shell to see how
+division works: dividing an integer by an integer produces an
+integer, ignoring the remainder.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="mf">25.0</span><span class="o">/</span><span class="mi">3</span>
+<span class="mf">25.0</span><span class="o">/</span><span class="mf">3.0</span>
+<span class="mi">25</span><span class="o">/</span><span class="mf">3.0</span>
+<span class="mi">25</span><span class="o">/</span><span class="mi">3</span>
+<span class="mi">25</span><span class="o">%</span><span class="mi">3</span>
+</pre></div>
+</div>
+
+<button id="butt_ch01_3" onclick="createActiveCode('ch01_3','print(25.0/3)\nprint(25.0/3.0)\nprint(25/3.0)\nprint(25/3)\nprint(25%3)'); $('#butt_ch01_3').hide();">Open Editor</button>
+<div id="ch01_3"></div>
+<br />
+</div>
+<div class="section" id="try-a-new-script">
+<h3>Try a new script<a class="headerlink" href="#try-a-new-script" title="Permalink to this headline">¶</a></h3>
+<p>Consider the problem of making change: figuring out how many bills
+and coins to give someone to make a specific amount of money. This
+example asks you to make a script to solve this problem. You might
+start by discussing this question with a neighbor, and developing
+together your ideas for how to solve the problem, in English or
+pseudocode. The key idea to making change is to take the quotient
+and remainder of an amount by the next monetary unit. For example,
+given $7.32, represented as 732 cents. If we take the quotient of
+732 by 100 (for one dollar bills), then we get 7, and the remainder
+of 732 divided by 100 is 32. Then take the part left over, and
+repeat for the next coin: quarters. Divide 32 by 25, and get 1, and
+the remainder is 7 cents. Continue in this manner.</p>
+<p>Now, see if you can write a Python script, a series of expressions
+or statements in Python, that do this calculation and print out the
+results. Open a new editor window, or add this to an existing file.
+Define a variable, <tt class="docutils literal"><span class="pre">money</span></tt>, that contains a money amount, in cents
+(like 732 for $7.32, for example).</p>
+<p>Then, create a series of Python statements that calculate and print
+how to give change for the money value, in dollars, quarters,
+dimes, nickels, and pennies. The best solution will use integer
+division and the remainder operation.</p>
+<p>Below is an example of what might print when this script is run:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Making</span> <span class="n">change</span> <span class="k">for</span> <span class="mi">732</span> <span class="n">cents</span><span class="p">:</span>
+<span class="n">Dollars</span><span class="p">:</span> <span class="mi">7</span>
+<span class="n">Quarters</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">Dimes</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">Nickels</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">Pennies</span><span class="p">:</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>Once you get the script working for 732, change the value of
+<tt class="docutils literal"><span class="pre">money</span></tt> and test your script on other values to be sure it works
+more generally.</p>
+
+<button id="butt_ch01_4" onclick="createActiveCode('ch01_4',''); $('#butt_ch01_4').hide();">Open Editor</button>
+<div id="ch01_4"></div>
+<br />
+</div>
+</div>
+<div class="section" id="strings">
+<h2>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h2>
+<p>Strings are collections of characters, and characters are keyboard
+symbols. For now, we&#8217;ll use strings to be little bits of text, so
+that we can print out more interesting messages.</p>
+<p>Strings and characters are written the same in Python. A character
+is just a string of length 1. Strings are written with quotes
+before and after them. You can either use double-quotes or
+single-quotes, as the examples below show. There are special
+strings called &#8220;doc-strings&#8221; that are written with three
+double-quotes before and after. These strings can be more than one
+line long.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="s">&#39;Hi there&#39;</span>
+<span class="s">&quot;Hi there&quot;</span>
+<span class="s">&quot;I contain an apostrophe, don&#39;t I&quot;</span>
+<span class="s">&#39;I was told, &quot;double quotes go inside single quotes&quot;&#39;</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s">&#39;hi mom&#39;</span>
+<span class="n">longstr</span><span class="o">=</span> <span class="s">&quot;&quot;&quot;As I was going to St. Ives, I met a man with seven wives.   Each wife had seven sacks,</span>
+<span class="s">Each sack had seven cats,   Each cat had seven kits.    Kits, cats, sacks, and wives:   How many were going to St.Ives?&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>We won&#8217;t do much with string operations today, but here are a
+couple to keep in mind:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="34%" />
+<col width="66%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">len('foo')</span></tt></td>
+<td>returns the number of characters in its argument</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">'foo'</span> <span class="pre">+</span> <span class="pre">'bar'</span></tt></td>
+<td>concatenates the two strings together</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">'foo'</span> <span class="pre">*</span> <span class="pre">3</span></tt></td>
+<td><dl class="first last docutils">
+<dt>concatenates the string with itself the number of</dt>
+<dd>times given</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">'mom'</span> <span class="pre">in</span> <span class="pre">s</span></tt></td>
+<td>checks if first string occurs in second string</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">s[3]</span></tt></td>
+<td><dl class="first last docutils">
+<dt>returns the character at the given position,</dt>
+<dd>zero-based</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">s[3:5]</span></tt></td>
+<td><dl class="first last docutils">
+<dt>returns a substring starting at 3 and</dt>
+<dd>ending before 5</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<div class="section" id="a-string-script">
+<h3>A string script<a class="headerlink" href="#a-string-script" title="Permalink to this headline">¶</a></h3>
+<p>Create a script that starts with:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">sentence</span> <span class="o">=</span> <span class="s">&#39;We must go to the movies on Saturday&#39;</span>
+</pre></div>
+</div>
+<p>The script should pull out the last word in the sentence, using the
+substring operation from above, and should print a new string
+formed by concatenating the last word with itself 4 times.</p>
+
+<button id="butt_ch01_5" onclick="createActiveCode('ch01_5',''); $('#butt_ch01_5').hide();">Open Editor</button>
+<div id="ch01_5"></div>
+<br />
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Brad Miller, David Ranum.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32029811-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>

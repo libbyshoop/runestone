@@ -1,0 +1,457 @@
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Overview &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/edu-python.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/simplemodal.js"></script>
+    <script type="text/javascript" src="../_static/jquery.textarea.js"></script>
+    <script type="text/javascript" src="../_static/edu-python.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.js"></script>
+    <script type="text/javascript" src="../_static/builtin.js"></script>
+    <script type="text/javascript" src="../_static/assess.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../index.html" />
+<script type="text/javascript"> 
+eBookConfig = {}
+eBookConfig.host = 'http://141.140.167.226:8000' ? 'http://141.140.167.226:8000' : 'http://127.0.0.1:8000',
+eBookConfig.app = eBookConfig.host+'/courselib',
+eBookConfig.ajaxURL = eBookConfig.app+'/ajax/',
+eBookConfig.course = 'COMP123F12-01',
+eBookConfig.logLevel = 10,
+eBookConfig.loginRequired = true
+</script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Overview</a></li>
+<li><a class="reference internal" href="#variables-global-parameter-and-local">Variables: global, parameter, and local</a><ul>
+<li><a class="reference internal" href="#try-this">Try this:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#fruitful-functions-handling-returned-values">Fruitful functions: handling returned values</a><ul>
+<li><a class="reference internal" href="#id1">Try this:</a></li>
+<li><a class="reference internal" href="#id2">Try this:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#functions-that-call-other-functions">Functions that call other functions</a><ul>
+<li><a class="reference internal" href="#id3">Try this:</a></li>
+<li><a class="reference internal" href="#id4">Try this:</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/classactivities/functions2.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul><!--<div id="runestonebox">
+  <h3>Runestone Links</h3>
+  <ul>
+    <li>
+      <a href="https://github.com/bnmnetp/runestone/issues/new">Report a Problem</a>
+    </li>
+    <li>
+      <a href="http://runestoneinteractive.org">About Runestone</a>
+    </li>
+    <li>
+      <a href="/courselib/admin/index">Instructors Page</a>
+    </li>
+  </ul>
+</div>
+-->
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<p>This activity follows on the earlier functions activity, giving you
+more practice with defining functions, and looking particularly at
+how parameter variables and local variables work, and how inputs
+and return values work.</p>
+<p>It will also ask you to practice with writing functions that are
+called by other functions.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All the code that is in this activity may be found in the
+<em>functions2.py</em> file!** Open this file in an IDLE editor window.</p>
+</div>
+</div>
+<div class="section" id="variables-global-parameter-and-local">
+<h1>Variables: global, parameter, and local<a class="headerlink" href="#variables-global-parameter-and-local" title="Permalink to this headline">¶</a></h1>
+<p>Open a new editor window- this will become the basis of the file
+that you will hand in for this activity, so be sure to put your
+name in its file name when you save it. Copy the code below from
+the functions2.py file (variable assignment, function definition,
+and call to function) into the new editor window. Then run the
+script using &#8220;Run Module&#8221;, and see what happens.</p>
+<p>Global variables are the variables you define outside of any
+function definition, either typing the variable assignment into the
+interactive shell, or putting it in a script, outside of a
+function. In the example below, <em>x</em> is a global variable. Global
+variable assignment go into the &#8220;global namespace&#8221;, and may be
+accessed by any other Python script, statement, expression, or
+function that occurs <em>after</em> the assignment takes place. Thus,
+<em>sillyFn</em> can refer to <em>x</em> inside its body.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="mi">35</span>
+<span class="k">def</span> <span class="nf">sillyFn</span><span class="p">(</span><span class="n">a</span><span class="p">):</span> <span class="c"># defining the function</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">a</span>
+    <span class="k">return</span> <span class="n">b</span>
+<span class="k">print</span> <span class="n">sillyFn</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="c"># calling the function, and printing what it returns</span>
+</pre></div>
+</div>
+<p>When you define a function, you declare a set of parameter
+variables. These variables do not have values yet (not at the time
+the function is defined). They will take on values only when the
+function is actually called. The variable <em>a</em> above is a parameter
+variable.</p>
+<p>When the function is called, as it is at the bottom of the example
+above, then a new, local namespace is created, just for that call.
+To use the &#8220;Happy Robot&#8221; metaphor, each happy robot has its own
+space to keep its variables. This is a local, private space, that
+belongs only to this particular happy robot: only to this function
+call. In the example above, a local namespace is created, and <em>a</em>
+is assigned the value of <em>-2</em> in that namespace. The variable <em>a</em>
+does not exist in the global namespace (you can try typing <em>a</em> into
+the shell after running this script: Python will tell you it
+doesn&#8217;t know a value for <em>a</em>).</p>
+<p>The function <em>sillyFn</em> also has a local variable, <em>b</em>. Local
+variables also exist only in the function call&#8217;s namespace. When
+the function call is done, its namespace goes away, along with the
+assignment of local and parameter variables to values.</p>
+<p>When a function call &#8220;happy robot&#8221; sees a variable in its body, it
+first looks to see if that variable has an assigned value in its
+own local namespace. If it does, then it uses that value. If it
+doesn&#8217;t, then it looks to the global namespace outside to find a
+value.</p>
+<div class="section" id="try-this">
+<h2>Try this:<a class="headerlink" href="#try-this" title="Permalink to this headline">¶</a></h2>
+<p>Add the code below to the file from before. Try to predict what
+values will be printed before running the script. Check your work
+by running the script.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#these 3 variables are &#39;global&#39; in this script</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="k">def</span> <span class="nf">moreSilly</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>        <span class="c">#c, d become local to the function</span>
+    <span class="k">print</span> <span class="n">a</span>
+    <span class="k">print</span> <span class="n">c</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">d</span>
+    <span class="k">print</span>
+<span class="n">moreSilly</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">b</span>
+</pre></div>
+</div>
+
+<div id="func2_1" >
+<textarea cols="50" rows="12" id="func2_1_code" class="active_code">
+#these 3 variables are 'global' in this script
+a = 6
+b = 15
+c = 25
+def moreSilly(c, d):        #c, d become local to the function
+    print a
+    print c
+    b = 2 * d
+    print
+moreSilly(1, 4)
+print b
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (func2_1)</span> </p>
+<button onclick="runit('func2_1',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('func2_1');">Save</button>
+<button class="ac_opt" onclick="requestCode('func2_1');">Load</button>
+<br />
+
+<canvas id="func2_1_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="func2_1_pre" class="active_out">
+
+</pre>
+
+</div>
+
+</div>
+</div>
+<div class="section" id="fruitful-functions-handling-returned-values">
+<h1>Fruitful functions: handling returned values<a class="headerlink" href="#fruitful-functions-handling-returned-values" title="Permalink to this headline">¶</a></h1>
+<p>Here is a simple program made up of two functions. The first
+function does some work and prints the result, it is not a
+&#8220;fruitful function.&#8221; The second function does a calculation and
+returns a value, it <em>is</em> a fruitful function. (Note: This code was
+used in a video Prof. Fox made that talks about this same
+material.)</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="n">helper</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="k">print</span> <span class="n">ans</span>
+
+<span class="k">def</span> <span class="nf">helper</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">b</span> <span class="o">+</span> <span class="n">a</span>
+</pre></div>
+</div>
+<p>When you call <em>helper</em>, you get a value back. If you call it in the
+interactive shell, Python automatically displays the returned
+value:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">helper</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">12</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+<p>You can use a call to <em>helper</em> in a larger expression, and the
+value returned by <em>helper</em> takes the place of the function call in
+the expression:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">helper</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span>
+<span class="go">48</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">helper</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span>
+<span class="go">5</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+<p>In order to keep the value of a call to <em>helper</em> around for later
+use, we must assign a variable to catch <em>helper&#8217;s</em> value. In the
+example just above, we assigned <em>z</em> to hold that value. In the
+original program, <em>main</em> assigns <em>ans</em> to hold that value.</p>
+
+<button id="butt_func2_2" onclick="createActiveCode('func2_2',''); $('#butt_func2_2').hide();">Open Editor</button>
+<div id="func2_2"></div>
+<br />
+<div class="section" id="id1">
+<h2>Try this:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Try removing the <tt class="docutils literal"><span class="pre">ans</span> <span class="pre">=</span></tt> part from <em>main</em>, and see what happens.</p>
+<p>On the other end, a function like <em>helper</em> can only be fruitful if
+it explicitly <em>returns</em> a value. If it <em>prints</em> the value, then it
+won&#8217;t work.</p>
+
+<button id="butt_func2_3" onclick="createActiveCode('func2_3',''); $('#butt_func2_3').hide();">Open Editor</button>
+<div id="func2_3"></div>
+<br />
+</div>
+<div class="section" id="id2">
+<h2>Try this:<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Change helper so it says <em>print</em> instead of <em>return</em>. Then call
+<em>main</em> and see what happens, and try the examples above, as well.
+The <em>print</em> operation displays a value, but does not give it back
+to Python for further use.</p>
+
+<button id="butt_func2_4" onclick="createActiveCode('func2_4',''); $('#butt_func2_4').hide();">Open Editor</button>
+<div id="func2_4"></div>
+<br />
+</div>
+</div>
+<div class="section" id="functions-that-call-other-functions">
+<h1>Functions that call other functions<a class="headerlink" href="#functions-that-call-other-functions" title="Permalink to this headline">¶</a></h1>
+<p>We build programs in Python out of collections of functions. Many
+functions must call other functions to help perform their task.
+Because writing programs accurately is difficult and
+time-consuming, one program design principle is to avoid writing
+the same code over and over. If you write the exact same statements
+in more than one place, then you have to debug each place
+separately. it might be worth your time to package those statements
+as a function, so that you can debug it once, and then only have to
+call the function for every use.</p>
+<p>Suppose we want a program to help a carpet company to generate an
+estimate for carpeting a house. The company needs to take in the
+dimensions of three rooms, and the cost per square foot of
+carpeting for each room. It should then print, for each room, the
+number of square feet for the room, and the cost for that room. It
+should print the total cost at the bottom. I&#8217;ve given you the
+(rather complicated) main function below:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># this is a bit ugly, but bear with it</span>
+<span class="k">def</span> <span class="nf">carpetEstimate</span><span class="p">(</span><span class="n">wid1</span><span class="p">,</span>
+<span class="n">len1</span><span class="p">,</span> <span class="n">price1</span><span class="p">,</span> <span class="n">wid2</span><span class="p">,</span> <span class="n">len2</span><span class="p">,</span> <span class="n">price2</span><span class="p">,</span> <span class="n">wid3</span><span class="p">,</span> <span class="n">len3</span><span class="p">,</span> <span class="n">price3</span><span class="p">):</span>
+    <span class="n">area1</span> <span class="o">=</span> <span class="n">rectArea</span><span class="p">(</span><span class="n">wid1</span><span class="p">,</span> <span class="n">len1</span><span class="p">)</span>
+    <span class="n">cost1</span> <span class="o">=</span> <span class="n">roomCost</span><span class="p">(</span><span class="n">area1</span><span class="p">,</span> <span class="n">price1</span><span class="p">)</span>
+    <span class="n">area2</span> <span class="o">=</span> <span class="n">rectArea</span><span class="p">(</span><span class="n">wid2</span><span class="p">,</span> <span class="n">len2</span><span class="p">)</span>
+    <span class="n">cost2</span> <span class="o">=</span> <span class="n">roomCost</span><span class="p">(</span><span class="n">area2</span><span class="p">,</span> <span class="n">price2</span><span class="p">)</span>
+    <span class="n">area3</span> <span class="o">=</span> <span class="n">rectArea</span><span class="p">(</span><span class="n">wid3</span><span class="p">,</span> <span class="n">len3</span><span class="p">)</span>
+    <span class="n">cost3</span> <span class="o">=</span> <span class="n">roomCost</span><span class="p">(</span><span class="n">area3</span><span class="p">,</span> <span class="n">price3</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&quot;Room 1&quot;</span>
+    <span class="k">print</span> <span class="s">&quot; Area =&quot;</span><span class="p">,</span> <span class="n">area1</span>
+    <span class="k">print</span> <span class="s">&quot; Cost =&quot;</span><span class="p">,</span> <span class="n">cost1</span><span class="p">,</span> <span class="s">&quot;dollars&quot;</span>
+    <span class="k">print</span> <span class="s">&quot;Room 2&quot;</span>
+    <span class="k">print</span> <span class="s">&quot; Area =&quot;</span><span class="p">,</span> <span class="n">area2</span>
+    <span class="k">print</span> <span class="s">&quot; Cost =&quot;</span><span class="p">,</span><span class="n">cost2</span><span class="p">,</span> <span class="s">&quot;dollars&quot;</span>
+    <span class="k">print</span> <span class="s">&quot;Room 3&quot;</span>
+    <span class="k">print</span> <span class="s">&quot; Area =&quot;</span><span class="p">,</span><span class="n">area3</span>
+    <span class="k">print</span> <span class="s">&quot; Cost =&quot;</span><span class="p">,</span> <span class="n">cost3</span><span class="p">,</span> <span class="s">&quot;dollars&quot;</span>
+    <span class="k">print</span> <span class="s">&quot;------------&quot;</span>
+    <span class="k">print</span> <span class="s">&quot;Total cost =&quot;</span><span class="p">,</span><span class="n">cost1</span> <span class="o">+</span> <span class="n">cost2</span> <span class="o">+</span> <span class="n">cost3</span><span class="p">,</span> <span class="s">&quot;dollars&quot;</span>
+</pre></div>
+</div>
+
+<div id="func2_5" >
+<textarea cols="50" rows="12" id="func2_5_code" class="active_code">
+# this is a bit ugly, but bear with it
+def carpetEstimate(wid1,
+len1, price1, wid2, len2, price2, wid3, len3, price3):
+    area1 = rectArea(wid1, len1)
+    cost1 = roomCost(area1, price1)
+    area2 = rectArea(wid2, len2)
+    cost2 = roomCost(area2, price2)
+    area3 = rectArea(wid3, len3)
+    cost3 = roomCost(area3, price3)
+    print "Room 1"
+    print " Area =", area1
+    print " Cost =", cost1, "dollars"
+    print "Room 2"
+    print " Area =", area2
+    print " Cost =",cost2, "dollars"
+    print "Room 3"
+    print " Area =",area3
+    print " Cost =", cost3, "dollars"
+    print "------------"
+    print "Total cost =",cost1 + cost2 + cost3, "dollars"
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (func2_5)</span> </p>
+<button onclick="runit('func2_5',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('func2_5');">Save</button>
+<button class="ac_opt" onclick="requestCode('func2_5');">Load</button>
+<br />
+
+<canvas id="func2_5_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="func2_5_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<div class="section" id="id3">
+<h2>Try this:<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Define a simple, fruitful function, <em>rectArea</em>, that takes in the
+width and length of a rectangle and returns its area. Also define a
+simple function <em>roomCost</em>, that takes in the the area of a room and the price
+per square foot of carpeting for the room, and it returns the total cost for that room.</p>
+
+<button id="butt_func2_6" onclick="createActiveCode('func2_6',''); $('#butt_func2_6').hide();">Open Editor</button>
+<div id="func2_6"></div>
+<br />
+</div>
+<div class="section" id="id4">
+<h2>Try this:<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>You probably wrote very simple functions for the previous step,
+that just multiplied the input values together. Suppose that the
+carpet company decides that it must charge customers for full feet
+distances. So a room that measures 14.25 feet in length and 12.8
+feet in width should be charged as a 15 by 13 room. Modify your
+<tt class="docutils literal"><span class="pre">rectArea</span></tt> function so that it rounds up to the nearest integer and
+computes the area based on that. Notice that making this change
+once, in the <tt class="docutils literal"><span class="pre">rectArea</span></tt> function, is much easier than trying to
+make the change in each place in <tt class="docutils literal"><span class="pre">carpetEstimate</span></tt> where <tt class="docutils literal"><span class="pre">rectArea</span></tt>
+is called. Having the function defined saves work!</p>
+
+<button id="butt_func2_7" onclick="createActiveCode('func2_7',''); $('#butt_func2_7').hide();">Open Editor</button>
+<div id="func2_7"></div>
+<br />
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Brad Miller, David Ranum.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32029811-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>

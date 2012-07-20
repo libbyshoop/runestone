@@ -1,0 +1,608 @@
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Recursion &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/edu-python.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/simplemodal.js"></script>
+    <script type="text/javascript" src="../_static/jquery.textarea.js"></script>
+    <script type="text/javascript" src="../_static/edu-python.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.js"></script>
+    <script type="text/javascript" src="../_static/builtin.js"></script>
+    <script type="text/javascript" src="../_static/assess.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../index.html" />
+    <link rel="next" title="Classes and Objects - the Basics" href="../Classes/classesintro.html" />
+    <link rel="prev" title="Dictionaries" href="../Dictionaries/dictionaries.html" />
+<script type="text/javascript"> 
+eBookConfig = {}
+eBookConfig.host = 'http://141.140.167.226:8000' ? 'http://141.140.167.226:8000' : 'http://127.0.0.1:8000',
+eBookConfig.app = eBookConfig.host+'/courselib',
+eBookConfig.ajaxURL = eBookConfig.app+'/ajax/',
+eBookConfig.course = 'COMP123F12-01',
+eBookConfig.logLevel = 10,
+eBookConfig.loginRequired = true
+</script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../Classes/classesintro.html" title="Classes and Objects - the Basics"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../Dictionaries/dictionaries.html" title="Dictionaries"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Recursion</a><ul>
+<li><a class="reference internal" href="#drawing-fractals">Drawing Fractals</a></li>
+<li><a class="reference internal" href="#recursive-data">Recursive Data</a></li>
+<li><a class="reference internal" href="#glossary">Glossary</a></li>
+<li><a class="reference internal" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../Dictionaries/dictionaries.html"
+                        title="previous chapter">Dictionaries</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../Classes/classesintro.html"
+                        title="next chapter">Classes and Objects - the Basics</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/Recursion/thinkpyrecursion.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul><!--<div id="runestonebox">
+  <h3>Runestone Links</h3>
+  <ul>
+    <li>
+      <a href="https://github.com/bnmnetp/runestone/issues/new">Report a Problem</a>
+    </li>
+    <li>
+      <a href="http://runestoneinteractive.org">About Runestone</a>
+    </li>
+    <li>
+      <a href="/courselib/admin/index">Instructors Page</a>
+    </li>
+  </ul>
+</div>
+-->
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="recursion">
+<h1>Recursion<a class="headerlink" href="#recursion" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="index-0"></span><div class="section" id="drawing-fractals">
+<span id="index-1"></span><h2>Drawing Fractals<a class="headerlink" href="#drawing-fractals" title="Permalink to this headline">¶</a></h2>
+<p><strong>Recursion</strong> means &#8220;defining something in terms of itself&#8221; usually at some
+smaller scale, perhaps multiple times, to achieve your objective.
+For example, we might say &#8220;A human being is someone whose mother is a human being.&#8221;</p>
+<p>For our purposes, a <strong>fractal</strong> is drawing which also has <em>self-similar</em> structure.
+Its structure can be defined in terms of itself.</p>
+<p>Let us start by looking at the famous Koch fractal.  An order 0 Koch fractal is simply
+a straight line of a given size.</p>
+<img alt="../_images/koch_0.png" src="../_images/koch_0.png" />
+<p>An order 1 Koch fractal is obtained like this: instead of drawing just one line,
+draw instead four smaller segments, in the pattern shown here:</p>
+<img alt="../_images/koch_1.png" src="../_images/koch_1.png" />
+<p>Now what would happen if we repeated this Koch pattern again on each of the order 1 segments?
+We&#8217;d get this order 2 Koch fractal:</p>
+<img alt="../_images/koch_2.png" src="../_images/koch_2.png" />
+<p>Repeating our pattern again gets us an order 3 Koch fractal:</p>
+<img alt="../_images/koch_3.png" src="../_images/koch_3.png" />
+<p>Now let us think about it the other way around.  To draw a Koch fractal
+of order 3, we can simply draw four order 2 Koch fractals.  But each of these
+in turn needs four order 1 Koch fractals, and each of those in turn needs four
+order 0 fractals.  Ultimately, the only drawing that will take place is
+at order 0. This is very simple to code up in Python.</p>
+
+<div id="chp12_koch" >
+<textarea cols="50" rows="12" id="chp12_koch_code" class="active_code">
+import turtle
+
+def koch(t, order, size):
+    """
+       Make turtle t draw a Koch fractal of 'order' and 'size'.
+       Leave the turtle facing the same direction.
+    """
+
+    if order == 0:                  # The base case is just a straight line
+        t.forward(size)
+    else:
+        koch(t, order-1, size/3)   # go 1/3 of the way
+        t.left(60)
+        koch(t, order-1, size/3)
+        t.right(120)
+        koch(t, order-1, size/3)
+        t.left(60)
+        koch(t, order-1, size/3)
+
+fred = turtle.Turtle()
+wn = turtle.Screen()
+
+fred.color("blue")
+wn.bgcolor("green")
+fred.penup()
+fred.backward(150)
+fred.pendown()
+
+koch(fred, 3, 300)
+
+wn.exitonclick()
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chp12_koch)</span> </p>
+<button onclick="runit('chp12_koch',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chp12_koch');">Save</button>
+<button class="ac_opt" onclick="requestCode('chp12_koch');">Load</button>
+<br />
+
+<canvas id="chp12_koch_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chp12_koch_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>Try running this program with different values for the order.  For example, try order 0, then 1, then 2, and so on.</p>
+<p>The key thing that is new here is that if order is not zero,
+<tt class="docutils literal"><span class="pre">koch</span></tt> calls itself four times to get the job done.  This self-reference is the recursion.</p>
+<div class="admonition-recursion-the-high-level-view admonition">
+<p class="first admonition-title">Recursion, the high-level view</p>
+<p>One way to think about this is to convince yourself that the function
+works correctly when you call it for an order 0 fractal.  Then do
+a mental <em>leap of faith</em>, saying <em>&#8220;the fairy godmother</em> (or Python, if
+you can think of Python as your fairy godmother) <em>knows how to
+handle the recursive level 0 calls for me on lines 12, 14, 16, and 18, so
+I don&#8217;t need to think about that detail!&#8221;</em>  All I need to focus on
+is how to draw an order 1 fractal <em>if I can assume the order 0 one is
+already working.</em></p>
+<p>You&#8217;re practicing <em>mental abstraction</em> &#8212; ignoring the subproblem
+while you solve the big problem.</p>
+<p>If this mode of thinking works (and you should practice it!), then take
+it to the next level.  Aha! now can I see that it will work when called
+for order 2 <em>under the assumption that it is already working for level 1</em>.</p>
+<p>And, in general, if I can assume the order n-1 case works, can I just
+solve the level n problem?</p>
+<p class="last">Students of mathematics who have played with proofs of induction should
+see some very strong similarities here.</p>
+</div>
+</div>
+<div class="section" id="recursive-data">
+<span id="index-2"></span><h2>Recursive Data<a class="headerlink" href="#recursive-data" title="Permalink to this headline">¶</a></h2>
+<p>All of the Python data types we have seen can be grouped inside lists and
+tuples in a variety of ways. Lists and tuples can also be nested, providing a
+myriad possibilities for organizing data. The organization of data for the
+purpose of making it easier to use is called a <strong>data structure</strong>.</p>
+<p>It&#8217;s election time and we are helping to compute the votes as they come in.
+Votes arriving from individual wards, precincts, municipalities, counties, and
+states are sometimes reported as a sum total of votes and sometimes as a list
+of subtotals of votes. After considering how best to store the tallies, we
+decide to use a <em>nested number list</em>, which we define as follows:</p>
+<p>A <em>nested number list</em> is a list whose elements are either:</p>
+<ol class="loweralpha simple">
+<li>numbers</li>
+<li>nested number lists</li>
+</ol>
+<p>Notice that the term, <em>nested number list</em> is used in its own definition.
+<strong>Recursive definitions</strong> like this are quite common in mathematics and
+computer science. They provide a concise and powerful way to describe
+<strong>recursive data structures</strong> that are partially composed of smaller and
+simpler instances of themselves. The definition is not circular, since at some
+point we will reach a list that does not have any lists as elements.</p>
+<p>Now suppose our job is to write a function that will sum all of the values in a
+nested number list. We would want to call such a function on a list where some of the
+items might be numbers and some of them might be lists of numbers.</p>
+<p>Since the problem involves processing something that is recursively defined, it is likely that
+a recursive function might easily do the trick.  But how do we design such a function?</p>
+<p>The first thing you must do to write a recursive function is define the cases where you already know the
+answer. In the Koch fractal example, the order 0 case is easy.  Just draw a straight line.  We call
+such a case the <strong>base case</strong>.  It is entirely possible that there can be many base cases in a recursive
+solution.  However, in each case, we know what to do.</p>
+<p>For this problem, the base case is also very simple.  If the list has nothing in it, the sum of all the values
+must be 0.  But what if the list is not empty?  Then there must be a first item and if we take away the first item
+the rest must be a list with one fewer item than before.</p>
+<p>If we already have a function that knows how to compute the sum of a list, we can use it to compute the sum of
+the rest of the list.  The only problem we need to address is how to deal with the first item.</p>
+<p>There are two possibilities.  The first item could be a simple integer.  If that is the case, we simply add it to the
+sum returned for the rest of the list.  However, if the first item is itself a list, we will need to compute its sum (good news...we already have a function that knows how to do that) and then add that to the sum returned for the rest of
+the list.</p>
+<p>Either case will call the function of a smaller part of the original list.  This is known as the <strong>recursive call</strong> and must
+be made with a parameter value that is moving toward becoming the base case.  The complete function is shown below.</p>
+
+<div id="chp11_recursivesum" >
+<textarea cols="50" rows="12" id="chp11_recursivesum_code" class="active_code">
+def rSum(nestedNumList):
+    if nestedNumList == []:
+        return 0
+    else:
+        firstitem = nestedNumList[0]
+        if type(firstitem) == type(87):
+            return firstitem + rSum(nestedNumList[1:])
+        else:
+            return rSum(firstitem) + rSum(nestedNumList[1:])
+
+
+print(rSum([]))
+print(rSum([1,2,3,4]))
+print(rSum([1,2,[4,5,6],7,8]))
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chp11_recursivesum)</span> </p>
+<button onclick="runit('chp11_recursivesum',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chp11_recursivesum');">Save</button>
+<button class="ac_opt" onclick="requestCode('chp11_recursivesum');">Load</button>
+<br />
+
+<canvas id="chp11_recursivesum_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chp11_recursivesum_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>Note that three different calls are made to test the function.  In the first, list is empty.  This will test the base
+case.  In the second, the list has no nesting.  The third requires that all parts of the recursion are working.  Try them
+and then make modifications to the lists to add deeper nesting.  You might even want to try:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">rSum</span><span class="p">([[[[[[[[[[]]]]]]]]]]))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="glossary">
+<h2>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h2>
+<dl class="glossary docutils">
+<dt id="term-base-case">base case</dt>
+<dd>A branch of the conditional statement in a recursive function that does
+not give rise to further recursive calls.</dd>
+<dt id="term-data-structure">data structure</dt>
+<dd>An organization of data for the purpose of making it easier to use.</dd>
+<dt id="term-exception">exception</dt>
+<dd>An error that occurs at runtime.</dd>
+<dt id="term-handle-an-exception">handle an exception</dt>
+<dd>To prevent an exception from terminating a program by wrapping
+the block of code in a <tt class="docutils literal"><span class="pre">try</span></tt> / <tt class="docutils literal"><span class="pre">except</span></tt> construct.</dd>
+<dt id="term-immutable-data-type">immutable data type</dt>
+<dd>A data type which cannot be modified.  Assignments to elements or
+slices of immutable types cause a runtime error.</dd>
+<dt id="term-infinite-recursion">infinite recursion</dt>
+<dd>A function that calls itself recursively without ever reaching the base
+case. Eventually, an infinite recursion causes a runtime error.</dd>
+<dt id="term-mutable-data-type">mutable data type</dt>
+<dd>A data type which can be modified. All mutable types are compound
+types.  Lists and dictionaries (see next chapter) are mutable data
+types; strings and tuples are not.</dd>
+<dt id="term-raise">raise</dt>
+<dd>To cause an exception by using the <tt class="docutils literal"><span class="pre">raise</span></tt> statement.</dd>
+<dt id="term-recursion">recursion</dt>
+<dd>The process of calling the function that is already executing.</dd>
+<dt id="term-recursive-call">recursive call</dt>
+<dd>The statement that calls an already executing function.  Recursion can
+even be indirect &#8212; function <cite>f</cite> can call <cite>g</cite> which calls <cite>h</cite>,
+and <cite>h</cite> could make a call back to <cite>f</cite>.</dd>
+<dt id="term-recursive-definition">recursive definition</dt>
+<dd>A definition which defines something in terms of itself. To be useful
+it must include <em>base cases</em> which are not recursive. In this way it
+differs from a <em>circular definition</em>.  Recursive definitions often
+provide an elegant way to express complex data structures.</dd>
+<dt id="term-tuple">tuple</dt>
+<dd>A data type that contains a sequence of elements of any type, like a
+list, but is immutable. Tuples can be used wherever an immutable type
+is required, such as a key in a dictionary (see next chapter).</dd>
+<dt id="term-tuple-assignment">tuple assignment</dt>
+<dd>An assignment to all of the elements in a tuple using a single
+assignment statement. Tuple assignment occurs in parallel rather than
+in sequence, making it useful for swapping values.</dd>
+</dl>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><div class="first highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">swap</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>      <span class="c"># incorrect version</span>
+     <span class="k">print</span><span class="p">(</span><span class="s">&quot;before swap statement: id(x):&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s">&quot;id(y):&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+     <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span>
+     <span class="k">print</span> <span class="s">&quot;after swap statement: id(x):&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s">&quot;id(y):&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+
+<span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span> <span class="s">&quot;before swap function call: id(a):&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="s">&quot;id(b):&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="n">swap</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;after swap function call: id(a):&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="s">&quot;id(b):&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Run this program and describe the results. Use the results to explain
+why this version of <tt class="docutils literal"><span class="pre">swap</span></tt> does not work as intended. What will be the
+values of <tt class="docutils literal"><span class="pre">a</span></tt> and <tt class="docutils literal"><span class="pre">b</span></tt> after the call to <tt class="docutils literal"><span class="pre">swap</span></tt>?</p>
+</li>
+<li><p class="first">Modify the Koch fractal program so that it draws a Koch snowflake, like this:</p>
+<img alt="../_images/koch_snowflake.png" src="../_images/koch_snowflake.png" />
+</li>
+</ol>
+<ol class="arabic" id="index-4">
+<li><p class="first">Draw a Cesaro torn square fractal, of the order given by the user.  A torn square
+consists of four torn lines.   We show four different squares of orders 0,1,2,3.
+In this example, the angle of the tear is 10 degrees.
+Varying the angle gives interesting effects &#8212; experiment a bit,
+or perhaps let the user input the angle of the tear.</p>
+<img alt="../_images/cesaro_torn_square.png" src="../_images/cesaro_torn_square.png" />
+</li>
+</ol>
+<ol class="arabic" id="index-5">
+<li><p class="first">A Sierpinski triangle of order 0 is an equilateral triangle.
+An order 1 triangle can be drawn by drawing 3 smaller triangles
+(shown slightly disconnected here, just to help our understanding).
+Higher order 2 and 3 triangles are also shown.
+Adapt the Koch snowflake program to draw Sierpinski triangles of any order
+input by the user.</p>
+<img alt="../_images/sierpinski_original.png" src="../_images/sierpinski_original.png" />
+</li>
+<li><p class="first">Adapt the above program to draw its three major sub-triangles in different colours,
+as shown here in this order 4 case:</p>
+<img alt="../_images/sierpinski_colour.png" src="../_images/sierpinski_colour.png" />
+</li>
+<li><p class="first">Create a module named <tt class="docutils literal"><span class="pre">seqtools.py</span></tt>. Add the functions <tt class="docutils literal"><span class="pre">encapsulate</span></tt> and
+<tt class="docutils literal"><span class="pre">insert_in_middle</span></tt> from the chapter. Add tests which test that these
+two functions work as intended with all three sequence types.</p>
+</li>
+<li><p class="first">Add each of the following functions to <tt class="docutils literal"><span class="pre">seqtools.py</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">make_empty</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span> <span class="k">pass</span>
+<span class="k">def</span> <span class="nf">insert_at_end</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">seq</span><span class="p">):</span> <span class="k">pass</span>
+<span class="k">def</span> <span class="nf">insert_in_front</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">seq</span><span class="p">):</span> <span class="k">pass</span>
+<span class="k">def</span> <span class="nf">index_of</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">seq</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span> <span class="k">pass</span>
+<span class="k">def</span> <span class="nf">remove_at</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">seq</span><span class="p">):</span> <span class="k">pass</span>
+<span class="k">def</span> <span class="nf">remove_val</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">seq</span><span class="p">):</span> <span class="k">pass</span>
+<span class="k">def</span> <span class="nf">remove_all</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">seq</span><span class="p">):</span> <span class="k">pass</span>
+<span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">seq</span><span class="p">):</span> <span class="k">pass</span>
+<span class="k">def</span> <span class="nf">reverse</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span> <span class="k">pass</span>
+<span class="k">def</span> <span class="nf">sort_sequence</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span> <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">testsuite</span><span class="p">():</span>
+    <span class="n">test</span><span class="p">(</span><span class="n">make_empty</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]),</span> <span class="p">[])</span>
+    <span class="n">test</span><span class="p">(</span><span class="n">make_empty</span><span class="p">((</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">)),</span> <span class="p">())</span>
+    <span class="n">test</span><span class="p">(</span><span class="n">make_empty</span><span class="p">(</span><span class="s">&quot;No, not me!&quot;</span><span class="p">),</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
+
+    <span class="n">test</span><span class="p">(</span><span class="n">insert_at_end</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+    <span class="n">test</span><span class="p">(</span><span class="n">insert_at_end</span><span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="s">&#39;abc&#39;</span><span class="p">),</span>  <span class="s">&#39;abcx&#39;</span><span class="p">)</span>
+    <span class="n">test</span><span class="p">(</span><span class="n">insert_at_end</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">)),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+    <span class="n">test</span><span class="p">(</span><span class="n">insert_in_front</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]),</span>   <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+    <span class="n">test</span><span class="p">(</span><span class="n">insert_in_front</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">)),</span>   <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">test</span><span class="p">(</span><span class="n">insert_in_front</span><span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="s">&#39;abc&#39;</span><span class="p">),</span>        <span class="s">&#39;xabc&#39;</span><span class="p">)</span>
+
+    <span class="n">test</span><span class="p">(</span><span class="n">index_of</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]),</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">test</span><span class="p">(</span><span class="n">index_of</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)),</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">test</span><span class="p">(</span><span class="n">index_of</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="mi">4</span><span class="p">),</span> <span class="mi">6</span><span class="p">)</span>
+    <span class="n">test</span><span class="p">(</span><span class="n">index_of</span><span class="p">(</span><span class="s">&#39;y&#39;</span><span class="p">,</span> <span class="s">&#39;happy birthday&#39;</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">test</span><span class="p">(</span><span class="n">ndex_of</span><span class="p">(</span><span class="s">&#39;banana&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;apple&#39;</span><span class="p">,</span> <span class="s">&#39;banana&#39;</span><span class="p">,</span> <span class="s">&#39;cherry&#39;</span><span class="p">,</span> <span class="s">&#39;date&#39;</span><span class="p">]),</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">test</span><span class="p">(</span><span class="n">index_of</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">test</span><span class="p">(</span><span class="n">index_of</span><span class="p">(</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;apple&#39;</span><span class="p">,</span> <span class="s">&#39;banana&#39;</span><span class="p">,</span> <span class="s">&#39;cherry&#39;</span><span class="p">,</span> <span class="s">&#39;date&#39;</span><span class="p">]),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">test</span><span class="p">(</span><span class="n">remove_at</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+    <span class="n">test</span><span class="p">(</span><span class="n">remove_at</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="n">test</span><span class="p">(</span><span class="n">remove_at</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">&quot;Yomrktown&quot;</span><span class="p">),</span> <span class="s">&#39;Yorktown&#39;</span><span class="p">)</span>
+
+    <span class="n">test</span><span class="p">(</span><span class="n">remove_val</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+    <span class="n">test</span><span class="p">(</span><span class="n">remove_val</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">)),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+    <span class="n">test</span><span class="p">(</span><span class="n">remove_val</span><span class="p">(</span><span class="s">&#39;what&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s">&#39;who&#39;</span><span class="p">,</span> <span class="s">&#39;what&#39;</span><span class="p">,</span> <span class="s">&#39;when&#39;</span><span class="p">,</span> <span class="s">&#39;where&#39;</span><span class="p">,</span> <span class="s">&#39;why&#39;</span><span class="p">,</span> <span class="s">&#39;how&#39;</span><span class="p">)),</span>
+          <span class="p">(</span><span class="s">&#39;who&#39;</span><span class="p">,</span> <span class="s">&#39;when&#39;</span><span class="p">,</span> <span class="s">&#39;where&#39;</span><span class="p">,</span> <span class="s">&#39;why&#39;</span><span class="p">,</span> <span class="s">&#39;how&#39;</span><span class="p">))</span>
+
+    <span class="n">test</span><span class="p">(</span><span class="n">remove_all</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">]),</span>  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+    <span class="n">test</span><span class="p">(</span><span class="n">remove_all</span><span class="p">(</span><span class="s">&#39;i&#39;</span><span class="p">,</span> <span class="s">&#39;Mississippi&#39;</span><span class="p">),</span> <span class="s">&#39;Msssspp&#39;</span><span class="p">)</span>
+
+    <span class="n">test</span><span class="p">(</span><span class="n">count</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">)),</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">test</span><span class="p">(</span><span class="n">count</span><span class="p">(</span><span class="s">&#39;s&#39;</span><span class="p">,</span> <span class="s">&#39;Mississippi&#39;</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">test</span><span class="p">(</span><span class="n">count</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">7</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">]),</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">test</span><span class="p">(</span><span class="n">reverse</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]),</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">test</span><span class="p">(</span><span class="n">reverse</span><span class="p">((</span><span class="s">&#39;shoe&#39;</span><span class="p">,</span> <span class="s">&#39;my&#39;</span><span class="p">,</span> <span class="s">&#39;buckle&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;buckle&#39;</span><span class="p">,</span> <span class="s">&#39;my&#39;</span><span class="p">,</span> <span class="s">&#39;shoe&#39;</span><span class="p">))</span>
+    <span class="n">test</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s">&#39;Python&#39;</span><span class="p">),</span> <span class="s">&#39;nohtyP&#39;</span><span class="p">)</span>
+
+    <span class="n">test</span><span class="p">(</span><span class="n">sort_sequence</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">]),</span>  <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+    <span class="n">test</span><span class="p">(</span><span class="n">sort_sequence</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span>  <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+    <span class="n">test</span><span class="p">(</span><span class="n">sort_sequence</span><span class="p">(</span><span class="s">&quot;nothappy&quot;</span><span class="p">),</span> <span class="s">&#39;ahnoppty&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As usual, work on each of these one at a time until they pass all the tests.</p>
+<div class="admonition-but-do-you-really-want-to-do-this admonition">
+<p class="first admonition-title">But do you really want to do this?</p>
+<p>Disclaimer.  These exercises illustrate nicely that the sequence abstraction is
+general, (because slicing, indexing, and concatenation is so general), so it is possible to
+write general functions that work over all sequence types.  Nice lesson about generalization!</p>
+<p>Another view is that tuples are different from lists and strings precisely
+because you want to think about them very differently.
+It usually doesn&#8217;t make sense to sort the fields of the <cite>julia</cite>
+tuple we saw earlier, or to cut bits out or insert bits into the middle,
+<em>even if Python lets you do so!</em>
+Tuple fields get their meaning from their position in the tuple.
+Don&#8217;t mess with that.</p>
+<p>Use lists for &#8220;many things of the same type&#8221;, like an
+enrollment of many students for a course.</p>
+<p class="last">Use tuples for &#8220;fields of different types that make up a compound record&#8221;.</p>
+</div>
+</li>
+<li><p class="first">Write a function, <tt class="docutils literal"><span class="pre">recursive_min</span></tt>, that returns the smallest value in a
+nested number list.  Assume there are no empty lists or sublists:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">test</span><span class="p">(</span><span class="n">recursive_min</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">]),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">test</span><span class="p">(</span><span class="n">recursive_min</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="p">[[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">90</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">]),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">test</span><span class="p">(</span><span class="n">recursive_min</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="p">[[</span><span class="mi">13</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">],</span> <span class="mi">90</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">]),</span> <span class="o">-</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">test</span><span class="p">(</span><span class="n">recursive_min</span><span class="p">([[[</span><span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="mi">90</span><span class="p">],</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">]),</span> <span class="mi">13</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Write a function <tt class="docutils literal"><span class="pre">count</span></tt> that returns the number of occurences
+of <tt class="docutils literal"><span class="pre">target</span></tt> in  a nested list:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">test</span><span class="p">(</span><span class="n">count</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">[]),</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">test</span><span class="p">(</span><span class="n">count</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">8</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">test</span><span class="p">(</span><span class="n">count</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="p">[[</span><span class="mi">9</span><span class="p">,</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]),</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">test</span><span class="p">(</span><span class="n">count</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="p">[[</span><span class="mi">9</span><span class="p">,</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]),</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">test</span><span class="p">(</span><span class="n">count</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]),</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">test</span><span class="p">(</span><span class="n">count</span><span class="p">(</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="p">[[</span><span class="s">&#39;this&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;thing&#39;</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">],</span> <span class="s">&#39;a&#39;</span><span class="p">],</span> <span class="s">&#39;is&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;easy&#39;</span><span class="p">]]),</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Write a function <tt class="docutils literal"><span class="pre">flatten</span></tt> that returns a simple list
+containing all the values in a nested list:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">test</span><span class="p">(</span><span class="n">flatten</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">8</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]),</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="n">test</span><span class="p">(</span><span class="n">flatten</span><span class="p">([[</span><span class="mi">9</span><span class="p">,</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]),</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="n">test</span><span class="p">(</span><span class="n">flatten</span><span class="p">([[</span><span class="mi">9</span><span class="p">,</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]),</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="n">test</span><span class="p">(</span><span class="n">flatten</span><span class="p">([[</span><span class="s">&#39;this&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;thing&#39;</span><span class="p">],</span> <span class="s">&#39;a&#39;</span><span class="p">],</span> <span class="s">&#39;is&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;easy&#39;</span><span class="p">]]),</span>
+              <span class="p">[</span><span class="s">&#39;this&#39;</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;thing&#39;</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;is&#39;</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;easy&#39;</span><span class="p">])</span>
+<span class="n">test</span><span class="p">(</span><span class="n">flatten</span><span class="p">([]),</span> <span class="p">[])</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Rewrite the fibonacci algorithm without using recursion. Can you find bigger
+terms of the sequence?  Can you find <tt class="docutils literal"><span class="pre">fib(200)</span></tt>?</p>
+</li>
+<li><p class="first">Write a function named <tt class="docutils literal"><span class="pre">readposint</span></tt> that uses the <tt class="docutils literal"><span class="pre">input</span></tt> dialog to
+prompt the user for a positive
+integer and then checks the input to confirm that it meets the requirements.
+It should be able to handle inputs that cannot be converted to int, as well
+as negative ints, and edge cases (e.g. when the user closes the dialog, or
+does not enter anything at all.)</p>
+</li>
+<li><p class="first">Use help to find out what <tt class="docutils literal"><span class="pre">sys.getrecursionlimit()</span></tt> and
+<tt class="docutils literal"><span class="pre">sys.setrecursionlimit(n)</span></tt> do. Create several <em>experiments</em> similar to what
+was done in <tt class="docutils literal"><span class="pre">infinite_recursion.py</span></tt> to test your understanding of how
+these module functions work.</p>
+</li>
+<li><p class="first">Write a program that walks a directory structure (as in the last section of
+this chapter), but instead of printing filenames, it returns a list of all
+the full paths of files in the directory or the subdirectories.  (Don&#8217;t include
+directories in this list &#8212; just files.)  For example, the output list might
+have elements like this:</p>
+<div class="highlight-python"><pre>['C:\Python31\Lib\site-packages\pygame\docs\ref\mask.html',
+ 'C:\Python31\Lib\site-packages\pygame\docs\ref\midi.html',
+ ...
+ 'C:\Python31\Lib\site-packages\pygame\examples\aliens.py',
+ ...
+ 'C:\Python31\Lib\site-packages\pygame\examples\data\boom.wav',
+ ... ]</pre>
+</div>
+</li>
+<li><p class="first">Write a program named <tt class="docutils literal"><span class="pre">litter.py</span></tt> that creates an empty file named
+<tt class="docutils literal"><span class="pre">trash.txt</span></tt> in each subdirectory of a directory tree given the root of the
+tree as an argument (or the current directory as a default). Now write a
+program named <tt class="docutils literal"><span class="pre">cleanup.py</span></tt> that removes all these files.  <em>Hint:</em> Use the
+program from the example in the last section of this chapter as a basis for
+these two recursive programs.  Because you&#8217;re going to destroy files on your disks, you better
+get this right, or you risk losing files you care about.  So excellent
+advice is that initially you should fake the deletion of the files &#8212; just print
+the full path names of each file that you intent to delete.  Once you&#8217;re happy
+that your logic is correct, and you can see that you&#8217;re not deleting the wrong
+things, you can replace the print statement with the real thing.</p>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../Classes/classesintro.html" title="Classes and Objects - the Basics"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../Dictionaries/dictionaries.html" title="Dictionaries"
+             >previous</a> |</li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Brad Miller, David Ranum.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32029811-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>

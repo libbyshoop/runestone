@@ -1,0 +1,532 @@
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Functions Revisited &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/edu-python.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/simplemodal.js"></script>
+    <script type="text/javascript" src="../_static/jquery.textarea.js"></script>
+    <script type="text/javascript" src="../_static/edu-python.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.js"></script>
+    <script type="text/javascript" src="../_static/builtin.js"></script>
+    <script type="text/javascript" src="../_static/assess.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../index.html" />
+<script type="text/javascript"> 
+eBookConfig = {}
+eBookConfig.host = 'http://141.140.167.226:8000' ? 'http://141.140.167.226:8000' : 'http://127.0.0.1:8000',
+eBookConfig.app = eBookConfig.host+'/courselib',
+eBookConfig.ajaxURL = eBookConfig.app+'/ajax/',
+eBookConfig.course = 'COMP123F12-01',
+eBookConfig.logLevel = 10,
+eBookConfig.loginRequired = true
+</script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Functions Revisited</a><ul>
+<li><a class="reference internal" href="#program-development">Program Development</a></li>
+<li><a class="reference internal" href="#composition">Composition</a></li>
+<li><a class="reference internal" href="#boolean-functions">Boolean Functions</a></li>
+<li><a class="reference internal" href="#programming-with-style">Programming With Style</a></li>
+<li><a class="reference internal" href="#glossary">Glossary</a></li>
+<li><a class="reference internal" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/Functions/morefunctions.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul><!--<div id="runestonebox">
+  <h3>Runestone Links</h3>
+  <ul>
+    <li>
+      <a href="https://github.com/bnmnetp/runestone/issues/new">Report a Problem</a>
+    </li>
+    <li>
+      <a href="http://runestoneinteractive.org">About Runestone</a>
+    </li>
+    <li>
+      <a href="/courselib/admin/index">Instructors Page</a>
+    </li>
+  </ul>
+</div>
+-->
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="functions-revisited">
+<h1>Functions Revisited<a class="headerlink" href="#functions-revisited" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="index-0"></span><span class="target" id="index-1"></span><div class="section" id="program-development">
+<span id="index-2"></span><h2>Program Development<a class="headerlink" href="#program-development" title="Permalink to this headline">¶</a></h2>
+<p>At this point, you should be able to look at complete functions and tell what
+they do. Also, if you have been doing the exercises, you have written some
+small functions. As you write larger functions, you might start to have more
+difficulty, especially with runtime and semantic errors.</p>
+<p>To deal with increasingly complex programs, we are going to suggest a technique
+called <strong>incremental development</strong>. The goal of incremental development is to
+avoid long debugging sessions by adding and testing only a small amount of code
+at a time.</p>
+<p>As an example, suppose you want to find the distance between two points, given
+by the coordinates (x<sub>1</sub>, y<sub>1</sub>) and
+(x<sub>2</sub>, y<sub>2</sub>).  By the Pythagorean theorem, the distance is:</p>
+<img alt="Distance formula" src="../_images/distance_formula.png" />
+<p>The first step is to consider what a <tt class="docutils literal"><span class="pre">distance</span></tt> function should look like in
+Python. In other words, what are the inputs (parameters) and what is the output
+(return value)?</p>
+<p>In this case, the two points are the inputs, which we can represent using four
+parameters. The return value is the distance, which is a floating-point value.</p>
+<p>Already we can write an outline of the function that captures our thinking so far.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mf">0.0</span>
+</pre></div>
+</div>
+<p>Obviously, this version of the function doesn&#8217;t compute distances; it always
+returns zero. But it is syntactically correct, and it will run, which means
+that we can test it before we make it more complicated.</p>
+<p>To test the new function, we call it with sample values.</p>
+
+<div id="ch06_distance1" >
+<textarea cols="50" rows="12" id="ch06_distance1_code" class="active_code">
+def distance(x1, y1, x2, y2):
+    return 0.0
+
+print(distance(1, 2, 4, 6))
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch06_distance1)</span> </p>
+<button onclick="runit('ch06_distance1',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch06_distance1');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch06_distance1');">Load</button>
+<br />
+
+<canvas id="ch06_distance1_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch06_distance1_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>We chose these values so that the horizontal distance equals 3 and the vertical
+distance equals 4; that way, the result is 5 (the hypotenuse of a 3-4-5
+triangle). When testing a function, it is useful to know the right answer.</p>
+<p>At this point we have confirmed that the function is syntactically correct, and
+we can start adding lines of code. After each incremental change, we test the
+function again. If an error occurs at any point, we know where it must be &#8212; in
+the last line we added.</p>
+<p>A logical first step in the computation is to find the differences
+x<sub>2</sub>- x<sub>1</sub> and y<sub>2</sub>- y<sub>1</sub>.  We will store
+those values in temporary variables named <tt class="docutils literal"><span class="pre">dx</span></tt> and <tt class="docutils literal"><span class="pre">dy</span></tt>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">):</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">x2</span> <span class="o">-</span> <span class="n">x1</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="n">y2</span> <span class="o">-</span> <span class="n">y1</span>
+    <span class="k">return</span> <span class="mf">0.0</span>
+</pre></div>
+</div>
+<p>Next we compute the sum of squares of <tt class="docutils literal"><span class="pre">dx</span></tt> and <tt class="docutils literal"><span class="pre">dy</span></tt>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">):</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">x2</span> <span class="o">-</span> <span class="n">x1</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="n">y2</span> <span class="o">-</span> <span class="n">y1</span>
+    <span class="n">dsquared</span> <span class="o">=</span> <span class="n">dx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">dy</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="mf">0.0</span>
+</pre></div>
+</div>
+<p>Again, we could run the program at this stage and check the value of <tt class="docutils literal"><span class="pre">dsquared</span></tt> (which
+should be 25).</p>
+<p>Finally, using the fractional exponent <tt class="docutils literal"><span class="pre">0.5</span></tt> to find the square root,
+we compute and return the result.</p>
+
+<div id="ch06_distancefinal" >
+<textarea cols="50" rows="12" id="ch06_distancefinal_code" class="active_code">
+def distance(x1, y1, x2, y2):
+    dx = x2 - x1
+    dy = y2 - y1
+    dsquared = dx**2 + dy**2
+    result = dsquared**0.5
+    return result
+
+print(distance(1, 2, 4, 6))
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch06_distancefinal)</span> </p>
+<button onclick="runit('ch06_distancefinal',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch06_distancefinal');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch06_distancefinal');">Load</button>
+<br />
+
+<canvas id="ch06_distancefinal_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch06_distancefinal_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>If that works correctly, you are done. Otherwise, you might want to print the
+value of <tt class="docutils literal"><span class="pre">result</span></tt> before the return statement.</p>
+<p>When you start out, you might add only a line or two of code at a time. As you
+gain more experience, you might find yourself writing and debugging bigger
+conceptual chunks. As you improve your programming skills you should find yourself
+managing bigger and bigger chunks: this is very similar to the way we learned to read
+letters, syllables, words, phrases, sentences, paragraphs, etc., or the way we learn
+to chunk music &#8212; from indvidual notes to chords, bars, phrases, and so on.</p>
+<p>The key aspects of the process are:</p>
+<ol class="arabic simple">
+<li>Start with a working skeleton program and make small incremental changes. At any
+point, if there is an error, you will know exactly where it is.</li>
+<li>Use temporary variables to hold intermediate values so that you can easily inspect
+and check them.</li>
+<li>Once the program is working, you might want to consolidate multiple statements
+into compound expressions,
+but only do this if it does not make the program more difficult to read.</li>
+</ol>
+</div>
+<div class="section" id="composition">
+<span id="index-3"></span><h2>Composition<a class="headerlink" href="#composition" title="Permalink to this headline">¶</a></h2>
+<p>As we have already seen, you can call one function from within another.
+This ability is called <strong>composition</strong>.</p>
+<p>As an example, we&#8217;ll write a function that takes two points, the center of the
+circle and a point on the perimeter, and computes the area of the circle.</p>
+<p>Assume that the center point is stored in the variables <tt class="docutils literal"><span class="pre">xc</span></tt> and <tt class="docutils literal"><span class="pre">yc</span></tt>, and
+the perimeter point is in <tt class="docutils literal"><span class="pre">xp</span></tt> and <tt class="docutils literal"><span class="pre">yp</span></tt>. The first step is to find the
+radius of the circle, which is the distance between the two points.
+Fortunately, we&#8217;ve just written a function, <tt class="docutils literal"><span class="pre">distance</span></tt>, that does just that,
+so now all we have to do is use it:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">radius</span> <span class="o">=</span> <span class="n">distance</span><span class="p">(</span><span class="n">xc</span><span class="p">,</span> <span class="n">yc</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span> <span class="n">yp</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The second step is to find the area of a circle with that radius and return it.
+Again we will use one of our earlier functions:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">result</span> <span class="o">=</span> <span class="n">area</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span>
+<span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+<p>Wrapping that up in a function, we get:</p>
+
+<div id="ch06_newarea" >
+<textarea cols="50" rows="12" id="ch06_newarea_code" class="active_code">
+def distance(x1, y1, x2, y2):
+        dx = x2 - x1
+        dy = y2 - y1
+        dsquared = dx**2 + dy**2
+        result = dsquared**0.5
+        return result
+
+def area(radius):
+    b = 3.14159 * radius**2
+    return b
+
+def area2(xc, yc, xp, yp):
+    radius = distance(xc, yc, xp, yp)
+    result = area(radius)
+    return result
+
+print(area2(0,0,1,1))
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch06_newarea)</span> </p>
+<button onclick="runit('ch06_newarea',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch06_newarea');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch06_newarea');">Load</button>
+<br />
+
+<canvas id="ch06_newarea_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch06_newarea_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>We called this function <tt class="docutils literal"><span class="pre">area2</span></tt> to distinguish it from the <tt class="docutils literal"><span class="pre">area</span></tt> function
+defined earlier. There can only be one function with a given name within a
+module.</p>
+<p>Note that we could have written the composition without storing the intermediate results.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">area2</span><span class="p">(</span><span class="n">xc</span><span class="p">,</span> <span class="n">yc</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span> <span class="n">yp</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">area</span><span class="p">(</span><span class="n">distance</span><span class="p">(</span><span class="n">xc</span><span class="p">,</span> <span class="n">yc</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span> <span class="n">yp</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="boolean-functions">
+<span id="index-4"></span><h2>Boolean Functions<a class="headerlink" href="#boolean-functions" title="Permalink to this headline">¶</a></h2>
+<p>Functions can return boolean values, which is often convenient for hiding
+complicated tests inside functions. For example:</p>
+
+<div id="ch06_boolfun1" >
+<textarea cols="50" rows="12" id="ch06_boolfun1_code" class="active_code">
+def isDivisible(x, y):
+    if x % y == 0:
+        return True
+    else:
+        return False
+
+print(isDivisible(10,5))
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch06_boolfun1)</span> </p>
+<button onclick="runit('ch06_boolfun1',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch06_boolfun1');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch06_boolfun1');">Load</button>
+<br />
+
+<canvas id="ch06_boolfun1_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch06_boolfun1_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>The name of this function is <tt class="docutils literal"><span class="pre">isDivisible</span></tt>. It is common to give <strong>boolean
+functions</strong> names that sound like yes/no questions.  <tt class="docutils literal"><span class="pre">isDivisible</span></tt> returns
+either <tt class="docutils literal"><span class="pre">True</span></tt> or <tt class="docutils literal"><span class="pre">False</span></tt> to indicate whether the <tt class="docutils literal"><span class="pre">x</span></tt> is or is not
+divisible by <tt class="docutils literal"><span class="pre">y</span></tt>.</p>
+<p>We can make the function more concise by taking advantage of the fact that the
+condition of the <tt class="docutils literal"><span class="pre">if</span></tt> statement is itself a boolean expression. We can return
+it directly, avoiding the <tt class="docutils literal"><span class="pre">if</span></tt> statement altogether:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">isDivisible</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">%</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>Boolean functions are often used in conditional statements:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="n">isDivisible</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="o">...</span> <span class="c"># do something ...</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="o">...</span> <span class="c"># do something else ...</span>
+</pre></div>
+</div>
+<p>It might be tempting to write something like:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="n">isDivisible</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>but the extra comparison is unnecessary.</p>
+
+<div id="ch06_boolfun2" >
+<textarea cols="50" rows="12" id="ch06_boolfun2_code" class="active_code">
+def isDivisible(x, y):
+    if x % y == 0:
+        return True
+    else:
+        return False
+
+if isDivisible(10,5):
+    print("That works")
+else:
+    print("Those values are no good")
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch06_boolfun2)</span> </p>
+<button onclick="runit('ch06_boolfun2',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch06_boolfun2');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch06_boolfun2');">Load</button>
+<br />
+
+<canvas id="ch06_boolfun2_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch06_boolfun2_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>Try a few other pairs of values to see the results.</p>
+</div>
+<div class="section" id="programming-with-style">
+<span id="index-5"></span><h2>Programming With Style<a class="headerlink" href="#programming-with-style" title="Permalink to this headline">¶</a></h2>
+<p>Readability is very important to programmers, since in practice programs are
+read and modified far more often then they are written.</p>
+<p>We&#8217;ll have more to say about style as our programs become more complex, but a
+few pointers will be helpful already:</p>
+<ul class="simple">
+<li>use 4 spaces for indentation</li>
+<li>imports should go at the top of the file</li>
+<li>separate function definitions with two blank lines</li>
+<li>keep function definitions together</li>
+<li>keep top level statements, including function calls, together at the
+bottom of the program</li>
+</ul>
+</div>
+<div class="section" id="glossary">
+<h2>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h2>
+<dl class="glossary docutils">
+<dt id="term-chatterbox-function">chatterbox function</dt>
+<dd>A function which interacts with the user (using <tt class="docutils literal"><span class="pre">input</span></tt> or <tt class="docutils literal"><span class="pre">print</span></tt>) when
+it should not. Silent functions that just convert their input arguments into
+their output results are usually the most useful ones.</dd>
+<dt id="term-composition-of-functions">composition (of functions)</dt>
+<dd>Calling one function from within the body of another, or using the
+return value of one function as an argument to the call of another.</dd>
+<dt id="term-dead-code">dead code</dt>
+<dd>Part of a program that can never be executed, often because it appears
+after a <tt class="docutils literal"><span class="pre">return</span></tt> statement.</dd>
+<dt id="term-fruitful-function">fruitful function</dt>
+<dd>A function that yields a return value instead of <tt class="docutils literal"><span class="pre">None</span></tt>.</dd>
+<dt id="term-incremental-development">incremental development</dt>
+<dd>A program development plan intended to simplify debugging by adding and
+testing only a small amount of code at a time.</dd>
+<dt id="term-none">None</dt>
+<dd>A special Python value. One use in Python is that it is returned
+by functions that do not execute a return statement with a return argument.</dd>
+<dt id="term-return-value">return value</dt>
+<dd>The value provided as the result of a function call.</dd>
+<dt id="term-scaffolding">scaffolding</dt>
+<dd>Code that is used during program development to assist with development
+and debugging. The unit test code that we added in this chapter are
+examples of scaffolding.</dd>
+<dt id="term-temporary-variable">temporary variable</dt>
+<dd>A variable used to store an intermediate value in a complex
+calculation.</dd>
+</dl>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Write a function <tt class="docutils literal"><span class="pre">to_secs</span></tt> that converts hours, minutes and seconds to
+a total number of seconds.</p>
+</li>
+<li><p class="first">Extend <tt class="docutils literal"><span class="pre">to_secs</span></tt> so that it can cope with real values as inputs.  It
+should always return an integer number of seconds (truncated towards zero):</p>
+</li>
+<li><p class="first">Write three functions that are the &#8220;inverses&#8221; of <tt class="docutils literal"><span class="pre">to_secs</span></tt>:</p>
+<ol class="arabic simple">
+<li><tt class="docutils literal"><span class="pre">hours_in</span></tt> returns the whole integer number of hours
+represented by a total number of seconds.</li>
+<li><tt class="docutils literal"><span class="pre">minutes_in</span></tt> returns the whole integer number of left over minutes
+in a total number of seconds, once the hours
+have been taken out.</li>
+<li><tt class="docutils literal"><span class="pre">seconds_in</span></tt> returns the left over seconds
+represented by a total number of seconds.</li>
+</ol>
+<p>You may assume that the total number of seconds passed to these functions is an integer.</p>
+</li>
+<li><p class="first">Write a <tt class="docutils literal"><span class="pre">compare</span></tt> function that returns <tt class="docutils literal"><span class="pre">1</span></tt> if <tt class="docutils literal"><span class="pre">a</span> <span class="pre">&gt;</span> <span class="pre">b</span></tt>, <tt class="docutils literal"><span class="pre">0</span></tt> if
+<tt class="docutils literal"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">b</span></tt>, and <tt class="docutils literal"><span class="pre">-1</span></tt> if <tt class="docutils literal"><span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">b</span></tt>.</p>
+</li>
+<li><p class="first">Write a function called <tt class="docutils literal"><span class="pre">hypotenuse</span></tt> that
+returns the length of the hypotenuse of a right triangle given the lengths
+of the two legs as parameters.</p>
+</li>
+<li><p class="first">Write a function <tt class="docutils literal"><span class="pre">slope(x1,</span> <span class="pre">y1,</span> <span class="pre">x2,</span> <span class="pre">y2)</span></tt> that returns the slope of
+the line through the points (x1, y1) and (x2, y2).</p>
+<p>Then use a call to <tt class="docutils literal"><span class="pre">slope</span></tt> in a new function named
+<tt class="docutils literal"><span class="pre">intercept(x1,</span> <span class="pre">y1,</span> <span class="pre">x2,</span> <span class="pre">y2)</span></tt> that returns the y-intercept of the line
+through the points <tt class="docutils literal"><span class="pre">(x1,</span> <span class="pre">y1)</span></tt> and <tt class="docutils literal"><span class="pre">(x2,</span> <span class="pre">y2)</span></tt>.</p>
+</li>
+<li><p class="first">Write the function <tt class="docutils literal"><span class="pre">f2c(t)</span></tt> designed to return the
+degrees Celsius for given temperature in
+Fahrenheit.</p>
+</li>
+<li><p class="first">Now do the opposite: write the function <tt class="docutils literal"><span class="pre">c2f</span></tt> which converts Celcius to Fahrenheit.</p>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Brad Miller, David Ranum.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32029811-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>

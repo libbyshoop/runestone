@@ -1,0 +1,460 @@
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Overview &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/edu-python.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/simplemodal.js"></script>
+    <script type="text/javascript" src="../_static/jquery.textarea.js"></script>
+    <script type="text/javascript" src="../_static/edu-python.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.js"></script>
+    <script type="text/javascript" src="../_static/builtin.js"></script>
+    <script type="text/javascript" src="../_static/assess.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../index.html" />
+<script type="text/javascript"> 
+eBookConfig = {}
+eBookConfig.host = 'http://141.140.167.226:8000' ? 'http://141.140.167.226:8000' : 'http://127.0.0.1:8000',
+eBookConfig.app = eBookConfig.host+'/courselib',
+eBookConfig.ajaxURL = eBookConfig.app+'/ajax/',
+eBookConfig.course = 'COMP123F12-01',
+eBookConfig.logLevel = 10,
+eBookConfig.loginRequired = true
+</script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Overview</a></li>
+<li><a class="reference internal" href="#plain-python">Plain Python</a><ul>
+<li><a class="reference internal" href="#loop">Loop!</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#myro">Myro</a><ul>
+<li><a class="reference internal" href="#loops">Loops</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/classactivities/functionsloops.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul><!--<div id="runestonebox">
+  <h3>Runestone Links</h3>
+  <ul>
+    <li>
+      <a href="https://github.com/bnmnetp/runestone/issues/new">Report a Problem</a>
+    </li>
+    <li>
+      <a href="http://runestoneinteractive.org">About Runestone</a>
+    </li>
+    <li>
+      <a href="/courselib/admin/index">Instructors Page</a>
+    </li>
+  </ul>
+</div>
+-->
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <p><strong>COMP 123</strong></p>
+<div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<p>These activities will practice with writing functions, both in
+plain Python and using Myro, and will introduce loops, both <tt class="docutils literal"><span class="pre">while</span></tt>
+and <tt class="docutils literal"><span class="pre">for</span></tt> loops, which are a way of making the computer repeat a
+set of actions over and over.</p>
+</div>
+<div class="section" id="plain-python">
+<h1>Plain Python<a class="headerlink" href="#plain-python" title="Permalink to this headline">¶</a></h1>
+<p>Open a new window in IDLE, and put all your work for this activity
+in the file.</p>
+<ol class="arabic">
+<li><p class="first">Read the following function, and then predict what the values
+would be when the function calls below are run. Then test yourself
+by typing the function into IDLE and trying out the examples.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+     <span class="n">q</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+     <span class="n">r</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+     <span class="n">s</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+     <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">foo</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">17</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">foo</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">17</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">foo</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">foo</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">foo</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="ch03_1" >
+<textarea cols="50" rows="12" id="ch03_1_code" class="active_code">
+def foo(x, y, z):
+    q = max(x, y)
+    r = max(y, z)
+    s = max(x, z)
+    return min(q, r, s)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch03_1)</span> </p>
+<button onclick="runit('ch03_1',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch03_1');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch03_1');">Load</button>
+<br />
+
+<canvas id="ch03_1_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch03_1_pre" class="active_out">
+
+</pre>
+
+</div>
+
+</li>
+<li><p class="first">Consider the mathematical polynomial function:
+<span class="math">\(f(x) = 3x^2 + 2x+ 1\)</span>.
+Create a function in Python
+called <tt class="docutils literal"><span class="pre">polyf</span></tt> that takes a single input, <tt class="docutils literal"><span class="pre">x</span></tt>, and computes this
+polynomial value, and <tt class="docutils literal"><span class="pre">returns</span></tt> it.</p>
+<p>Once you have defined the function, it should behave as in the
+following examples:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">polyf</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go"> 6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">polyf</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="go">321</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">polyf</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">polyf</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="go">327</span>
+</pre></div>
+</div>
+
+<button id="butt_ch03_2" onclick="createActiveCode('ch03_2',''); $('#butt_ch03_2').hide();">Open Editor</button>
+<div id="ch03_2"></div>
+<br />
+</li>
+<li><p class="first">Define a <tt class="docutils literal"><span class="pre">truncString</span></tt> function that takes a string as input,
+and returns a new string that contains only the first five
+characters in the input string. (This kind of action is common in
+storing records, using a fixed number of characters from someone&#8217;s
+name). It is nice if your function works on strings that are
+shorter than five characters in length: it should just return the
+entire input string.</p>
+<p>Once you have defined the function, it should behave as in the
+following example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">truncString</span><span class="p">(</span><span class="s">&#39;henrietta&#39;</span><span class="p">)</span>
+<span class="go">&#39;henri&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">truncString</span><span class="p">(</span><span class="s">&#39;vladimir&#39;</span><span class="p">)</span>
+<span class="go"> &#39;vladi&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">truncString</span><span class="p">(</span><span class="s">&quot;a man a plan a canal - panama!&quot;</span><span class="p">)</span>
+<span class="go">&#39;a man&#39;</span>
+</pre></div>
+</div>
+
+<button id="butt_ch03_3" onclick="createActiveCode('ch03_3',''); $('#butt_ch03_3').hide();">Open Editor</button>
+<div id="ch03_3"></div>
+<br />
+</li>
+<li><p class="first">Define a function <tt class="docutils literal"><span class="pre">spliceLists</span></tt> that takes two lists and a
+number as its inputs. The number should be a value that is greater
+than or equal to zero, and less than or equal to the length of the
+shortest list. Your function should slice the first list from the
+beginning to the input number, and should slice the second list
+from the input number to the end, and then should concatenate the
+results. See the sample calls below:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">spliceLists</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span>
+<span class="go">40], 4) [1, 2, 3, 4, 60, 50, 40]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">spliceLists</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">spliceLists</span><span class="p">([</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s">&#39;d&#39;</span><span class="p">,</span><span class="s">&#39;e&#39;</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span> <span class="p">[</span><span class="s">&#39;d&#39;</span><span class="p">,</span> <span class="s">&#39;e&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">spliceLists</span><span class="p">([</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s">&#39;d&#39;</span><span class="p">,</span> <span class="s">&#39;e&#39;</span><span class="p">],</span> <span class="mi">2</span><span class="p">)[</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+
+<button id="butt_ch03_4" onclick="createActiveCode('ch03_4',''); $('#butt_ch03_4').hide();">Open Editor</button>
+<div id="ch03_4"></div>
+<br />
+</li>
+</ol>
+<div class="section" id="loop">
+<h2>Loop!<a class="headerlink" href="#loop" title="Permalink to this headline">¶</a></h2>
+<p>There are two kinds of loops we will use commonly in Python:
+<tt class="docutils literal"><span class="pre">while</span></tt> and <tt class="docutils literal"><span class="pre">for</span></tt>. The <tt class="docutils literal"><span class="pre">while</span></tt> loop takes a boolean expression, an
+expression that asks a question, and then has a block of indented
+Python statements. It tests the expression, and so long as it
+evaluates to true, Python will execute the statements in the block,
+and repeat. A <tt class="docutils literal"><span class="pre">for</span></tt> loop repeats for a fixed number of times. Each
+time through it sets its loop variable to be the next value in the
+loop sequence. Look at the examples and questions below.</p>
+<ol class="arabic">
+<li><p class="first">Look at the following loops. For each one, figure out what it
+does. After you work through it by hand, put it into Python in the
+shell and see what it does for certain.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># loop 1</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="k">while</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">x</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="k">print</span> <span class="n">x</span>
+
+
+<span class="c"># loop 2</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+   <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span> <span class="o">**</span> <span class="mi">2</span>
+
+
+<span class="c"># loop 3</span>
+ <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+ <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="c"># loop 4</span>
+ <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="s">&#39;razzamatazz&#39;</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">c</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+</pre></div>
+</div>
+
+<div id="ch03_5" >
+<textarea cols="50" rows="12" id="ch03_5_code" class="active_code">
+# loop 1
+x = 32
+while x > 0:
+    print x
+    x = x / 2
+print x
+
+
+# loop 2
+for i in range(10):
+   print i, i ** 2
+
+
+# loop 3
+ i = 0
+ while i < 10:
+    print i, i ** 2
+
+# loop 4
+ for c in 'razzamatazz':
+    print c.upper()
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch03_5)</span> </p>
+<button onclick="runit('ch03_5',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch03_5');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch03_5');">Load</button>
+<br />
+
+<canvas id="ch03_5_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch03_5_pre" class="active_out">
+
+</pre>
+
+</div>
+
+</li>
+<li><p class="first">Create a loop, using either <tt class="docutils literal"><span class="pre">while</span></tt> or <tt class="docutils literal"><span class="pre">for</span></tt> that prints the
+even numbers from 1 to 10. Then use that as a model to create a
+function called <tt class="docutils literal"><span class="pre">evensToN</span></tt> that takes a single number, <tt class="docutils literal"><span class="pre">n</span></tt>, as
+input, and prints the even numbers from 1 to <tt class="docutils literal"><span class="pre">n</span></tt>.</p>
+
+<button id="butt_ch03_6" onclick="createActiveCode('ch03_6',''); $('#butt_ch03_6').hide();">Open Editor</button>
+<div id="ch03_6"></div>
+<br />
+</li>
+<li><p class="first">Create a function that takes two numbers as input. Within, use a
+<tt class="docutils literal"><span class="pre">while</span></tt> loop that repeats until the first number is greater than
+the second number. Each time through the loop, print the numbers,
+then add one to the first number, and subtract one from the second
+number.</p>
+
+<button id="butt_ch03_7" onclick="createActiveCode('ch03_7',''); $('#butt_ch03_7').hide();">Open Editor</button>
+<div id="ch03_7"></div>
+<br />
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="myro">
+<h1>Myro<a class="headerlink" href="#myro" title="Permalink to this headline">¶</a></h1>
+<p>Get your hands on a robot, and try out these exercises in writing
+functions.</p>
+<ol class="arabic">
+<li><p class="first">Look at the following function. Try to figure out what it will
+do, then try it out to check yourself.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">dance</span><span class="p">(</span><span class="n">speed</span><span class="p">):</span>
+   <span class="n">beep</span><span class="p">()</span>
+   <span class="n">turnRight</span><span class="p">(</span><span class="n">speed</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+   <span class="n">beep</span><span class="p">()</span>
+   <span class="n">turnLeft</span><span class="p">(</span><span class="n">speed</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+   <span class="n">beep</span><span class="p">()</span>
+   <span class="n">turnRight</span><span class="p">(</span><span class="n">speed</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+   <span class="n">beep</span><span class="p">()</span>
+   <span class="n">turnLeft</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+   <span class="n">beep</span><span class="p">()</span>
+   <span class="n">beep</span><span class="p">()</span>
+   <span class="n">beep</span><span class="p">()</span>
+   <span class="n">stop</span><span class="p">()</span>
+</pre></div>
+</div>
+
+<button id="butt_ch03_8" onclick="createActiveCode('ch03_8',''); $('#butt_ch03_8').hide();">Open Editor</button>
+<div id="ch03_8"></div>
+<br />
+</li>
+<li><p class="first">Implement a <tt class="docutils literal"><span class="pre">yoyo</span></tt> function that makes the robot move forward
+and then back twice. It should take two inputs, the speed for the
+robot and how long to wait before returning.</p>
+
+<button id="butt_ch03_9" onclick="createActiveCode('ch03_9',''); $('#butt_ch03_9').hide();">Open Editor</button>
+<div id="ch03_9"></div>
+<br />
+</li>
+<li><p class="first">Create a function <tt class="docutils literal"><span class="pre">moveAndPic</span></tt> that takes in a turn time as its
+input. It should cause the robot to take a picture, show the
+picture, and then turn left for the input turn time. It should
+repeat this process four times (you don&#8217;t have to use a loop here,
+but you may if you&#8217;ve already figured them out).</p>
+
+<button id="butt_ch03_10" onclick="createActiveCode('ch03_10',''); $('#butt_ch03_10').hide();">Open Editor</button>
+<div id="ch03_10"></div>
+<br />
+</li>
+<li><p class="first">Create a function, <tt class="docutils literal"><span class="pre">driveSquare</span></tt> that tries to have the robot
+move in a square. It should take a speed value as its input. Note
+that Real Robots Don&#8217;t Drive Straight, so be forgiving!</p>
+</li>
+</ol>
+<blockquote>
+<div>
+<button id="butt_ch03_11" onclick="createActiveCode('ch03_11',''); $('#butt_ch03_11').hide();">Open Editor</button>
+<div id="ch03_11"></div>
+<br />
+</div></blockquote>
+<div class="section" id="loops">
+<h2>Loops<a class="headerlink" href="#loops" title="Permalink to this headline">¶</a></h2>
+<p>Reading the Loops section above for information about the basic
+structure of <tt class="docutils literal"><span class="pre">while</span></tt> and <tt class="docutils literal"><span class="pre">for</span></tt> loops. Then try the following:</p>
+<ol class="arabic">
+<li><p class="first">Modify the <tt class="docutils literal"><span class="pre">moveAndPic</span></tt> function from earlier so it also takes
+in a number <tt class="docutils literal"><span class="pre">n</span></tt>, and uses a loop to repeat the turning and taking
+pictures <tt class="docutils literal"><span class="pre">n</span></tt> times, instead of 4 times.</p>
+
+<button id="butt_ch03_12" onclick="createActiveCode('ch03_12',''); $('#butt_ch03_12').hide();">Open Editor</button>
+<div id="ch03_12"></div>
+<br />
+</li>
+<li><p class="first">Using the <tt class="docutils literal"><span class="pre">yoyo</span></tt> and <tt class="docutils literal"><span class="pre">dance</span></tt> functions from before, create a
+function called <tt class="docutils literal"><span class="pre">danceRoutine</span></tt> that repeats some combination of
+yoyo-ing and dancing some number of times.</p>
+
+<button id="butt_ch03_13" onclick="createActiveCode('ch03_13',''); $('#butt_ch03_13').hide();">Open Editor</button>
+<div id="ch03_13"></div>
+<br />
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Brad Miller, David Ranum.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32029811-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>

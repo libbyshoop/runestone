@@ -1,0 +1,186 @@
+Loops Activity
+==============
+
+**COMP 123**
+
+Overview
+--------
+
+We'll try writing some different kinds of loops with this
+activity.
+
+Loop!
+-----
+
+There are two kinds of loops we will use commonly in Python:
+`while` and `for`. The `while` loop takes a boolean expression, an
+expression that asks a question, and then has a block of indented
+Python statements. It tests the expression, and so long as it
+evaluates to true, Python will execute the statements in the block,
+and repeat. A `for` loop repeats for a fixed number of times. Each
+time through it sets its loop variable to be the next value in the
+loop sequence. Look at the examples and questions below.
+
+Look at the following functions, which use loops to repeat a
+process. Try these out until you understand what the loop is doing.
+
+.. note:: `perfectSquares` contains a common pattern for loops: it
+            uses a variable, `ansLst` as an "accumulator" to hold the part of
+            the answer that has been computed so far. At the end of the loop
+            `ansLst` contains the answer.
+
+
+.. sourcecode:: python
+
+    def divByTwo(x):
+        """Takes an input integer, x, and prints x and the
+            result of repeatedly dividing x by 2. It stops when x becomes <= to
+            zero"""
+        while x > 0:
+            print x
+            x = x / 2
+            # end of while
+        print x
+    # end of divByTwo
+
+
+.. activecode:: act_loop_01
+
+    def divByTwo(x):
+        """Takes an input integer, x, and prints x and the
+            result of repeatedly dividing x by 2. It stops when x becomes <= to
+            zero"""
+        while x > 0:
+            print x
+            x = x / 2
+            # end of while
+        print x
+    # end of divByTwo
+
+.. sourcecode:: python
+
+    def perfectSquares(n):
+        """Takes a non-negative input integer, n,
+        and creates a list containing the squares of the numbers from zero
+        to n"""
+        ansLst = []
+        for i in range(n+1): # Do you know why I put n+1 here?
+            ansLst.append(i**2)
+            # end of for loop
+        return ansLst
+    # end of perfectSquares
+
+.. activecode:: act_loop_02
+
+    def perfectSquares(n):
+        """Takes a non-negative input integer, n,
+        and creates a list containing the squares of the numbers from zero
+        to n"""
+        ansLst = []
+        for i in range(n+1): # Do you know why I put n+1 here?
+            ansLst.append(i**2)
+            # end of for loop
+        return ansLst
+    # end of perfectSquares
+
+.. sourcecode:: python
+
+    def printAlpha(string):
+        """Takes a string as input, and loops
+        through the characters of the string. For each character, if it is
+        an alphabetic character, then it is printed. All characters are
+        printed on one line, separated by spaces"""
+        for c in string:
+            if c.isalpha():
+                print c,
+            # end of if
+        # end of for loop
+        print
+    # end of printAlpha
+
+.. activecode:: act_loop_03
+
+    def printAlpha(string):
+        """Takes a string as input, and loops
+        through the characters of the string. For each character, if it is
+        an alphabetic character, then it is printed. All characters are
+        printed on one line, separated by spaces"""
+        for c in string:
+            if c.isalpha():
+                print c,
+            # end of if
+        # end of for loop
+        print
+    # end of printAlpha
+
+
+
+
+Now you try it:
+---------------
+
+
+#. Create a function called `evensToN` that takes a single number,
+   `n`, as input, and prints the even numbers from 1 to `n`.
+
+   .. actex:: act_loop_04
+
+#. Create a version of the function from the recursion activity:
+   `printApproach`. This function that takes two numbers as input.
+   Within, use a `while` loop that repeats until the first number is
+   greater than the second number. Each time through the loop, print
+   the numbers, then add one to the first number, and subtract one
+   from the second number.
+
+   .. actex:: act_loop_05
+
+#. Look at the following function. Try to figure out what it will
+   do, then try it out to check yourself.
+
+   .. sourcecode:: python
+
+        def dance(speed):
+            beep()
+            turnRight(speed, 1)
+            beep()
+            turnLeft(speed,2)
+            beep()
+            turnRight(speed, 2)
+            beep()
+            turnLeft(1)
+            beep()
+            beep()
+            beep()
+            stop()
+
+   .. actex:: act_loop_06
+
+#. Create a version of the `yoyo` function described in the Kumar
+   book, that takes a speed and a time value as inputs, and makes the
+   robot move forward at the given speed for the specified time, and
+   then backward for the same speed and time.
+
+   .. actex:: act_loop_07
+
+#. Create a function called `keepYoing` that takes an input number
+   `n`. It should call the `yoyo` function `n` times. Choose your kind
+   of loop, or recursion, to make this work.
+
+   .. actex:: act_loop_08
+
+#. Using the `yoyo`, `keepYoing`, and `dance` functions from
+   before, create a function called `danceRoutine` that repeats some
+   combination of yoyo-ing and dancing some number of times. Make the
+   number of times to repeat be an input to `danceRoutine`.
+
+   .. actex:: act_loop_09
+
+#. Create a function `turnAndBeep` or `turnAndPic` that takes in a
+   number `n`, and uses a loop to repeatedly have the robot turn to
+   the left a fixed distance, and then either beep or take a picture,
+   depending on what you want.
+
+   .. actex:: act_loop_10
+
+
+

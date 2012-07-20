@@ -5,7 +5,9 @@
 COURSEID = devcourse
 APPNAME = courselib
 LOGLEVEL = 10
-COURSEURL = http://127.0.0.1:8000
+#COURSEURL = http://127.0.0.1:8000
+COURSEURL = http://141.140.167.226:8000
+
 LOGINREQ = true
 #
 #

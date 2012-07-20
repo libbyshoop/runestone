@@ -1,0 +1,280 @@
+Basic Python Activity
+=====================
+
+**COMP 123**
+
+Overview
+--------
+Today you will learn a bit about Python, and some basic kinds of data Python can manipulate. You’ll learn
+how to store values in variables, and how to build expressions that can be evaluated to produce a value. You
+will learn how to put sequences of Python statements and expressions in a file, called a script, which can be
+saved and re-run at a later point.
+
+Python
+------
+Python provides an interactive shell that we use to communicate with it, much like a calculator provides an
+interface that we use to communicate with it. With Python, you can type a series of Python statements into
+the shell, and get immediate responses to each one. You can also package up a series of statements as a
+script. When you run the script, Python executes each statement in order. Most modern operating systems
+allow you to run a Python script as if it were an executable application, just by double-clicking on the Python
+file containing the script. Behind the scenes, the Python shell is started up, and the statements are executed
+in the shell one after another.
+We can also write programs other than scripts in Python, but we’ll get to that later.
+
+
+Try these examples
+^^^^^^^^^^^^^^^^^^
+
+Try the examples below in the editor, typing each one
+in turn. Note: variables in computer science are similar to
+variables in math, but not identical. Think of a variable as being
+a name for a box in the computer's memory, where you can stick a
+value of some kind.
+
+
+    +-------------------------------+-----------------------------------------------------------------+
+    |     ``5 + 2``                 |  Compute the sum of two numbers.                                |
+    +-------------------------------+-----------------------------------------------------------------+
+    |     ``x = 100``               |  Assign the value 100 to variable x.                            |
+    +-------------------------------+-----------------------------------------------------------------+
+    |     ``(2 * x) - 33``          |  Compute the value :math:`2x - 33`.                             |
+    +-------------------------------+-----------------------------------------------------------------+
+    |     ``2 ** 4``                |  Compute the value :math:`2^4`, (\*\* means exponentiation)     |
+    +-------------------------------+-----------------------------------------------------------------+
+    |     ``z = (x - (5 * 4))``     |  Assign the value of the expression to variable z.              |
+    +-------------------------------+-----------------------------------------------------------------+
+    |     ``print 10 * 3, x, z``    |  Print the values of each expression on a line.                 |
+    +-------------------------------+-----------------------------------------------------------------+
+    |     ``strng = 'Hello there'`` |  Assign variable strng to be the string.                        |
+    +-------------------------------+-----------------------------------------------------------------+
+
+
+.. actex:: act_intro_1
+
+    a=5
+    b=2
+    print(a+b) #Compute the sum of two numbers.
+    x=100 #Assign the value 100 to variable x.
+    print("x=100")
+    print(2*x)-33 #Compute the value 2x-33
+    print(2**4) # Compute the value
+    z=(x-(5*4)) #Assign the value of the expression to variable z.
+    print 10*3,x,z #Print the values of each expression on a line.
+    strng="Hello there" #Assign variable strng to be the string.
+    print strng #print strng
+
+
+Create your own script
+^^^^^^^^^^^^^^^^^^^^^^
+
+Suppose I want to fence in my backyard. Given the length and width
+of the space, I can figure out how much fencing I need by computing
+the perimeter of the rectangle. Define a variable ``w`` to hold the
+value 50 (the width in feet of my yard), and define variable ``l`` to
+be the value 75 (the length in feet of my yard). Then write a
+Python expression to calculate how many feet of fencing I would
+need to enclose my yard. Try it out in the shell.
+
+Choose "New Window" to open an editor window. Copy the statements
+you used to compute the length of fencing into this window. Make
+sure each statement starts at the beginning of the line (no leading
+spaces). Save this file as ``fencing.py``, and then try running the
+script. To run your script in the Python shell, select "Run Module"
+from the "Run" menu. Does it work? When you run a script from a
+file, Python automatically suppresses the values of each expression
+in the file. Thus, if you want to see the result of your
+calculations, you will need to add ``print`` statements to see the
+final result. Next, change the values of ``w`` and ``l`` to new values.
+Does the script work correctly on these new values? Add a comment
+above your Python statements that describes what your script does.
+
+.. actex:: act_intro_2
+
+
+
+
+Data Types
+----------
+
+Numbers
+^^^^^^^
+
+Python has two main kinds of numbers: integers, and real, or
+floating point, numbers. (There are other kinds of numbers, as
+well, but we probably won't use any of them). Below is a table
+showing basic numeric operations. Many more common mathematical
+operations are in the math module, which you can add in when you
+need it.
+
+
+
+    +--------------------------+---------------------------------------------------+
+    | Example                  | Meaning                                           |
+    +==========================+===================================================+
+    | 3 + 12                   | Adds two numbers, returning the result            |
+    +--------------------------+---------------------------------------------------+
+    | 45 - 19                  | Subtracts second from first, returning the result |
+    +--------------------------+---------------------------------------------------+
+    | 5\*100                   | Multiplies two numbers, returning the result      |
+    +--------------------------+---------------------------------------------------+
+    | 55.0 / 2                 | Divides first by the second, returning the result |
+    +--------------------------+---------------------------------------------------+
+    |  30 % 4                  | Computes the remainder of first divided by second |
+    +--------------------------+---------------------------------------------------+
+    |  2**3                    | Raises first to the power of the second           |
+    |                          |                                                   |
+    +--------------------------+---------------------------------------------------+
+    |  max(1, 5, 3)            | A function that returns the largest of values     |
+    +--------------------------+---------------------------------------------------+
+    |  min(1, 5, 3)            | A function that returns the smallest of values    |
+    +--------------------------+---------------------------------------------------+
+    |  abs(-3)                 | A function that returns the absolute value of     |
+    |                          |  its argument                                     |
+    +--------------------------+---------------------------------------------------+
+    |  int(3.2)                | Converts its argument to an integer               |
+    +--------------------------+---------------------------------------------------+
+    |  float(2)                | Converts its argument to a floating point         |
+    +--------------------------+---------------------------------------------------+
+
+
+Integers and floats are treated as different, though related, kinds
+of data. This is why we have explicit operators to convert from one
+type to the other.
+
+ .. note:: You might not see exactly the same result; floating point results can differ from one machine to another.
+           We will say more later about controlling the appearance of floating point output.
+           See also `Floating Point Arithmetic Issues and Limitations`_ for a full discussion of some of the subtleties of floating point numbers and their representations.
+
+
+.. _Floating Point Arithmetic Issues and Limitations: http://docs.python.org/release/3.1.5/tutorial/floatingpoint.html#tut-fp-issues
+
+Try the following in the editor to see how division works.
+
+.. sourcecode:: python
+
+    25.0/3
+    25.0/3.0
+    25/3.0
+    25/3
+    25%3
+
+.. actex:: act_intro_3
+
+    print(25.0/3)
+    # Try the remaining here
+
+
+
+Try a new script
+^^^^^^^^^^^^^^^^
+
+Consider the problem of making change: figuring out how many bills
+and coins to give someone to make a specific amount of money. This
+example asks you to make a script to solve this problem. You might
+start by discussing this question with a neighbor, and developing
+together your ideas for how to solve the problem, in English or
+pseudocode. The key idea to making change is to take the quotient
+and remainder of an amount by the next monetary unit. For example,
+given $7.32, represented as 732 cents. If we take the quotient of
+732 by 100 (for one dollar bills), then we get 7, and the remainder
+of 732 divided by 100 is 32. Then take the part left over, and
+repeat for the next coin: quarters. Divide 32 by 25, and get 1, and
+the remainder is 7 cents. Continue in this manner.
+
+Now, see if you can write a Python script, a series of expressions
+or statements in Python, that do this calculation and print out the
+results. Open a new editor window in Wing, or add this to an existing file.
+Define a variable, ``money``, that contains a money amount, in cents
+(like 732 for $7.32, for example).
+
+Then, create a series of Python statements that calculate and print
+how to give change for the money value, in dollars, quarters,
+dimes, nickels, and pennies. The best solution will use integer
+division and the remainder operation.
+
+Below is an example of what might print when this script is run:
+
+.. sourcecode:: python
+
+    Making change for 732 cents:
+    Dollars: 7
+    Quarters: 1
+    Dimes: 0
+    Nickels: 1
+    Pennies: 2
+
+
+Once you get the script working for 732, change the value of
+``money`` and test your script on other values to be sure it works
+more generally.
+
+
+
+Strings
+-------
+
+Strings are collections of characters, and characters are keyboard
+symbols. For now, we'll use strings to be little bits of text, so
+that we can print out more interesting messages.
+
+Strings and characters are written the same in Python. A character
+is just a string of length 1. Strings are written with quotes
+before and after them. You can either use double-quotes or
+single-quotes, as the examples below show. There are special
+strings called "doc-strings" that are written with three
+double-quotes before and after. These strings can be more than one
+line long.
+
+.. sourcecode:: python
+
+     'Hi there'
+     "Hi there"
+     "I contain an apostrophe, don't I"
+     'I was told, "double quotes go inside single quotes"'
+     s = 'hi mom'
+     longstr= """As I was going to St. Ives, I met a man with seven wives.   Each wife had seven sacks,
+     Each sack had seven cats,   Each cat had seven kits.    Kits, cats, sacks, and wives:   How many were going to St.Ives?"""
+
+
+
+We won't do much with string operations today, but here are a
+couple to keep in mind:
+
+
+
+    +--------------------------+---------------------------------------------------+
+    |``len('foo')``            |  returns the number of characters in its argument |
+    +--------------------------+---------------------------------------------------+
+    |``'foo' + 'bar'``         |   concatenates the two strings together           |
+    +--------------------------+---------------------------------------------------+
+    |``'foo' * 3``             | concatenates the string with itself the number of |
+    |                          |              times given                          |
+    +--------------------------+---------------------------------------------------+
+    |``'mom' in s``            |   checks if first string occurs in second string  |
+    +--------------------------+---------------------------------------------------+
+    |``s[3]``                  |   returns the character at the given position,    |
+    |                          |     zero-based                                    |
+    +--------------------------+---------------------------------------------------+
+    |``s[3:5]``                |    returns a substring starting at 3 and          |
+    |                          |      ending before 5                              |
+    +--------------------------+---------------------------------------------------+
+
+
+
+
+A string script
+^^^^^^^^^^^^^^^
+
+Create a script that starts with:
+
+.. sourcecode:: python
+
+    sentence = 'We must go to the movies on Saturday'
+
+
+The script should pull out the last word in the sentence, using the
+substring operation from above, and should print a new string
+formed by concatenating the last word with itself 4 times.
+
+.. actex:: act_intro_5
+

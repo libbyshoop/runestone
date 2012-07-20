@@ -1,0 +1,979 @@
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Dictionaries &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/edu-python.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/simplemodal.js"></script>
+    <script type="text/javascript" src="../_static/jquery.textarea.js"></script>
+    <script type="text/javascript" src="../_static/edu-python.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.js"></script>
+    <script type="text/javascript" src="../_static/builtin.js"></script>
+    <script type="text/javascript" src="../_static/assess.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../index.html" />
+    <link rel="next" title="Recursion" href="../Recursion/thinkpyrecursion.html" />
+    <link rel="prev" title="Working with Data Files" href="../Files/files.html" />
+<script type="text/javascript"> 
+eBookConfig = {}
+eBookConfig.host = 'http://141.140.167.226:8000' ? 'http://141.140.167.226:8000' : 'http://127.0.0.1:8000',
+eBookConfig.app = eBookConfig.host+'/courselib',
+eBookConfig.ajaxURL = eBookConfig.app+'/ajax/',
+eBookConfig.course = 'COMP123F12-01',
+eBookConfig.logLevel = 10,
+eBookConfig.loginRequired = true
+</script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../Recursion/thinkpyrecursion.html" title="Recursion"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../Files/files.html" title="Working with Data Files"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Dictionaries</a><ul>
+<li><a class="reference internal" href="#dictionary-operations">Dictionary operations</a></li>
+<li><a class="reference internal" href="#dictionary-methods">Dictionary methods</a></li>
+<li><a class="reference internal" href="#aliasing-and-copying">Aliasing and copying</a></li>
+<li><a class="reference internal" href="#sparse-matrices">Sparse matrices</a></li>
+<li><a class="reference internal" href="#glossary">Glossary</a></li>
+<li><a class="reference internal" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../Files/files.html"
+                        title="previous chapter">Working with Data Files</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../Recursion/thinkpyrecursion.html"
+                        title="next chapter">Recursion</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/Dictionaries/dictionaries.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul><!--<div id="runestonebox">
+  <h3>Runestone Links</h3>
+  <ul>
+    <li>
+      <a href="https://github.com/bnmnetp/runestone/issues/new">Report a Problem</a>
+    </li>
+    <li>
+      <a href="http://runestoneinteractive.org">About Runestone</a>
+    </li>
+    <li>
+      <a href="/courselib/admin/index">Instructors Page</a>
+    </li>
+  </ul>
+</div>
+-->
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="dictionaries">
+<h1>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">All of the compound data types we have studied in detail so far &#8212; strings,
+lists, and tuples &#8212; are sequential collections.  This means that the items in the collection are
+ordered from left to right and they use integers as indices to access
+the values they contain.</p>
+<p><strong>Dictionaries</strong> are a different kind of collection. They are Python&#8217;s
+built-in <strong>mapping type</strong>. A map is an unordered, associative collection.  The association, or mapping,
+is from a <strong>key</strong>, which can be any immutable type,
+to a <strong>value</strong>, which can be any Python data object.</p>
+<p>As an example, we will create a dictionary to translate English words into
+Spanish. For this dictionary, the keys are strings.</p>
+<p>One way to create a dictionary is to start with the empty dictionary and add
+<strong>key-value pairs</strong>. The empty dictionary is denoted <tt class="docutils literal"><span class="pre">{}</span></tt></p>
+
+<div id="chp12_dict1" >
+<textarea cols="50" rows="12" id="chp12_dict1_code" class="active_code">
+eng2sp = {}
+print(eng2sp)
+eng2sp['one'] = 'uno'
+print(eng2sp)
+eng2sp['two'] = 'dos'
+eng2sp['three'] = 'tres'
+print(eng2sp)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chp12_dict1)</span> </p>
+<button onclick="runit('chp12_dict1',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chp12_dict1');">Save</button>
+<button class="ac_opt" onclick="requestCode('chp12_dict1');">Load</button>
+<br />
+
+<canvas id="chp12_dict1_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chp12_dict1_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>The first assignment creates a dictionary named <tt class="docutils literal"><span class="pre">eng2sp</span></tt>.  The other
+assignments add new key-value pairs to the dictionary.  The left hand side gives the dictionary and the key being associated.  The right hand side gives the value being associated with that key.
+We can print the current
+value of the dictionary in the usual way.
+The key-value pairs of the dictionary are separated by commas. Each pair
+contains a key and a value separated by a colon.</p>
+<p>The order of the pairs may not be what you expected. Python uses complex
+algorithms, designed for very fast access, to determine where the
+key-value pairs are stored in a dictionary.
+For our purposes we can think of this ordering as unpredictable.</p>
+<p>Another way to create a dictionary is to provide a list of key-value pairs
+using the same syntax as the previous output.</p>
+
+<div id="chp12_dict2" >
+<textarea cols="50" rows="12" id="chp12_dict2_code" class="active_code">
+eng2sp = {'three': 'tres', 'one': 'uno', 'two': 'dos'}
+print(eng2sp)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chp12_dict2)</span> </p>
+<button onclick="runit('chp12_dict2',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chp12_dict2');">Save</button>
+<button class="ac_opt" onclick="requestCode('chp12_dict2');">Load</button>
+<br />
+
+<canvas id="chp12_dict2_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chp12_dict2_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>It doesn&#8217;t matter what order we write the pairs. The values in a dictionary are
+accessed with keys, not with indices, so there is no need to care about
+ordering.</p>
+<p>Here is how we use a key to look up the corresponding value.</p>
+
+<div id="chp12_dict3" >
+<textarea cols="50" rows="12" id="chp12_dict3_code" class="active_code">
+eng2sp = {'three': 'tres', 'one': 'uno', 'two': 'dos'}
+
+print(eng2sp['two'])
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chp12_dict3)</span> </p>
+<button onclick="runit('chp12_dict3',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chp12_dict3');">Save</button>
+<button class="ac_opt" onclick="requestCode('chp12_dict3');">Load</button>
+<br />
+
+<canvas id="chp12_dict3_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chp12_dict3_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>The key <tt class="docutils literal"><span class="pre">'two'</span></tt> yields the value <tt class="docutils literal"><span class="pre">'dos'</span></tt>.</p>
+<div class="section" id="dictionary-operations">
+<span id="index-1"></span><h2>Dictionary operations<a class="headerlink" href="#dictionary-operations" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">del</span></tt> statement removes a key-value pair from a dictionary. For example,
+the following dictionary contains the names of various fruits and the number of
+each fruit in stock.  If someone buys all of the pears, we can remove the entry from the dictionary.</p>
+
+<div id="ch12_dict4" >
+<textarea cols="50" rows="12" id="ch12_dict4_code" class="active_code">
+inventory = {'apples': 430, 'bananas': 312, 'oranges': 525, 'pears': 217}
+print(inventory)
+
+del inventory['pears']
+print(inventory)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch12_dict4)</span> </p>
+<button onclick="runit('ch12_dict4',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch12_dict4');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch12_dict4');">Load</button>
+<br />
+
+<canvas id="ch12_dict4_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch12_dict4_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>Dictionaries are also mutable.  As we&#8217;ve seen before with lists, this means that the dictionary can
+be modified by referencing an association on the left hand side of the assignment statement.  In the previous
+example, instead of deleting the entry for <tt class="docutils literal"><span class="pre">pears</span></tt>, we could have set the inventory to <tt class="docutils literal"><span class="pre">0</span></tt>.</p>
+
+<div id="ch12_dict4a" >
+<textarea cols="50" rows="12" id="ch12_dict4a_code" class="active_code">
+inventory = {'apples': 430, 'bananas': 312, 'oranges': 525, 'pears': 217}
+print(inventory)
+
+inventory['pears'] = 0
+print(inventory)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch12_dict4a)</span> </p>
+<button onclick="runit('ch12_dict4a',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch12_dict4a');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch12_dict4a');">Load</button>
+<br />
+
+<canvas id="ch12_dict4a_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch12_dict4a_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>Similarily,
+a new shipment of 200 bananas arriving could be handled like this.</p>
+
+<div id="ch12_dict5" >
+<textarea cols="50" rows="12" id="ch12_dict5_code" class="active_code">
+inventory = {'apples': 430, 'bananas': 312, 'oranges': 525, 'pears': 217}
+inventory['bananas'] = inventory['bananas'] + 200
+print(inventory)
+
+print(len(inventory))
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch12_dict5)</span> </p>
+<button onclick="runit('ch12_dict5',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch12_dict5');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch12_dict5');">Load</button>
+<br />
+
+<canvas id="ch12_dict5_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch12_dict5_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>Notice that there are now 512 bananas&#8212;the dictionary has been modified.  Note also that the <tt class="docutils literal"><span class="pre">len</span></tt> function also works on dictionaries.  It returns the number
+of key-value pairs:</p>
+</div>
+<div class="section" id="dictionary-methods">
+<h2>Dictionary methods<a class="headerlink" href="#dictionary-methods" title="Permalink to this headline">¶</a></h2>
+<p>Dictionaries have a number of useful built-in methods.
+The following table provides a summary and more details can be found in the
+<a class="reference external" href="http://docs.python.org/py3k/library/stdtypes.html#mapping-types-dict">Python Documentation</a>.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="18%" />
+<col width="70%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Method</th>
+<th class="head">Parameters</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>keys</td>
+<td>none</td>
+<td>Returns a view of the keys in the dictionary</td>
+</tr>
+<tr class="row-odd"><td>values</td>
+<td>none</td>
+<td>Returns a view of the values in the dictionary</td>
+</tr>
+<tr class="row-even"><td>items</td>
+<td>none</td>
+<td>Returns a view of the key-value pairs in the dictionary</td>
+</tr>
+<tr class="row-odd"><td>get</td>
+<td>key</td>
+<td>Returns the value associated with key; None otherwise</td>
+</tr>
+<tr class="row-even"><td>get</td>
+<td>key,alt</td>
+<td>Returns the value associated with key; alt otherwise</td>
+</tr>
+</tbody>
+</table>
+<p>The <tt class="docutils literal"><span class="pre">keys</span></tt> method returns what Python 3 calls a <strong>view</strong> of its underlying keys.
+We can iterate over the view or turn the view into a
+list by using the <tt class="docutils literal"><span class="pre">list</span></tt> conversion function.</p>
+
+<div id="chp12_dict6" >
+<textarea cols="50" rows="12" id="chp12_dict6_code" class="active_code">
+inventory = {'apples': 430, 'bananas': 312, 'oranges': 525, 'pears': 217}
+
+for akey in inventory.keys():     # the order in which we get the keys is not defined
+   print("Got key", akey, "which maps to value", inventory[akey])
+
+ks = list(inventory.keys())
+print(ks)
+
+for k in inventory:
+   print("Got key", k)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chp12_dict6)</span> </p>
+<button onclick="runit('chp12_dict6',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chp12_dict6');">Save</button>
+<button class="ac_opt" onclick="requestCode('chp12_dict6');">Load</button>
+<br />
+
+<canvas id="chp12_dict6_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chp12_dict6_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>It is so common to iterate over the keys in a dictionary that you can
+omit the <tt class="docutils literal"><span class="pre">keys</span></tt> method call in the <tt class="docutils literal"><span class="pre">for</span></tt> loop &#8212; iterating over
+a dictionary implicitly iterates over its keys.</p>
+
+<div id="chp12_dict7" >
+<textarea cols="50" rows="12" id="chp12_dict7_code" class="active_code">
+inventory = {'apples': 430, 'bananas': 312, 'oranges': 525, 'pears': 217}
+
+for k in inventory:
+   print("Got key", k)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chp12_dict7)</span> </p>
+<button onclick="runit('chp12_dict7',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chp12_dict7');">Save</button>
+<button class="ac_opt" onclick="requestCode('chp12_dict7');">Load</button>
+<br />
+
+<canvas id="chp12_dict7_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chp12_dict7_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>As we saw earlier with strings and lists, dictionary methods use dot notation,
+which specifies the name of the method to the right of the dot and the name of
+the object on which to apply the method immediately to the left of the dot. The empty
+parentheses in the case of <tt class="docutils literal"><span class="pre">keys</span></tt> indicate that this method takes no parameters.</p>
+<p>The <tt class="docutils literal"><span class="pre">values</span></tt> and <tt class="docutils literal"><span class="pre">items</span></tt> methods are similar to <tt class="docutils literal"><span class="pre">keys</span></tt>. They return  view objects which can be turned
+into lists or iterated over directly.  Note that the items are shown as tuples containing the key and the associated value.</p>
+
+<div id="chp12_dict8" >
+<textarea cols="50" rows="12" id="chp12_dict8_code" class="active_code">
+inventory = {'apples': 430, 'bananas': 312, 'oranges': 525, 'pears': 217}
+
+print(list(inventory.values()))
+print(list(inventory.items()))
+
+for (k,v) in inventory.items():
+    print("Got",k,"that maps to",v)
+
+for k in inventory:
+    print("Got",k,"that maps to",inventory[k])
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chp12_dict8)</span> </p>
+<button onclick="runit('chp12_dict8',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chp12_dict8');">Save</button>
+<button class="ac_opt" onclick="requestCode('chp12_dict8');">Load</button>
+<br />
+
+<canvas id="chp12_dict8_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chp12_dict8_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>Note that tuples are often useful for getting both the key and the value at the same
+time while you are looping.  The two loops do the same thing.</p>
+<p>The <tt class="docutils literal"><span class="pre">in</span></tt> and <tt class="docutils literal"><span class="pre">not</span> <span class="pre">in</span></tt> operators can test if a key is in the dictionary:</p>
+
+<div id="chp12_dict9" >
+<textarea cols="50" rows="12" id="chp12_dict9_code" class="active_code">
+inventory = {'apples': 430, 'bananas': 312, 'oranges': 525, 'pears': 217}
+print('apples' in inventory)
+print('cherries' in inventory)
+
+if 'bananas' in inventory:
+    print(inventory['bananas'])
+else:
+    print("We have no bananas")
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chp12_dict9)</span> </p>
+<button onclick="runit('chp12_dict9',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chp12_dict9');">Save</button>
+<button class="ac_opt" onclick="requestCode('chp12_dict9');">Load</button>
+<br />
+
+<canvas id="chp12_dict9_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chp12_dict9_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>This operator can be very useful since looking up a non-existent key in a
+dictionary causes a runtime error.</p>
+<p>The <tt class="docutils literal"><span class="pre">get</span></tt> method allows us to access the value associated with a key, similar to the <tt class="docutils literal"><span class="pre">[</span> <span class="pre">]</span></tt> operator.
+The important difference is that <tt class="docutils literal"><span class="pre">get</span></tt> will not cause a runtime error if the key is not present.  It
+will instead return None.  There exists a variation of <tt class="docutils literal"><span class="pre">get</span></tt> that allows an alternative return value
+in the case where the key is not present.</p>
+
+<div id="chp12_dict10" >
+<textarea cols="50" rows="12" id="chp12_dict10_code" class="active_code">
+inventory = {'apples': 430, 'bananas': 312, 'oranges': 525, 'pears': 217}
+
+print(inventory.get("apples"))
+print(inventory.get("cherries"))
+
+print(inventory.get("cherries",0))
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chp12_dict10)</span> </p>
+<button onclick="runit('chp12_dict10',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chp12_dict10');">Save</button>
+<button class="ac_opt" onclick="requestCode('chp12_dict10');">Load</button>
+<br />
+
+<canvas id="chp12_dict10_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chp12_dict10_pre" class="active_out">
+
+</pre>
+
+</div>
+
+</div>
+<div class="section" id="aliasing-and-copying">
+<span id="index-2"></span><h2>Aliasing and copying<a class="headerlink" href="#aliasing-and-copying" title="Permalink to this headline">¶</a></h2>
+<p>Because dictionaries are mutable, you need to be aware of aliasing (as we saw with lists)..  Whenever
+two variables refer to the same dictionary object, changes to one affect the other.
+For example, <tt class="docutils literal"><span class="pre">opposites</span></tt> is a dictionary that contains pairs
+of opposites.</p>
+
+<div id="ch12_dict11" >
+<textarea cols="50" rows="12" id="ch12_dict11_code" class="active_code">
+opposites = {'up': 'down', 'right': 'wrong', 'true': 'false'}
+alias = opposites
+
+print(alias is opposites)
+
+alias['right'] = 'left'
+print(opposites['right'])
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch12_dict11)</span> </p>
+<button onclick="runit('ch12_dict11',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch12_dict11');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch12_dict11');">Load</button>
+<br />
+
+<canvas id="ch12_dict11_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch12_dict11_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>As you can see from the <tt class="docutils literal"><span class="pre">is</span></tt> operator, <tt class="docutils literal"><span class="pre">alias</span></tt> and <tt class="docutils literal"><span class="pre">opposites</span></tt> refer to the same object.</p>
+<p>If you want to modify a dictionary and keep a copy of the original, use the dictionary
+<tt class="docutils literal"><span class="pre">copy</span></tt> method.  Since <em>acopy</em> is a copy of the dictionary, changes to it will not effect the original.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">acopy</span> <span class="o">=</span> <span class="n">opposites</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">acopy</span><span class="p">[</span><span class="s">&#39;right&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;left&#39;</span>    <span class="c"># does not change opposites</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sparse-matrices">
+<span id="index-3"></span><h2>Sparse matrices<a class="headerlink" href="#sparse-matrices" title="Permalink to this headline">¶</a></h2>
+<p>We previously used a list of lists to represent a matrix. That is a good choice
+for a matrix with mostly nonzero values, but consider a <a class="reference external" href="http://en.wikipedia.org/wiki/Sparse_matrix">sparse matrix</a> like this one:</p>
+<img alt="sparse matrix" src="../_images/sparse.png" />
+<p>The list representation contains a lot of zeroes:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+          <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+          <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+          <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+          <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>An alternative is to use a dictionary. For the keys, we can use tuples that
+contain the row and column numbers. Here is the dictionary representation of
+the same matrix.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">matrix</span> <span class="o">=</span> <span class="p">{(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="mi">3</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>We only need three key-value pairs, one for each nonzero element of the matrix.
+Each key is a tuple, and each value is an integer.</p>
+<p>To access an element of the matrix, we could use the <tt class="docutils literal"><span class="pre">[]</span></tt> operator:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">matrix</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>Notice that the syntax for the dictionary representation is not the same as the
+syntax for the nested list representation. Instead of two integer indices, we
+use one index, which is a tuple of integers.</p>
+<p>There is one problem. If we specify an element that is zero, we get an error,
+because there is no entry in the dictionary with that key.
+The alternative version of the <tt class="docutils literal"><span class="pre">get</span></tt> method solves this problem.
+The first argument will be the key.  The second argument is the value <tt class="docutils literal"><span class="pre">get</span></tt> should
+return if the key is not in the dictionary (which would be 0 since it is sparse).</p>
+
+<div id="chp12_sparse" >
+<textarea cols="50" rows="12" id="chp12_sparse_code" class="active_code">
+matrix = {(0, 3): 1, (2, 1): 2, (4, 3): 3}
+print(matrix.get((0,3)))
+
+print(matrix.get((1, 3), 0))
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chp12_sparse)</span> </p>
+<button onclick="runit('chp12_sparse',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chp12_sparse');">Save</button>
+<button class="ac_opt" onclick="requestCode('chp12_sparse');">Load</button>
+<br />
+
+<canvas id="chp12_sparse_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chp12_sparse_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<div class="admonition-lab admonition">
+<p class="first admonition-title">Lab</p>
+<ul class="last simple">
+<li><a class="reference external" href="lab12_01.html">Counting Letters</a> In this guided lab exercise we will work
+through a problem solving exercise that will use dictionaries to generalize the solution
+to counting the occurrences of all letters in a string.</li>
+</ul>
+</div>
+<div class="admonition-lab admonition">
+<p class="first admonition-title">Lab</p>
+<ul class="last simple">
+<li><a class="reference external" href="lab12_02.html">Letter Count Histogram</a> Combine the previous lab with the histogram example.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="glossary">
+<h2>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h2>
+<dl class="glossary docutils">
+<dt id="term-call-graph">call graph</dt>
+<dd>A graph consisting of nodes which represent function frames (or invocations),
+and directed edges (lines with arrows) showing which frames gave
+rise to other frames.</dd>
+<dt id="term-dictionary">dictionary</dt>
+<dd>A collection of key-value pairs that maps from keys to values. The keys
+can be any immutable type, and the values can be any type.</dd>
+<dt id="term-key">key</dt>
+<dd>A data item that is <em>mapped to</em> a value in a dictionary. Keys are used
+to look up values in a dictionary.</dd>
+<dt id="term-key-value-pair">key-value pair</dt>
+<dd>One of the pairs of items in a dictionary. Values are looked up in a
+dictionary by key.</dd>
+<dt id="term-mapping-type">mapping type</dt>
+<dd>A mapping type is a data type comprised of a collection of keys and
+associated values. Python&#8217;s only built-in mapping type is the
+dictionary.  Dictionaries implement the
+<a class="reference external" href="http://en.wikipedia.org/wiki/Associative_array">associative array</a>
+abstract data type.</dd>
+<dt id="term-memo">memo</dt>
+<dd>Temporary storage of precomputed values to avoid duplicating the same computation.</dd>
+</dl>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Write a program that reads in a string on the command line and returns a
+table of the letters of the alphabet in alphabetical order which occur in
+the string together with the number of times each letter occurs. Case should
+be ignored. A sample run of the program would look this this:</p>
+<div class="highlight-python"><pre>$ python letter_counts.py "ThiS is String with Upper and lower case Letters."
+a  2
+c  1
+d  1
+e  5
+g  1
+h  2
+i  4
+l  2
+n  2
+o  1
+p  2
+r  4
+s  5
+t  5
+u  1
+w  2
+$</pre>
+</div>
+
+<button id="butt_ex_11_01" onclick="createActiveCode('ex_11_01',''); $('#butt_ex_11_01').hide();">Open Editor</button>
+<div id="ex_11_01"></div>
+<br />
+</li>
+<li><p class="first">Give the Python interpreter&#8217;s response to each of the following from a
+continuous interpreter session:</p>
+<ol class="loweralpha">
+<li><div class="first highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;apples&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s">&#39;bananas&#39;</span><span class="p">:</span> <span class="mi">35</span><span class="p">,</span> <span class="s">&#39;grapes&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s">&#39;banana&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><div class="first highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s">&#39;oranges&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><div class="first highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;grapes&#39;</span> <span class="ow">in</span> <span class="n">d</span>
+</pre></div>
+</div>
+</li>
+<li><div class="first highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s">&#39;pears&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><div class="first highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;pears&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><div class="first highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">fruits</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fruits</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><div class="first highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">d</span><span class="p">[</span><span class="s">&#39;apples&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;apples&#39;</span> <span class="ow">in</span> <span class="n">d</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Be sure you understand why you get each result. Then apply what you
+have learned to fill in the body of the function below:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">add_fruit</span><span class="p">(</span><span class="n">inventory</span><span class="p">,</span> <span class="n">fruit</span><span class="p">,</span> <span class="n">quantity</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+     <span class="k">pass</span>
+
+<span class="c"># make these tests work...</span>
+<span class="n">new_inventory</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">add_fruit</span><span class="p">(</span><span class="n">new_inventory</span><span class="p">,</span> <span class="s">&#39;strawberries&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">test</span><span class="p">(</span><span class="s">&#39;strawberries&#39;</span> <span class="ow">in</span> <span class="n">new_inventory</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+<span class="n">test</span><span class="p">(</span><span class="n">new_inventory</span><span class="p">[</span><span class="s">&#39;strawberries&#39;</span><span class="p">],</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">add_fruit</span><span class="p">(</span><span class="n">new_inventory</span><span class="p">,</span> <span class="s">&#39;strawberries&#39;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">test</span><span class="p">(</span><span class="n">new_inventory</span><span class="p">[</span><span class="s">&#39;strawberries&#39;</span><span class="p">]</span> <span class="p">,</span> <span class="mi">35</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Write a program called <tt class="docutils literal"><span class="pre">alice_words.py</span></tt> that creates a text file named
+<tt class="docutils literal"><span class="pre">alice_words.txt</span></tt> containing an alphabetical listing of all the words, and the
+number of times each occurs, in the text version of <cite>Alice&#8217;s Adventures in Wonderland</cite>.
+(You can obtain a free plain text version of the book, along with many others, from
+<a class="reference external" href="http://www.gutenberg.org">http://www.gutenberg.org</a>.) The first 10 lines of your output file should look
+something like this</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><p class="first last">Word</p>
+</th>
+<th class="head"><p class="first last">Count</p>
+</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><p class="first last">a</p>
+</td>
+<td><p class="first last">631</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">a-piece</p>
+</td>
+<td><p class="first last">1</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">abide</p>
+</td>
+<td><p class="first last">1</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">able</p>
+</td>
+<td><p class="first last">1</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">about</p>
+</td>
+<td><p class="first last">94</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">above</p>
+</td>
+<td><p class="first last">3</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">absence</p>
+</td>
+<td><p class="first last">1</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">absurd</p>
+</td>
+<td><p class="first last">2</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>How many times does the word, <tt class="docutils literal"><span class="pre">alice</span></tt>, occur in the book?  If you are writing this
+in the activecode window simply print out the results rather than write them to a file.</p>
+
+<button id="butt_ex_11_02" onclick="createActiveCode('ex_11_02',''); $('#butt_ex_11_02').hide();">Open Editor</button>
+<div id="ex_11_02"></div>
+<br />
+</li>
+<li><p class="first">What is the longest word in Alice in Wonderland? How many characters does it have?</p>
+
+<button id="butt_ex_11_03" onclick="createActiveCode('ex_11_03',''); $('#butt_ex_11_03').hide();">Open Editor</button>
+<div id="ex_11_03"></div>
+<br />
+</li>
+<li><p class="first">Here&#8217;s a table of English to Pirate translations</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="37%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><p class="first last">English</p>
+</th>
+<th class="head"><p class="first last">Pirate</p>
+</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><p class="first last">sir</p>
+</td>
+<td><p class="first last">matey</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">hotel</p>
+</td>
+<td><p class="first last">fleabag inn</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">student</p>
+</td>
+<td><p class="first last">swabbie</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">boy</p>
+</td>
+<td><p class="first last">matey</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">madam</p>
+</td>
+<td><p class="first last">proud beauty</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">professor</p>
+</td>
+<td><p class="first last">foul blaggart</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">restaurant</p>
+</td>
+<td><p class="first last">galley</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">your</p>
+</td>
+<td><p class="first last">yer</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">excuse</p>
+</td>
+<td><p class="first last">arr</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">students</p>
+</td>
+<td><p class="first last">swabbies</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">are</p>
+</td>
+<td><p class="first last">be</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">lawyer</p>
+</td>
+<td><p class="first last">foul blaggart</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">the</p>
+</td>
+<td><p class="first last">th&#8217;</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">restroom</p>
+</td>
+<td><p class="first last">head</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">my</p>
+</td>
+<td><p class="first last">me</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">hello</p>
+</td>
+<td><p class="first last">avast</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">is</p>
+</td>
+<td><p class="first last">be</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">man</p>
+</td>
+<td><p class="first last">matey</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Write a program that asks the user for a sentence in English and then translates that
+sentence to Pirate.</p>
+
+<button id="butt_ex_11_04" onclick="createActiveCode('ex_11_04',''); $('#butt_ex_11_04').hide();">Open Editor</button>
+<div id="ex_11_04"></div>
+<br />
+</div></blockquote>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../Recursion/thinkpyrecursion.html" title="Recursion"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../Files/files.html" title="Working with Data Files"
+             >previous</a> |</li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Brad Miller, David Ranum.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32029811-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>

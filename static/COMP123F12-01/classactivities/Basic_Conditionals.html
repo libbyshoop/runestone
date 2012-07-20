@@ -1,0 +1,579 @@
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>BOOLEANS AND CONDITIONALS &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/edu-python.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/simplemodal.js"></script>
+    <script type="text/javascript" src="../_static/jquery.textarea.js"></script>
+    <script type="text/javascript" src="../_static/edu-python.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.js"></script>
+    <script type="text/javascript" src="../_static/builtin.js"></script>
+    <script type="text/javascript" src="../_static/assess.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../index.html" />
+<script type="text/javascript"> 
+eBookConfig = {}
+eBookConfig.host = 'http://141.140.167.226:8000' ? 'http://141.140.167.226:8000' : 'http://127.0.0.1:8000',
+eBookConfig.app = eBookConfig.host+'/courselib',
+eBookConfig.ajaxURL = eBookConfig.app+'/ajax/',
+eBookConfig.course = 'COMP123F12-01',
+eBookConfig.logLevel = 10,
+eBookConfig.loginRequired = true
+</script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">BOOLEANS AND CONDITIONALS</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#boolean-data-type">Boolean data type</a><ul>
+<li><a class="reference internal" href="#boolean-expressions">Boolean expressions</a></li>
+<li><a class="reference internal" href="#try-this">Try this:</a></li>
+<li><a class="reference internal" href="#boolean-operators">Boolean operators</a></li>
+<li><a class="reference internal" href="#id1">Try this:</a></li>
+<li><a class="reference internal" href="#conditional-statements">Conditional statements</a></li>
+<li><a class="reference internal" href="#id2">Try this:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#activity-1-cropping-values">Activity 1: Cropping Values</a></li>
+<li><a class="reference internal" href="#activity-2-tele-operated-robot">Activity 2: Tele-operated Robot</a></li>
+<li><a class="reference internal" href="#challenge-activities">Challenge Activities</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/classactivities/Basic_Conditionals.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul><!--<div id="runestonebox">
+  <h3>Runestone Links</h3>
+  <ul>
+    <li>
+      <a href="https://github.com/bnmnetp/runestone/issues/new">Report a Problem</a>
+    </li>
+    <li>
+      <a href="http://runestoneinteractive.org">About Runestone</a>
+    </li>
+    <li>
+      <a href="/courselib/admin/index">Instructors Page</a>
+    </li>
+  </ul>
+</div>
+-->
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="booleans-and-conditionals">
+<h1>BOOLEANS AND CONDITIONALS<a class="headerlink" href="#booleans-and-conditionals" title="Permalink to this headline">¶</a></h1>
+<p><strong>COMP 123</strong></p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This activity will practice with the Boolean data type, and
+conditional statements that let the computer choose an action.</p>
+</div>
+<div class="section" id="boolean-data-type">
+<h2>Boolean data type<a class="headerlink" href="#boolean-data-type" title="Permalink to this headline">¶</a></h2>
+<p>The boolean data type is a very special one in most programming
+languages. A boolean value is either <tt class="docutils literal"><span class="pre">True</span></tt> or <tt class="docutils literal"><span class="pre">False</span></tt>. We use
+booleans to ask questions about data in a program, and to write
+programs that can choose among alternative actions.</p>
+<div class="section" id="boolean-expressions">
+<h3>Boolean expressions<a class="headerlink" href="#boolean-expressions" title="Permalink to this headline">¶</a></h3>
+<p>We can ask questions using functions that return true/false
+answers, or with a set of boolean comparison operators. These form
+boolean <em>expressions</em> that evaluate to <tt class="docutils literal"><span class="pre">True</span></tt> or <tt class="docutils literal"><span class="pre">False</span></tt>. The most
+common boolean operators are shown in the table below.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">A</span> <span class="pre">==</span> <span class="pre">B</span></tt></td>
+<td>Takes two expressions, <tt class="docutils literal"><span class="pre">A</span></tt> and <tt class="docutils literal"><span class="pre">B</span></tt>, and evaluates to
+<tt class="docutils literal"><span class="pre">True</span></tt> if the value of <tt class="docutils literal"><span class="pre">A</span></tt> is equal to the value of <tt class="docutils literal"><span class="pre">B</span></tt>.</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">A</span> <span class="pre">!=</span> <span class="pre">B</span></tt></td>
+<td>Takes two expressions, <tt class="docutils literal"><span class="pre">A</span></tt> and <tt class="docutils literal"><span class="pre">B</span></tt>, and evaluates to
+<tt class="docutils literal"><span class="pre">True</span></tt> if the value of <tt class="docutils literal"><span class="pre">A</span></tt> is not equal to the value of <tt class="docutils literal"><span class="pre">B</span></tt>.</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">A</span> <span class="pre">&lt;=</span> <span class="pre">B</span></tt></td>
+<td><p class="first">Takes two expressions, <tt class="docutils literal"><span class="pre">A</span></tt> and <tt class="docutils literal"><span class="pre">B</span></tt>, and evaluates to
+<tt class="docutils literal"><span class="pre">True</span></tt> if the value of <tt class="docutils literal"><span class="pre">A</span></tt> is less than or equal to the value of <tt class="docutils literal"><span class="pre">B</span></tt>.</p>
+<div class="last admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">characters and strings are ordered more or less
+alphabetically: a string that comes before another in alphabetical
+order is seen as <em>less than</em>.</p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">A</span> <span class="pre">&lt;</span> <span class="pre">B</span></tt></td>
+<td>Similar to previous, but the values cannot be equal</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">A</span> <span class="pre">&gt;=</span> <span class="pre">B</span></tt></td>
+<td>Similar to previous, but &#8220;greater than or equal to&#8221;</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">A</span> <span class="pre">&gt;</span> <span class="pre">B</span></tt></td>
+<td>Similar to previous, but &#8220;greater than&#8221;</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">A</span> <span class="pre">in</span> <span class="pre">B</span></tt></td>
+<td>For strings, asks if the first value appears in the
+second value as a substring</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="try-this">
+<h3>Try this:<a class="headerlink" href="#try-this" title="Permalink to this headline">¶</a></h3>
+<p>Type each of the statements or expressions below in the shell in
+IDLE. Then copy or type the expressions into a Python file (an
+editor window), and add a comment after each one that describes
+what question is being asked, and what the answer should be.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#. first we&#39;ll assign three variables to values</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">s</span> <span class="o">=</span><span class="s">&#39;boolean&#39;</span>
+<span class="c"># now we&#39;ll ask questions about them</span>
+<span class="n">x</span> <span class="o">&lt;=</span> <span class="n">y</span>
+<span class="n">x</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">&gt;</span> <span class="n">y</span>
+<span class="n">x</span> <span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="s">&#39;g&#39;</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span> <span class="mi">7</span>
+<span class="s">&#39;e&#39;</span> <span class="ow">in</span> <span class="n">s</span>
+<span class="s">&#39;c&#39;</span> <span class="ow">in</span> <span class="n">s</span>
+<span class="s">&#39;boo&#39;</span> <span class="ow">in</span> <span class="n">s</span>
+</pre></div>
+</div>
+
+<button id="butt_ch02_1" onclick="createActiveCode('ch02_1','#. first we%27ll assign three variables to values\nx = 25\ny = 30\ns =%27boolean%27\n# now we%27ll ask questions about them\nprint(x <= y)\nprint(x + 5 > y)\nprint(x %2 == 0)\nprint(s[2] > %27g%27)\nprint(len(s) == 7)\nprint(%27e%27 in s)\nprint(%27c%27 in s)\nprint(%27boo%27 in s)'); $('#butt_ch02_1').hide();">Open Editor</button>
+<div id="ch02_1"></div>
+<br />
+</div>
+<div class="section" id="boolean-operators">
+<h3>Boolean operators<a class="headerlink" href="#boolean-operators" title="Permalink to this headline">¶</a></h3>
+<p>We can also put boolean expressions like the ones above together
+using the boolean operators: <tt class="docutils literal"><span class="pre">and</span></tt>, <tt class="docutils literal"><span class="pre">or</span></tt>, and <tt class="docutils literal"><span class="pre">not</span></tt>. The table
+below describes how these operators work.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">A</span> <span class="pre">and</span> <span class="pre">B</span></tt></td>
+<td>Evaluates to <tt class="docutils literal"><span class="pre">True</span></tt> if both the value of <tt class="docutils literal"><span class="pre">A</span></tt> and the
+value of <tt class="docutils literal"><span class="pre">B</span></tt> are <tt class="docutils literal"><span class="pre">True</span></tt>, otherwise it evaluates to <tt class="docutils literal"><span class="pre">False</span></tt></td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">A</span> <span class="pre">or</span> <span class="pre">B</span></tt></td>
+<td>Evaluates to <tt class="docutils literal"><span class="pre">True</span></tt> if at least one of <tt class="docutils literal"><span class="pre">A</span></tt> or <tt class="docutils literal"><span class="pre">B</span></tt>
+evaluates to <tt class="docutils literal"><span class="pre">True</span></tt></td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">not</span> <span class="pre">A</span></tt></td>
+<td>Evaluates to <tt class="docutils literal"><span class="pre">True</span></tt> if <tt class="docutils literal"><span class="pre">A</span></tt> evaluates to <tt class="docutils literal"><span class="pre">False</span></tt>, and to
+<tt class="docutils literal"><span class="pre">False</span></tt> if <tt class="docutils literal"><span class="pre">A</span></tt> evaluates to <tt class="docutils literal"><span class="pre">True</span></tt></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="id1">
+<h3>Try this:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Type each of the following into IDLE&#8217;s shell. Which of the
+following are <tt class="docutils literal"><span class="pre">True</span></tt>, and which <tt class="docutils literal"><span class="pre">False</span></tt>? Can you explain why?</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span><span class="o">=</span><span class="mi">25</span>
+<span class="n">y</span><span class="o">=</span><span class="mi">30</span>
+<span class="p">(</span><span class="n">x</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">y</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;b&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="p">(</span><span class="n">x</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="n">y</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">)</span>
+<span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">15</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition-true-or-false admonition">
+<p class="first admonition-title">True or False</p>
+
+    <div id="question1_01">
+    <p>1.01: (x % 5 == 0) and (y % 5 == 0)</p>
+    <form name="question1_01_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="question1_01_opt_a" />
+    <label for= "question1_01_opt_a">  a) True</label><br />
+    
+    <input type="radio" name="group1" value="b" id="question1_01_opt_b" />
+    <label for= "question1_01_opt_b">  b) False</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('question1_01','a',['x and y when divided by 5 give a remainder of 0.', 'x and y when divided by 5 give a remainder of 0.'])"/> 
+    </form>
+    <div id="question1_01_feedback">
+    </div>
+    </div>
+    
+    <div id="question1_02">
+    <p>1.02: (s[0] == 'b') or (len(s) >= 10)</p>
+    <form name="question1_02_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="question1_02_opt_a" />
+    <label for= "question1_02_opt_a">  a) True</label><br />
+    
+    <input type="radio" name="group1" value="b" id="question1_02_opt_b" />
+    <label for= "question1_02_opt_b">  b) False</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('question1_02','a',['only the first expression holds true', 'only the first expression holds true'])"/> 
+    </form>
+    <div id="question1_02_feedback">
+    </div>
+    </div>
+    
+    <div id="question1_03">
+    <p>1.03: (x in nums) and  not (y in nums)</p>
+    <form name="question1_03_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="question1_03_opt_a" />
+    <label for= "question1_03_opt_a">  a) True</label><br />
+    
+    <input type="radio" name="group1" value="b" id="question1_03_opt_b" />
+    <label for= "question1_03_opt_b">  b) False</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('question1_03','b',['y is in nums', 'y is in nums'])"/> 
+    </form>
+    <div id="question1_03_feedback">
+    </div>
+    </div>
+    <div class="last">
+    <div id="question1_04">
+    <p>1.04: (x >= 15) and (x <= 50)</p>
+    <form name="question1_04_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="question1_04_opt_a" />
+    <label for= "question1_04_opt_a">  a) True</label><br />
+    
+    <input type="radio" name="group1" value="b" id="question1_04_opt_b" />
+    <label for= "question1_04_opt_b">  b) False</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('question1_04','a',['both expressions hold true', 'both expressions hold true'])"/> 
+    </form>
+    <div id="question1_04_feedback">
+    </div>
+    </div>
+    </div></div>
+
+<table border="1" id="pyOutputPane_ch02_2" class="pyOutputPane">
+<tr>
+<td valign="top">
+Source Code
+<br />
+
+<div id="pyCodeOutputDiv_ch02_2" class="pyCodeOutputDiv">
+<table id="pyCodeOutput_ch02_2" class="pyCodeOutput"></table>
+
+</div>
+
+<div id="vcrControls_ch02_2" class="vcrControls">
+  <button id="jmpFirstInstr_ch02_2", type="button">&lt;&lt; First</button>
+  <button id="jmpStepBack_ch02_2", type="button">&lt; Back</button>
+  Step <span id="curInstr_ch02_2">?</span> of <span id="totalInstrs_ch02_2">?</span>
+  <button id="jmpStepFwd_ch02_2", type="button">Forward &gt;</button>
+  <button id="jmpLastInstr_ch02_2", type="button">Last &gt;&gt;</button>
+
+  <p><span id="warningOutput_ch02_2" class="warningOutput"></span></p>
+</div>
+</td></tr>
+<tr>
+<td valign="top">
+
+<div id="dataViz_ch02_2"></div>
+
+</td>
+</tr>
+<tr>
+<td>
+<div id="errorOutput_ch02_2" class="errorOutput"></div>
+
+Program output:
+<br/>
+<pre id="pyStdout_ch02_2" class="active_out"></pre>
+</td>
+</tr>
+</table>
+<p class="cl_caption"><span class="ac_caption_text"> </span></p>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    myvis = new PythonTutor.Visualizer("x=25\ny=30\ns='boolean'\nprint((x % 5 == 0) and (y % 5 == 0))\nprint((s[0] == 'b') or (len(s) >= 10))\nprint('l' not in s)\nprint(not (s[1] == 'a'))\nnums = [15, 20, 25, 30]\nprint((x in nums) and not (y in nums))\nprint((x >= 15) and (x <= 50))",[{"globals": {}, "stdout": "", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"x": 25}, "stdout": "", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"y": 30, "x": 25}, "stdout": "", "func_name": "<module>", "line": 3, "stack_locals": [], "event": "step_line"}, {"globals": {"y": 30, "x": 25, "s": "boolean"}, "stdout": "", "func_name": "<module>", "line": 4, "stack_locals": [], "event": "step_line"}, {"globals": {"y": 30, "x": 25, "s": "boolean"}, "stdout": "True\n", "func_name": "<module>", "line": 5, "stack_locals": [], "event": "step_line"}, {"globals": {"y": 30, "x": 25, "s": "boolean"}, "stdout": "True\nTrue\n", "func_name": "<module>", "line": 6, "stack_locals": [], "event": "step_line"}, {"globals": {"y": 30, "x": 25, "s": "boolean"}, "stdout": "True\nTrue\nFalse\n", "func_name": "<module>", "line": 7, "stack_locals": [], "event": "step_line"}, {"globals": {"y": 30, "x": 25, "s": "boolean"}, "stdout": "True\nTrue\nFalse\nTrue\n", "func_name": "<module>", "line": 8, "stack_locals": [], "event": "step_line"}, {"globals": {"y": 30, "x": 25, "s": "boolean", "nums": ["LIST", 32, 15, 20, 25, 30]}, "stdout": "True\nTrue\nFalse\nTrue\n", "func_name": "<module>", "line": 9, "stack_locals": [], "event": "step_line"}, {"globals": {"y": 30, "x": 25, "s": "boolean", "nums": ["LIST", 32, 15, 20, 25, 30]}, "stdout": "True\nTrue\nFalse\nTrue\nFalse\n", "func_name": "<module>", "line": 10, "stack_locals": [], "event": "step_line"}, {"globals": {"y": 30, "x": 25, "s": "boolean", "nums": ["LIST", 32, 15, 20, 25, 30]}, "stdout": "True\nTrue\nFalse\nTrue\nFalse\nTrue\n", "func_name": "<module>", "line": 10, "stack_locals": [], "event": "return"}],'ch02_2');
+});
+
+</script>
+</div>
+<div class="section" id="conditional-statements">
+<h3>Conditional statements<a class="headerlink" href="#conditional-statements" title="Permalink to this headline">¶</a></h3>
+<p>We often use boolean expressions in conditional statements, <tt class="docutils literal"><span class="pre">if</span></tt>
+statements, to cause the computer to choose one or another sets of
+actions. Look at sections 5.4 through 5.6 in Downey to remind
+yourself of the syntax for <tt class="docutils literal"><span class="pre">if</span></tt> statements.</p>
+</div>
+<div class="section" id="id2">
+<h3>Try this:<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Look at the example below. Before typing it into IDLE, try to
+figure out what it&#8217;s value might be. Then put it in your Python
+file, and run it.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span><span class="o">=</span><span class="mi">50</span>
+<span class="n">y</span><span class="o">=</span><span class="mi">100</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+<span class="k">elif</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="n">x</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">x</span>
+</pre></div>
+</div>
+
+<div id="ch02_3" >
+<textarea cols="50" rows="12" id="ch02_3_code" class="active_code">
+x=50
+y=100
+if x > y:
+   print x, y
+elif y > x:
+   print y, x
+else:
+   print x
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch02_3)</span> </p>
+<button onclick="runit('ch02_3',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch02_3');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch02_3');">Load</button>
+<br />
+
+<canvas id="ch02_3_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch02_3_pre" class="active_out">
+
+</pre>
+
+</div>
+
+</div>
+</div>
+<div class="section" id="activity-1-cropping-values">
+<h2>Activity 1: Cropping Values<a class="headerlink" href="#activity-1-cropping-values" title="Permalink to this headline">¶</a></h2>
+<p>Create a function called <tt class="docutils literal"><span class="pre">crop</span></tt> that has one parameter variable.
+When <tt class="docutils literal"><span class="pre">crop</span></tt> is called, it should be passed a number as input. If
+the number is between 1 and 10, <tt class="docutils literal"><span class="pre">crop</span></tt> should return the number
+itself. If it is less than 1, it should return 1, and if it is
+greater than 10, then it should return 10. This way, it converts
+any number given to it into the range from 1 to 10. Here are some
+examples showing what the function should do for some sample
+inputs:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">crop</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="go">8</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">crop</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">crop</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">crop</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="go">1 5 10</span>
+</pre></div>
+</div>
+
+<button id="butt_ch02_4" onclick="createActiveCode('ch02_4',''); $('#butt_ch02_4').hide();">Open Editor</button>
+<div id="ch02_4"></div>
+<br />
+</div>
+<div class="section" id="activity-2-tele-operated-robot">
+<h2>Activity 2: Tele-operated Robot<a class="headerlink" href="#activity-2-tele-operated-robot" title="Permalink to this headline">¶</a></h2>
+<p>&#8220;Tele-operation&#8221; of robots means controlling a robot from a
+distance. This is used for entertainment and education: some
+science museums have robots you can connect to over the Internet
+and operate. It is also used for hazardous situations and
+environments: bomb squads, search and rescue, deep-sea exploration,
+space exploration.</p>
+<p>Create a little function that could be used for simple
+tele-operation of the Scribblers. The function, <tt class="docutils literal"><span class="pre">go</span></tt>, should have
+one input parameter. When it is called, the user should pass in a
+single string, one of: <tt class="docutils literal"><span class="pre">&quot;f&quot;</span></tt>, <tt class="docutils literal"><span class="pre">&quot;b&quot;</span></tt>, <tt class="docutils literal"><span class="pre">&quot;l&quot;</span></tt>, and <tt class="docutils literal"><span class="pre">&quot;r&quot;</span></tt>.</p>
+<p>If the string is <tt class="docutils literal"><span class="pre">&quot;f&quot;</span></tt> then the robot should move forward for one
+second. If the string is <tt class="docutils literal"><span class="pre">&quot;b&quot;</span></tt> then the robot should move backward
+for one second. If the string is <tt class="docutils literal"><span class="pre">&quot;r&quot;</span></tt> then the robot should turn
+about forty five degrees to the right , and if the string is <tt class="docutils literal"><span class="pre">&quot;l&quot;</span></tt>
+then the robot should turn about forty five degrees to the left.
+Test your program by having the robot navigate all the way around
+the classroom.</p>
+
+<button id="butt_ch02_5" onclick="createActiveCode('ch02_5',''); $('#butt_ch02_5').hide();">Open Editor</button>
+<div id="ch02_5"></div>
+<br />
+</div>
+<div class="section" id="challenge-activities">
+<h2>Challenge Activities<a class="headerlink" href="#challenge-activities" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Create a function <tt class="docutils literal"><span class="pre">middleValue</span></tt> that has three parameter
+variables: it should be passed three numbers when it is called. The
+function should use <tt class="docutils literal"><span class="pre">if</span></tt> statements, including nesting one <tt class="docutils literal"><span class="pre">if</span></tt>
+inside another, to determine which of the three numbers is the
+middle value. That value should be returned as the value of the
+function.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">middleValue</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">77</span><span class="p">)</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">middleValue</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">57</span><span class="p">)</span>
+<span class="go">50</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">middleValue</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">-3</span>
+</pre></div>
+</div>
+
+<button id="butt_ch02_6" onclick="createActiveCode('ch02_6',''); $('#butt_ch02_6').hide();">Open Editor</button>
+<div id="ch02_6"></div>
+<br />
+</li>
+<li><p class="first">There are several different ways for generating random numbers
+in Python. The <tt class="docutils literal"><span class="pre">random</span></tt> module contains a function <tt class="docutils literal"><span class="pre">random</span></tt> that
+returns a random value between 0.0 and 1.0. For convenience, the
+Myro module also contains a function, called <tt class="docutils literal"><span class="pre">randomNumber()</span></tt> that
+returns a random value between 0.1 and 1.0.</p>
+<p>Create a function called <tt class="docutils literal"><span class="pre">randomMove</span></tt> using Myro and the
+Scribblers. It should generate two random values between 0.0 and
+1.0, assigning them to variables. These values will be speeds for
+the left motor and the right motor of the robot. It should then use
+the <tt class="docutils literal"><span class="pre">motors</span></tt> command to run the robot for two seconds with those
+speeds. Use the <tt class="docutils literal"><span class="pre">wait</span></tt> command to control the two seconds of
+running, and then use <tt class="docutils literal"><span class="pre">stop</span></tt> to turn the motors off. (Google Myro
+Reference if you need help using these functions).</p>
+<p><em>Extra:</em> Can you convert the random values to the range from -1.0
+to +1.0, and try the function with those values? How does it
+differ?</p>
+
+<button id="butt_ch02_7" onclick="createActiveCode('ch02_7',''); $('#butt_ch02_7').hide();">Open Editor</button>
+<div id="ch02_7"></div>
+<br />
+</li>
+<li><p class="first">Letter grades in the US are commonly assigned according to
+&#8220;deciles:&#8221; a score that is greater than or equal to 90% is given an
+A, a score that is greater than or equal to 80%, but less than 90%
+is given a B, a score similarly between 70% and 80% is a C, a score
+similarly between 60% and 70% is a D, and anything below 60% is an
+F.</p>
+<p>Write a function <tt class="docutils literal"><span class="pre">percentToLetter</span></tt> that has one input parameter. It
+should be passed a percentage (which may be a real number) as its
+input, and it should return a string containing the corresponding
+letter grade.</p>
+
+<button id="butt_ch02_8" onclick="createActiveCode('ch02_8',''); $('#butt_ch02_8').hide();">Open Editor</button>
+<div id="ch02_8"></div>
+<br />
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Brad Miller, David Ranum.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32029811-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>

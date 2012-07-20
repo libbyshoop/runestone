@@ -1,0 +1,220 @@
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Customizing and Contributing to the Book &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/edu-python.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/simplemodal.js"></script>
+    <script type="text/javascript" src="../_static/jquery.textarea.js"></script>
+    <script type="text/javascript" src="../_static/edu-python.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.js"></script>
+    <script type="text/javascript" src="../_static/builtin.js"></script>
+    <script type="text/javascript" src="../_static/assess.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../index.html" />
+<script type="text/javascript"> 
+eBookConfig = {}
+eBookConfig.host = 'http://141.140.167.226:8000' ? 'http://141.140.167.226:8000' : 'http://127.0.0.1:8000',
+eBookConfig.app = eBookConfig.host+'/courselib',
+eBookConfig.ajaxURL = eBookConfig.app+'/ajax/',
+eBookConfig.course = 'COMP123F12-01',
+eBookConfig.logLevel = 10,
+eBookConfig.loginRequired = true
+</script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Customizing and Contributing to the Book</a><ul>
+<li><a class="reference internal" href="#getting-the-source">Getting the Source</a></li>
+<li><a class="reference internal" href="#making-the-html-version">Making the HTML Version</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/Appendices/app_d.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul><!--<div id="runestonebox">
+  <h3>Runestone Links</h3>
+  <ul>
+    <li>
+      <a href="https://github.com/bnmnetp/runestone/issues/new">Report a Problem</a>
+    </li>
+    <li>
+      <a href="http://runestoneinteractive.org">About Runestone</a>
+    </li>
+    <li>
+      <a href="/courselib/admin/index">Instructors Page</a>
+    </li>
+  </ul>
+</div>
+-->
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="customizing-and-contributing-to-the-book">
+<h1>Customizing and Contributing to the Book<a class="headerlink" href="#customizing-and-contributing-to-the-book" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><em>Note:</em> the following instructions assume that you are connected to
+the Internet and that you have both the <tt class="docutils literal"><span class="pre">main</span></tt> and <tt class="docutils literal"><span class="pre">universe</span></tt>
+package repositories enabled.  All unix shell commands are assumed to
+be running from your home directory ($HOME).  Finally, any command that
+begins with <tt class="docutils literal"><span class="pre">sudo</span></tt> assums that you have administrative rights on your
+machine.  If you do not &#8212; please ask your system administrator about
+installing the software you need.</div></blockquote>
+<p>This book is free as in freedom, which means you have the right to modify it
+to suite your needs, and to redistribute your modifications so that our whole
+community can benefit.</p>
+<p>That freedom lacks meaning, however, if you the tools needed to make a
+custom version or to contribute corrections and additions are not within your
+reach.  This appendix attempts to put those tools in your hands.</p>
+<p>Thanks!</p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="mailto:jeff&#37;&#52;&#48;elkner&#46;net">Jeffrey Elkner</a></div>
+<div class="line">Governor&#8217;s Career and Technical Academy in Arlington</div>
+<div class="line">Arlington, Virginia</div>
+</div>
+<div class="section" id="getting-the-source">
+<h2>Getting the Source<a class="headerlink" href="#getting-the-source" title="Permalink to this headline">¶</a></h2>
+<p>This book is <a class="reference external" href="http://en.wikipedia.org/wiki/Markup_language">marked up</a> in
+<a class="reference external" href="http://en.wikipedia.org/wiki/ReStructuredText">ReStructuredText</a> using
+a document generation system called
+<a class="reference external" href="http://en.wikipedia.org/wiki/Sphinx_%28documentation_generator%29">Sphinx</a>.</p>
+<p>The source code is located on the <a class="reference external" href="http://en.wikipedia.org/wiki/Launchpad_%28website%29">Launchpad website</a> at <a class="reference external" href="http://bazaar.launchpad.net/~thinkcspy/thinkcspy/english2e/files">http://bazaar.launchpad.net/~thinkcspy/thinkcspy/english2e/files</a>.</p>
+<p>The easiest way to get the source code on an Ubuntu 9.10 computer is:</p>
+<ol class="arabic simple">
+<li>run <tt class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">bzr</span></tt> on your system to install
+<a class="reference external" href="http://en.wikipedia.org/wiki/Bazaar_%28software%29">bzr</a>.</li>
+<li>run <tt class="docutils literal"><span class="pre">bzr</span> <span class="pre">branch</span> <span class="pre">lp:thinkcspy</span></tt>.</li>
+</ol>
+<p>The last command above will download the book source from Launchpad into a
+directory named <tt class="docutils literal"><span class="pre">thinkcspy</span></tt> which contains the Sphinx source and
+configuration information needed to build the book.</p>
+</div>
+<div class="section" id="making-the-html-version">
+<h2>Making the HTML Version<a class="headerlink" href="#making-the-html-version" title="Permalink to this headline">¶</a></h2>
+<p>To generate the html version of the book:</p>
+<ol class="arabic simple">
+<li>run <tt class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">python-sphinx</span></tt> to install the Sphinx
+documentation system.</li>
+<li><tt class="docutils literal"><span class="pre">cd</span> <span class="pre">thinkcspy</span></tt> - change into the <tt class="docutils literal"><span class="pre">thinkcspy</span></tt> directory containing the
+book source.</li>
+<li><tt class="docutils literal"><span class="pre">make</span> <span class="pre">html</span></tt>.</li>
+</ol>
+<p>The last command will run sphinx and create a directory named <tt class="docutils literal"><span class="pre">build</span></tt>
+containing the html verion of the text.</p>
+<blockquote>
+<div><em>Note</em>: Sphinx supports building other output types as well, such as
+<a class="reference external" href="http://en.wikipedia.org/wiki/PDF">PDF</a>.  This requires that
+<a class="reference external" href="http://en.wikipedia.org/wiki/LaTeX">LaTeX</a> be present on your
+system.  Since I only personally use the html version, I will not
+attempt to document that process here.</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Brad Miller, David Ranum.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32029811-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>

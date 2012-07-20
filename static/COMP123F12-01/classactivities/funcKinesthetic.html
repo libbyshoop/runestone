@@ -1,0 +1,199 @@
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Overview &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/edu-python.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/simplemodal.js"></script>
+    <script type="text/javascript" src="../_static/jquery.textarea.js"></script>
+    <script type="text/javascript" src="../_static/edu-python.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.js"></script>
+    <script type="text/javascript" src="../_static/builtin.js"></script>
+    <script type="text/javascript" src="../_static/assess.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../index.html" />
+<script type="text/javascript"> 
+eBookConfig = {}
+eBookConfig.host = 'http://141.140.167.226:8000' ? 'http://141.140.167.226:8000' : 'http://127.0.0.1:8000',
+eBookConfig.app = eBookConfig.host+'/courselib',
+eBookConfig.ajaxURL = eBookConfig.app+'/ajax/',
+eBookConfig.course = 'COMP123F12-01',
+eBookConfig.logLevel = 10,
+eBookConfig.loginRequired = true
+</script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Overview</a></li>
+<li><a class="reference internal" href="#partyoptions">partyOptions</a></li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/classactivities/funcKinesthetic.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul><!--<div id="runestonebox">
+  <h3>Runestone Links</h3>
+  <ul>
+    <li>
+      <a href="https://github.com/bnmnetp/runestone/issues/new">Report a Problem</a>
+    </li>
+    <li>
+      <a href="http://runestoneinteractive.org">About Runestone</a>
+    </li>
+    <li>
+      <a href="/courselib/admin/index">Instructors Page</a>
+    </li>
+  </ul>
+</div>
+-->
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<p>Read over the code below, and its translation into English
+instructions. Then be prepared to act out the execution of this
+program, taking on the role of a Happy Robot.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="c"># Takes in the number of guests, and prints out three different options for table sizes</span>
+<span class="k">def</span> <span class="nf">partyOptions</span><span class="p">(</span><span class="n">numGuests</span><span class="p">):</span>
+    <span class="n">tables4</span> <span class="o">=</span><span class="n">calcNumTables</span><span class="p">(</span><span class="n">numGuests</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&quot;You would need&quot;</span><span class="p">,</span> <span class="n">tables4</span><span class="p">,</span><span class="s">&quot;tables for 4&quot;</span>
+    <span class="n">tables8</span> <span class="o">=</span> <span class="n">calcNumTables</span><span class="p">(</span><span class="n">numGuests</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&quot;You would need&quot;</span><span class="p">,</span> <span class="n">tables8</span><span class="p">,</span> <span class="s">&quot;tables for 8&quot;</span>
+    <span class="n">tables10</span> <span class="o">=</span> <span class="n">calcNumTables</span><span class="p">(</span><span class="n">numGuests</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&quot;You would need&quot;</span><span class="p">,</span> <span class="n">tables10</span><span class="p">,</span><span class="s">&quot;tables for 10&quot;</span>
+
+<span class="k">def</span> <span class="nf">calcNumTables</span><span class="p">(</span><span class="n">guests</span><span class="p">,</span> <span class="n">tableSize</span><span class="p">):</span> <span class="c"># Number of tables is number of guests divided by guests per table</span>
+    <span class="n">estTables</span> <span class="o">=</span> <span class="n">guests</span> <span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">tableSize</span><span class="p">)</span> <span class="c"># that may be a real number, so round UP</span>
+    <span class="n">tables</span> <span class="o">=</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">estTables</span><span class="p">)</span> <span class="c"># return it as an integer return tables</span>
+    <span class="k">return</span> <span class="n">tables</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="partyoptions">
+<h1>partyOptions<a class="headerlink" href="#partyoptions" title="Permalink to this headline">¶</a></h1>
+<p>You will receive the &#8220;ball of control&#8221; with an envelope attached.
+Stand up. Take out the first piece of paper in the envelope. On
+that paper is your function name and your input value: <tt class="docutils literal"><span class="pre">numGuests</span></tt>,
+the number of guests for this party. Save that paper.</p>
+<p>Take the next, blank, piece of paper from the envelope. Write a
+call to the <tt class="docutils literal"><span class="pre">calcNumTables</span></tt> function. Copy down your <tt class="docutils literal"><span class="pre">numGuests</span></tt>
+value, and write down 4 for the second parameter. Put the paper
+inside the envelope.</p>
+<p>Choose a new &#8220;Happy Robot&#8221; from the class, and throw the
+&#8220;ball of control&#8221; to that person (gently!). The person must be
+someone who is sitting.</p>
+<p>Wait, standing, until that person throws the ball back to you.</p>
+<p>When you get the ball back, you must use the value returned to you:
+get the piece of paper out of the envelope. Go to the whiteboard
+and write the following sentences.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Brad Miller, David Ranum.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32029811-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>

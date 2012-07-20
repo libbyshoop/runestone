@@ -1,0 +1,395 @@
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Overview &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/edu-python.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/simplemodal.js"></script>
+    <script type="text/javascript" src="../_static/jquery.textarea.js"></script>
+    <script type="text/javascript" src="../_static/edu-python.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.js"></script>
+    <script type="text/javascript" src="../_static/builtin.js"></script>
+    <script type="text/javascript" src="../_static/assess.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../index.html" />
+<script type="text/javascript"> 
+eBookConfig = {}
+eBookConfig.host = 'http://141.140.167.226:8000' ? 'http://141.140.167.226:8000' : 'http://127.0.0.1:8000',
+eBookConfig.app = eBookConfig.host+'/courselib',
+eBookConfig.ajaxURL = eBookConfig.app+'/ajax/',
+eBookConfig.course = 'COMP123F12-01',
+eBookConfig.logLevel = 10,
+eBookConfig.loginRequired = true
+</script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Overview</a></li>
+<li><a class="reference internal" href="#loop">Loop!</a><ul>
+<li><a class="reference internal" href="#now-you-try-it">Now you try it:</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/classactivities/loops.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul><!--<div id="runestonebox">
+  <h3>Runestone Links</h3>
+  <ul>
+    <li>
+      <a href="https://github.com/bnmnetp/runestone/issues/new">Report a Problem</a>
+    </li>
+    <li>
+      <a href="http://runestoneinteractive.org">About Runestone</a>
+    </li>
+    <li>
+      <a href="/courselib/admin/index">Instructors Page</a>
+    </li>
+  </ul>
+</div>
+-->
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <p><strong>Loops</strong></p>
+<p><strong>COMP 123</strong></p>
+<div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<p>We&#8217;ll try writing some different kinds of loops with this
+activity.</p>
+</div>
+<div class="section" id="loop">
+<h1>Loop!<a class="headerlink" href="#loop" title="Permalink to this headline">¶</a></h1>
+<p>There are two kinds of loops we will use commonly in Python:
+<tt class="docutils literal"><span class="pre">while</span></tt> and <tt class="docutils literal"><span class="pre">for</span></tt>. The <tt class="docutils literal"><span class="pre">while</span></tt> loop takes a boolean expression, an
+expression that asks a question, and then has a block of indented
+Python statements. It tests the expression, and so long as it
+evaluates to true, Python will execute the statements in the block,
+and repeat. A <tt class="docutils literal"><span class="pre">for</span></tt> loop repeats for a fixed number of times. Each
+time through it sets its loop variable to be the next value in the
+loop sequence. Look at the examples and questions below.</p>
+<p>Look at the following functions, which use loops to repeat a
+process. Try these out until you understand what the loop is doing.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><tt class="docutils literal"><span class="pre">perfectSquares</span></tt> contains a common pattern for loops: it
+uses a variable, <tt class="docutils literal"><span class="pre">ansLst</span></tt> as an &#8220;accumulator&#8221; to hold the part of
+the answer that has been computed so far. At the end of the loop
+<tt class="docutils literal"><span class="pre">ansLst</span></tt> contains the answer.</p>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">divByTwo</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Takes an input integer, x, and prints x and the</span>
+<span class="sd">        result of repeatedly dividing x by 2. It stops when x becomes &lt;= to</span>
+<span class="sd">        zero&quot;&quot;&quot;</span>
+    <span class="k">while</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">x</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="c"># end of while</span>
+    <span class="k">print</span> <span class="n">x</span>
+<span class="c"># end of divByTwo</span>
+</pre></div>
+</div>
+
+<div id="loop_01" >
+<textarea cols="50" rows="12" id="loop_01_code" class="active_code">
+def divByTwo(x):
+    """Takes an input integer, x, and prints x and the
+        result of repeatedly dividing x by 2. It stops when x becomes <= to
+        zero"""
+    while x > 0:
+        print x
+        x = x / 2
+        # end of while
+    print x
+# end of divByTwo
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (loop_01)</span> </p>
+<button onclick="runit('loop_01',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('loop_01');">Save</button>
+<button class="ac_opt" onclick="requestCode('loop_01');">Load</button>
+<br />
+
+<canvas id="loop_01_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="loop_01_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">perfectSquares</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Takes a non-negative input integer, n,</span>
+<span class="sd">    and creates a list containing the squares of the numbers from zero</span>
+<span class="sd">    to n&quot;&quot;&quot;</span>
+    <span class="n">ansLst</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span> <span class="c"># Do you know why I put n+1 here?</span>
+        <span class="n">ansLst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="c"># end of for loop</span>
+    <span class="k">return</span> <span class="n">ansLst</span>
+<span class="c"># end of perfectSquares</span>
+</pre></div>
+</div>
+
+<div id="loop_02" >
+<textarea cols="50" rows="12" id="loop_02_code" class="active_code">
+def perfectSquares(n):
+    """Takes a non-negative input integer, n,
+    and creates a list containing the squares of the numbers from zero
+    to n"""
+    ansLst = []
+    for i in range(n+1): # Do you know why I put n+1 here?
+        ansLst.append(i**2)
+        # end of for loop
+    return ansLst
+# end of perfectSquares
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (loop_02)</span> </p>
+<button onclick="runit('loop_02',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('loop_02');">Save</button>
+<button class="ac_opt" onclick="requestCode('loop_02');">Load</button>
+<br />
+
+<canvas id="loop_02_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="loop_02_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">printAlpha</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Takes a string as input, and loops</span>
+<span class="sd">    through the characters of the string. For each character, if it is</span>
+<span class="sd">    an alphabetic character, then it is printed. All characters are</span>
+<span class="sd">    printed on one line, separated by spaces&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">isalpha</span><span class="p">():</span>
+        <span class="k">print</span> <span class="n">c</span><span class="p">,</span>
+        <span class="c"># end of if</span>
+    <span class="c"># end of for loop</span>
+    <span class="k">print</span>
+<span class="c"># end of printAlpha</span>
+</pre></div>
+</div>
+
+<div id="loop_03" >
+<textarea cols="50" rows="12" id="loop_03_code" class="active_code">
+def printAlpha(string):
+    """Takes a string as input, and loops
+    through the characters of the string. For each character, if it is
+    an alphabetic character, then it is printed. All characters are
+    printed on one line, separated by spaces"""
+    for c in string:
+        if c.isalpha():
+        print c,
+        # end of if
+    # end of for loop
+    print
+# end of printAlpha
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (loop_03)</span> </p>
+<button onclick="runit('loop_03',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('loop_03');">Save</button>
+<button class="ac_opt" onclick="requestCode('loop_03');">Load</button>
+<br />
+
+<canvas id="loop_03_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="loop_03_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<div class="section" id="now-you-try-it">
+<h2>Now you try it:<a class="headerlink" href="#now-you-try-it" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Create a function called <tt class="docutils literal"><span class="pre">evensToN</span></tt> that takes a single number,
+<tt class="docutils literal"><span class="pre">n</span></tt>, as input, and prints the even numbers from 1 to <tt class="docutils literal"><span class="pre">n</span></tt>.</p>
+
+<button id="butt_loop_04" onclick="createActiveCode('loop_04',''); $('#butt_loop_04').hide();">Open Editor</button>
+<div id="loop_04"></div>
+<br />
+</li>
+<li><p class="first">Create a version of the function from the recursion activity:
+<tt class="docutils literal"><span class="pre">printApproach</span></tt>. This function that takes two numbers as input.
+Within, use a <tt class="docutils literal"><span class="pre">while</span></tt> loop that repeats until the first number is
+greater than the second number. Each time through the loop, print
+the numbers, then add one to the first number, and subtract one
+from the second number.</p>
+
+<button id="butt_loop_05" onclick="createActiveCode('loop_05',''); $('#butt_loop_05').hide();">Open Editor</button>
+<div id="loop_05"></div>
+<br />
+</li>
+<li><p class="first">Look at the following function. Try to figure out what it will
+do, then try it out to check yourself.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">dance</span><span class="p">(</span><span class="n">speed</span><span class="p">):</span>
+    <span class="n">beep</span><span class="p">()</span>
+    <span class="n">turnRight</span><span class="p">(</span><span class="n">speed</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">beep</span><span class="p">()</span>
+    <span class="n">turnLeft</span><span class="p">(</span><span class="n">speed</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">beep</span><span class="p">()</span>
+    <span class="n">turnRight</span><span class="p">(</span><span class="n">speed</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">beep</span><span class="p">()</span>
+    <span class="n">turnLeft</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">beep</span><span class="p">()</span>
+    <span class="n">beep</span><span class="p">()</span>
+    <span class="n">beep</span><span class="p">()</span>
+    <span class="n">stop</span><span class="p">()</span>
+</pre></div>
+</div>
+
+<button id="butt_loop_06" onclick="createActiveCode('loop_06',''); $('#butt_loop_06').hide();">Open Editor</button>
+<div id="loop_06"></div>
+<br />
+</li>
+<li><p class="first">Create a version of the <tt class="docutils literal"><span class="pre">yoyo</span></tt> function described in the Kumar
+book, that takes a speed and a time value as inputs, and makes the
+robot move forward at the given speed for the specified time, and
+then backward for the same speed and time.</p>
+
+<button id="butt_loop_07" onclick="createActiveCode('loop_07',''); $('#butt_loop_07').hide();">Open Editor</button>
+<div id="loop_07"></div>
+<br />
+</li>
+<li><p class="first">Create a function called <tt class="docutils literal"><span class="pre">keepYoing</span></tt> that takes an input number
+<tt class="docutils literal"><span class="pre">n</span></tt>. It should call the <tt class="docutils literal"><span class="pre">yoyo</span></tt> function <tt class="docutils literal"><span class="pre">n</span></tt> times. Choose your kind
+of loop, or recursion, to make this work.</p>
+
+<button id="butt_loop_08" onclick="createActiveCode('loop_08',''); $('#butt_loop_08').hide();">Open Editor</button>
+<div id="loop_08"></div>
+<br />
+</li>
+<li><p class="first">Using the <tt class="docutils literal"><span class="pre">yoyo</span></tt>, <tt class="docutils literal"><span class="pre">keepYoing</span></tt>, and <tt class="docutils literal"><span class="pre">dance</span></tt> functions from
+before, create a function called <tt class="docutils literal"><span class="pre">danceRoutine</span></tt> that repeats some
+combination of yoyo-ing and dancing some number of times. Make the
+number of times to repeat be an input to <tt class="docutils literal"><span class="pre">danceRoutine</span></tt>.</p>
+
+<button id="butt_loop_09" onclick="createActiveCode('loop_09',''); $('#butt_loop_09').hide();">Open Editor</button>
+<div id="loop_09"></div>
+<br />
+</li>
+<li><p class="first">Create a function <tt class="docutils literal"><span class="pre">turnAndBeep</span></tt> or <tt class="docutils literal"><span class="pre">turnAndPic</span></tt> that takes in a
+number <tt class="docutils literal"><span class="pre">n</span></tt>, and uses a loop to repeatedly have the robot turn to
+the left a fixed distance, and then either beep or take a picture,
+depending on what you want.</p>
+
+<button id="butt_loop_10" onclick="createActiveCode('loop_10',''); $('#butt_loop_10').hide();">Open Editor</button>
+<div id="loop_10"></div>
+<br />
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Brad Miller, David Ranum.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32029811-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>

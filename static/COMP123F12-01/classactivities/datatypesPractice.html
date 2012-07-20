@@ -1,0 +1,342 @@
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Overview &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/edu-python.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/simplemodal.js"></script>
+    <script type="text/javascript" src="../_static/jquery.textarea.js"></script>
+    <script type="text/javascript" src="../_static/edu-python.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.js"></script>
+    <script type="text/javascript" src="../_static/builtin.js"></script>
+    <script type="text/javascript" src="../_static/assess.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../index.html" />
+<script type="text/javascript"> 
+eBookConfig = {}
+eBookConfig.host = 'http://141.140.167.226:8000' ? 'http://141.140.167.226:8000' : 'http://127.0.0.1:8000',
+eBookConfig.app = eBookConfig.host+'/courselib',
+eBookConfig.ajaxURL = eBookConfig.app+'/ajax/',
+eBookConfig.course = 'COMP123F12-01',
+eBookConfig.logLevel = 10,
+eBookConfig.loginRequired = true
+</script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Overview</a></li>
+<li><a class="reference internal" href="#functions-to-try">Functions to Try</a></li>
+<li><a class="reference internal" href="#challenge-functions">Challenge Functions</a></li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/classactivities/datatypesPractice.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul><!--<div id="runestonebox">
+  <h3>Runestone Links</h3>
+  <ul>
+    <li>
+      <a href="https://github.com/bnmnetp/runestone/issues/new">Report a Problem</a>
+    </li>
+    <li>
+      <a href="http://runestoneinteractive.org">About Runestone</a>
+    </li>
+    <li>
+      <a href="/courselib/admin/index">Instructors Page</a>
+    </li>
+  </ul>
+</div>
+-->
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<p>Now that you have seen lists and dictionaries, and learned about
+operators, functions, and methods on lists, strings, and
+dictionaries, it&#8217;s time to put those ideas into practice.</p>
+<p>This activity will ask you to write a series of functions that
+operate on strings, lists and dictionaries. This will let you
+practice the operations you have seen in the reading.</p>
+</div>
+<div class="section" id="functions-to-try">
+<h1>Functions to Try<a class="headerlink" href="#functions-to-try" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic">
+<li><p class="first">Define a function <em>shout</em> that has one input parameter, that
+will be a string. The function should create a new string that is
+the same as the input string, but with all letters in uppercase.
+See examples below.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">newS</span> <span class="o">=</span> <span class="n">shout</span><span class="p">(</span><span class="s">&quot;What are you doing?&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">newS</span>
+<span class="go">WHAT ARE YOU DOING?</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">shout</span><span class="p">(</span><span class="s">&quot;i saw a frog in my bathtub&quot;</span><span class="p">)</span>
+<span class="go">I SAW A FROG IN MY BATHTUB</span>
+</pre></div>
+</div>
+
+<button id="butt_ex_1" onclick="createActiveCode('ex_1',''); $('#butt_ex_1').hide();">Open Editor</button>
+<div id="ex_1"></div>
+<br />
+</li>
+<li><p class="first">Define a function <em>occursIn</em> that has two input parameters. When
+called, <em>occursIn</em> will be passed two strings, a single word, and a
+piece of text. The function should return <em>True</em> if the word
+appears in the string, as a whole word, not as a part of a larger
+word. Use a string method to break the text into words before
+looking for the input word. See examples below.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">occursIn</span><span class="p">(</span><span class="s">&quot;car&quot;</span><span class="p">,</span> <span class="s">&quot;cardboard box&quot;</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">occursIn</span><span class="p">(</span><span class="s">&#39;box&#39;</span><span class="p">,</span><span class="s">&#39;cardboard box&#39;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">occursIn</span><span class="p">(</span><span class="s">&#39;car&#39;</span><span class="p">,</span> <span class="s">&#39;boxcar and train car&#39;</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+
+<button id="butt_ex_2" onclick="createActiveCode('ex_2',''); $('#butt_ex_2').hide();">Open Editor</button>
+<div id="ex_2"></div>
+<br />
+</li>
+<li><p class="first">Define a function <em>between</em> that has three parameter variables.
+The first variable will be assigned a list, and the second two
+variables will be assigned values that appear in the list. The
+function should determine the location of the two values in the
+list, and should extract and return the sublist that starts with
+the first value and includes everything up to the second value. If
+either value does not exist in the list, or if the second value
+does not come after the first value, then the function should
+return an empty list: {[]} See the examples below.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">between</span><span class="p">([</span><span class="s">&#39;f&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">,</span> <span class="s">&#39;o&#39;</span><span class="p">,</span> <span class="s">&#39;g&#39;</span><span class="p">,</span> <span class="s">&#39;m&#39;</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;n&#39;</span><span class="p">],</span> <span class="s">&#39;o&#39;</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="go">[&#39;o&#39;,&#39;g&#39;, &#39;m&#39;, &#39;a&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">between</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">92</span><span class="p">],</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">92</span><span class="p">)</span>
+<span class="go">[58,70, 92]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">between</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="go">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">between</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="go">[6, 2, 15]</span>
+</pre></div>
+</div>
+
+<button id="butt_ex_3" onclick="createActiveCode('ex_3',''); $('#butt_ex_3').hide();">Open Editor</button>
+<div id="ex_3"></div>
+<br />
+</li>
+<li><p class="first">Suppose we define a dictionary like the following, which has
+names as keys, and ages as the associated value (see below for an
+example). Define a function <em>hadBirthday</em> that takes two inputs:
+the first one is one of these dictionaries, and the second one is a
+name, as a string. It should look up the value for the input name,
+and change the dictionary so that the person is listed as one year
+older.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">agesDict</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;Mary&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s">&#39;Franco&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s">&#39;Yuki&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">&#39;Morris&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hadBirthday</span><span class="p">(</span><span class="n">agesDict</span><span class="p">,</span> <span class="s">&#39;Morris&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">agesDict</span> <span class="p">{</span><span class="s">&#39;Morris&#39;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span><span class="s">&#39;Mary&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s">&#39;Yuki&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">&#39;Franco&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hadBirthday</span><span class="p">(</span><span class="n">agesDict</span><span class="p">,</span><span class="s">&#39;Yuki&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">agesDict</span> <span class="p">{</span><span class="s">&#39;Morris&#39;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="s">&#39;Mary&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s">&#39;Yuki&#39;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s">&#39;Franco&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hadBirthday</span><span class="p">(</span><span class="n">agesDict</span><span class="p">,</span> <span class="s">&#39;Alonzo&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">agesDict</span>
+<span class="go">{&#39;Morris&#39;: 13, &#39;Mary&#39;: 15, &#39;Yuki&#39;: 31, &#39;Franco&#39;: 25}</span>
+</pre></div>
+</div>
+
+<button id="butt_ex_4" onclick="createActiveCode('ex_4',''); $('#butt_ex_4').hide();">Open Editor</button>
+<div id="ex_4"></div>
+<br />
+</li>
+</ol>
+</div>
+<div class="section" id="challenge-functions">
+<h1>Challenge Functions<a class="headerlink" href="#challenge-functions" title="Permalink to this headline">¶</a></h1>
+<p>In case some of you are looking for a harder challenge...</p>
+<ol class="arabic">
+<li><p class="first">Define a function <em>nameSubst</em> that takes two inputs. The first
+input is a name, and the second input is a piece of text. The
+function should look for an occurrence of the special string
+<em>&#8216;XXX&#8217;</em> in the text, and it should build a new string that has
+substituted the input name for <em>&#8216;XXX&#8217;</em> in the text. It should
+return this new string.</p>
+
+<button id="butt_ex_5" onclick="createActiveCode('ex_5',''); $('#butt_ex_5').hide();">Open Editor</button>
+<div id="ex_5"></div>
+<br />
+</li>
+<li><p class="first">Many stores and restaurants ask you to take a number when you
+enter, and then they serve people according to number to ensure
+fairness. You want to write a program so that stores can ask
+customers for a name when they enter the store, and call people by
+name. You will use a list to keep track of the order customers
+entered the store. Write a series of functions to help with this
+program:</p>
+<ol class="arabic simple">
+<li>Define a function <em>addCustomer</em> that takes the list of customers
+and a new customer as its inputs. It should add the new customer&#8217;s
+name to the end of the list.</li>
+<li>Define a function <em>serveNext</em> that takes the list of customers
+as its input. If there are no customers waiting, it should return
+the string {&#8216;No customers&#8217;}. If there are customers in the list, it
+should remove the front customer from the list, and return the
+string.</li>
+<li>Define a function <em>tooManyWaiting</em> that takes the list of
+customers and a number as its input. If the length of the customer
+list is greater than the input number, then it should return the
+<em>True</em>, otherwise it should return <em>False</em>.</li>
+<li>Define a function <em>howManyAhead</em> that takes the list of
+customers and a name as its input. The name should be one that
+appears in the list. The function should determine the location of
+the name in the list, and calculate how many customers are ahead of
+this one in line. It should return the number ahead of this
+customer.</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">customers</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">addCustomer</span><span class="p">(</span><span class="n">customers</span><span class="p">,</span> <span class="s">&#39;Suzy&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">howManyAhead</span><span class="p">(</span><span class="s">&#39;Suzy&#39;</span><span class="p">)</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">addCustomer</span><span class="p">(</span><span class="n">customers</span><span class="p">,</span> <span class="s">&quot;Frank&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">addCustomer</span><span class="p">(</span><span class="n">customers</span><span class="p">,</span> <span class="s">&#39;Raja&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">serveNext</span><span class="p">(</span><span class="n">customers</span><span class="p">)</span>
+<span class="go">&#39;Suzy&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tooManyWaiting</span><span class="p">(</span><span class="n">customers</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">addCustomer</span><span class="p">(</span><span class="n">customers</span><span class="p">,</span><span class="s">&#39;Tigger&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">howManyAhead</span><span class="p">(</span><span class="n">customers</span><span class="p">,</span> <span class="s">&#39;Raja&#39;</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tooManyWaiting</span><span class="p">(</span><span class="n">customers</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+
+<button id="butt_ex_6" onclick="createActiveCode('ex_6',''); $('#butt_ex_6').hide();">Open Editor</button>
+<div id="ex_6"></div>
+<br />
+</li>
+<li><p class="first">Suppose you use a dictionary to organize your books. The
+dictionary key values are: <em>&#8216;wish-list&#8217;</em>, <em>&#8216;owned&#8217;</em>, <em>&#8216;read&#8217;</em>,
+<em>&#8216;read-over-and-over&#8217;</em>. The value for each key is a list containing
+the titles of books in that category (see example below). Define a
+function <em>nowRead</em> that takes the dictionary and a book title as
+input. It should remove the book from the <em>owned</em> category, if it
+is there, and add it to the <em>read</em> category. Define other functions
+for changing a book from one category to another, or write one
+general function that allows any movement between categories, by
+taking in extra inputs that tell what the relevant categories are.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">books</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;wish-list&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;How Things Work&quot;</span><span class="p">,</span> <span class="s">&quot;The Hunger Games&quot;</span><span class="p">],</span>
+<span class="go">&#39;owned&#39;: [&quot;Vehicles&quot;, &quot;Godel, Escher, Bach&quot;], &#39;read&#39;: [&quot;Dune&quot;,</span>
+<span class="go">&quot;Swizzler&quot;, &quot;Eragon&quot;], &#39;read-over-and-over&#39;: [&quot;The Hobbit&quot;]}</span>
+<span class="go">&gt;&gt;&gt;nowRead(books, &quot;Vehicles&quot;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">books</span><span class="p">[</span><span class="s">&#39;read&#39;</span><span class="p">]</span> <span class="p">[</span><span class="s">&quot;Dune&quot;</span><span class="p">,</span> <span class="s">&quot;Swizzler&quot;</span><span class="p">,</span><span class="s">&quot;Eragon&quot;</span><span class="p">,</span> <span class="s">&quot;Vehicles&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+
+<button id="butt_ex_7" onclick="createActiveCode('ex_7',''); $('#butt_ex_7').hide();">Open Editor</button>
+<div id="ex_7"></div>
+<br />
+</li>
+</ol>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Brad Miller, David Ranum.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32029811-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,389 @@
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Astronomy Animation &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/edu-python.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/simplemodal.js"></script>
+    <script type="text/javascript" src="../_static/jquery.textarea.js"></script>
+    <script type="text/javascript" src="../_static/edu-python.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.js"></script>
+    <script type="text/javascript" src="../_static/builtin.js"></script>
+    <script type="text/javascript" src="../_static/assess.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../index.html" />
+<script type="text/javascript"> 
+eBookConfig = {}
+eBookConfig.host = 'http://141.140.167.226:8000' ? 'http://141.140.167.226:8000' : 'http://127.0.0.1:8000',
+eBookConfig.app = eBookConfig.host+'/courselib',
+eBookConfig.ajaxURL = eBookConfig.app+'/ajax/',
+eBookConfig.course = 'COMP123F12-01',
+eBookConfig.logLevel = 10,
+eBookConfig.loginRequired = true
+</script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Astronomy Animation</a><ul>
+<li><a class="reference internal" href="#object-oriented-programming">Object-oriented programming</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/Labs/astronomylab.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul><!--<div id="runestonebox">
+  <h3>Runestone Links</h3>
+  <ul>
+    <li>
+      <a href="https://github.com/bnmnetp/runestone/issues/new">Report a Problem</a>
+    </li>
+    <li>
+      <a href="http://runestoneinteractive.org">About Runestone</a>
+    </li>
+    <li>
+      <a href="/courselib/admin/index">Instructors Page</a>
+    </li>
+  </ul>
+</div>
+-->
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="astronomy-animation">
+<h1>Astronomy Animation<a class="headerlink" href="#astronomy-animation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="object-oriented-programming">
+<h2>Object-oriented programming<a class="headerlink" href="#object-oriented-programming" title="Permalink to this headline">¶</a></h2>
+
+<div id="astlab_ast1" >
+<textarea cols="50" rows="12" id="astlab_ast1_code" class="active_code">
+import turtle
+import math
+
+class SolarSystem:
+
+    def __init__(self, width, height):
+        self.thesun = None
+        self.planets = []
+        self.ssturtle = turtle.Turtle()
+        self.ssturtle.hideturtle()
+        self.ssscreen = turtle.Screen()
+        self.ssscreen.setworldcoordinates(-width/2.0,-height/2.0,width/2.0,height/2.0)
+       # self.ssscreen.tracer(50)
+
+    def addPlanet(self, aplanet):
+        self.planets.append(aplanet)
+
+    def addSun(self, asun):
+        self.thesun = asun
+
+    def showPlanets(self):
+        for aplanet in self.planets:
+            print(aplanet)
+
+    def freeze(self):
+        self.ssscreen.exitonclick()
+
+    def movePlanets(self):
+        G = .1
+        dt = .001
+
+        for p in self.planets:
+           p.moveTo(p.getXPos() + dt * p.getXVel(), p.getYPos() + dt * p.getYVel())
+
+           rx = self.thesun.getXPos() - p.getXPos()
+           ry = self.thesun.getYPos() - p.getYPos()
+           r = math.sqrt(rx**2 + ry**2)
+
+           accx = G * self.thesun.getMass()*rx/r**3
+           accy = G * self.thesun.getMass()*ry/r**3
+
+           p.setXVel(p.getXVel() + dt * accx)
+
+           p.setYVel(p.getYVel() + dt * accy)
+
+class Sun:
+   def __init__(self, iname, irad, im, itemp):
+       self.name = iname
+       self.radius = irad
+       self.mass = im
+       self.temp = itemp
+       self.x = 0
+       self.y = 0
+
+       self.sturtle = turtle.Turtle()
+       self.sturtle.shape("circle")
+       self.sturtle.color("yellow")
+
+   def getName(self):
+       return self.name
+
+   def getRadius(self):
+       return self.radius
+
+   def getMass(self):
+       return self.mass
+
+   def getTemperature(self):
+       return self.temp
+
+   def getVolume(self):
+       v = 4.0/3 * math.pi * self.radius**3
+       return v
+
+   def getSurfaceArea(self):
+       sa = 4.0 * math.pi * self.radius**2
+       return sa
+
+   def getDensity(self):
+       d = self.mass / self.getVolume()
+       return d
+
+   def setName(self, newname):
+       self.name = newname
+
+   def __str__(self):
+       return self.name
+
+   def getXPos(self):
+       return self.x
+
+   def getYPos(self):
+       return self.y
+
+class Planet:
+
+   def __init__(self, iname, irad, im, idist, ivx, ivy, ic):
+       self.name = iname
+       self.radius = irad
+       self.mass = im
+       self.distance = idist
+       self.x = idist
+       self.y = 0
+       self.velx = ivx
+       self.vely = ivy
+       self.color = ic
+
+       self.pturtle = turtle.Turtle()
+       #self.pturtle.speed('fast')
+       self.pturtle.up()
+       self.pturtle.color(self.color)
+       self.pturtle.shape("circle")
+       self.pturtle.goto(self.x,self.y)
+       self.pturtle.down()
+
+   def getName(self):
+       return self.name
+
+   def getRadius(self):
+       return self.radius
+
+   def getMass(self):
+       return self.mass
+
+   def getDistance(self):
+       return self.distance
+
+   def getVolume(self):
+       v = 4.0/3 * math.pi * self.radius**3
+       return v
+
+   def getSurfaceArea(self):
+       sa = 4.0 * math.pi * self.radius**2
+       return sa
+
+   def getDensity(self):
+       d = self.mass / self.getVolume()
+       return d
+
+   def setName(self, newname):
+       self.name = newname
+
+   def show(self):
+        print(self.name)
+
+   def __str__(self):
+       return self.name
+
+   def moveTo(self, newx, newy):
+       self.x = newx
+       self.y = newy
+       self.pturtle.goto(newx, newy)
+
+   def getXPos(self):
+       return self.x
+
+   def getYPos(self):
+       return self.y
+
+   def getXVel(self):
+       return self.velx
+
+   def getYVel(self):
+       return self.vely
+
+   def setXVel(self, newvx):
+       self.velx = newvx
+
+   def setYVel(self, newvy):
+       self.vely = newvy
+
+
+def createSSandAnimate():
+   ss = SolarSystem(2,2)
+
+   sun = Sun("SUN", 5000, 10, 5800)
+   ss.addSun(sun)
+
+
+   m = Planet("MERCURY", 19.5, 1000, .25, 0, 2, "blue")
+   ss.addPlanet(m)
+
+   m = Planet("EARTH", 47.5, 5000, 0.3, 0, 2.0, "green")
+   ss.addPlanet(m)
+
+   m = Planet("MARS", 50, 9000, 0.5, 0, 1.63, "red")
+   ss.addPlanet(m)
+
+   m = Planet("JUPITER", 100, 49000, 0.7, 0, 1, "black")
+   ss.addPlanet(m)
+
+   m = Planet("Pluto", 1, 500, 0.9, 0, .5, "orange")
+   ss.addPlanet(m)
+
+   m = Planet("Asteroid", 1, 500, 1.0, 0, .75, "cyan")
+   ss.addPlanet(m)
+
+   numTimePeriods = 10000
+   for amove in range(numTimePeriods):
+        ss.movePlanets()
+
+   ss.freeze()
+
+createSSandAnimate()
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (astlab_ast1)</span> </p>
+<button onclick="runit('astlab_ast1',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('astlab_ast1');">Save</button>
+<button class="ac_opt" onclick="requestCode('astlab_ast1');">Load</button>
+<br />
+
+<canvas id="astlab_ast1_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="astlab_ast1_pre" class="active_out">
+
+</pre>
+
+</div>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Brad Miller, David Ranum.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32029811-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,1510 @@
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Hello, Little Turtles! &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/edu-python.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/simplemodal.js"></script>
+    <script type="text/javascript" src="../_static/jquery.textarea.js"></script>
+    <script type="text/javascript" src="../_static/edu-python.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.js"></script>
+    <script type="text/javascript" src="../_static/builtin.js"></script>
+    <script type="text/javascript" src="../_static/assess.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../index.html" />
+    <link rel="next" title="Modules and Getting Help" href="../PythonModules/modules.html" />
+    <link rel="prev" title="Variables, Expressions and Statements" href="../SimplePythonData/simpledata.html" />
+<script type="text/javascript"> 
+eBookConfig = {}
+eBookConfig.host = 'http://141.140.167.226:8000' ? 'http://141.140.167.226:8000' : 'http://127.0.0.1:8000',
+eBookConfig.app = eBookConfig.host+'/courselib',
+eBookConfig.ajaxURL = eBookConfig.app+'/ajax/',
+eBookConfig.course = 'COMP123F12-01',
+eBookConfig.logLevel = 10,
+eBookConfig.loginRequired = true
+</script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../PythonModules/modules.html" title="Modules and Getting Help"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../SimplePythonData/simpledata.html" title="Variables, Expressions and Statements"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Hello, Little Turtles!</a><ul>
+<li><a class="reference internal" href="#our-first-turtle-program">Our First Turtle Program</a></li>
+<li><a class="reference internal" href="#instances-a-herd-of-turtles">Instances &#8212; A Herd of Turtles</a></li>
+<li><a class="reference internal" href="#the-for-loop">The <strong>for</strong> Loop</a></li>
+<li><a class="reference internal" href="#flow-of-execution-of-the-for-loop">Flow of Execution of the for Loop</a></li>
+<li><a class="reference internal" href="#iteration-simplifies-our-turtle-program">Iteration Simplifies our Turtle Program</a></li>
+<li><a class="reference internal" href="#the-range-function">The range Function</a></li>
+<li><a class="reference internal" href="#a-few-more-turtle-methods-and-observations">A Few More turtle Methods and Observations</a></li>
+<li><a class="reference internal" href="#summary-of-turtle-methods">Summary of Turtle Methods</a></li>
+<li><a class="reference internal" href="#glossary">Glossary</a></li>
+<li><a class="reference internal" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../SimplePythonData/simpledata.html"
+                        title="previous chapter">Variables, Expressions and Statements</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../PythonModules/modules.html"
+                        title="next chapter">Modules and Getting Help</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/PythonTurtle/helloturtle.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul><!--<div id="runestonebox">
+  <h3>Runestone Links</h3>
+  <ul>
+    <li>
+      <a href="https://github.com/bnmnetp/runestone/issues/new">Report a Problem</a>
+    </li>
+    <li>
+      <a href="http://runestoneinteractive.org">About Runestone</a>
+    </li>
+    <li>
+      <a href="/courselib/admin/index">Instructors Page</a>
+    </li>
+  </ul>
+</div>
+-->
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="hello-little-turtles">
+<h1>Hello, Little Turtles!<a class="headerlink" href="#hello-little-turtles" title="Permalink to this headline">¶</a></h1>
+<a id="assignvid_thumb" > <img src="../_static/turtleintro.png" /></a>
+<div id="assignvid" class="video_popup" >
+<video controls  >
+    <source src="http://knuth.luther.edu/~bmiller/thinkcsVideos/turtleintro.mov" type="video/mp4"></source>
+    <source src="http://knuth.luther.edu/~bmiller/thinkcsVideos/turtleintro.webm" type="video/webm"></source>
+    No supported video types
+</video>
+</div>
+<script>
+   jQuery(function($) {
+      $('#assignvid_thumb').click(function(e) {
+         $('#assignvid').show();
+         $('#assignvid_thumb').hide();
+         logBookEvent({'event':'video','act':'play','div_id': 'assignvid'});
+         // Log the run event
+      });
+   });
+</script>
+<p>There are many <em>modules</em> in Python that provide very powerful features that we
+can use in our own programs.  Some of these can send email or fetch web pages. Others allow us to perform complex mathematical calculations.
+In this chapter we will introduce a module that allows us to create a data object called a <strong>turtle</strong> that can be used to draw pictures.</p>
+<p>Turtle graphics, as it is known, is based on a very simple
+metaphor. Imagine that you have a turtle that understands English.  You can
+tell your turtle to do simple commands such as go forward and turn right.  As the turtle
+moves around, if its tail is down touching the ground, it will
+draw a line (leave a trail behind) as it moves.  If you tell your turtle to lift up its tail it can
+still move around but will not leave a trail.  As you will see, you can make
+some pretty amazing drawings with this simple capability.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The turtles are fun, but the real purpose of the chapter is to teach ourselves
+a little more Python and to develop our theme of <em>computational thinking</em>,
+or <em>thinking like a computer scientist</em>.  Most of the Python covered here will
+be explored in more depth later.</p>
+</div>
+<div class="section" id="our-first-turtle-program">
+<span id="index-1"></span><h2>Our First Turtle Program<a class="headerlink" href="#our-first-turtle-program" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s try a couple of lines of Python code to create a new turtle and
+start drawing a simple figure like a rectangle. We&#8217;ll call the variable that refers to our first
+turtle <cite>alex</cite>, but you can choose another name if you follow the naming rules
+from the previous chapter.</p>
+<p>The program as shown will only draw the first two sides of the rectangle.
+After line 3 you will have a straight line going from the center of the
+canvas below towards the right.  After line 6, you will have a canvas with a
+turtle and a half drawn rectangle.  Press the run button to try it and see.</p>
+
+<div id="ch03_1" >
+<textarea cols="50" rows="12" id="ch03_1_code" class="active_code">
+import turtle            # allows us to use the turtles library
+wn = turtle.Screen()     # creates a graphics window
+alex = turtle.Turtle()   # create a turtle named alex
+alex.forward(150)        # tell alex to move forward by 150 units
+alex.left(90)            # turn by 90 degrees
+alex.forward(50)         # barb added this
+alex.right(30)               # barb added this too
+alex.forward(75)         # complete the second side of a rectangle
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch03_1)</span> </p>
+<button onclick="runit('ch03_1',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch03_1');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch03_1');">Load</button>
+<br />
+
+<canvas id="ch03_1_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+</div>
+
+<p>Here are a couple of things you&#8217;ll need to understand about this program.</p>
+<p>The first line tells Python to load a <strong>module</strong> named <tt class="docutils literal"><span class="pre">turtle</span></tt>.  That module
+brings us two new types that we can use: the <tt class="docutils literal"><span class="pre">Turtle</span></tt> type, and the
+<tt class="docutils literal"><span class="pre">Screen</span></tt> type.  The dot notation <tt class="docutils literal"><span class="pre">turtle.Turtle</span></tt> means <em>&#8220;The Turtle type
+that is defined within the turtle module&#8221;</em>.   (Remember that Python is case
+sensitive, so the module name, with a lowercase <cite>t</cite>, is different from the type
+Turtle.)</p>
+<p>We then create and open what the turtle module calls a screen (we would
+prefer to call it a window, or in the case of this web version of Python
+simply a canvas), which we assign to variable <cite>wn</cite>. Every window
+contains a <strong>canvas</strong>, which is the area inside the window on which we can draw.</p>
+<p>In line 3 we create a turtle. The variable <cite>alex</cite> is made to refer to this
+turtle.   These first three lines set us up so that we are ready to do some drawing.</p>
+<p>In lines 4-6, we instruct the <strong>object</strong> alex to move and to turn. We do this
+by <strong>invoking</strong> or activating, alex&#8217;s <strong>methods</strong> &#8212; these are the
+instructions that all turtles know how to respond to.</p>
+<div class="admonition-complete-the-rectangle admonition">
+<p class="first admonition-title">Complete the rectangle ...</p>
+<dl class="last docutils">
+<dt>Modify the program by adding the commands necessary to have <em>alex</em> complete the</dt>
+<dd>rectangle.</dd>
+</dl>
+</div>
+<p>An object can have various methods &#8212; things it can do &#8212; and it can also
+have <strong>attributes</strong> &#8212; (sometimes called <em>properties</em>).  For example, each
+turtle has a <em>color</em> attribute.  The method invocation  <cite>alex.color(&#8220;red&#8221;)</cite>
+will make alex red, and the line that it draws will be red too.</p>
+<p>The color of the turtle, the width of its pen(tail), the position of the turtle
+within the window, which way it is facing, and so on are all part of its
+current <strong>state</strong>.   Similarly, the window object has a background color.
+These are all part of the state of the window object.</p>
+<p>Quite a number of methods exist that allow us to modify the turtle and the
+window objects.  We&#8217;ll just show a couple. We&#8217;ve only commented those
+lines that are different from the previous example.  Note also that we&#8217;ve now called our turtle object <em>tess</em>.</p>
+
+<div id="ch03_2" >
+<textarea cols="50" rows="12" id="ch03_2_code" class="active_code">
+import turtle
+
+wn = turtle.Screen()
+wn.bgcolor("lightgreen")         # set the window background color
+
+tess = turtle.Turtle()
+tess.color("blue")               # make tess blue
+tess.pensize(3)                  # set the width of her pen
+
+tess.forward(50)
+tess.left(120)
+tess.forward(50)
+
+wn.exitonclick()
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch03_2)</span> </p>
+<button onclick="runit('ch03_2',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch03_2');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch03_2');">Load</button>
+<br />
+
+<canvas id="ch03_2_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch03_2_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>The last line plays a very important role. The wn variable refers to the window shown
+above. When we invoke its exitonclick method, it pauses the execution of the
+program, and waits for the user to click the mouse somewhere in the window.
+When this click event occurs, the response is to close the turtle window and
+exit (stop execution of) the Python program.</p>
+<p>Each time we run this program, a new drawing window pops up, and will remain on the
+screen until we click on it.</p>
+<div class="admonition-extend-this-program admonition">
+<p class="first admonition-title">Extend this program ...</p>
+<ol class="last arabic simple">
+<li>Modify this program so that before it creates the window, it prompts
+the user to enter the desired background color. It should store the
+user&#8217;s responses in a variable, and modify the color of the window
+according to the user&#8217;s wishes.
+(Hint: you can find a list of permitted color names at
+<a class="reference external" href="http://www.w3schools.com/html/html_colornames.asp">http://www.w3schools.com/html/html_colornames.asp</a>.  It includes some quite
+unusual ones, like &#8220;PeachPuff&#8221;  and &#8220;HotPink&#8221;.)</li>
+<li>Do similar changes to allow the user, at runtime, to set tess&#8217; color.</li>
+<li>Do the same for the width of tess&#8217; pen.  <em>Hint:</em> your dialog with the
+user will return a string, but tess&#8217; <tt class="docutils literal"><span class="pre">pensize</span></tt> method
+expects its argument to be an int.  So you&#8217;ll need to convert
+the string to an int before you pass it to <tt class="docutils literal"><span class="pre">pensize</span></tt>.</li>
+</ol>
+</div>
+<p><strong>Check your understanding</strong></p>
+
+    <div id="test_question3_1_1">
+    <p>3.1.1: Consider the following code:
+<pre>
+import turtle
+wn = turtle.Screen()
+alex = turtle.Turtle()
+alex.forward(150)
+alex.left(90)
+alex.forward(75)
+</pre>
+
+What does the line "import turtle" do?</p>
+    <form name="test_question3_1_1_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="test_question3_1_1_opt_a" />
+    <label for= "test_question3_1_1_opt_a">  a) It creates a new turtle object that can be used for drawing</label><br />
+    
+    <input type="radio" name="group1" value="b" id="test_question3_1_1_opt_b" />
+    <label for= "test_question3_1_1_opt_b">  b) It allows us to create a data object called a Turtle that can be used for drawing</label><br />
+    
+    <input type="radio" name="group1" value="c" id="test_question3_1_1_opt_c" />
+    <label for= "test_question3_1_1_opt_c">  c) It makes the turtle draw half of a rectangle on the screen</label><br />
+    
+    <input type="radio" name="group1" value="d" id="test_question3_1_1_opt_d" />
+    <label for= "test_question3_1_1_opt_d">  d) Nothing, it is unnecessary</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('test_question3_1_1','b',['The line &quotalex = turtle.Turtle()&quot is what actually creates the turtle object', 'This line imports the module called turtle, which has all the built in functions for drawing on the screen with the Turtle object', 'This functionality is performed with the lines &quotalex.forward(150)&quot, &quotalex.left(90)&quot, and &quotalex.forward(75)&quot', 'If we leave it out, Python will give an error saying that it does not know about the name &quotturtle&quot when it reaches the line &quotwn = turtle.Screen()&quot'])"/> 
+    </form>
+    <div id="test_question3_1_1_feedback">
+    </div>
+    </div>
+    
+    <div id="test_question3_1_2">
+    <p>3.1.2: Why do we type "turtle.Turtle()" to get a new Turtle object?</p>
+    <form name="test_question3_1_2_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="test_question3_1_2_opt_a" />
+    <label for= "test_question3_1_2_opt_a">  a) This is simply for clarity.  It would also work to just type \"Turtle()\" instead of \"turtle.Turtle()\"</label><br />
+    
+    <input type="radio" name="group1" value="b" id="test_question3_1_2_opt_b" />
+    <label for= "test_question3_1_2_opt_b">  b) The period (.) is what tells Python that we want to invoke a new object.</label><br />
+    
+    <input type="radio" name="group1" value="c" id="test_question3_1_2_opt_c" />
+    <label for= "test_question3_1_2_opt_c">  c) The first "turtle" (before the period) tells Python that we are referring to the turtle module, which is where the object "Turtle" is found.</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('test_question3_1_2','c',['We must specify the name of the module where Python can find the Turtle object.', 'The period separates the module name from the object name.  The parentheses at the end are what tell Python to invoke a new object.', 'Yes, the Turtle type is defined in the module turtle.  Remember that Python is case sensitive and Turtle is different from turtle.'])"/> 
+    </form>
+    <div id="test_question3_1_2_feedback">
+    </div>
+    </div>
+    
+    <div id="test_question3_1_3">
+    <p>3.1.3: True or False: A Turtle object can have any name that follows the naming rules from Chapter 2.</p>
+    <form name="test_question3_1_3_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="test_question3_1_3_opt_a" />
+    <label for= "test_question3_1_3_opt_a">  a) True</label><br />
+    
+    <input type="radio" name="group1" value="b" id="test_question3_1_3_opt_b" />
+    <label for= "test_question3_1_3_opt_b">  b) False</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('test_question3_1_3','a',['In the chapter you saw one named alex and one named tess, but any legal variable name is allowed.', 'A Turtle, like any data, can be assigned to a variable that can have whatever name you choose as long as it follows the naming conventions from Chapter 2.'])"/> 
+    </form>
+    <div id="test_question3_1_3_feedback">
+    </div>
+    </div>
+    </div>
+<div class="section" id="instances-a-herd-of-turtles">
+<span id="index-2"></span><h2>Instances &#8212; A Herd of Turtles<a class="headerlink" href="#instances-a-herd-of-turtles" title="Permalink to this headline">¶</a></h2>
+<p>Just like we can have many different integers in a program, we can have many
+turtles.  Each of them is an independent object and we call each one an <strong>instance</strong> of the Turtle type (class).  Each instance has its own
+attributes and methods &#8212; so alex might draw with a thin black pen and be at
+some position, while tess might be going in her own direction with a fat pink
+pen.  So here is what happens when alex completes a square and tess
+completes her triangle:</p>
+
+<div id="ch03_3" >
+<textarea cols="50" rows="12" id="ch03_3_code" class="active_code">
+import turtle
+wn = turtle.Screen()             # Set up the window and its attributes
+wn.bgcolor("lightgreen")
+
+
+tess = turtle.Turtle()           # create tess and set some attributes
+tess.color("hotpink")
+tess.pensize(5)
+
+alex = turtle.Turtle()           # create alex
+
+tess.forward(80)                 # Let tess draw an equilateral triangle
+tess.left(120)
+tess.forward(80)
+tess.left(120)
+tess.forward(80)
+tess.left(120)                   # complete the triangle
+
+tess.right(180)                  # turn tess around
+tess.forward(80)                 # move her away from the origin
+
+alex.forward(50)                 # make alex draw a square
+alex.left(90)
+alex.forward(50)
+alex.left(90)
+alex.forward(50)
+alex.left(90)
+alex.forward(50)
+alex.left(90)
+
+wn.exitonclick()
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch03_3)</span> </p>
+<button onclick="runit('ch03_3',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch03_3');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch03_3');">Load</button>
+<br />
+
+<canvas id="ch03_3_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+</div>
+
+<p>Here are some <em>How to think like a computer scientist</em> observations:</p>
+<ul class="simple">
+<li>There are 360 degrees in a full circle.  If you add up all the turns that a
+turtle makes, <em>no matter what steps occurred between the turns</em>, you can
+easily figure out if they add up to some multiple of 360.  This should
+convince you that alex is facing in exactly the same direction as he was when
+he was first created. (Geometry conventions have 0 degrees facing East, and
+that is the case here too!)</li>
+<li>We could have left out the last turn for alex, but that would not have been
+as satisfying.  If you&#8217;re asked to draw a closed shape like a square or a
+rectangle, it is a good idea to complete all the turns and to leave the
+turtle back where it started, facing the same direction as it started in.
+This makes reasoning about the program and composing chunks of code into
+bigger programs easier for us humans!</li>
+<li>We did the same with tess: she drew her triangle, and turned through a full
+360 degress.  Then we turned her around and moved her aside.  Even the blank
+line 18 is a hint about how the programmer&#8217;s <em>mental chunking</em> is working: in
+big terms, tess&#8217; movements were chunked as &#8220;draw the triangle&#8221;  (lines 12-17)
+and then &#8220;move away from the origin&#8221; (lines 19 and 20).</li>
+<li>One of the key uses for comments is to record your mental chunking, and big
+ideas.   They&#8217;re not always explicit in the code.</li>
+<li>And, uh-huh, two turtles may not be enough for a herd, but you get the idea!</li>
+</ul>
+</div>
+<div class="section" id="the-for-loop">
+<span id="index-3"></span><h2>The <strong>for</strong> Loop<a class="headerlink" href="#the-for-loop" title="Permalink to this headline">¶</a></h2>
+<a id="forloopvid_thumb" > <img src="../_static/for_loop.png" /></a>
+<div id="forloopvid" class="video_popup" >
+<video controls  >
+    <source src="http://knuth.luther.edu/~bmiller/thinkcsVideos/for_loop.mov" type="video/mp4"></source>
+    <source src="http://knuth.luther.edu/~bmiller/thinkcsVideos/for_loop.webm" type="video/webm"></source>
+    No supported video types
+</video>
+</div>
+<script>
+   jQuery(function($) {
+      $('#forloopvid_thumb').click(function(e) {
+         $('#forloopvid').show();
+         $('#forloopvid_thumb').hide();
+         logBookEvent({'event':'video','act':'play','div_id': 'forloopvid'});
+         // Log the run event
+      });
+   });
+</script>
+<p>When we drew the square, it was quite tedious.  We had to move then turn, move
+then turn, etc. etc. four times.  If we were drawing a hexagon, or an octogon,
+or a polygon with 42 sides, it would have been a nightmare to duplicate all that code.</p>
+<p>A basic building block of all programs is to be able to repeat some code
+over and over again.  In computer science, we refer to this repetitive idea as <strong>iteration</strong>.  In this chapter, we will explore some mechanisms for basic iteration.</p>
+<p>In Python, the <strong>for</strong> statement allows us to write programs that implement iteration.   As a simple example, let&#8217;s say we have some friends, and
+we&#8217;d like to send them each an email inviting them to our party.  We
+don&#8217;t quite know how to send email yet, so for the moment we&#8217;ll just print a
+message for each friend.</p>
+
+<div id="ch03_4" >
+<textarea cols="50" rows="12" id="ch03_4_code" class="active_code">
+for friendName in ["Joe", "Amy", "Brad", "Angelina", "Zuki", "Thandi", "Paris"]:
+    print("Hi ", friendName, "  Please come to my party on Saturday!")
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch03_4)</span> </p>
+<button onclick="runit('ch03_4',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch03_4');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch03_4');">Load</button>
+<br />
+
+<pre id="ch03_4_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>Take a look at the output produced when you press the <tt class="docutils literal"><span class="pre">run</span></tt> button.  There is one line printed for each friend.  Here&#8217;s how it works:</p>
+<ul class="simple">
+<li><strong>friendName</strong> in this <tt class="docutils literal"><span class="pre">for</span></tt> statement is called the <strong>loop variable</strong>.</li>
+<li>The list of names in the square brackets is called a Python <strong>list</strong>.  Lists are very useful.  We will have much
+more to say about them later.</li>
+<li>Line 2  is the <strong>loop body</strong>.  The loop body is always
+indented. The indentation determines exactly what statements are &#8220;in the
+loop&#8221;.  The loop body is performed one time for each name in the list.</li>
+<li>On each <em>iteration</em> or <em>pass</em> of the loop, first a check is done to see if
+there are still more items to be processed.  If there are none left (this is
+called the <strong>terminating condition</strong> of the loop), the loop has finished.
+Program execution continues at the next statement after the loop body.</li>
+<li>If there are items still to be processed, the loop variable is updated to
+refer to the next item in the list.  This means, in this case, that the loop
+body is executed here 7 times, and each time <cite>friendName</cite> will refer to a different
+friend.</li>
+<li>At the end of each execution of the body of the loop, Python returns
+to the <tt class="docutils literal"><span class="pre">for</span></tt> statement, to see if there are more items to be handled.</li>
+</ul>
+<p><strong>Check your understanding</strong></p>
+
+    <div id="test_question3_2_1">
+    <p>3.2.1: True or False: You can only have one active turtle at a time.  If you create a second one, you will no longer be able to access or use the first.</p>
+    <form name="test_question3_2_1_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="test_question3_2_1_opt_a" />
+    <label for= "test_question3_2_1_opt_a">  a) True</label><br />
+    
+    <input type="radio" name="group1" value="b" id="test_question3_2_1_opt_b" />
+    <label for= "test_question3_2_1_opt_b">  b) False</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('test_question3_2_1','b',['You can create and use as many turtles as you like.  As long as they have different names, you can operate them independently, and make them move in any order you like.  To convince yourself this is true, try interleaving the instructions for alex and tess in ActiveCode box 3.', 'You can create and use as many turtles as you like.  As long as they have different names, you can operate them independently, and make them move in any order you like.  If you are not totally convinced, try interleaving the instructions for alex and tess in ActiveCode box 3.'])"/> 
+    </form>
+    <div id="test_question3_2_1_feedback">
+    </div>
+    </div>
+    </div>
+<div class="section" id="flow-of-execution-of-the-for-loop">
+<span id="index-4"></span><h2>Flow of Execution of the for Loop<a class="headerlink" href="#flow-of-execution-of-the-for-loop" title="Permalink to this headline">¶</a></h2>
+<p>As a program executes, the interpreter always keeps track of which statement is
+about to be executed.  We call this the <strong>control flow</strong>, or the <strong>flow of
+execution</strong> of the program.  When humans execute programs, they often use their
+finger to point to each statement in turn.  So you could think of control flow
+as &#8220;Python&#8217;s moving finger&#8221;.</p>
+<p>Control flow until now has been strictly top to bottom, one statement at a
+time.  We call this type of control <strong>sequential</strong>.  Sequential flow of control is always assumed to be the default behavior for a computer program.  The <tt class="docutils literal"><span class="pre">for</span></tt> statement changes this.</p>
+<p>Flow of control is often easy to visualize and understand if we draw a flowchart.
+This flowchart shows the exact steps and logic of how the <tt class="docutils literal"><span class="pre">for</span></tt> statement executes.</p>
+<img alt="../_images/new_flowchart_for.png" src="../_images/new_flowchart_for.png" style="width: 300px;" />
+<p>A codelens demonstration is a good way to help you visualize exactly how the flow of control
+works with the for loop.  Try stepping forward and backward through the program by pressing
+the buttons.  You can see the value of <tt class="docutils literal"><span class="pre">friendName</span></tt> change as the loop iterates thru the list of friends.</p>
+
+<table border="1" id="pyOutputPane_vtest" class="pyOutputPane">
+<tr>
+<td valign="top">
+Source Code
+<br />
+
+<div id="pyCodeOutputDiv_vtest" class="pyCodeOutputDiv">
+<table id="pyCodeOutput_vtest" class="pyCodeOutput"></table>
+
+</div>
+
+<div id="vcrControls_vtest" class="vcrControls">
+  <button id="jmpFirstInstr_vtest", type="button">&lt;&lt; First</button>
+  <button id="jmpStepBack_vtest", type="button">&lt; Back</button>
+  Step <span id="curInstr_vtest">?</span> of <span id="totalInstrs_vtest">?</span>
+  <button id="jmpStepFwd_vtest", type="button">Forward &gt;</button>
+  <button id="jmpLastInstr_vtest", type="button">Last &gt;&gt;</button>
+
+  <p><span id="warningOutput_vtest" class="warningOutput"></span></p>
+</div>
+</td></tr>
+<tr>
+<td valign="top">
+
+<div id="dataViz_vtest"></div>
+
+</td>
+</tr>
+<tr>
+<td>
+<div id="errorOutput_vtest" class="errorOutput"></div>
+
+Program output:
+<br/>
+<pre id="pyStdout_vtest" class="active_out"></pre>
+</td>
+</tr>
+</table>
+<p class="cl_caption"><span class="ac_caption_text"> </span></p>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    myvis = new PythonTutor.Visualizer("for friendName in [\"Joe\", \"Amy\", \"Brad\", \"Angelina\", \"Zuki\", \"Thandi\", \"Paris\"]:\n    print(\"Hi \" + friendName + \"  Please come to my party!\")",[{"globals": {}, "stdout": "", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"friendName": "Joe"}, "stdout": "", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"friendName": "Joe"}, "stdout": "Hi Joe  Please come to my party!\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"friendName": "Amy"}, "stdout": "Hi Joe  Please come to my party!\n", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"friendName": "Amy"}, "stdout": "Hi Joe  Please come to my party!\nHi Amy  Please come to my party!\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"friendName": "Brad"}, "stdout": "Hi Joe  Please come to my party!\nHi Amy  Please come to my party!\n", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"friendName": "Brad"}, "stdout": "Hi Joe  Please come to my party!\nHi Amy  Please come to my party!\nHi Brad  Please come to my party!\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"friendName": "Angelina"}, "stdout": "Hi Joe  Please come to my party!\nHi Amy  Please come to my party!\nHi Brad  Please come to my party!\n", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"friendName": "Angelina"}, "stdout": "Hi Joe  Please come to my party!\nHi Amy  Please come to my party!\nHi Brad  Please come to my party!\nHi Angelina  Please come to my party!\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"friendName": "Zuki"}, "stdout": "Hi Joe  Please come to my party!\nHi Amy  Please come to my party!\nHi Brad  Please come to my party!\nHi Angelina  Please come to my party!\n", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"friendName": "Zuki"}, "stdout": "Hi Joe  Please come to my party!\nHi Amy  Please come to my party!\nHi Brad  Please come to my party!\nHi Angelina  Please come to my party!\nHi Zuki  Please come to my party!\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"friendName": "Thandi"}, "stdout": "Hi Joe  Please come to my party!\nHi Amy  Please come to my party!\nHi Brad  Please come to my party!\nHi Angelina  Please come to my party!\nHi Zuki  Please come to my party!\n", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"friendName": "Thandi"}, "stdout": "Hi Joe  Please come to my party!\nHi Amy  Please come to my party!\nHi Brad  Please come to my party!\nHi Angelina  Please come to my party!\nHi Zuki  Please come to my party!\nHi Thandi  Please come to my party!\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"friendName": "Paris"}, "stdout": "Hi Joe  Please come to my party!\nHi Amy  Please come to my party!\nHi Brad  Please come to my party!\nHi Angelina  Please come to my party!\nHi Zuki  Please come to my party!\nHi Thandi  Please come to my party!\n", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"friendName": "Paris"}, "stdout": "Hi Joe  Please come to my party!\nHi Amy  Please come to my party!\nHi Brad  Please come to my party!\nHi Angelina  Please come to my party!\nHi Zuki  Please come to my party!\nHi Thandi  Please come to my party!\nHi Paris  Please come to my party!\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"friendName": "Paris"}, "stdout": "Hi Joe  Please come to my party!\nHi Amy  Please come to my party!\nHi Brad  Please come to my party!\nHi Angelina  Please come to my party!\nHi Zuki  Please come to my party!\nHi Thandi  Please come to my party!\nHi Paris  Please come to my party!\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "return"}],'vtest');
+});
+
+</script>
+</div>
+<div class="section" id="iteration-simplifies-our-turtle-program">
+<span id="index-5"></span><h2>Iteration Simplifies our Turtle Program<a class="headerlink" href="#iteration-simplifies-our-turtle-program" title="Permalink to this headline">¶</a></h2>
+<p>To draw a square we&#8217;d like to do the same thing four times &#8212; move the turtle forward some distance and turn 90 degrees.  We previously used 8 lines of Python code to have alex draw the four sides of a
+square.  This next program does exactly the same thing but, with the help of the for statement, uses just three lines (not including the setup code).  Remember that the for statement will repeat the <cite>forward</cite> and <cite>left</cite> four times, one time for
+each value in the list.</p>
+
+<div id="ch03_for1" >
+<textarea cols="50" rows="12" id="ch03_for1_code" class="active_code">
+import turtle            #set up alex
+wn = turtle.Screen()
+alex = turtle.Turtle()
+
+for i in [0,1,2,3]:      #repeat four times
+    alex.forward(50)
+    alex.left(90)
+
+wn.exitonclick()
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch03_for1)</span> </p>
+<button onclick="runit('ch03_for1',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch03_for1');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch03_for1');">Load</button>
+<br />
+
+<canvas id="ch03_for1_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+</div>
+
+<p>While &#8220;saving some lines of code&#8221; might be convenient, it is not the big
+deal here.  What is much more important is that we&#8217;ve found a &#8220;repeating
+pattern&#8221; of statements, and we reorganized our program to repeat the pattern.
+Finding the chunks and somehow getting our programs arranged around those
+chunks is a vital  skill when learning <em>How to think like a computer scientist</em>.</p>
+<p>The values [0,1,2,3] were provided to make the loop body execute 4 times.
+We could have used any four values.  For example, consider the following program.</p>
+
+<div id="ch03_forcolor" >
+<textarea cols="50" rows="12" id="ch03_forcolor_code" class="active_code">
+import turtle            #set up alex
+wn = turtle.Screen()
+alex = turtle.Turtle()
+
+for aColor in ["yellow", "red", "purple", "blue"]:      #repeat four times
+    alex.forward(50)
+    alex.left(90)
+
+wn.exitonclick()
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch03_forcolor)</span> </p>
+<button onclick="runit('ch03_forcolor',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch03_forcolor');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch03_forcolor');">Load</button>
+<br />
+
+<canvas id="ch03_forcolor_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+</div>
+
+<p>Since there are still four items in the list, the iteration will still occur four times.  <tt class="docutils literal"><span class="pre">aColor</span></tt> will
+take on each color in the list.  We can even take this one step further and use the value of <tt class="docutils literal"><span class="pre">aColor</span></tt> as part
+of the computation.</p>
+
+<div id="colorlist" >
+<textarea cols="50" rows="12" id="colorlist_code" class="active_code">
+import turtle            #set up alex
+wn = turtle.Screen()
+alex = turtle.Turtle()
+
+for aColor in ["yellow", "red", "purple", "blue"]:
+   alex.color(aColor)
+   alex.forward(50)
+   alex.left(90)
+
+wn.exitonclick()
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (colorlist)</span> </p>
+<button onclick="runit('colorlist',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('colorlist');">Save</button>
+<button class="ac_opt" onclick="requestCode('colorlist');">Load</button>
+<br />
+
+<canvas id="colorlist_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="colorlist_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>In this case, the value of <tt class="docutils literal"><span class="pre">aColor</span></tt> is used to change the color attribute of <tt class="docutils literal"><span class="pre">alex</span></tt>.  Each iteration causes <tt class="docutils literal"><span class="pre">aColor</span></tt> to change to the next value in the list.</p>
+<p><strong>Check your understanding</strong></p>
+
+    <div id="test_question3_4_1">
+    <p>3.4.1: In the following code, how many lines does this code print?
+<pre>
+for number in [5, 4, 3, 2, 1, 0]:
+    print("I have", number, "cookies.  Iím going to eat one.")
+</pre></p>
+    <form name="test_question3_4_1_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="test_question3_4_1_opt_a" />
+    <label for= "test_question3_4_1_opt_a">  a) 1</label><br />
+    
+    <input type="radio" name="group1" value="b" id="test_question3_4_1_opt_b" />
+    <label for= "test_question3_4_1_opt_b">  b) 5</label><br />
+    
+    <input type="radio" name="group1" value="c" id="test_question3_4_1_opt_c" />
+    <label for= "test_question3_4_1_opt_c">  c) 6</label><br />
+    
+    <input type="radio" name="group1" value="d" id="test_question3_4_1_opt_d" />
+    <label for= "test_question3_4_1_opt_d">  d) 10</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('test_question3_4_1','c',['The loop body prints one line, but the body will execute exactly one time for each element in the list [5, 4, 3, 2, 1, 0].', 'Although the biggest number in the list is 5, there are actually 6 elements in the list.', 'The loop body will execute (and print one line) for each of the 6 elements in the list [5, 4, 3, 2, 1, 0]', 'The loop body will not execute more times than the number of elements in the list.'])"/> 
+    </form>
+    <div id="test_question3_4_1_feedback">
+    </div>
+    </div>
+    
+    <div id="test_question3_4_2">
+    <p>3.4.2: How does python know what lines are contained in the loop body?</p>
+    <form name="test_question3_4_2_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="test_question3_4_2_opt_a" />
+    <label for= "test_question3_4_2_opt_a">  a) They are indented to the same degree from the loop header</label><br />
+    
+    <input type="radio" name="group1" value="b" id="test_question3_4_2_opt_b" />
+    <label for= "test_question3_4_2_opt_b">  b) There is always exactly one line in the loop body</label><br />
+    
+    <input type="radio" name="group1" value="c" id="test_question3_4_2_opt_c" />
+    <label for= "test_question3_4_2_opt_c">  c) The loop body ends with a semi-colon (;) which is not shown in the code above</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('test_question3_4_2','a',['The loop body can have any number of lines, all indented from the loop header.', 'The loop body may have more than one line.', 'Python does not use semi-colons in its syntax, but relies mainly on indentation.'])"/> 
+    </form>
+    <div id="test_question3_4_2_feedback">
+    </div>
+    </div>
+    
+    <div id="test_question3_4_3">
+    <p>3.4.3: In the following code, what is the value of number the second time Python executes the loop?
+<pre>
+   for number in [5, 4, 3, 2, 1, 0]:
+       print("I have", number, "cookies.  Iím going to eat one.")
+</pre></p>
+    <form name="test_question3_4_3_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="test_question3_4_3_opt_a" />
+    <label for= "test_question3_4_3_opt_a">  a) 2</label><br />
+    
+    <input type="radio" name="group1" value="b" id="test_question3_4_3_opt_b" />
+    <label for= "test_question3_4_3_opt_b">  b) 4</label><br />
+    
+    <input type="radio" name="group1" value="c" id="test_question3_4_3_opt_c" />
+    <label for= "test_question3_4_3_opt_c">  c) 5</label><br />
+    
+    <input type="radio" name="group1" value="d" id="test_question3_4_3_opt_d" />
+    <label for= "test_question3_4_3_opt_d">  d) 1</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('test_question3_4_3','b',['Python gives number the value of items in the list, one at a time, in order (from left to right).  number gets a new value each time the loop repeats.', 'Yes, Python will process the items from left to right so the first time the value of number is 5 and the second time it is 4.', 'Python gives number the value of items in the list, one at a time, in order.  number gets a new value each time the loop repeats.', 'Python gives number the value of items in the list, one at a time, in order (from left to right).  number gets a new value each time the loop repeats.'])"/> 
+    </form>
+    <div id="test_question3_4_3_feedback">
+    </div>
+    </div>
+    
+    <div id="test_question3_4_4">
+    <p>3.4.4: Consider the following code:
+<pre>
+for aColor in ["yellow", "red", "green", "blue"]:
+   alex.forward(50)
+   alex.left(90)
+</pre>
+What does each iteration through the loop (i.e. "chunk of code") do?</p>
+    <form name="test_question3_4_4_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="test_question3_4_4_opt_a" />
+    <label for= "test_question3_4_4_opt_a">  a) Draw one side of a square, using the same color each time.</label><br />
+    
+    <input type="radio" name="group1" value="b" id="test_question3_4_4_opt_b" />
+    <label for= "test_question3_4_4_opt_b">  b) Draw one side of a square, using a different color each time.</label><br />
+    
+    <input type="radio" name="group1" value="c" id="test_question3_4_4_opt_c" />
+    <label for= "test_question3_4_4_opt_c">  c) Draw a complete square.</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('test_question3_4_4','a',['The items in the list are not actually used to control the color of the turtle because aColor is never used inside the loop.', 'Notice that aColor is never actually used inside the loop.', 'The body of the loop only contains two instructions: go forward and turn left.  This is not enough to draw a complete square.'])"/> 
+    </form>
+    <div id="test_question3_4_4_feedback">
+    </div>
+    </div>
+    </div>
+<div class="section" id="the-range-function">
+<h2>The range Function<a class="headerlink" href="#the-range-function" title="Permalink to this headline">¶</a></h2>
+<a id="advrange_thumb" > <img src="../_static/advrange.png" /></a>
+<div id="advrange" class="video_popup" >
+<video controls  >
+    <source src="http://knuth.luther.edu/~bmiller/thinkcsVideos/AdvancedRange.mov" type="video/mp4"></source>
+    <source src="http://knuth.luther.edu/~bmiller/thinkcsVideos/AdvancedRange.webm" type="video/webm"></source>
+    No supported video types
+</video>
+</div>
+<script>
+   jQuery(function($) {
+      $('#advrange_thumb').click(function(e) {
+         $('#advrange').show();
+         $('#advrange_thumb').hide();
+         logBookEvent({'event':'video','act':'play','div_id': 'advrange'});
+         // Log the run event
+      });
+   });
+</script>
+<p>In our simple example from the last section (shown again below), we used a list of four integers to cause the iteration
+to happen four times.  We said that we could have used any four values.  In fact, we even used four colors.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">turtle</span>            <span class="c">#set up alex</span>
+<span class="n">wn</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Screen</span><span class="p">()</span>
+<span class="n">alex</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]:</span>      <span class="c">#repeat four times</span>
+    <span class="n">alex</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">alex</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+
+<span class="n">wn</span><span class="o">.</span><span class="n">exitonclick</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>It turns out that generating lists with a specific number of integers is a very common thing to do, especially when you
+want to write simple <tt class="docutils literal"><span class="pre">for</span> <span class="pre">loop</span></tt> controlled iteration.  Even though you can use any four items, or any four integers for that matter, the conventional thing to do is to use a list of integers starting with 0.
+In fact, these lists are so popular that Python gives us special built-in
+<tt class="docutils literal"><span class="pre">range</span></tt> objects
+that can deliver a sequence of values to
+the <tt class="docutils literal"><span class="pre">for</span></tt> loop.  They start at 0, and in the  cases shown below do not include the 4
+or the 10.</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="c"># Executes the body with i = 0, then 1, then 2, then 3</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="c"># sets x to each of ... [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Computer scientists like to count from 0!</p>
+</div>
+<p>So to repeat something four times, a good Python programmer would do this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">alex</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">alex</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <a class="reference external" href="http://docs.python.org/py3k/library/functions.html?highlight=range#range">range</a> function is actually a very powerful function
+when it comes to
+creating sequences of integers.  It can take one, two, or three parameters.  We have seen
+the simplest case of one parameter such as <tt class="docutils literal"><span class="pre">range(4)</span></tt> which creates <tt class="docutils literal"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3]</span></tt>.
+But what if we really want to have the sequence <tt class="docutils literal"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4]</span></tt>?
+We can do this by using a two parameter version of <tt class="docutils literal"><span class="pre">range</span></tt> where the first parameter is the starting point and the second parameter is the ending point.  The evaluation of <tt class="docutils literal"><span class="pre">range(1,5)</span></tt> produces the desired sequence.  What happened to the 5?
+In this case we interpret the parameters of the range function to mean
+range(start,stop+1).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Why in the world would range not just work like range(start,
+stop)?  Think about it like this.  Because computer scientists like to
+start counting at 0 instead of 1, <tt class="docutils literal"><span class="pre">range(N)</span></tt> produces a sequence of
+things that is N long, but the consequence of this is that the final
+number of the sequence is N-1.  In the case of start,
+stop it helps to simply think that the sequence begins with start and
+continues as long as the number is less than stop.</p>
+</div>
+<p>Here are a two examples for you to run.  Add another line below to create a sequence starting
+at 10 and going up to 20 (including 20).</p>
+
+<div id="ch03_5" >
+<textarea cols="50" rows="12" id="ch03_5_code" class="active_code">
+print(range(4))
+print(range(1,5))
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch03_5)</span> </p>
+<button onclick="runit('ch03_5',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch03_5');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch03_5');">Load</button>
+<br />
+
+<pre id="ch03_5_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>Codelens will help us to further understand the way range works.  In this case, the variable <tt class="docutils literal"><span class="pre">i</span></tt> will take on values
+produced by the <tt class="docutils literal"><span class="pre">range</span></tt> function.</p>
+
+<table border="1" id="pyOutputPane_rangeme" class="pyOutputPane">
+<tr>
+<td valign="top">
+Source Code
+<br />
+
+<div id="pyCodeOutputDiv_rangeme" class="pyCodeOutputDiv">
+<table id="pyCodeOutput_rangeme" class="pyCodeOutput"></table>
+
+</div>
+
+<div id="vcrControls_rangeme" class="vcrControls">
+  <button id="jmpFirstInstr_rangeme", type="button">&lt;&lt; First</button>
+  <button id="jmpStepBack_rangeme", type="button">&lt; Back</button>
+  Step <span id="curInstr_rangeme">?</span> of <span id="totalInstrs_rangeme">?</span>
+  <button id="jmpStepFwd_rangeme", type="button">Forward &gt;</button>
+  <button id="jmpLastInstr_rangeme", type="button">Last &gt;&gt;</button>
+
+  <p><span id="warningOutput_rangeme" class="warningOutput"></span></p>
+</div>
+</td></tr>
+<tr>
+<td valign="top">
+
+<div id="dataViz_rangeme"></div>
+
+</td>
+</tr>
+<tr>
+<td>
+<div id="errorOutput_rangeme" class="errorOutput"></div>
+
+Program output:
+<br/>
+<pre id="pyStdout_rangeme" class="active_out"></pre>
+</td>
+</tr>
+</table>
+<p class="cl_caption"><span class="ac_caption_text"> </span></p>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    myvis = new PythonTutor.Visualizer("for i in range(10):\n   print(i)",[{"globals": {}, "stdout": "", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 0}, "stdout": "", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 0}, "stdout": "0\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 1}, "stdout": "0\n", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 1}, "stdout": "0\n1\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 2}, "stdout": "0\n1\n", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 2}, "stdout": "0\n1\n2\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 3}, "stdout": "0\n1\n2\n", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 3}, "stdout": "0\n1\n2\n3\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 4}, "stdout": "0\n1\n2\n3\n", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 4}, "stdout": "0\n1\n2\n3\n4\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 5}, "stdout": "0\n1\n2\n3\n4\n", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 5}, "stdout": "0\n1\n2\n3\n4\n5\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 6}, "stdout": "0\n1\n2\n3\n4\n5\n", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 6}, "stdout": "0\n1\n2\n3\n4\n5\n6\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 7}, "stdout": "0\n1\n2\n3\n4\n5\n6\n", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 7}, "stdout": "0\n1\n2\n3\n4\n5\n6\n7\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 8}, "stdout": "0\n1\n2\n3\n4\n5\n6\n7\n", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 8}, "stdout": "0\n1\n2\n3\n4\n5\n6\n7\n8\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 9}, "stdout": "0\n1\n2\n3\n4\n5\n6\n7\n8\n", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 9}, "stdout": "0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 9}, "stdout": "0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "return"}],'rangeme');
+});
+
+</script>
+<p>Finally, suppose we want to have a sequence of even numbers.
+How would we do that?  Easy, we add another parameter, a step,
+that tells range what to count by.  For even numbers we want to start at 0
+and count by 2&#8217;s.  So if we wanted the first 10 even numbers we would use
+<tt class="docutils literal"><span class="pre">range(0,19,2)</span></tt>.  The most general form of the range is
+<tt class="docutils literal"><span class="pre">range(start,</span> <span class="pre">stop,</span> <span class="pre">step)</span></tt>.  You can also create a sequence of numbers that
+starts big and gets smaller by using a negative value for the step parameter.</p>
+
+<div id="ch03_6" >
+<textarea cols="50" rows="12" id="ch03_6_code" class="active_code">
+print(range(0,19,2))
+print(range(0,20,2))
+print(range(10,0,-1))
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch03_6)</span> </p>
+<button onclick="runit('ch03_6',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch03_6');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch03_6');">Load</button>
+<br />
+
+<pre id="ch03_6_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>Try it in codelens.</p>
+
+<table border="1" id="pyOutputPane_rangeme2" class="pyOutputPane">
+<tr>
+<td valign="top">
+Source Code
+<br />
+
+<div id="pyCodeOutputDiv_rangeme2" class="pyCodeOutputDiv">
+<table id="pyCodeOutput_rangeme2" class="pyCodeOutput"></table>
+
+</div>
+
+<div id="vcrControls_rangeme2" class="vcrControls">
+  <button id="jmpFirstInstr_rangeme2", type="button">&lt;&lt; First</button>
+  <button id="jmpStepBack_rangeme2", type="button">&lt; Back</button>
+  Step <span id="curInstr_rangeme2">?</span> of <span id="totalInstrs_rangeme2">?</span>
+  <button id="jmpStepFwd_rangeme2", type="button">Forward &gt;</button>
+  <button id="jmpLastInstr_rangeme2", type="button">Last &gt;&gt;</button>
+
+  <p><span id="warningOutput_rangeme2" class="warningOutput"></span></p>
+</div>
+</td></tr>
+<tr>
+<td valign="top">
+
+<div id="dataViz_rangeme2"></div>
+
+</td>
+</tr>
+<tr>
+<td>
+<div id="errorOutput_rangeme2" class="errorOutput"></div>
+
+Program output:
+<br/>
+<pre id="pyStdout_rangeme2" class="active_out"></pre>
+</td>
+</tr>
+</table>
+<p class="cl_caption"><span class="ac_caption_text"> </span></p>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    myvis = new PythonTutor.Visualizer("for i in range(0,20,2):\n   print(i)",[{"globals": {}, "stdout": "", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 0}, "stdout": "", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 0}, "stdout": "0\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 2}, "stdout": "0\n", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 2}, "stdout": "0\n2\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 4}, "stdout": "0\n2\n", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 4}, "stdout": "0\n2\n4\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 6}, "stdout": "0\n2\n4\n", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 6}, "stdout": "0\n2\n4\n6\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 8}, "stdout": "0\n2\n4\n6\n", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 8}, "stdout": "0\n2\n4\n6\n8\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 10}, "stdout": "0\n2\n4\n6\n8\n", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 10}, "stdout": "0\n2\n4\n6\n8\n10\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 12}, "stdout": "0\n2\n4\n6\n8\n10\n", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 12}, "stdout": "0\n2\n4\n6\n8\n10\n12\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 14}, "stdout": "0\n2\n4\n6\n8\n10\n12\n", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 14}, "stdout": "0\n2\n4\n6\n8\n10\n12\n14\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 16}, "stdout": "0\n2\n4\n6\n8\n10\n12\n14\n", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 16}, "stdout": "0\n2\n4\n6\n8\n10\n12\n14\n16\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 18}, "stdout": "0\n2\n4\n6\n8\n10\n12\n14\n16\n", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 18}, "stdout": "0\n2\n4\n6\n8\n10\n12\n14\n16\n18\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"i": 18}, "stdout": "0\n2\n4\n6\n8\n10\n12\n14\n16\n18\n", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "return"}],'rangeme2');
+});
+
+</script>
+<p><strong>Check your understanding</strong></p>
+
+    <div id="test_question3_5_1">
+    <p>3.5.1: In the command range(3, 10, 2), what does the second argument (10) specify?</p>
+    <form name="test_question3_5_1_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="test_question3_5_1_opt_a" />
+    <label for= "test_question3_5_1_opt_a">  a) Range should generate a list that stops at 9 (including 9).</label><br />
+    
+    <input type="radio" name="group1" value="b" id="test_question3_5_1_opt_b" />
+    <label for= "test_question3_5_1_opt_b">  b) Range should generate a list that starts at 10 (including 10).</label><br />
+    
+    <input type="radio" name="group1" value="c" id="test_question3_5_1_opt_c" />
+    <label for= "test_question3_5_1_opt_c">  c) Range should generate a list starting at 3 that stops at 10 (including 10).</label><br />
+    
+    <input type="radio" name="group1" value="d" id="test_question3_5_1_opt_d" />
+    <label for= "test_question3_5_1_opt_d">  d) Range should generate a list using every 10th number between the start and the stopping number.</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('test_question3_5_1','a',['Range will generate the list [3, 5, 7, 9]', 'The first argument (3) tells range what number to start at.', 'Range will always stop at the number before (not including) the specified ending point for the list.', 'The third argument (2) tells range how many numbers to skip between each element in the list.'])"/> 
+    </form>
+    <div id="test_question3_5_1_feedback">
+    </div>
+    </div>
+    
+    <div id="test_question3_5_2">
+    <p>3.5.2: What command correctly generates the list [2, 5, 8]?</p>
+    <form name="test_question3_5_2_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="test_question3_5_2_opt_a" />
+    <label for= "test_question3_5_2_opt_a">  a) range(2, 5, 8)</label><br />
+    
+    <input type="radio" name="group1" value="b" id="test_question3_5_2_opt_b" />
+    <label for= "test_question3_5_2_opt_b">  b) range(2, 8, 3)</label><br />
+    
+    <input type="radio" name="group1" value="c" id="test_question3_5_2_opt_c" />
+    <label for= "test_question3_5_2_opt_c">  c) range(2, 10, 3)</label><br />
+    
+    <input type="radio" name="group1" value="d" id="test_question3_5_2_opt_d" />
+    <label for= "test_question3_5_2_opt_d">  d) range(8, 1, -3)</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('test_question3_5_2','c',['This command generates the list [2] because the first number (2) tells range where to start, the second number tells range where to end (5, not inclusive) and the third number tells range how many numbers to skip between elements (8).  Since 10>= 8, there is only one number in this list.', 'This command generates the list [2, 5] because 8 is not less than 8 (the specified ending number).', 'The first number is the starting point, the second is the maximum allowed, and the third is the amount to increment by.', 'This command generates the list [8, 5, 3] because it starts at 8, ends at (or above 1), and skips every third number going down.'])"/> 
+    </form>
+    <div id="test_question3_5_2_feedback">
+    </div>
+    </div>
+    
+    <div id="test_question3_5_3">
+    <p>3.5.3: What happens if you give range only one argument?  For example: range(4)</p>
+    <form name="test_question3_5_3_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="test_question3_5_3_opt_a" />
+    <label for= "test_question3_5_3_opt_a">  a) It will generate a list starting at 0, with every number included up to but not including the argument it was passed.</label><br />
+    
+    <input type="radio" name="group1" value="b" id="test_question3_5_3_opt_b" />
+    <label for= "test_question3_5_3_opt_b">  b) It will generate a list starting at 1, with every number up to but not including the argument it was passed.</label><br />
+    
+    <input type="radio" name="group1" value="c" id="test_question3_5_3_opt_c" />
+    <label for= "test_question3_5_3_opt_c">  c) It will generate a list starting at 1, with every number including the argument it was passed.</label><br />
+    
+    <input type="radio" name="group1" value="d" id="test_question3_5_3_opt_d" />
+    <label for= "test_question3_5_3_opt_d">  d) It will cause an error: range always takes exactly 3 arguments.</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('test_question3_5_3','a',['Yes, if you only give one number to range it starts with 0 and ends before the number specified incrementing by 1.', 'Range starts at 0 unless otherwise specified.', 'Range starts at 0 unless otherwise specified, and never includes its ending element (which is the argument it was passed).', 'If range is passed only one argument, it interprets that argument as the end of the list (not inclusive).'])"/> 
+    </form>
+    <div id="test_question3_5_3_feedback">
+    </div>
+    </div>
+    </div>
+<div class="section" id="a-few-more-turtle-methods-and-observations">
+<h2>A Few More turtle Methods and Observations<a class="headerlink" href="#a-few-more-turtle-methods-and-observations" title="Permalink to this headline">¶</a></h2>
+<p>Here are a few more things that you might find useful as you use the turtle.</p>
+<ul>
+<li><p class="first">Turtle methods can use negative angles or distances.  So <tt class="docutils literal"><span class="pre">tess.foward(-100)</span></tt>
+will move tess backwards, and <tt class="docutils literal"><span class="pre">tess.left(-30)</span></tt> turns her to the right.
+Additionally, because there are 360 degrees in a circle, turning 30 to the
+left will leave you facing in the same direction as turning 330 to the right!
+(The on-screen animation will differ, though &#8212; you will be able to tell if
+tess is turning clockwise or counter-clockwise!)</p>
+<p>This suggests that we don&#8217;t need both a left and a right turn method &#8212; we
+could be minimalists, and just have one method.  There is also a <em>backward</em>
+method.  (If you are very nerdy, you might enjoy saying
+<tt class="docutils literal"><span class="pre">alex.backward(-100)</span></tt> to move alex forward!)</p>
+<p>Part of <em>thinking like a scientist</em> is to understand more of the structure
+and rich relationships in your field.  So revising a few basic facts about
+geometry and number lines, like we&#8217;ve done here is a good start if we&#8217;re
+going to play with turtles.</p>
+</li>
+<li><p class="first">A turtle&#8217;s pen can be picked up or put down.  This allows us to move a turtle
+to a different place without drawing a line.   The methods are <tt class="docutils literal"><span class="pre">penup</span></tt> and <tt class="docutils literal"><span class="pre">pendown</span></tt>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">alex</span><span class="o">.</span><span class="n">penup</span><span class="p">()</span>
+<span class="n">alex</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>     <span class="c"># this moves alex, but no line is drawn</span>
+<span class="n">alex</span><span class="o">.</span><span class="n">pendown</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Every turtle can have its own shape.  The ones available &#8220;out of the box&#8221;
+are <tt class="docutils literal"><span class="pre">arrow</span></tt>, <tt class="docutils literal"><span class="pre">blank</span></tt>, <tt class="docutils literal"><span class="pre">circle</span></tt>, <tt class="docutils literal"><span class="pre">classic</span></tt>, <tt class="docutils literal"><span class="pre">square</span></tt>, <tt class="docutils literal"><span class="pre">triangle</span></tt>,
+<tt class="docutils literal"><span class="pre">turtle</span></tt>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="o">...</span>
+<span class="n">alex</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="s">&quot;turtle&quot;</span><span class="p">)</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">You can speed up or slow down the turtle&#8217;s animation speed. (Animation
+controls how quickly the turtle turns and moves forward).  Speed settings can
+be set between 1 (slowest) to 10 (fastest).  But if you set the speed to 0,
+it has a special meaning &#8212; turn off animation and go as fast as possible.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">alex</span><span class="o">.</span><span class="n">speed</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">A turtle can &#8220;stamp&#8221; its footprint onto the canvas, and this will remain
+after the turtle has moved somewhere else.  Stamping works, even when the pen
+is up.</p>
+</li>
+</ul>
+<p>Let&#8217;s do an example that shows off some of these new features.</p>
+
+<div id="ch03_7" >
+<textarea cols="50" rows="12" id="ch03_7_code" class="active_code">
+import turtle
+wn = turtle.Screen()
+wn.bgcolor("lightgreen")
+tess = turtle.Turtle()
+tess.color("blue")
+tess.shape("turtle")
+
+print(range(5,60,2))
+tess.penup()                    # this is new
+for size in range(5,60,2):      # start with size = 5 and grow by 2
+    tess.stamp()                # leave an impression on the canvas
+    tess.forward(size)          # move tess along
+    tess.right(24)              # and turn her
+
+wn.exitonclick()
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch03_7)</span> </p>
+<button onclick="runit('ch03_7',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch03_7');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch03_7');">Load</button>
+<br />
+
+<canvas id="ch03_7_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch03_7_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>The list of integers shown above is created by printing the <tt class="docutils literal"><span class="pre">range(5,60,2)</span></tt> result.  It is only
+done to show you the distances being used to move the turtle forward.  The actual use appears
+as part of the <tt class="docutils literal"><span class="pre">for</span></tt> loop.</p>
+<p>One more thing to be careful about.  All except one of the shapes you see on the screen here are
+footprints created by <tt class="docutils literal"><span class="pre">stamp</span></tt>.  But the program still only has <em>one</em> turtle
+instance &#8212; can you figure out which one is the real tess?  (Hint: if you&#8217;re
+not sure, write a new line of code after the <tt class="docutils literal"><span class="pre">for</span></tt> loop to change tess&#8217;
+color, or to put her pen down and draw a line, or to change her shape, etc.)</p>
+<div class="admonition-lab admonition">
+<p class="first admonition-title">Lab</p>
+<ul class="last simple">
+<li><a class="reference external" href="lab03_01.html">Turtle Race</a> In this guided lab exercise we will work
+through a simple problem solving exercise related to having some turtles
+race.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="summary-of-turtle-methods">
+<span id="turtle-methods"></span><h2>Summary of Turtle Methods<a class="headerlink" href="#summary-of-turtle-methods" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="12%" />
+<col width="76%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Method</th>
+<th class="head">Parameters</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Turtle</td>
+<td>None</td>
+<td>Creates and returns a new turtle object</td>
+</tr>
+<tr class="row-odd"><td>forward</td>
+<td>distance</td>
+<td>Moves the turtle forward</td>
+</tr>
+<tr class="row-even"><td>backward</td>
+<td>distance</td>
+<td>Moves the turle backward</td>
+</tr>
+<tr class="row-odd"><td>right</td>
+<td>angle</td>
+<td>Turns the turtle clockwise</td>
+</tr>
+<tr class="row-even"><td>left</td>
+<td>angle</td>
+<td>Turns the turtle counter clockwise</td>
+</tr>
+<tr class="row-odd"><td>up</td>
+<td>None</td>
+<td>Picks up the turtles tail</td>
+</tr>
+<tr class="row-even"><td>down</td>
+<td>None</td>
+<td>Puts down the turtles tail</td>
+</tr>
+<tr class="row-odd"><td>color</td>
+<td>color name</td>
+<td>Changes the color of the turtle&#8217;s tail</td>
+</tr>
+<tr class="row-even"><td>fillcolor</td>
+<td>color name</td>
+<td>Changes the color of the turtle will use to fill a polygon</td>
+</tr>
+<tr class="row-odd"><td>heading</td>
+<td>None</td>
+<td>Returns the current heading</td>
+</tr>
+<tr class="row-even"><td>position</td>
+<td>None</td>
+<td>Returns the current position</td>
+</tr>
+<tr class="row-odd"><td>goto</td>
+<td>x,y</td>
+<td>Move the turtle to position x,y</td>
+</tr>
+<tr class="row-even"><td>begin_fill</td>
+<td>None</td>
+<td>Remember the starting point for a filled polygon</td>
+</tr>
+<tr class="row-odd"><td>end_fill</td>
+<td>None</td>
+<td>Close the polygon and fill with the current fill color</td>
+</tr>
+<tr class="row-even"><td>dot</td>
+<td>None</td>
+<td>Leave a dot at the current position</td>
+</tr>
+<tr class="row-odd"><td>stamp</td>
+<td>None</td>
+<td>Leaves an impression of a turtle shape at the current location</td>
+</tr>
+<tr class="row-even"><td>shape</td>
+<td>shapename</td>
+<td>Should be &#8216;arrow&#8217;, &#8216;classic&#8217;, &#8216;turtle&#8217;, or &#8216;circle&#8217;</td>
+</tr>
+</tbody>
+</table>
+<p>Once you are comfortable with the basics of turtle graphics you can read about even
+more options on the <a class="reference external" href="http://docs.python.org/dev/py3k/library/turtle.html">Python Docs Website</a>.  Note that we
+will describe Python Docs in more detail in the next chapter.</p>
+</div>
+<div class="section" id="glossary">
+<h2>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h2>
+<dl class="glossary docutils">
+<dt id="term-attribute">attribute</dt>
+<dd>Some state or value that belongs to a particular object.  For example,
+tess has a color.</dd>
+<dt id="term-canvas">canvas</dt>
+<dd>A surface within a window where drawing takes place.</dd>
+<dt id="term-control-flow">control flow</dt>
+<dd>See <em>flow of execution</em> in the next chapter.</dd>
+<dt id="term-for-loop">for loop</dt>
+<dd>A statement in Python for convenient repetition of statements in
+the <em>body</em> of the loop.</dd>
+<dt id="term-instance">instance</dt>
+<dd>An object that belongs to a class.  <cite>tess</cite> and <cite>alex</cite> are different
+instances of the class <cite>Turtle</cite></dd>
+<dt id="term-invoke">invoke</dt>
+<dd>An object has methods.  We use the verb invoke to mean <em>activate the
+method</em>.  Invoking a method is done by putting parentheses after the
+method name, with some possible arguments.  So  <tt class="docutils literal"><span class="pre">wn.exitonclick()</span></tt> is
+an invocation of the <tt class="docutils literal"><span class="pre">exitonclick</span></tt> method.</dd>
+<dt id="term-iteration">iteration</dt>
+<dd>A basic building block for algorithms (programs).  It allows steps to be repeated.  Sometimes called <em>looping</em>.</dd>
+<dt id="term-loop-body">loop body</dt>
+<dd>Any number of statements nested inside a loop. The nesting is indicated
+by the fact that the statements are indented under the for loop
+statement.</dd>
+<dt id="term-loop-variable">loop variable</dt>
+<dd>A variable used as part of a for loop. It is assigned a different value
+on each iteration of the loop, and is used as part of the terminating
+condition of the loop,</dd>
+<dt id="term-method">method</dt>
+<dd>A function that is attached to an object.  Invoking or activating the
+method causes the object to respond in some way, e.g. <tt class="docutils literal"><span class="pre">forward</span></tt> is
+the method when we say <tt class="docutils literal"><span class="pre">tess.forward(100)</span></tt>.</dd>
+<dt id="term-module">module</dt>
+<dd>A file containing Python definitions and statements intended for use in
+other Python programs. The contents of a module are made available to
+the other program by using the <em>import</em> statement.</dd>
+<dt id="term-object">object</dt>
+<dd>A &#8220;thing&#8221; to which a variable can refer.  This could be a screen window,
+or one of the turtles you have created.</dd>
+<dt id="term-range">range</dt>
+<dd>A built-in function in Python for generating sequences of integers.  It
+is especially useful when we need to write a for loop that executes a
+fixed number of times.</dd>
+<dt id="term-sequential">sequential</dt>
+<dd>The default behavior of a program.  Step by step processing of algorithm.</dd>
+<dt id="term-state">state</dt>
+<dd>The collection of attribute values that a specific data object maintains.</dd>
+<dt id="term-terminating-condition">terminating condition</dt>
+<dd>A condition that occurs which causes a loop to stop repeating its body.
+In the <tt class="docutils literal"><span class="pre">for</span></tt> loops we saw in this chapter, the terminating condition
+has been when there are no more elements to assign to the loop variable.</dd>
+<dt id="term-turtle">turtle</dt>
+<dd>A data object used to create pictures (known as turtle graphics).</dd>
+</dl>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Write a program that prints <tt class="docutils literal"><span class="pre">We</span> <span class="pre">like</span> <span class="pre">Python's</span> <span class="pre">turtles!</span></tt> 1000 times.</p>
+
+<button id="butt_ex_3_1" onclick="createActiveCode('ex_3_1',''); $('#butt_ex_3_1').hide();">Open Editor</button>
+<div id="ex_3_1"></div>
+<br />
+</li>
+<li><p class="first">Give three attributes of your cellphone object.  Give three methods of your
+cellphone.</p>
+
+<button id="butt_ex_3_2" onclick="createActiveCode('ex_3_2',''); $('#butt_ex_3_2').hide();">Open Editor</button>
+<div id="ex_3_2"></div>
+<br />
+</li>
+<li><dl class="first docutils">
+<dt>Write a program that uses a for loop to print</dt>
+<dd><div class="first last line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">One</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">months</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">year</span> <span class="pre">is</span> <span class="pre">January</span></tt></div>
+<div class="line"><tt class="docutils literal"><span class="pre">One</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">months</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">year</span> <span class="pre">is</span> <span class="pre">February</span></tt></div>
+<div class="line"><tt class="docutils literal"><span class="pre">One</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">months</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">year</span> <span class="pre">is</span> <span class="pre">March</span></tt></div>
+<div class="line">etc ...</div>
+</div>
+</dd>
+</dl>
+
+<button id="butt_ex_3_3" onclick="createActiveCode('ex_3_3',''); $('#butt_ex_3_3').hide();">Open Editor</button>
+<div id="ex_3_3"></div>
+<br />
+</li>
+<li><p class="first">Assume you have the assignment <tt class="docutils literal"><span class="pre">xs</span> <span class="pre">=</span> <span class="pre">[12,</span> <span class="pre">10,</span> <span class="pre">32,</span> <span class="pre">3,</span> <span class="pre">66,</span> <span class="pre">17,</span> <span class="pre">42,</span> <span class="pre">99,</span> <span class="pre">20]</span></tt></p>
+<ol class="loweralpha simple">
+<li>Write a loop that prints each of the numbers on a new line.</li>
+<li>Write a loop that prints each number and its square on a new line.</li>
+</ol>
+
+<button id="butt_ex_3_4" onclick="createActiveCode('ex_3_4',''); $('#butt_ex_3_4').hide();">Open Editor</button>
+<div id="ex_3_4"></div>
+<br />
+</li>
+<li><p class="first">Use <tt class="docutils literal"><span class="pre">for</span></tt> loops to make a turtle draw these regular polygons
+(regular means all sides the same lengths, all angles the same):</p>
+<ul class="simple">
+<li>An equilateral triangle</li>
+<li>A square</li>
+<li>A hexagon (six sides)</li>
+<li>An octagon (eight sides)</li>
+</ul>
+
+<button id="butt_ex_3_5" onclick="createActiveCode('ex_3_5',''); $('#butt_ex_3_5').hide();">Open Editor</button>
+<div id="ex_3_5"></div>
+<br />
+</li>
+<li><p id="drunk-student-problem">A drunk pirate makes a random turn and then takes 100 steps forward, makes
+another random turn, takes another 100 steps, turns another random amount,
+etc.  A social science student records the angle of each turn
+before the next 100 steps are taken. Her experimental data
+is <tt class="docutils literal"><span class="pre">[160,</span> <span class="pre">-43,</span> <span class="pre">270,</span> <span class="pre">-97,</span> <span class="pre">-43,</span> <span class="pre">200,</span> <span class="pre">-940,</span> <span class="pre">17,</span> <span class="pre">-86]</span></tt>.  (Positive angles are
+counter-clockwise.)  Use a turtle to draw the path taken by our drunk
+friend.</p>
+
+<button id="butt_ex_3_6" onclick="createActiveCode('ex_3_6',''); $('#butt_ex_3_6').hide();">Open Editor</button>
+<div id="ex_3_6"></div>
+<br />
+</li>
+<li><p class="first">Enhance your program above to also tell us what the drunk pirate&#8217;s heading
+is after he has finished stumbling around.</p>
+
+<button id="butt_ex_3_7" onclick="createActiveCode('ex_3_7',''); $('#butt_ex_3_7').hide();">Open Editor</button>
+<div id="ex_3_7"></div>
+<br />
+</li>
+<li><p class="first">On a piece of scratch paper, trace the following program and show the drawing.  When you are done, press <tt class="docutils literal"><span class="pre">run</span></tt>
+and check your answer.</p>
+
+<button id="butt_ex_3_8" onclick="createActiveCode('ex_3_8','import turtle\nwn = turtle.Screen()\ntess = turtle.Turtle()\ntess.right(90)\ntess.left(3600)\ntess.right(-90)\ntess.left(3600)\ntess.left(3645)\ntess.forward(-100)'); $('#butt_ex_3_8').hide();">Open Editor</button>
+<div id="ex_3_8"></div>
+<br />
+</li>
+<li><p class="first">Write a program to draw a shape like this:</p>
+<img alt="../_images/star1.png" src="../_images/star1.png" />
+
+<button id="butt_ex_3_9" onclick="createActiveCode('ex_3_9',''); $('#butt_ex_3_9').hide();">Open Editor</button>
+<div id="ex_3_9"></div>
+<br />
+</li>
+<li><p class="first">Write a program to draw a face of a clock that looks something like this:</p>
+<img alt="../_images/tess_clock1.png" src="../_images/tess_clock1.png" />
+
+<button id="butt_ex_3_10" onclick="createActiveCode('ex_3_10',''); $('#butt_ex_3_10').hide();">Open Editor</button>
+<div id="ex_3_10"></div>
+<br />
+</li>
+<li><dl class="first docutils">
+<dt>Write a program to draw some kind of picture.  Be creative and experiment</dt>
+<dd><p class="first last">with the turtle methods provided in <a class="reference internal" href="#turtle-methods">turtle_methods</a>.</p>
+</dd>
+</dl>
+
+<button id="butt_ex_3_11" onclick="createActiveCode('ex_3_11',''); $('#butt_ex_3_11').hide();">Open Editor</button>
+<div id="ex_3_11"></div>
+<br />
+</li>
+<li><dl class="first docutils">
+<dt>Create a turtle, and assign it to a variable.  When you print its type,</dt>
+<dd><p class="first last">what do you get?</p>
+</dd>
+</dl>
+
+<button id="butt_ex_3_12" onclick="createActiveCode('ex_3_12',''); $('#butt_ex_3_12').hide();">Open Editor</button>
+<div id="ex_3_12"></div>
+<br />
+</li>
+<li><p class="first">Write a program to draw a Sprite where the number of legs is provided by the user.</p>
+
+<button id="butt_ex_3_13" onclick="createActiveCode('ex_3_13',''); $('#butt_ex_3_13').hide();">Open Editor</button>
+<div id="ex_3_13"></div>
+<br />
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../PythonModules/modules.html" title="Modules and Getting Help"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../SimplePythonData/simpledata.html" title="Variables, Expressions and Statements"
+             >previous</a> |</li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Brad Miller, David Ranum.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32029811-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>

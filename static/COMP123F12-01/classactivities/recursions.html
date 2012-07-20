@@ -1,0 +1,345 @@
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Writing Recursive Functions &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/edu-python.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/simplemodal.js"></script>
+    <script type="text/javascript" src="../_static/jquery.textarea.js"></script>
+    <script type="text/javascript" src="../_static/edu-python.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.js"></script>
+    <script type="text/javascript" src="../_static/builtin.js"></script>
+    <script type="text/javascript" src="../_static/assess.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../index.html" />
+<script type="text/javascript"> 
+eBookConfig = {}
+eBookConfig.host = 'http://141.140.167.226:8000' ? 'http://141.140.167.226:8000' : 'http://127.0.0.1:8000',
+eBookConfig.app = eBookConfig.host+'/courselib',
+eBookConfig.ajaxURL = eBookConfig.app+'/ajax/',
+eBookConfig.course = 'COMP123F12-01',
+eBookConfig.logLevel = 10,
+eBookConfig.loginRequired = true
+</script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Writing Recursive Functions</a><ul>
+<li><a class="reference internal" href="#problem-1-multsoffive">Problem 1: multsOfFive</a></li>
+<li><a class="reference internal" href="#problem-2-forwardnpaces">Problem 2: forwardNPaces</a></li>
+<li><a class="reference internal" href="#problem-3-sumlist">Problem 3: sumList</a></li>
+<li><a class="reference internal" href="#problem-4-printapproach">Problem 4: printApproach</a></li>
+<li><a class="reference internal" href="#problem-5-sumuser">Problem 5: sumUser</a></li>
+<li><a class="reference internal" href="#problem-6-countset">Problem 6: countSet</a></li>
+<li><a class="reference internal" href="#problem-7-shimmy">Problem 7: shimmy</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/classactivities/recursions.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul><!--<div id="runestonebox">
+  <h3>Runestone Links</h3>
+  <ul>
+    <li>
+      <a href="https://github.com/bnmnetp/runestone/issues/new">Report a Problem</a>
+    </li>
+    <li>
+      <a href="http://runestoneinteractive.org">About Runestone</a>
+    </li>
+    <li>
+      <a href="/courselib/admin/index">Instructors Page</a>
+    </li>
+  </ul>
+</div>
+-->
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="writing-recursive-functions">
+<h1>Writing Recursive Functions<a class="headerlink" href="#writing-recursive-functions" title="Permalink to this headline">¶</a></h1>
+<p><strong>COMP 123</strong></p>
+<p>Form a group of two or three, and you will be assigned one of the problems below.
+Write a solution to the problem you&#8217;ve been given, using recursion,
+and test it thoroughly. When you are satisfied, call me over to see your solution, and then post
+your solution to the &#8220;Recursive Functions&#8221; topic of the Questions
+forum. Then use the remaining time to complete as many of the
+others as you can. Upload all your solutions to the Moodle
+assignment.</p>
+<div class="section" id="problem-1-multsoffive">
+<h2>Problem 1: multsOfFive<a class="headerlink" href="#problem-1-multsoffive" title="Permalink to this headline">¶</a></h2>
+<p>Define a function <tt class="docutils literal"><span class="pre">multsOfFive</span></tt> that takes a number, <tt class="docutils literal"><span class="pre">n</span></tt> as its
+input parameter. It should build and return a list containing the
+multiples of five from 0 up to <tt class="docutils literal"><span class="pre">n</span></tt> (including <tt class="docutils literal"><span class="pre">n</span></tt> if it is a
+multiple of five).</p>
+<p>The examples below illustrate how the function should work, but
+they don&#8217;t necessarily exercise the function.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">multsOfFive</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+<span class="go">[0, 5, 10]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">multsOfFive</span><span class="p">(</span><span class="mi">55</span><span class="p">)</span>
+<span class="go">[0, 5, 10, 15,20, 25, 30, 35, 40, 45, 50, 55]</span>
+</pre></div>
+</div>
+
+<button id="butt_recurfunc_01" onclick="createActiveCode('recurfunc_01',''); $('#butt_recurfunc_01').hide();">Open Editor</button>
+<div id="recurfunc_01"></div>
+<br />
+</div>
+<div class="section" id="problem-2-forwardnpaces">
+<h2>Problem 2: forwardNPaces<a class="headerlink" href="#problem-2-forwardnpaces" title="Permalink to this headline">¶</a></h2>
+<p>Write a recursive function <tt class="docutils literal"><span class="pre">forwardNPaces</span></tt> for controlling the
+robot. The function should have one input parameter, <tt class="docutils literal"><span class="pre">n</span></tt>. The
+purpose of the function is to let us specify a number of paces, and
+for the robot to move forward that number of paces. A pace should
+be the distance the robot moves forward at speed 0.75 and time 0.5
+seconds. The robot should stop for between 0.25 and 0.5 seconds
+between moves.</p>
+<p>The examples below illustrate how the function should work, but
+they don&#8217;t necessarily exercise the function.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">forwardNPaces</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+
+<button id="butt_recurfunc_02" onclick="createActiveCode('recurfunc_02',''); $('#butt_recurfunc_02').hide();">Open Editor</button>
+<div id="recurfunc_02"></div>
+<br />
+</div>
+<div class="section" id="problem-3-sumlist">
+<h2>Problem 3: sumList<a class="headerlink" href="#problem-3-sumlist" title="Permalink to this headline">¶</a></h2>
+<p>Write a recursive function <tt class="docutils literal"><span class="pre">sumList</span></tt> that takes a list of numbers
+and an index into the list as its inputs. It should add together
+and return the numbers in the list starting with the input index and
+going to the end of the list.</p>
+<p>The examples below illustrate how the function should work, but
+they don&#8217;t necessarily exercise the function.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sumList</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">14</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sumList</span><span class="p">([</span><span class="o">+</span><span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">+</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="mi">3</span><span class="p">)</span>
+<span class="go"> 0</span>
+<span class="go"> &gt;&gt;&gt; sumList([12], 0)</span>
+<span class="go"> 12</span>
+<span class="go"> &gt;&gt;&gt; multList([], 100)</span>
+<span class="go"> 0</span>
+</pre></div>
+</div>
+
+<button id="butt_recurfunc_03" onclick="createActiveCode('recurfunc_03',''); $('#butt_recurfunc_03').hide();">Open Editor</button>
+<div id="recurfunc_03"></div>
+<br />
+</div>
+<div class="section" id="problem-4-printapproach">
+<h2>Problem 4: printApproach<a class="headerlink" href="#problem-4-printapproach" title="Permalink to this headline">¶</a></h2>
+<p>Write a recursive function <tt class="docutils literal"><span class="pre">printApproach</span></tt> that takes two numbers
+as its inputs. The first number should be less than or equal to the
+second number. The function should print two columns of numbers.
+The first column should show the low number gradually increasing,
+the second column should show the high number gradually decreasing.
+The function should stop when the low number becomes larger than
+the high number.</p>
+<p>The examples below illustrate how the function should work, but
+they don&#8217;t necessarily exercise the function.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">printApproach</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<span class="go">3   13</span>
+<span class="go">4   12</span>
+<span class="go">5   11</span>
+<span class="go">6   10</span>
+<span class="go">7   9</span>
+<span class="go">8   8</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">printApproach</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">+</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">-3  3</span>
+<span class="go">-2  2</span>
+<span class="go">-1  1</span>
+<span class="go"> 0  0</span>
+</pre></div>
+</div>
+
+<button id="butt_recurfunc_04" onclick="createActiveCode('recurfunc_04',''); $('#butt_recurfunc_04').hide();">Open Editor</button>
+<div id="recurfunc_04"></div>
+<br />
+</div>
+<div class="section" id="problem-5-sumuser">
+<h2>Problem 5: sumUser<a class="headerlink" href="#problem-5-sumuser" title="Permalink to this headline">¶</a></h2>
+<p>Write a recursive function <tt class="docutils literal"><span class="pre">sumUser</span></tt> that takes no input parameters
+at all! This may seem impossible, but this function gets the value
+that determines whether to recur or not by asking the user for it.
+This function should first ask the user to enter an integer (using
+<tt class="docutils literal"><span class="pre">input</span></tt> or <tt class="docutils literal"><span class="pre">raw_input</span></tt>). If the user enters zero, then the
+function should return zero. Otherwise, it should call itself
+recursively, getting some number back, and should return the number
+the user entered plus the recursive sum.</p>
+<p>The examples below illustrate how the function should work, but
+they don&#8217;t necessarily exercise the function.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sumUser</span><span class="p">()</span>
+<span class="go">Enter an integer (0 to quit): 2</span>
+<span class="go">Enter an integer (0 to quit): 5</span>
+<span class="go">Enter an integer (0 to quit): -3</span>
+<span class="go">Enter an integer (0 to quit): 0</span>
+<span class="go">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sumUser</span><span class="p">()</span>
+<span class="go">Enter an integer (0 to quit): 2</span>
+<span class="go">Enter an integer (0 to quit): 2</span>
+<span class="go">Enter an integer (0 to quit): 2</span>
+<span class="go">Enter an integer (0 to quit): 2</span>
+<span class="go">Enter an integer (0 to quit): 0</span>
+<span class="go">8</span>
+</pre></div>
+</div>
+
+<button id="butt_recurfunc_05" onclick="createActiveCode('recurfunc_05',''); $('#butt_recurfunc_05').hide();">Open Editor</button>
+<div id="recurfunc_05"></div>
+<br />
+</div>
+<div class="section" id="problem-6-countset">
+<h2>Problem 6: countSet<a class="headerlink" href="#problem-6-countset" title="Permalink to this headline">¶</a></h2>
+<p>Write a recursive function <tt class="docutils literal"><span class="pre">countSet</span></tt> that takes three input
+parameters. The first two inputs should be list: <tt class="docutils literal"><span class="pre">target</span></tt> and
+<tt class="docutils literal"><span class="pre">data</span></tt>, and the third input should be an <tt class="docutils literal"><span class="pre">index</span></tt> into the <tt class="docutils literal"><span class="pre">data</span></tt>
+list. The function should use recursion to count the number of
+elements in the <tt class="docutils literal"><span class="pre">data</span></tt> list that appear in the <tt class="docutils literal"><span class="pre">target</span></tt> list,
+starting with the <tt class="docutils literal"><span class="pre">index</span></tt> into <tt class="docutils literal"><span class="pre">data</span></tt> and going on to the end of
+<tt class="docutils literal"><span class="pre">data</span></tt>. Use the operator <tt class="docutils literal"><span class="pre">in</span></tt> to figure out whether an element of
+<tt class="docutils literal"><span class="pre">data</span></tt> occurs in <tt class="docutils literal"><span class="pre">target</span></tt>.</p>
+<p>The examples below illustrate how the function should work, but
+they may not completely test every part of your function.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">countSet</span><span class="p">([</span><span class="s">&#39;f&#39;</span><span class="p">,</span> <span class="s">&#39;g&#39;</span><span class="p">,</span> <span class="s">&#39;h&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;f&#39;</span><span class="p">,</span> <span class="s">&#39;t&#39;</span><span class="p">,</span> <span class="s">&#39;g&#39;</span><span class="p">,</span> <span class="s">&#39;o&#39;</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">countSet</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">12</span><span class="p">,</span> <span class="mi">16</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">countSet</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+
+<button id="butt_recurfunc_06" onclick="createActiveCode('recurfunc_06',''); $('#butt_recurfunc_06').hide();">Open Editor</button>
+<div id="recurfunc_06"></div>
+<br />
+</div>
+<div class="section" id="problem-7-shimmy">
+<h2>Problem 7: shimmy<a class="headerlink" href="#problem-7-shimmy" title="Permalink to this headline">¶</a></h2>
+<p>Write a recursive function that makes the robot wiggle left and
+right a certain number of times. The function should take in one
+input value, <tt class="docutils literal"><span class="pre">n</span></tt>. At the heart of this function is a movement
+similar to the <tt class="docutils literal"><span class="pre">sayNo</span></tt> problem from Homework 1. The robot should
+turn left in place for a fixed amount of time, then right for twice
+that amount of time, and then left again for the initial fixed
+amount of time. However, in this case the robot should repeat that
+action {n} times.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">shimmy</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+
+<button id="butt_recurfunc_07" onclick="createActiveCode('recurfunc_07',''); $('#butt_recurfunc_07').hide();">Open Editor</button>
+<div id="recurfunc_07"></div>
+<br />
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Brad Miller, David Ranum.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32029811-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>

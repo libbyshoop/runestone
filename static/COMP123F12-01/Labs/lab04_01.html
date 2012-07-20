@@ -1,0 +1,227 @@
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Drawing a Circle &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/edu-python.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/simplemodal.js"></script>
+    <script type="text/javascript" src="../_static/jquery.textarea.js"></script>
+    <script type="text/javascript" src="../_static/edu-python.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.js"></script>
+    <script type="text/javascript" src="../_static/builtin.js"></script>
+    <script type="text/javascript" src="../_static/assess.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../index.html" />
+    <link rel="up" title="Functions" href="../Functions/functions.html" />
+    <link rel="next" title="Lessons from a Triangle" href="lab04_01a.html" />
+    <link rel="prev" title="Functions" href="../Functions/functions.html" />
+<script type="text/javascript"> 
+eBookConfig = {}
+eBookConfig.host = 'http://141.140.167.226:8000' ? 'http://141.140.167.226:8000' : 'http://127.0.0.1:8000',
+eBookConfig.app = eBookConfig.host+'/courselib',
+eBookConfig.ajaxURL = eBookConfig.app+'/ajax/',
+eBookConfig.course = 'COMP123F12-01',
+eBookConfig.logLevel = 10,
+eBookConfig.loginRequired = true
+</script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="lab04_01a.html" title="Lessons from a Triangle"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../Functions/functions.html" title="Functions"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+          <li><a href="../Functions/functions.html" accesskey="U">Functions</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../Functions/functions.html"
+                        title="previous chapter">Functions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="lab04_01a.html"
+                        title="next chapter">Lessons from a Triangle</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/Labs/lab04_01.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul><!--<div id="runestonebox">
+  <h3>Runestone Links</h3>
+  <ul>
+    <li>
+      <a href="https://github.com/bnmnetp/runestone/issues/new">Report a Problem</a>
+    </li>
+    <li>
+      <a href="http://runestoneinteractive.org">About Runestone</a>
+    </li>
+    <li>
+      <a href="/courselib/admin/index">Instructors Page</a>
+    </li>
+  </ul>
+</div>
+-->
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="drawing-a-circle">
+<h1>Drawing a Circle<a class="headerlink" href="#drawing-a-circle" title="Permalink to this headline">¶</a></h1>
+<p>In this lesson we are going to develop a function that uses a turtle to draw
+a circle.  As we develop this function we will investigate several problem
+solving strategies that illustrate how computer scientists think as they
+solve problems.</p>
+<p>In figuring out how to write this function we must realize that there are
+some limitations ot our ability to draw a circle.  First,
+we are limited by the turtle functions we already know about, for example,
+left, right, forward.  There is not a method for drawing a curved line with a
+turtle (well, actually there is, but we&#8217;re not going to use it).</p>
+<p>One of the first strategies we will employ is called <em>simplification</em>.  Lets
+look at something simpler than drawing a circle and see what we can learn,
+as we look at some simpler examples we&#8217;ll try to <em>generalize</em> what we learn
+to help us build a more complex function.</p>
+<p>One thing we already know how to do is to write a function to draw a square.
+Now a square doesn&#8217;t look anything like a circle, but maybe if we look at
+some other simple shapes that will help us.  Just to remind you,
+here is the code for the <tt class="docutils literal"><span class="pre">drawSquare</span></tt> function.</p>
+
+<div id="l0401" >
+<textarea cols="50" rows="12" id="l0401_code" class="active_code">
+def drawSquare(t, sz):
+    """Make turtle t draw a square of sz."""
+
+    for i in range(4):
+        t.forward(sz)
+        t.left(90)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (l0401)</span> </p>
+<button onclick="runit('l0401',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('l0401');">Save</button>
+<button class="ac_opt" onclick="requestCode('l0401');">Load</button>
+<br />
+
+<canvas id="l0401_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="l0401_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>Although this isn&#8217;t going to do anything if you click on the run button,
+you could fill in the rest of the code to make it work, right?</p>
+<p>Now, see if you can modify the code for <tt class="docutils literal"><span class="pre">drawSquare</span></tt> to make it draw a
+triangle.  Call this new function <tt class="docutils literal"><span class="pre">drawTriangle</span></tt>  When you finish
+<tt class="docutils literal"><span class="pre">drawTriangle</span></tt> write a third function called <tt class="docutils literal"><span class="pre">drawOctagon</span></tt>.  When you are
+finished follow the link below to the next part of this lesson.</p>
+<p><a class="reference external" href="lab04_01a.html">OK, they work now</a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="lab04_01a.html" title="Lessons from a Triangle"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../Functions/functions.html" title="Functions"
+             >previous</a> |</li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+          <li><a href="../Functions/functions.html" >Functions</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Brad Miller, David Ranum.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32029811-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>
