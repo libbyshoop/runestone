@@ -1,0 +1,616 @@
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>1.0 Overview &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/edu-python.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/simplemodal.js"></script>
+    <script type="text/javascript" src="../_static/jquery.textarea.js"></script>
+    <script type="text/javascript" src="../_static/edu-python.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.js"></script>
+    <script type="text/javascript" src="../_static/builtin.js"></script>
+    <script type="text/javascript" src="../_static/assess.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../index.html" />
+<script type="text/javascript"> 
+eBookConfig = {}
+eBookConfig.host = 'http://141.140.167.226:8000' ? 'http://141.140.167.226:8000' : 'http://127.0.0.1:8000',
+eBookConfig.app = eBookConfig.host+'/courselib',
+eBookConfig.ajaxURL = eBookConfig.app+'/ajax/',
+eBookConfig.course = 'COMP123F12-01',
+eBookConfig.logLevel = 10,
+eBookConfig.loginRequired = true
+</script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">1.0  Overview</a></li>
+<li><a class="reference internal" href="#while-loops">2.0  While Loops</a><ul>
+<li><a class="reference internal" href="#try-these">Try these:</a><ul>
+<li><a class="reference internal" href="#accumulator-variables">2.1 Accumulator variables</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#try-this">Try this:</a><ul>
+<li><a class="reference internal" href="#while-loops-in-myro">2.2 While loops in Myro</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#for-loops">3.0   For loops</a><ul>
+<li><a class="reference internal" href="#the-range-function">3.1 The range function</a></li>
+<li><a class="reference internal" href="#for-loop-examples">3.2 For loop examples</a></li>
+<li><a class="reference internal" href="#id1">Try these:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-break-statement">4.0  The break Statement</a><ul>
+<li><a class="reference internal" href="#id2">Try this:</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/classactivities/iteration.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul><!--<div id="runestonebox">
+  <h3>Runestone Links</h3>
+  <ul>
+    <li>
+      <a href="https://github.com/bnmnetp/runestone/issues/new">Report a Problem</a>
+    </li>
+    <li>
+      <a href="http://runestoneinteractive.org">About Runestone</a>
+    </li>
+    <li>
+      <a href="/courselib/admin/index">Instructors Page</a>
+    </li>
+  </ul>
+</div>
+-->
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <p><strong>Iterative Loops: while and for loops</strong></p>
+<p><strong>COMP 123</strong></p>
+<div class="section" id="overview">
+<h1>1.0  Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<p>This activity will introduce <em>iterative loops</em>, called <tt class="docutils literal"><span class="pre">while</span></tt> and
+<tt class="docutils literal"><span class="pre">for</span></tt> loops, which are another way to make the computer repeat a
+set of actions over and over. Get a copy of the file
+<tt class="docutils literal"><span class="pre">iteration.py</span></tt>, which contains the code examples from this
+activity.</p>
+<p>There are two kinds of loops we will use commonly in Python:
+<tt class="docutils literal"><span class="pre">while</span></tt> and <tt class="docutils literal"><span class="pre">for</span></tt>. The <tt class="docutils literal"><span class="pre">while</span></tt> loop contains a boolean test
+expression, and then has a block of indented Python statements in
+its body. It evaluates the test expression, and so long as the test
+expression evaluates to <tt class="docutils literal"><span class="pre">True</span></tt>, Python will execute the statements
+in the block, and then go back and repeat.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">while</span> <span class="n">test</span><span class="o">-</span><span class="n">expression</span><span class="p">:</span>
+    <span class="n">body</span>
+</pre></div>
+</div>
+<p>A <tt class="docutils literal"><span class="pre">for</span></tt> loop repeats a fixed number of times. When you create a
+<tt class="docutils literal"><span class="pre">for</span></tt> loop, you must specify a loop variable and a sequence (a
+list, string, or tuple). The <tt class="docutils literal"><span class="pre">for</span></tt> loop assigns its loop variable
+to be the first value in the sequence, and then it performs the
+statements in the body of the loop. Then, it assigns its loop
+variable to be the next value in the sequence and repeats. For
+lists and tuples, a <tt class="docutils literal"><span class="pre">for</span></tt> loop will repeat for each value; for a
+string it repeats for each character in the string.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
+    <span class="n">body</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="while-loops">
+<h1>2.0  While Loops<a class="headerlink" href="#while-loops" title="Permalink to this headline">¶</a></h1>
+<p>Look at the following loops, embedded in functions. For each one,
+try to figure out what it does before putting it into Python. Then
+check yourself by opening the <tt class="docutils literal"><span class="pre">iteration.py</span></tt> file and loading these
+examples. Run them on some sample inputs.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># loop 1</span>
+
+<span class="k">def</span> <span class="nf">printEveryOther</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">while</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span> <span class="c"># x is the loop variable</span>
+       <span class="k">print</span> <span class="n">x</span>
+       <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">2</span> <span class="c"># when indentation stops, while loop is over</span>
+    <span class="k">print</span> <span class="s">&quot;Done!&quot;</span>
+<span class="c"># end of printEveryOther</span>
+</pre></div>
+</div>
+
+<div id="iteration_01" >
+<textarea cols="50" rows="12" id="iteration_01_code" class="active_code">
+ # loop 1
+def printEveryOther(x):
+    while x >= 0: # x is the loop variable
+       print x
+       x = x - 2 # when indentation stops, while loop is over
+    print "Done!"
+# end of printEveryOther
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (iteration_01)</span> </p>
+<button onclick="runit('iteration_01',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('iteration_01');">Save</button>
+<button class="ac_opt" onclick="requestCode('iteration_01');">Load</button>
+<br />
+
+<canvas id="iteration_01_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="iteration_01_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># loop 2</span>
+
+<span class="k">def</span> <span class="nf">printBigNums</span><span class="p">(</span><span class="n">numList</span><span class="p">):</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">numList</span><span class="p">):</span> <span class="c"># i is the loop variable</span>
+        <span class="k">if</span> <span class="n">numList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">numList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="c"># end of while loop</span>
+<span class="c"># end of printBigNums</span>
+</pre></div>
+</div>
+
+<div id="iteration_02" >
+<textarea cols="50" rows="12" id="iteration_02_code" class="active_code">
+# loop 2
+def printBigNums(numList):
+    i = 0
+    while i < len(numList): # i is the loop variable
+        if numList[i] > 10:
+            print i, numList[i]
+        i = i + 1
+    # end of while loop
+# end of printBigNums
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (iteration_02)</span> </p>
+<button onclick="runit('iteration_02',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('iteration_02');">Save</button>
+<button class="ac_opt" onclick="requestCode('iteration_02');">Load</button>
+<br />
+
+<canvas id="iteration_02_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="iteration_02_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<div class="section" id="try-these">
+<h2>Try these:<a class="headerlink" href="#try-these" title="Permalink to this headline">¶</a></h2>
+<p>Try the following problems that use <tt class="docutils literal"><span class="pre">while</span></tt> loops.</p>
+<ol class="arabic">
+<li><p class="first">Define a function <tt class="docutils literal"><span class="pre">printSquares</span></tt> that has one input parameter,
+<tt class="docutils literal"><span class="pre">n</span></tt>, which will be an integer. The function should use a <tt class="docutils literal"><span class="pre">while</span></tt>
+loop to print the squares from <span class="math">\(0^2\)</span> up to <span class="math">\(n^2\)</span>.
+See examples below.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">printSquares</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">0</span>
+<span class="go">1</span>
+<span class="go">4</span>
+<span class="go">9</span>
+<span class="go">16</span>
+<span class="go">25</span>
+</pre></div>
+</div>
+
+<button id="butt_iteration_03" onclick="createActiveCode('iteration_03',''); $('#butt_iteration_03').hide();">Open Editor</button>
+<div id="iteration_03"></div>
+<br />
+</li>
+<li><p class="first">Define a function <tt class="docutils literal"><span class="pre">substAll</span></tt> that has three input parameters.
+The first two inputs should be values of any kind, and the third
+input should be a list. The function should use a <tt class="docutils literal"><span class="pre">while</span></tt> loop to
+iterate over the positions in the list (see <tt class="docutils literal"><span class="pre">printBigNums</span></tt> above).
+If the value at a given position is equal to the first input, then
+the function should change the list at that position to have the
+second input value. See examples below.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">listb</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;f&#39;</span><span class="p">,</span> <span class="s">&#39;h&#39;</span><span class="p">,</span> <span class="s">&#39;k&#39;</span><span class="p">,</span> <span class="s">&#39;k&#39;</span><span class="p">,</span> <span class="s">&#39;g&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">substAll</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">lista</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lista</span>
+<span class="go">[50, 2, 7, 1, 50]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">substAll</span><span class="p">(</span><span class="s">&#39;k&#39;</span><span class="p">,</span> <span class="s">&#39;v&#39;</span><span class="p">,</span> <span class="n">listb</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">listb</span>
+<span class="go">[&#39;f&#39;, &#39;h&#39;, &#39;v&#39;, &#39;v&#39;, &#39;g&#39;]</span>
+</pre></div>
+</div>
+
+<button id="butt_iteration_04" onclick="createActiveCode('iteration_04',''); $('#butt_iteration_04').hide();">Open Editor</button>
+<div id="iteration_04"></div>
+<br />
+</li>
+</ol>
+<p><em>Can you identify the loop variable(s) for each of the functions you wrote above?</em></p>
+<div class="section" id="accumulator-variables">
+<h3>2.1 Accumulator variables<a class="headerlink" href="#accumulator-variables" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes we need to use a loop to <em>accumulate</em> a answer. In this
+case, a common pattern is to have an &#8220;accumulator variable&#8221; that is
+set to some initial value before the loop, and then updated each
+time through the loop. See the examples below.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">sumNums</span><span class="p">(</span><span class="n">numList</span><span class="p">):</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span> <span class="c"># the loop variable</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span> <span class="c"># the accumulator variable</span>
+    <span class="k">while</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">numList</span><span class="p">):</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">numList</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="c"># add next value to accumulator</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="c"># end of while loop</span>
+    <span class="k">return</span> <span class="n">total</span>
+</pre></div>
+</div>
+
+<div id="iteration_05" >
+<textarea cols="50" rows="12" id="iteration_05_code" class="active_code">
+def sumNums(numList):
+    index = 0 # the loop variable
+    total = 0 # the accumulator variable
+    while index < len(numList):
+        total = total + numList[index] # add next value to accumulator
+        index = index + 1
+    # end of while loop
+    return total
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (iteration_05)</span> </p>
+<button onclick="runit('iteration_05',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('iteration_05');">Save</button>
+<button class="ac_opt" onclick="requestCode('iteration_05');">Load</button>
+<br />
+
+<canvas id="iteration_05_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="iteration_05_pre" class="active_out">
+
+</pre>
+
+</div>
+
+</div>
+</div>
+<div class="section" id="try-this">
+<h2>Try this:<a class="headerlink" href="#try-this" title="Permalink to this headline">¶</a></h2>
+<p>Write a function <tt class="docutils literal"><span class="pre">countNegatives</span></tt> that takes a list of numbers as
+its input. Using a <tt class="docutils literal"><span class="pre">while</span></tt> loop and an accumulator variable, count
+the number of negative numbers in the input list. See examples
+below.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">countNegatives</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">])</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">countNegatives</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">])</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+
+<button id="butt_iteration_06" onclick="createActiveCode('iteration_06',''); $('#butt_iteration_06').hide();">Open Editor</button>
+<div id="iteration_06"></div>
+<br />
+<div class="section" id="while-loops-in-myro">
+<h3>2.2 While loops in Myro<a class="headerlink" href="#while-loops-in-myro" title="Permalink to this headline">¶</a></h3>
+<p>Get your hands on a robot, and try out these exercises in writing
+functions.</p>
+<ol class="arabic">
+<li><p class="first">To trace a square, as you did in an earlier activity, the robot
+must move forward a fixed time, turn left a fixed time that is more
+or less 90 degrees, and then repeat that process four times. Create
+a function <tt class="docutils literal"><span class="pre">traceSquare</span></tt> that takes no inputs (or you could specify
+the forward time, and therefore the size of the square). It should
+use a <tt class="docutils literal"><span class="pre">while</span></tt> loop to repeat the forward-turn left movement four
+times.</p>
+
+<button id="butt_iteration_07" onclick="createActiveCode('iteration_07',''); $('#butt_iteration_07').hide();">Open Editor</button>
+<div id="iteration_07"></div>
+<br />
+</li>
+<li><p class="first">Look in the online Myro Reference (put &#8216;Myro Reference&#8217; into
+Google) to see the <tt class="docutils literal"><span class="pre">timeRemaining</span></tt> function form Myro provides. Use
+this function as the test expression in a <tt class="docutils literal"><span class="pre">while</span></tt> loop to write a
+function called <tt class="docutils literal"><span class="pre">circle</span></tt> that takes one input parameter. The input
+should be a number of seconds, and the function should make the
+robot move in a circle for the input number of seconds. Note that
+the easiest way to make the robot circle is to use the <tt class="docutils literal"><span class="pre">motors</span></tt>
+command and specify a slower speed for the left motor compared to
+the right motor.</p>
+
+<button id="butt_iteration_08" onclick="createActiveCode('iteration_08',''); $('#butt_iteration_08').hide();">Open Editor</button>
+<div id="iteration_08"></div>
+<br />
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="section" id="for-loops">
+<h1>3.0   For loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">¶</a></h1>
+<p>For loops repeat a fixed number of times. The number of times
+corresponds to the length of the specified sequence: list, string,
+or tuple.</p>
+<div class="section" id="the-range-function">
+<h2>3.1 The range function<a class="headerlink" href="#the-range-function" title="Permalink to this headline">¶</a></h2>
+<p>Python has a built-in function for building lists of numbers. It
+takes in one, two, or three inputs. Given one input, it generates a
+list of integers from 0 up to, but not including, the input number.
+Given two inputs, it generates a list of integers from the first
+input up to, but not including, the second, and given three inputs
+it generates a list of integers from the first input up to, but not
+including the second, skipping the third integer steps each time.
+Try out the examples below in the interactive shell, and make up
+some of your own.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="iteration_09" >
+<textarea cols="50" rows="12" id="iteration_09_code" class="active_code">
+print(range(5))
+print(range(10, 20))
+print(range(10, 40, 4))
+print(range(12, 6, -1))
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (iteration_09)</span> </p>
+<button onclick="runit('iteration_09',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('iteration_09');">Save</button>
+<button class="ac_opt" onclick="requestCode('iteration_09');">Load</button>
+<br />
+
+<canvas id="iteration_09_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="iteration_09_pre" class="active_out">
+
+</pre>
+
+</div>
+
+</div>
+<div class="section" id="for-loop-examples">
+<h2>3.2 For loop examples<a class="headerlink" href="#for-loop-examples" title="Permalink to this headline">¶</a></h2>
+<p>We tend to create <tt class="docutils literal"><span class="pre">for</span></tt> loops in one of three ways: using the
+<tt class="docutils literal"><span class="pre">range</span></tt> function to generate a list, looping over elements of an
+existing list, and looping over elements of an existing string.
+Look in the <tt class="docutils literal"><span class="pre">iteration.py</span></tt> file for examples that demonstrate these
+patterns: <tt class="docutils literal"><span class="pre">catNTimes</span></tt>, <tt class="docutils literal"><span class="pre">countLetters</span></tt>, and <tt class="docutils literal"><span class="pre">mult2List</span></tt>. Try each
+function on several sample inputs until you understand how they
+work. If you need help figuring out what is happening, consider
+adding in print statements that show you the value of the loop
+variable and other local variables.</p>
+</div>
+<div class="section" id="id1">
+<h2>Try these:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Try writing the following functions that use <tt class="docutils literal"><span class="pre">for</span></tt> loops.</p>
+<ol class="arabic">
+<li><p class="first">Redo the <tt class="docutils literal"><span class="pre">printSquares</span></tt> function from earlier, using a <tt class="docutils literal"><span class="pre">for</span></tt>
+loop instead of a <tt class="docutils literal"><span class="pre">while</span></tt> loop.</p>
+
+<button id="butt_iteration_10" onclick="createActiveCode('iteration_10',''); $('#butt_iteration_10').hide();">Open Editor</button>
+<div id="iteration_10"></div>
+<br />
+</li>
+<li><p class="first">Create a function <tt class="docutils literal"><span class="pre">collectNums</span></tt> that takes a list as its input.
+The values in the list may be of any type. This function should use
+a <tt class="docutils literal"><span class="pre">for</span></tt> loop to iterate through the values in the list. It should
+include an accumulator variable that holds a list. The loop should
+add a value from the input list to the accumulator list if that
+value is a number. Return the new list.</p>
+<p>You can check the type of the value in a variable in one of the two
+ways shown below, along with some examples of how collectNums
+should work.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="mf">25.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="nb">float</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">listA</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&quot;foo&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">newList</span> <span class="o">=</span> <span class="n">collectNums</span><span class="p">(</span><span class="n">listA</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">newList</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+
+<button id="butt_iteration_11" onclick="createActiveCode('iteration_11',''); $('#butt_iteration_11').hide();">Open Editor</button>
+<div id="iteration_11"></div>
+<br />
+</li>
+<li><p class="first">Redo the <tt class="docutils literal"><span class="pre">traceSquare</span></tt> function, using a <tt class="docutils literal"><span class="pre">for</span></tt> loop instead of a
+<tt class="docutils literal"><span class="pre">while</span></tt> loop.</p>
+
+<button id="butt_iteration_12" onclick="createActiveCode('iteration_12',''); $('#butt_iteration_12').hide();">Open Editor</button>
+<div id="iteration_12"></div>
+<br />
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="the-break-statement">
+<h1>4.0  The break Statement<a class="headerlink" href="#the-break-statement" title="Permalink to this headline">¶</a></h1>
+<p>Sometimes you want a program to loop, but if certain circumstances
+occur, you want the loop to end before finishing its iterations.
+The <tt class="docutils literal"><span class="pre">break</span></tt> statement causes the current loop to stop immediately
+at the point where the <tt class="docutils literal"><span class="pre">break</span></tt> occurred. The program continues on
+with any Python statements that come after the loop.</p>
+<p>The program below breaks out of the <tt class="docutils literal"><span class="pre">for</span></tt> loop as soon as the total
+gets above 100.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">cappedTotal</span><span class="p">(</span><span class="n">numList</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Takes in a list of numbers and adds the numbers up. If it gets to a result that is more than 100, then the loop stops and it returns 100&quot;&quot;&quot;</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">numList</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">val</span>
+        <span class="k">if</span> <span class="n">total</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="mi">100</span>
+            <span class="k">break</span>
+        <span class="c"># end if statement</span>
+    <span class="c"># end for loop</span>
+    <span class="k">return</span> <span class="n">total</span>
+</pre></div>
+</div>
+
+<div id="iteration_13" >
+<textarea cols="50" rows="12" id="iteration_13_code" class="active_code">
+def cappedTotal(numList):
+    """Takes in a list of numbers and adds the numbers up. If it gets to a result that is more than 100, then the loop stops and it returns 100"""
+    total = 0
+    for val in numList:
+        total = total + val
+        if total > 100:
+            total = 100
+            break
+        # end if statement
+    # end for loop
+    return total
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (iteration_13)</span> </p>
+<button onclick="runit('iteration_13',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('iteration_13');">Save</button>
+<button class="ac_opt" onclick="requestCode('iteration_13');">Load</button>
+<br />
+
+<canvas id="iteration_13_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="iteration_13_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<div class="section" id="id2">
+<h2>Try this:<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Write a function <tt class="docutils literal"><span class="pre">countUpTo</span></tt> that takes an item of any type and a
+list as inputs. The function should loop through the list, looking
+for an occurrence of the item. When it finds an occurrence, the
+function should break out of the loop. At the end of the loop,
+whether it breaks out or exits normally after all iterations, the
+function should print the number of times the loop repeated.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">listA</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">countUpTo</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">listA</span><span class="p">)</span>
+<span class="go">Loop repeated 3 time(s)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">countUpTo</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">listA</span><span class="p">)</span>
+<span class="go">Loop repeated 1 time(s)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">countUpTo</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">listA</span><span class="p">)</span>
+<span class="go">Loop repeated 4 time(s)</span>
+</pre></div>
+</div>
+
+<button id="butt_iteration_14" onclick="createActiveCode('iteration_14',''); $('#butt_iteration_14').hide();">Open Editor</button>
+<div id="iteration_14"></div>
+<br />
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Brad Miller, David Ranum.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32029811-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>

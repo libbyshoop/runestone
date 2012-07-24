@@ -1,0 +1,990 @@
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Strings, Lists and Dictionaries &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/edu-python.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/simplemodal.js"></script>
+    <script type="text/javascript" src="../_static/jquery.textarea.js"></script>
+    <script type="text/javascript" src="../_static/edu-python.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.js"></script>
+    <script type="text/javascript" src="../_static/builtin.js"></script>
+    <script type="text/javascript" src="../_static/assess.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../index.html" />
+<script type="text/javascript"> 
+eBookConfig = {}
+eBookConfig.host = 'http://141.140.167.226:8000' ? 'http://141.140.167.226:8000' : 'http://127.0.0.1:8000',
+eBookConfig.app = eBookConfig.host+'/courselib',
+eBookConfig.ajaxURL = eBookConfig.app+'/ajax/',
+eBookConfig.course = 'COMP123F12-01',
+eBookConfig.logLevel = 10,
+eBookConfig.loginRequired = true
+</script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Strings, Lists and Dictionaries</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#string-basics">String basics</a><ul>
+<li><a class="reference internal" href="#characters-and-the-ascii-table">Characters and the ASCII table</a></li>
+<li><a class="reference internal" href="#accessing-the-characters-in-a-string">Accessing the characters in a string</a></li>
+<li><a class="reference internal" href="#asking-questions-about-strings">Asking questions about strings</a></li>
+<li><a class="reference internal" href="#concatenating-strings">Concatenating strings</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#list-basics">List basics</a></li>
+<li><a class="reference internal" href="#functions-that-apply-to-all-sequences">Functions that apply to all sequences</a><ul>
+<li><a class="reference internal" href="#mutating-lists">Mutating lists</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dictionary-basics">Dictionary basics</a></li>
+<li><a class="reference internal" href="#functions-and-methods">Functions and methods</a><ul>
+<li><a class="reference internal" href="#string-methods">String methods</a></li>
+<li><a class="reference internal" href="#list-methods">List methods</a></li>
+<li><a class="reference internal" href="#dictionary-methods">Dictionary methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/classactivities/datatypes.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul><!--<div id="runestonebox">
+  <h3>Runestone Links</h3>
+  <ul>
+    <li>
+      <a href="https://github.com/bnmnetp/runestone/issues/new">Report a Problem</a>
+    </li>
+    <li>
+      <a href="http://runestoneinteractive.org">About Runestone</a>
+    </li>
+    <li>
+      <a href="/courselib/admin/index">Instructors Page</a>
+    </li>
+  </ul>
+</div>
+-->
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="strings-lists-and-dictionaries">
+<h1>Strings, Lists and Dictionaries<a class="headerlink" href="#strings-lists-and-dictionaries" title="Permalink to this headline">¶</a></h1>
+<p><strong>COMP 123</strong></p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Here we will learn about the basic operations you can use on
+strings, lists, and dictionaries. You will learn how to create
+them, and operators, functions, and methods for each type.</p>
+<p>Note that there is another data type in Python, called a &#8220;tuple,&#8221;
+that is similar to a list. We&#8217;re not going to spend much time on it
+for now. A tuple is made by putting multiple values together,
+separated by commas, but <em>not</em> inside square brackets. Often, we
+put the values inside parentheses.</p>
+</div>
+<div class="section" id="string-basics">
+<h2>String basics<a class="headerlink" href="#string-basics" title="Permalink to this headline">¶</a></h2>
+<p>At one level, strings are just pieces of text you can use in a
+program. They are useful for printing messages to the screen, and
+for allowing a user to work with your program more easily. At
+another level, however, strings are a collection data type. That
+means a string is made up of smaller pieces of data packaged
+together. The smaller pieces are called characters, which represent
+single keys you could type on a keyboard. Strings, lists, and
+tuples are all &#8220;sequence&#8221; types, which means that some of the same
+operations act in the same ways on them.</p>
+<p>Strings in Python are text, surrounded by either quotation marks or
+single-quotes (apostrophes). There is a special kind of string
+surrounded by three quotation marks. This is called a &#8220;docstring,&#8221;
+and may be more than one line long.</p>
+<div class="section" id="characters-and-the-ascii-table">
+<h3>Characters and the ASCII table<a class="headerlink" href="#characters-and-the-ascii-table" title="Permalink to this headline">¶</a></h3>
+<p>In Python, characters are represented as strings of length 1. But
+characters are actually one of the most basic data types a computer
+has. Remember that way down deep, all a computer understands is 1
+or 0, or sequences of 1s and 0s. From sequences of 1s and 0s,
+computers have circuitry that can represent integers, and do basic
+arithmetic with them. In order to represent characters in the
+computer, we need to have a way to represent them as integer
+numbers. Think of it as an encoding, much like Morse code encodes
+characters and words using dots, dashes, and spaces. Note that this
+representation has nothing to do with type face, font, sizing,
+emphasis, all of which are encoded separately from the identity of
+the character itself.</p>
+<p>Below, in table&nbsp;ascii, is a version of the ASCII table. This is a
+mapping from integers to characters on a keyboard. This was a
+standard adopted by the entire computing community, so that data
+files stored on one kind of computer could be transmitted and read
+on another kind of computer. It maps 128 characters onto the
+numbers from 0 to 127. The characters that appear in parentheses
+are either &#8220;whitespace&#8221; (characters like space, return, tab) or
+&#8220;control&#8221; characters, things you don&#8217;t normally see but that you
+can access using the control or alt keys on your keyboard.</p>
+<blockquote>
+<div><blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="23%" />
+<col width="23%" />
+<col width="30%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Char   Num</th>
+<th class="head">Char  Num</th>
+<th class="head">Char      Num</th>
+<th class="head">Char     Num</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">(nul)</span></tt>   0</td>
+<td><tt class="docutils literal"><span class="pre">(sp)</span></tt>  32</td>
+<td><tt class="docutils literal"><span class="pre">&#64;</span></tt>     64</td>
+<td><tt class="docutils literal"><span class="pre">`</span></tt>         96</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">(soh)</span></tt>   1</td>
+<td><tt class="docutils literal"><span class="pre">!</span></tt>   33</td>
+<td><tt class="docutils literal"><span class="pre">A</span></tt>      65</td>
+<td><tt class="docutils literal"><span class="pre">a</span></tt>       97</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">(stx)</span></tt>   2</td>
+<td><tt class="docutils literal"><span class="pre">&quot;</span></tt>  34</td>
+<td><tt class="docutils literal"><span class="pre">B</span></tt>     66</td>
+<td><tt class="docutils literal"><span class="pre">b</span></tt>      98</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">(etx)</span></tt>   3</td>
+<td><tt class="docutils literal"><span class="pre">#</span></tt>   35</td>
+<td><tt class="docutils literal"><span class="pre">C</span></tt>     67</td>
+<td><tt class="docutils literal"><span class="pre">c</span></tt>      99</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">(eot)</span></tt>   4</td>
+<td><tt class="docutils literal"><span class="pre">$</span></tt>   36</td>
+<td><tt class="docutils literal"><span class="pre">D</span></tt>     68</td>
+<td><tt class="docutils literal"><span class="pre">d</span></tt>      100</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">(enq)</span></tt>   5</td>
+<td><tt class="docutils literal"><span class="pre">%</span></tt>   37</td>
+<td><tt class="docutils literal"><span class="pre">E</span></tt>     69</td>
+<td><tt class="docutils literal"><span class="pre">e</span></tt>      101</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">(ack)</span></tt>   6</td>
+<td><tt class="docutils literal"><span class="pre">&amp;</span></tt>   38</td>
+<td><tt class="docutils literal"><span class="pre">F</span></tt>     70</td>
+<td><tt class="docutils literal"><span class="pre">f</span></tt>      102</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">(bel)</span></tt>   7</td>
+<td><tt class="docutils literal"><span class="pre">'</span></tt>   39</td>
+<td><tt class="docutils literal"><span class="pre">G</span></tt>     71</td>
+<td><tt class="docutils literal"><span class="pre">g</span></tt>       103</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">(bs)</span></tt>    8</td>
+<td><tt class="docutils literal"><span class="pre">(</span></tt>   40</td>
+<td><tt class="docutils literal"><span class="pre">H</span></tt>     72</td>
+<td><tt class="docutils literal"><span class="pre">h</span></tt>       104</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">(ht)</span></tt>    9</td>
+<td><tt class="docutils literal"><span class="pre">)</span></tt>   41</td>
+<td><tt class="docutils literal"><span class="pre">I</span></tt>      73</td>
+<td><tt class="docutils literal"><span class="pre">i</span></tt>      105</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">(nl)</span></tt>   10</td>
+<td><tt class="docutils literal"><span class="pre">*</span></tt>   42</td>
+<td><tt class="docutils literal"><span class="pre">J</span></tt>     74</td>
+<td><tt class="docutils literal"><span class="pre">j</span></tt>      106</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">(vt)</span></tt>   11</td>
+<td><tt class="docutils literal"><span class="pre">+</span></tt>   43</td>
+<td><tt class="docutils literal"><span class="pre">K</span></tt>     75</td>
+<td><tt class="docutils literal"><span class="pre">k</span></tt>       107</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">(np)</span></tt>   12</td>
+<td><tt class="docutils literal"><span class="pre">,</span></tt>   44</td>
+<td><tt class="docutils literal"><span class="pre">L</span></tt>     76</td>
+<td><tt class="docutils literal"><span class="pre">l</span></tt>       108</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">(cr)</span></tt>   13</td>
+<td><tt class="docutils literal"><span class="pre">-</span></tt>   45</td>
+<td><tt class="docutils literal"><span class="pre">M</span></tt>      77</td>
+<td><tt class="docutils literal"><span class="pre">m</span></tt>      109</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">(so)</span></tt>   14</td>
+<td><tt class="docutils literal"><span class="pre">.</span></tt>    46</td>
+<td><tt class="docutils literal"><span class="pre">N</span></tt>      78</td>
+<td><tt class="docutils literal"><span class="pre">n</span></tt>    110</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">(si)</span></tt>   15</td>
+<td><tt class="docutils literal"><span class="pre">/</span></tt>    47</td>
+<td><tt class="docutils literal"><span class="pre">O</span></tt>      79</td>
+<td><tt class="docutils literal"><span class="pre">o</span></tt>       111</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">(dle)</span></tt>  16</td>
+<td><tt class="docutils literal"><span class="pre">0</span></tt>    48</td>
+<td><tt class="docutils literal"><span class="pre">P</span></tt>      80</td>
+<td><tt class="docutils literal"><span class="pre">p</span></tt>        112</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">(dc1)</span></tt>  17</td>
+<td>&amp; <tt class="docutils literal"><span class="pre">1</span></tt>   49</td>
+<td><tt class="docutils literal"><span class="pre">Q</span></tt>      81</td>
+<td><tt class="docutils literal"><span class="pre">q</span></tt>      113</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">(dc2)</span></tt>  18</td>
+<td>&amp; <tt class="docutils literal"><span class="pre">2</span></tt>   50</td>
+<td><tt class="docutils literal"><span class="pre">R</span></tt>      82</td>
+<td><tt class="docutils literal"><span class="pre">r</span></tt>      114</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">(dc3)</span></tt>  19</td>
+<td>&amp; <tt class="docutils literal"><span class="pre">3</span></tt>   51</td>
+<td><tt class="docutils literal"><span class="pre">S</span></tt>     83</td>
+<td><tt class="docutils literal"><span class="pre">s</span></tt>      115</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">(dc4)</span></tt>  20</td>
+<td>&amp; <tt class="docutils literal"><span class="pre">4</span></tt>   52</td>
+<td><tt class="docutils literal"><span class="pre">T</span></tt>     84</td>
+<td><tt class="docutils literal"><span class="pre">t</span></tt>   116</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">(nak)</span></tt>  21</td>
+<td>&amp; <tt class="docutils literal"><span class="pre">5</span></tt>   53</td>
+<td><tt class="docutils literal"><span class="pre">U</span></tt>     85</td>
+<td><tt class="docutils literal"><span class="pre">u</span></tt>   117</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">(syn)</span></tt>  22</td>
+<td>&amp; <tt class="docutils literal"><span class="pre">6</span></tt>   54</td>
+<td><tt class="docutils literal"><span class="pre">V</span></tt>    86</td>
+<td><tt class="docutils literal"><span class="pre">v</span></tt>   118</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">(etb)</span></tt>  23</td>
+<td>&amp; <tt class="docutils literal"><span class="pre">7</span></tt>   55</td>
+<td><tt class="docutils literal"><span class="pre">W</span></tt>    87</td>
+<td><tt class="docutils literal"><span class="pre">w</span></tt>   119</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">(can)</span></tt>  24</td>
+<td>&amp; <tt class="docutils literal"><span class="pre">8</span></tt>   56</td>
+<td><tt class="docutils literal"><span class="pre">X</span></tt>     88</td>
+<td><tt class="docutils literal"><span class="pre">x</span></tt>   120</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">(em)</span></tt>   25</td>
+<td><tt class="docutils literal"><span class="pre">9</span></tt>   57</td>
+<td><tt class="docutils literal"><span class="pre">Y</span></tt>      89</td>
+<td><tt class="docutils literal"><span class="pre">y</span></tt>   121</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">(sub)</span></tt>  26</td>
+<td><tt class="docutils literal"><span class="pre">:</span></tt>   58</td>
+<td><tt class="docutils literal"><span class="pre">Z</span></tt>      90</td>
+<td><tt class="docutils literal"><span class="pre">z</span></tt>   122</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">(esc)</span></tt>  27</td>
+<td><tt class="docutils literal"><span class="pre">;</span></tt>    59</td>
+<td><tt class="docutils literal"><span class="pre">[</span></tt>     91</td>
+<td><tt class="docutils literal"><span class="pre">{</span></tt>   123</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">(fs)</span></tt>   28</td>
+<td><tt class="docutils literal"><span class="pre">&lt;</span></tt>   60</td>
+<td><tt class="docutils literal"><span class="pre">\</span></tt>     92</td>
+<td><tt class="docutils literal"><span class="pre">|</span></tt>   124</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">(gs)</span></tt>   29</td>
+<td><tt class="docutils literal"><span class="pre">=</span></tt>   61</td>
+<td><tt class="docutils literal"><span class="pre">]</span></tt>     93</td>
+<td><tt class="docutils literal"><span class="pre">}</span></tt>   125</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">(rs)</span></tt>   30</td>
+<td><tt class="docutils literal"><span class="pre">&gt;</span></tt>   62</td>
+<td><tt class="docutils literal"><span class="pre">^</span></tt>     94</td>
+<td><tt class="docutils literal"><span class="pre">~</span></tt>   126</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">(us)</span></tt>   31</td>
+<td><tt class="docutils literal"><span class="pre">?</span></tt>   63</td>
+<td><tt class="docutils literal"><span class="pre">_</span></tt>      95</td>
+<td><tt class="docutils literal"><span class="pre">(del)</span></tt> 127</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<ul class="simple">
+<li>The ASCII table with the character described on the left, and the corresponding integer that represents it on the right (ascii)</li>
+</ul>
+</div></blockquote>
+<p>The built-in functions <em>ord</em> and <em>chr</em> are used to convert between
+ASCII characters and the numbers used to encode them. Try the
+following.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nb">chr</span><span class="p">(</span><span class="mi">66</span><span class="p">)</span>
+<span class="nb">chr</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="nb">chr</span><span class="p">(</span><span class="mi">126</span><span class="p">)</span>
+<span class="nb">ord</span><span class="p">(</span><span class="s">&#39;8&#39;</span><span class="p">)</span>
+<span class="nb">ord</span><span class="p">(</span><span class="s">&#39;Y&#39;</span><span class="p">)</span>
+<span class="nb">ord</span><span class="p">(</span><span class="s">&#39;?&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="ch_1" >
+<textarea cols="50" rows="12" id="ch_1_code" class="active_code">
+print(chr(66))
+print(chr(100))
+print(chr(126))
+print(ord('8'))
+print(ord('Y'))
+print(ord('?'))
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch_1)</span> </p>
+<button onclick="runit('ch_1',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch_1');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch_1');">Load</button>
+<br />
+
+<canvas id="ch_1_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch_1_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>Modern keyboards provide more many more control keys than the
+original ASCII table was designed for. There is an extended ASCII
+table that includes more characters, and another encoding system
+called Unicode is much larger, and is able to encode many other
+writing systems, such as Greek, Cyrillic, Japanese, and Chinese.</p>
+<p>Programs that we write are written in plain text, using ASCII
+characters. When you interact with Python, you are also typing in
+ASCII characters. Other kinds of files, even RTF, contain
+additional codes to represent the formatting of the text, and
+aren&#8217;t &#8220;plain&#8221; text. Strings in Python are collections of ASCII
+characters.</p>
+</div>
+<div class="section" id="accessing-the-characters-in-a-string">
+<h3>Accessing the characters in a string<a class="headerlink" href="#accessing-the-characters-in-a-string" title="Permalink to this headline">¶</a></h3>
+<p>Use chapter 8 in Downey as a reference for string operations.</p>
+<p>Each character in a string has a position. Python, like most
+computer languages, starts counting at zero (I can explain why, if
+you like). So the first character in string <tt class="docutils literal"><span class="pre">&quot;Wanda</span> <span class="pre">Fishman&quot;</span></tt>,
+the W, is at position zero.</p>
+<p>To access a single character, we use square brackets, and put the
+position of the character in the brackets (see below). To find out
+the length of the string, we use the <em>len</em> function.</p>
+<p>Python also provides a notation for use inside the square brackets,
+for selecting sections of a string. This is called &#8220;slicing.&#8221; With
+slicing, you specify the position to start at, the index one past
+the last character you want, and you can choose to also specify a
+step size. Try out each of the statements below to get a sense for
+how it works.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">str1</span> <span class="o">=</span> <span class="s">&quot;throckmorton&quot;</span>
+<span class="k">print</span> <span class="n">str1</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">str1</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">str1</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+<span class="k">print</span> <span class="n">str1</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">str1</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">str1</span><span class="p">[</span><span class="mi">2</span><span class="p">::</span><span class="mi">3</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">str1</span><span class="p">[:]</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">str1</span><span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">str1</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">])</span>
+</pre></div>
+</div>
+
+<div id="ch_2" >
+<textarea cols="50" rows="12" id="ch_2_code" class="active_code">
+str1 = "throckmorton"
+print str1[5]
+print str1[2:6]
+print str1[2:]
+print str1[:6]
+print str1[2:10:3]
+print str1[2::3]
+print str1[:]
+len(str1)
+len(str1[2:6])
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch_2)</span> </p>
+<button onclick="runit('ch_2',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch_2');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch_2');">Load</button>
+<br />
+
+<canvas id="ch_2_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch_2_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>One thing Downey doesn&#8217;t mention is the use of negative indices.
+Try <em>str1[-2]</em> and other negative numbers. How do negative indices
+work? What is the value of <em>str1[5:1:-1]</em>?</p>
+</div>
+<div class="section" id="asking-questions-about-strings">
+<h3>Asking questions about strings<a class="headerlink" href="#asking-questions-about-strings" title="Permalink to this headline">¶</a></h3>
+<p>You&#8217;ve already seen that we can compare strings using the
+double-equals operator: <tt class="docutils literal"><span class="pre">str1</span> <span class="pre">==</span> <span class="pre">&quot;throck&quot;</span></tt>. What happens if you
+use operators like <tt class="docutils literal"><span class="pre">&lt;</span></tt> on strings?</p>
+<p>There is a membership operator for strings, that lets us ask
+whether a character or string appears in another string:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="s">&#39;a&#39;</span> <span class="ow">in</span> <span class="n">str1</span>
+<span class="s">&#39;x&#39;</span> <span class="ow">in</span> <span class="s">&#39;alexis&#39;</span>
+<span class="s">&#39;foo&#39;</span> <span class="ow">in</span> <span class="s">&#39;afoodable&#39;</span>
+</pre></div>
+</div>
+
+<div id="ch_3" >
+<textarea cols="50" rows="12" id="ch_3_code" class="active_code">
+str1="throck"
+print('a' in str1)
+print('x' in 'alexis')
+print('foo' in 'afoodable')
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch_3)</span> </p>
+<button onclick="runit('ch_3',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch_3');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch_3');">Load</button>
+<br />
+
+<canvas id="ch_3_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch_3_pre" class="active_out">
+
+</pre>
+
+</div>
+
+</div>
+<div class="section" id="concatenating-strings">
+<h3>Concatenating strings<a class="headerlink" href="#concatenating-strings" title="Permalink to this headline">¶</a></h3>
+<p>Concatenation is when we stick two or more strings together to make
+a bigger string. In Python, we use the plus operator to mean
+concatenation, when its values are strings. We also make use of the
+multiplication operator, given a string and a positive integer, to
+concatenate a string with itself. This is useful for creating blank
+strings, among other uses. Try out the examples below</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">s</span> <span class="o">=</span> <span class="s">&quot;HI&quot;</span>
+<span class="n">t</span> <span class="o">=</span> <span class="s">&#39;BYE&#39;</span>
+<span class="n">s</span> <span class="o">+</span> <span class="n">t</span> <span class="o">+</span> <span class="n">s</span> <span class="o">+</span> <span class="n">t</span>
+<span class="n">s</span> \<span class="o">*</span> <span class="mi">3</span>
+<span class="s">&#39;-&#39;</span> \<span class="o">*</span> <span class="mi">10</span>
+</pre></div>
+</div>
+
+<div id="ch_4" >
+<textarea cols="50" rows="12" id="ch_4_code" class="active_code">
+s = "HI"
+t = 'BYE'
+print(s + t + s + t)
+print(s * 3)
+print('-' * 10)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch_4)</span> </p>
+<button onclick="runit('ch_4',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch_4');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch_4');">Load</button>
+<br />
+
+<canvas id="ch_4_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch_4_pre" class="active_out">
+
+</pre>
+
+</div>
+
+</div>
+</div>
+<div class="section" id="list-basics">
+<h2>List basics<a class="headerlink" href="#list-basics" title="Permalink to this headline">¶</a></h2>
+<p>See chapter 10 in Downey for more information about lists.</p>
+<p>A list is just a collection of data. It is linear, the data is
+order from first to last. It is changeable, you can add or remove
+elements, or alter a value in a list. We write lists in Python
+using square brackets, with the elements inside separated by
+commas.</p>
+<p>While often the values of a list are all the same type, they may be
+any type. Try the following examples building lists.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">lst1</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="s">&#39;g&#39;</span><span class="p">]</span>
+<span class="n">lst2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+<span class="n">lst3</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;Fox&#39;</span><span class="p">,</span><span class="s">&#39;Susan&#39;</span><span class="p">,</span> <span class="s">&#39;OLRI&#39;</span><span class="p">,</span> <span class="mi">230</span><span class="p">,</span> <span class="mi">6553</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Operations on lists are <em>very</em> similar to operations on strings.
+Try the following.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nb">len</span><span class="p">(</span><span class="n">lst1</span><span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">lst3</span><span class="p">)</span>
+<span class="n">lst2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="n">lst3</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">lst1</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">lst2</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">newlst</span> <span class="o">=</span><span class="n">lst1</span> <span class="o">+</span> <span class="n">lst2</span>
+<span class="n">newnew</span> <span class="o">=</span> <span class="n">lst2</span> \<span class="o">*</span> <span class="mi">3</span>
+<span class="mi">3</span> <span class="ow">in</span> <span class="n">lst2</span>
+</pre></div>
+</div>
+
+<div id="ch_5" >
+<textarea cols="50" rows="12" id="ch_5_code" class="active_code">
+
+
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch_5)</span> </p>
+<button onclick="runit('ch_5',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch_5');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch_5');">Load</button>
+<br />
+
+<canvas id="ch_5_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch_5_pre" class="active_out">
+
+</pre>
+
+</div>
+
+</div>
+<div class="section" id="functions-that-apply-to-all-sequences">
+<h2>Functions that apply to all sequences<a class="headerlink" href="#functions-that-apply-to-all-sequences" title="Permalink to this headline">¶</a></h2>
+<p>You&#8217;ve already seen the <tt class="docutils literal"><span class="pre">len</span></tt> function, which applies to all
+&#8220;sequences&#8221; (lists, strings, and tuples). Here are a few others to
+try out.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nb">max</span><span class="p">(</span><span class="n">lst2</span><span class="p">)</span>
+<span class="nb">max</span><span class="p">(</span><span class="n">lst1</span><span class="p">)</span>
+<span class="nb">max</span><span class="p">([</span><span class="s">&quot;apple&quot;</span><span class="p">,</span> <span class="s">&quot;fish&quot;</span><span class="p">,</span> <span class="s">&quot;dog&quot;</span><span class="p">])</span>
+<span class="nb">max</span><span class="p">(</span><span class="s">&quot;apple&quot;</span><span class="p">)</span>
+<span class="nb">max</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">min</span><span class="p">(</span><span class="n">lst2</span><span class="p">)</span>
+<span class="nb">min</span><span class="p">(</span><span class="s">&quot;apple&quot;</span><span class="p">)</span>
+<span class="nb">min</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="nb">min</span><span class="p">(</span><span class="s">&quot;hah&quot;</span><span class="p">,</span> <span class="s">&quot;eeh&quot;</span><span class="p">,</span> <span class="s">&quot;blah&quot;</span><span class="p">)</span>
+<span class="n">lst2</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+
+<div id="ch_6" >
+<textarea cols="50" rows="12" id="ch_6_code" class="active_code">
+
+
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch_6)</span> </p>
+<button onclick="runit('ch_6',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch_6');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch_6');">Load</button>
+<br />
+
+<canvas id="ch_6_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch_6_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>Comparing lists for equality is okay, but using inequalities should
+not be done.</p>
+<div class="section" id="mutating-lists">
+<h3>Mutating lists<a class="headerlink" href="#mutating-lists" title="Permalink to this headline">¶</a></h3>
+<p>Strings are immutable, meaning that once created, they cannot be
+modified. Instead, we have to build a new string if we want
+something different. Lists are different, they are mutable. That
+means that we can add new values, remove old values, and change
+existing values in a list, without rebuilding it.</p>
+<p>Removing elements from a list may be done in a number of ways, but
+one main option is the <tt class="docutils literal"><span class="pre">del</span></tt> operator</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">del</span> <span class="n">lst1</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="c"># removes the value at position 3</span>
+</pre></div>
+</div>
+<p>Another way to modify a list is to use the assignment operations.
+The most simple assignment sets a single slot in the list to a
+single new value. You can also set a slice of a list to be a new
+set of values. Slice assignment can also be used to add or remove
+values from the list. See below:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">lst4</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;fresh&#39;</span><span class="p">,</span> <span class="s">&#39;start&#39;</span><span class="p">]</span>
+<span class="n">lst5</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+
+<span class="n">lst4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;flowers&#39;</span>
+<span class="n">lst5</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">lst5</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="dictionary-basics">
+<h2>Dictionary basics<a class="headerlink" href="#dictionary-basics" title="Permalink to this headline">¶</a></h2>
+<p>See chapter 11 of Downey for more information about dictionaries.</p>
+<p>Strings and lists are both collections of data where we access the
+data based on its position, or index, in the collection. A
+dictionary is a collection of data where we access the data by a
+key value, and there is no explicit position associated with any
+set of keys and values. Think of a dictionary as a two-column
+table, where the first column is a set of keys, and the second
+column is a set of associated values. The term &#8220;dictionary&#8221; is a
+metaphor for this kind of table: words and associated meanings.</p>
+<p>Any immutable type (number, strings, or tuples, primarily) can be
+used as a key value. For example, you could create a real
+dictionary where the key values were the words, as strings, and the
+value associated with each key was a string containing the word&#8217;s
+definition. Another use might be to organize information about
+students by their ID numbers.</p>
+<p>Below is a small dictionary storing information about people. Note
+that we use curly braces to mark the start and end of a dictionary,
+when we create one. The key values are ID numbers of some sort, and
+the information is the person&#8217;s name, as a string. Type in the
+definition of <tt class="docutils literal"><span class="pre">dict1</span></tt>, and see what <tt class="docutils literal"><span class="pre">dict1</span></tt> looks like after each
+of the commands that follow. Note that these are the commands that
+are similar to list or string functions. The value in the square
+brackets must be a key value. Similarly, when asking if a value is
+<tt class="docutils literal"><span class="pre">in</span></tt> a dictionary, one can only ask about the key values.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1002</span><span class="p">:</span> <span class="s">&#39;Harkness, Maria&#39;</span><span class="p">,</span> <span class="mi">6639</span><span class="p">:</span> <span class="s">&#39;Swallowtail, Renata&#39;</span><span class="p">}</span>
+<span class="n">dict1</span><span class="p">[</span><span class="mi">5534</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;Lessner, Jillian&#39;</span> <span class="n">dict1</span><span class="p">[</span><span class="mi">6565</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;Maxwell, Terry&#39;</span>
+<span class="n">dict1</span><span class="p">[</span><span class="mi">1023</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;Franklin, Donald&#39;</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span>
+<span class="k">del</span> <span class="n">dict1</span><span class="p">[</span><span class="mi">6565</span><span class="p">]</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span> <span class="n">dict1</span><span class="p">[</span><span class="mi">1023</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;Franklin-Smyth, Donald&#39;</span>
+<span class="mi">1002</span> <span class="ow">in</span> <span class="n">dict1</span>
+<span class="s">&#39;Harkness, Maria&#39;</span> <span class="ow">in</span> <span class="n">dict1</span>
+</pre></div>
+</div>
+<p>The examples below show how you can use strings and tuples as key
+values.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">family</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;mother&#39;</span> <span class="p">:</span> <span class="s">&#39;Margaret&#39;</span><span class="p">,</span> <span class="s">&#39;father&#39;</span><span class="p">:</span> <span class="s">&#39;James&#39;</span><span class="p">,</span> <span class="s">&#39;children&#39;</span> <span class="p">:</span>
+<span class="p">[</span><span class="s">&#39;Sam&#39;</span><span class="p">,</span> <span class="s">&#39;Fern&#39;</span><span class="p">]}</span>
+
+<span class="n">family</span><span class="p">[</span><span class="s">&#39;mother&#39;</span><span class="p">]</span>
+<span class="n">family</span><span class="p">[</span><span class="s">&#39;children&#39;</span><span class="p">]</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="p">{(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">):</span> <span class="mi">55</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">):</span> <span class="mi">23</span><span class="p">,(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">):</span> <span class="mi">102</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span> <span class="mi">101</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span> <span class="mi">87</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span> <span class="mi">72</span><span class="p">}</span>
+<span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">grid</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span>
+</pre></div>
+</div>
+
+<div id="ch_7" >
+<textarea cols="50" rows="12" id="ch_7_code" class="active_code">
+
+
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch_7)</span> </p>
+<button onclick="runit('ch_7',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch_7');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch_7');">Load</button>
+<br />
+
+<canvas id="ch_7_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch_7_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>Dictionaries have few functions that operate on them, but many
+methods.</p>
+</div>
+<div class="section" id="functions-and-methods">
+<h2>Functions and methods<a class="headerlink" href="#functions-and-methods" title="Permalink to this headline">¶</a></h2>
+<p>In Python, each data value is an &#8220;object.&#8221; Object has a technical
+meaning here, as opposed to the normal English meaning. Objects, in
+computer science, can contain both information and algorithms, and
+are viewed as active entities. The code is organized into
+&#8220;methods,&#8221; which we can call to ask the object to do something. You
+can think of methods as being special functions that are attached
+to the data object itself.</p>
+<p>Here is an analogy to clarify the difference between a function and
+a method. Imagine that you have a list, and picture it as a happy,
+squirming poodle. A function that operates on the lists is like the
+dog groomer, or the veterinarian. You hand the dog over to this
+person, and the person washes the dog, or checks the dog for
+illness, and then hands the dog back to you. In all of this, the
+dog is passive (we hope). This is how a function works on a list:
+you hand the list to it, it does something to the list, and hands
+back the result to you.</p>
+<p>Calling a method is different. Calling a method removes the third
+party from the equation. When you call an object&#8217;s method, you are
+asking <em>the object</em> to do something. This is like giving commands
+to the dog: sit, stay, come here.</p>
+<p>As the semester goes along, you will learn more about objects. For
+now, just remember that strings and lists have methods that you can
+call to do additional things with them.</p>
+<p>When you call a method, you use a slightly different syntax than
+when calling a function. It is the same kind of notation you use
+when calling a function that belongs to a module you&#8217;ve imported.
+You first put the object, typically the name of the variable
+holding the object, and then a period. After that the syntax is the
+same as a function call: you give the method&#8217;s name, and then the
+arguments to the method in parentheses. For example:
+<em>object.methodname(arguments)</em>.</p>
+<p>You will see concrete examples below.</p>
+<div class="section" id="string-methods">
+<h3>String methods<a class="headerlink" href="#string-methods" title="Permalink to this headline">¶</a></h3>
+<p>Go to {<a class="reference external" href="http://docs.python.org/lib/string-methods.html">http://docs.python.org/lib/string-methods.html</a>}, the Python
+documentation for string methods, and you will see a long list of
+methods that operate on strings. These methods allow you to do a
+great many things to strings.</p>
+<p>Since strings are immutable, many of these methods build new
+strings. Below are a few of my favorite string methods; try them
+out.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">sentence</span> <span class="o">=</span> <span class="s">&quot;The quick brown fox jumps over the lazy dog.&quot;</span>
+<span class="n">sentence</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()</span> <span class="c"># are all characters alphabetic?</span>
+<span class="n">sentence</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="c"># return a copy all in lowercase</span>
+<span class="n">sentence</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="c"># similar, but all in uppercase</span>
+<span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="c"># make sub strings splitting at whitespace</span>
+<span class="n">sentence</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s">&#39;.!?,;&#39;</span><span class="p">)</span> <span class="c"># remove leading and following matching chars</span>
+</pre></div>
+</div>
+
+<div id="ch_8" >
+<textarea cols="50" rows="12" id="ch_8_code" class="active_code">
+sentence = "The quick brown fox jumps over the lazy dog."
+print(sentence.isalpha()) # are all characters alphabetic?
+print(sentence.lower()) # return a copy all in lowercase
+print(sentence.upper()) # similar, but all in uppercase
+print(sentence.split()) # make sub strings splitting at whitespace
+print(sentence.strip('.!?,;')) # remove leading and following matching chars
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch_8)</span> </p>
+<button onclick="runit('ch_8',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch_8');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch_8');">Load</button>
+<br />
+
+<canvas id="ch_8_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch_8_pre" class="active_out">
+
+</pre>
+
+</div>
+
+</div>
+<div class="section" id="list-methods">
+<h3>List methods<a class="headerlink" href="#list-methods" title="Permalink to this headline">¶</a></h3>
+<p>Lists are mutable, which means you can change their values without
+building a new list. This means there are a bunch of different
+methods for lists that strings and don&#8217;t support.</p>
+<p>Besides using the split notation, several methods add values to a
+list. You can also remove values from a list with a method. Try out
+the examples below to see their effects.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">lst2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span> <span class="c"># add a new value at the end of the list</span>
+<span class="n">lst3</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;Math/CS&quot;</span><span class="p">)</span>
+<span class="n">lst2</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">51</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">])</span> <span class="c"># tack whole list at end</span>
+<span class="n">lst1</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="s">&quot;Hello there&quot;</span><span class="p">)</span>
+<span class="n">lst3</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">&quot;Professor&quot;</span><span class="p">)</span> <span class="c"># add new value before given position</span>
+<span class="n">lst3</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="c"># remove first value</span>
+<span class="n">lst1</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c"># remove value at given position</span>
+</pre></div>
+</div>
+
+<div id="ch_9" >
+<textarea cols="50" rows="12" id="ch_9_code" class="active_code">
+
+
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch_9)</span> </p>
+<button onclick="runit('ch_9',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch_9');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch_9');">Load</button>
+<br />
+
+<canvas id="ch_9_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch_9_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>Other list methods return the index position of a particular value,
+count occurrences, sort the values in a list, or reverse a list.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">lst3</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">230</span><span class="p">)</span> <span class="c"># return position of given value lst1.index(&#39;g&#39;)</span>
+<span class="n">lst6</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">lst6</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c"># count occurrences of argument in list</span>
+<span class="n">lst6</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">lst6</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">lst2</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span> <span class="c"># sort the values in the list</span>
+<span class="n">lst3</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">lst1</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span> <span class="c"># reverse the values in the list</span>
+</pre></div>
+</div>
+
+<div id="ch_10" >
+<textarea cols="50" rows="12" id="ch_10_code" class="active_code">
+
+
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch_10)</span> </p>
+<button onclick="runit('ch_10',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch_10');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch_10');">Load</button>
+<br />
+
+<canvas id="ch_10_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch_10_pre" class="active_out">
+
+</pre>
+
+</div>
+
+</div>
+<div class="section" id="dictionary-methods">
+<h3>Dictionary methods<a class="headerlink" href="#dictionary-methods" title="Permalink to this headline">¶</a></h3>
+<p>Below is an incomplete listing of the dictionary methods. I&#8217;ve
+written them in terms of the dictionary from earlier, so you can
+try them out.</p>
+<p>First there are methods that extract copies of the data from the
+dictionary, and turn them into a list.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">dict1</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="c"># returns a list of the keys in the dictionary</span>
+<span class="n">dict1</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="c"># returns a list of the values in the dictionary</span>
+<span class="n">dict1</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="c"># returns a list of (key, value) tuples</span>
+</pre></div>
+</div>
+<p>Next, there is a method for retrieving the value associated with a
+key. We could just use the square bracket notation from before, but
+compare what happens with the last two examples.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">dict1</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">1023</span><span class="p">)</span>
+<span class="n">dict1</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">6639</span><span class="p">)</span>
+<span class="n">dict1</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">4004</span><span class="p">)</span> <span class="c"># an example where the key is not in the dictionary</span>
+<span class="n">dict1</span><span class="p">[</span><span class="mi">4004</span><span class="p">]</span> <span class="c"># and what happens here when the key is not there?</span>
+</pre></div>
+</div>
+<p>Other methods allow copying of a dictionary, or removing all its
+values at once.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">dict2</span> <span class="o">=</span> <span class="n">dict1</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">dict2</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</pre></div>
+</div>
+
+<div id="ch_11" >
+<textarea cols="50" rows="12" id="ch_11_code" class="active_code">
+
+
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch_11)</span> </p>
+<button onclick="runit('ch_11',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch_11');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch_11');">Load</button>
+<br />
+
+<canvas id="ch_11_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch_11_pre" class="active_out">
+
+</pre>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Brad Miller, David Ranum.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32029811-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>

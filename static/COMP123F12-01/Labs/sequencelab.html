@@ -1,0 +1,241 @@
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Experimenting With the 3n+1 Sequence &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/edu-python.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/simplemodal.js"></script>
+    <script type="text/javascript" src="../_static/jquery.textarea.js"></script>
+    <script type="text/javascript" src="../_static/edu-python.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.js"></script>
+    <script type="text/javascript" src="../_static/builtin.js"></script>
+    <script type="text/javascript" src="../_static/assess.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../index.html" />
+    <link rel="up" title="Iteration Revisited" href="../MoreAboutIteration/moreiteration.html" />
+    <link rel="next" title="Strings" href="../Strings/strings.html" />
+    <link rel="prev" title="Iteration Revisited" href="../MoreAboutIteration/moreiteration.html" />
+<script type="text/javascript"> 
+eBookConfig = {}
+eBookConfig.host = 'http://141.140.167.226:8000' ? 'http://141.140.167.226:8000' : 'http://127.0.0.1:8000',
+eBookConfig.app = eBookConfig.host+'/courselib',
+eBookConfig.ajaxURL = eBookConfig.app+'/ajax/',
+eBookConfig.course = 'COMP123F12-01',
+eBookConfig.logLevel = 10,
+eBookConfig.loginRequired = true
+</script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../Strings/strings.html" title="Strings"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../MoreAboutIteration/moreiteration.html" title="Iteration Revisited"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+          <li><a href="../MoreAboutIteration/moreiteration.html" accesskey="U">Iteration Revisited</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../MoreAboutIteration/moreiteration.html"
+                        title="previous chapter">Iteration Revisited</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../Strings/strings.html"
+                        title="next chapter">Strings</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/Labs/sequencelab.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul><!--<div id="runestonebox">
+  <h3>Runestone Links</h3>
+  <ul>
+    <li>
+      <a href="https://github.com/bnmnetp/runestone/issues/new">Report a Problem</a>
+    </li>
+    <li>
+      <a href="http://runestoneinteractive.org">About Runestone</a>
+    </li>
+    <li>
+      <a href="/courselib/admin/index">Instructors Page</a>
+    </li>
+  </ul>
+</div>
+-->
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="experimenting-with-the-3n-1-sequence">
+<h1>Experimenting With the 3n+1 Sequence<a class="headerlink" href="#experimenting-with-the-3n-1-sequence" title="Permalink to this headline">¶</a></h1>
+<p>In this lab we will try to gain a bit more information about the 3n+1 sequence.  We will start with the code from the chapter and make modifications.  Here is the function so far.</p>
+
+<div id="seq3nlab1" >
+<textarea cols="50" rows="12" id="seq3nlab1_code" class="active_code">
+def seq3np1(n):
+    """ Print the 3n+1 sequence from n, terminating when it reaches 1."""
+
+    while n != 1:
+        print(n)
+        if n % 2 == 0:        # n is even
+            n = n // 2
+        else:                 # n is odd
+            n = n * 3 + 1
+    print(n)                  # the last print is 1
+
+seq3np1(3)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (seq3nlab1)</span> </p>
+<button onclick="runit('seq3nlab1',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('seq3nlab1');">Save</button>
+<button class="ac_opt" onclick="requestCode('seq3nlab1');">Load</button>
+<br />
+
+<canvas id="seq3nlab1_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="seq3nlab1_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<ol class="arabic">
+<li><p class="first">Count the number of iterations it takes to stop.</p>
+<blockquote>
+<div><p>Our program currently <strong>prints</strong> the values in the sequence until it stops at 1.  Remember that one of the interesting
+questions is <cite>How many items are in the sequence before stopping at 1?</cite>.  To determine this, we will need to count them.</p>
+<p>First, comment out (or delete) the print statements that currently exist.  Now we will need a local variable to keep track of the count.  It would make sense to call it <cite>count</cite>.  It will need to be initialized to 0 since before we begin the loop.</p>
+<p>Once inside the loop, we will need to update <tt class="docutils literal"><span class="pre">count</span></tt> by 1 (increment), so that we can keep track of the number of iterations.  It is very important that you put these statements in the right place.  Notice that the previous location of the print statements can be very helpful in determining the location.</p>
+<p>When the loop terminates (we get to 1), <strong>return</strong> the value of <tt class="docutils literal"><span class="pre">count</span></tt>.</p>
+<p>This demonstrates an important pattern of computation called a <strong>counter</strong> (note that it is
+a type of accumulator).
+The variable <tt class="docutils literal"><span class="pre">count</span></tt> is initialized to 0 and then incremented each time the
+loop body is executed. When the loop exits, <tt class="docutils literal"><span class="pre">count</span></tt> contains the result &#8212;
+the total number of times the loop body was executed.</p>
+<p>Since the function now returns a value, we will need to call the function inside of a print statement in order to see the result.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Repeat the call to <tt class="docutils literal"><span class="pre">seq3np1</span></tt> using a range of values, up to and including an upper bound.</p>
+<blockquote>
+<div><p>Now that we have a function that can return the number of iterations required to get to 1, we can use it to check a wide range of starting values.  In fact, instead of just doing one value at a time, we can call the function iteratively, each time passing in a new value.</p>
+<p>Create a simple for loop using a loop variable called <tt class="docutils literal"><span class="pre">start</span></tt> that provides values from 1 up to 50.  Call the <tt class="docutils literal"><span class="pre">seq3np1</span></tt> function once for each value of <tt class="docutils literal"><span class="pre">start</span></tt>.  Modify the print statement to also print the value of <tt class="docutils literal"><span class="pre">start</span></tt>.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Keep track of the maximum number of iterations.</p>
+<blockquote>
+<div><p>Scanning this list of results causes us to ask the following question: <cite>What is the longest sequence?</cite> The easiest way to compute this is to keep track of the largest count seen so far.  Each time we generate a new count, we check to see if it is larger than what we think is the largest.  If it is greater, we update our largest so far and go on to the next count.
+At the end of the process, the largest seen so far is the largest of all.</p>
+<p>Create a variable call <tt class="docutils literal"><span class="pre">maxSoFar</span></tt> and initialize it to zero.  Place this initialization outside the <strong>for loop</strong> so that it only happens once.  Now, inside the for loop, modify the code so that instead of printing the result of the <tt class="docutils literal"><span class="pre">seq3np1</span></tt> function, we save it in a variable, call it <tt class="docutils literal"><span class="pre">result</span></tt>.  Then we can check <tt class="docutils literal"><span class="pre">result</span></tt> to see if it is greater than <tt class="docutils literal"><span class="pre">maxSoFar</span></tt>.  If so, update <tt class="docutils literal"><span class="pre">maxSoFar</span></tt>.</p>
+</div></blockquote>
+</li>
+</ol>
+<p>Experiment with different ranges of starting values.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../Strings/strings.html" title="Strings"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../MoreAboutIteration/moreiteration.html" title="Iteration Revisited"
+             >previous</a> |</li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+          <li><a href="../MoreAboutIteration/moreiteration.html" >Iteration Revisited</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Brad Miller, David Ranum.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32029811-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>

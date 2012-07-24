@@ -1,0 +1,651 @@
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Modules and Getting Help &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/edu-python.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/simplemodal.js"></script>
+    <script type="text/javascript" src="../_static/jquery.textarea.js"></script>
+    <script type="text/javascript" src="../_static/edu-python.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.js"></script>
+    <script type="text/javascript" src="../_static/builtin.js"></script>
+    <script type="text/javascript" src="../_static/assess.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../index.html" />
+    <link rel="next" title="Plotting a sine Wave" href="../Labs/sinlab.html" />
+    <link rel="prev" title="Hello, Little Turtles!" href="../PythonTurtle/helloturtle.html" />
+<script type="text/javascript"> 
+eBookConfig = {}
+eBookConfig.host = 'http://141.140.167.226:8000' ? 'http://141.140.167.226:8000' : 'http://127.0.0.1:8000',
+eBookConfig.app = eBookConfig.host+'/courselib',
+eBookConfig.ajaxURL = eBookConfig.app+'/ajax/',
+eBookConfig.course = 'COMP123F12-01',
+eBookConfig.logLevel = 10,
+eBookConfig.loginRequired = true
+</script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../Labs/sinlab.html" title="Plotting a sine Wave"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../PythonTurtle/helloturtle.html" title="Hello, Little Turtles!"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Modules and Getting Help</a><ul>
+<li><a class="reference internal" href="#modules">Modules</a></li>
+<li><a class="reference internal" href="#more-about-using-modules">More About Using Modules</a></li>
+<li><a class="reference internal" href="#the-math-module">The <cite>math</cite> module</a></li>
+<li><a class="reference internal" href="#the-random-module">The <cite>random</cite> module</a></li>
+<li><a class="reference internal" href="#glossary">Glossary</a></li>
+<li><a class="reference internal" href="#exercises">Exercises</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../PythonTurtle/helloturtle.html"
+                        title="previous chapter">Hello, Little Turtles!</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../Labs/sinlab.html"
+                        title="next chapter">Plotting a sine Wave</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/PythonModules/modules.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul><!--<div id="runestonebox">
+  <h3>Runestone Links</h3>
+  <ul>
+    <li>
+      <a href="https://github.com/bnmnetp/runestone/issues/new">Report a Problem</a>
+    </li>
+    <li>
+      <a href="http://runestoneinteractive.org">About Runestone</a>
+    </li>
+    <li>
+      <a href="/courselib/admin/index">Instructors Page</a>
+    </li>
+  </ul>
+</div>
+-->
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="modules-and-getting-help">
+<h1>Modules and Getting Help<a class="headerlink" href="#modules-and-getting-help" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="modules">
+<h2>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h2>
+<a id="inputvid_thumb" > <img src="../_static/modules.png" /></a>
+<div id="inputvid" class="video_popup" >
+<video controls  >
+    <source src="http://knuth.luther.edu/~pythonworks/thinkcsVideos/modules.mov" type="video/mp4"></source>
+    <source src="http://knuth.luther.edu/~pythonworks/thinkcsVideos/modules.webm" type="video/webm"></source>
+    No supported video types
+</video>
+</div>
+<script>
+   jQuery(function($) {
+      $('#inputvid_thumb').click(function(e) {
+         $('#inputvid').show();
+         $('#inputvid_thumb').hide();
+         logBookEvent({'event':'video','act':'play','div_id': 'inputvid'});
+         // Log the run event
+      });
+   });
+</script>
+<p>A <strong>module</strong> is a file containing Python definitions and statements intended
+for use in other Python programs. There are many Python modules that come with
+Python as part of the <strong>standard library</strong>. We have already used one of these quite extensively,
+the <tt class="docutils literal"><span class="pre">turtle</span></tt> module.  Recall that once we import the module, we can use things
+that are defined inside.</p>
+
+<div id="chmod_01" >
+<textarea cols="50" rows="12" id="chmod_01_code" class="active_code">
+import turtle            # allows us to use the turtles library
+
+wn = turtle.Screen()     # creates a graphics window
+alex = turtle.Turtle()   # create a turtle named alex
+
+alex.forward(150)        # tell alex to move forward by 150 units
+alex.left(90)            # turn by 90 degrees
+alex.forward(75)         # complete the second side of a rectangle
+wn.exitonclick()
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chmod_01)</span> </p>
+<button onclick="runit('chmod_01',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chmod_01');">Save</button>
+<button class="ac_opt" onclick="requestCode('chmod_01');">Load</button>
+<br />
+
+<canvas id="chmod_01_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+</div>
+
+<p>Here we are using <tt class="docutils literal"><span class="pre">Screen</span></tt> and <tt class="docutils literal"><span class="pre">Turtle</span></tt>, both of which are defined inside the turtle module.</p>
+<p>But what if no one had told us about turtle?  How would we know
+that it exists. How would we know what it can do for us? The answer is to ask for help and the best place to get
+help about the Python programming environment is to consult with the Python Documentation.</p>
+<p>The  <a class="reference external" href="http://docs.python.org/py3k/">Python Documentation</a> site for Python version 3 (the home page is shown below) is an extremely useful reference
+for all aspects of Python.
+The site contains
+a listing of all the standard modules that are available with Python
+(see <a class="reference external" href="http://docs.python.org/py3k/py-modindex.html">Global Module Index</a>).
+You will also see that there is a <a class="reference external" href="http://docs.python.org/py3k/reference/index.html">Language Reference</a>
+and a <a class="reference external" href="http://docs.python.org/py3k/tutorial/index.html">Tutorial</a>, as well as
+installation instructions, how-tos, and frequently asked questions.  We encourage you to become familiar with this site
+and to use it often.</p>
+<img alt="../_images/pythondocmedium.png" src="../_images/pythondocmedium.png" />
+<p>If you have not done so already, take a look at the Global Module Index.  Here you will see an alphabetical listing of all
+the modules that are available as part of the standard library.  Find the turtle module.</p>
+<img alt="../_images/moduleindexmedium.png" src="../_images/moduleindexmedium.png" />
+<img alt="../_images/turtlemodmedium.png" src="../_images/turtlemodmedium.png" />
+<p>You can see that all the turtle functionality that we have talked about is there.  However, there is so much more.  Take some time to read through and familiarize yourself with some of the other things that turtles can do.</p>
+<div class="admonition-note-python-modules-and-limitations-with-activecode admonition">
+<p class="first admonition-title">Note: Python modules and limitations with activecode</p>
+<p>Throughout the chapters of this book, activecode windows allow you to practice the Python that you are learning.
+We mentioned in the first chapter that programming is normally done using some type of development
+environment and that the
+activecode used here was strictly to help us learn.  It is not the way we write production programs.</p>
+<p class="last">To that end, it is necessary to mention that many of the  modules available in standard Python
+will <strong>not</strong> work in the activecode environment.  In fact, only turtle, math, and random have been
+ported at this point.  If you wish to explore any
+additional modules, you will need to also explore using a more robust development environment.</p>
+</div>
+<p><strong>Check your understanding</strong></p>
+
+    <div id="question4_1_1">
+    <p>4.1.1: In Python a module is:</p>
+    <form name="question4_1_1_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="question4_1_1_opt_a" />
+    <label for= "question4_1_1_opt_a">  a) A file containing Python definitions and statements intended for use in other Python programs.</label><br />
+    
+    <input type="radio" name="group1" value="b" id="question4_1_1_opt_b" />
+    <label for= "question4_1_1_opt_b">  b) A separate block of code within a program.</label><br />
+    
+    <input type="radio" name="group1" value="c" id="question4_1_1_opt_c" />
+    <label for= "question4_1_1_opt_c">  c) One line of code in a program.</label><br />
+    
+    <input type="radio" name="group1" value="d" id="question4_1_1_opt_d" />
+    <label for= "question4_1_1_opt_d">  d) A file that contains documentation about functions in Python.</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('question4_1_1','a',['A module can be reused in different programs.', 'While a module is separate block of code, it is separate from a program.', 'The call to a feature within a module may be one line of code, but modules are usually multiple lines of code separate from the program', 'Each module has its own documentation, but the module itself is more than just documentation.'])"/> 
+    </form>
+    <div id="question4_1_1_feedback">
+    </div>
+    </div>
+    
+    <div id="question4_1_2">
+    <p>4.1.2: To find out information on the standard modules available with Python you should:</p>
+    <form name="question4_1_2_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="question4_1_2_opt_a" />
+    <label for= "question4_1_2_opt_a">  a) Go to the Python Documentation site.</label><br />
+    
+    <input type="radio" name="group1" value="b" id="question4_1_2_opt_b" />
+    <label for= "question4_1_2_opt_b">  b) Look at the import statements of the program you are working with or writing.</label><br />
+    
+    <input type="radio" name="group1" value="c" id="question4_1_2_opt_c" />
+    <label for= "question4_1_2_opt_c">  c) Ask the professor</label><br />
+    
+    <input type="radio" name="group1" value="d" id="question4_1_2_opt_d" />
+    <label for= "question4_1_2_opt_d">  d) Look in this textbook.</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('question4_1_2','a',['The site contains a listing of all the standard modules that are available with Python.', 'The import statements only tell you what modules are currently being used in the program, not how to use them or what they contain.', 'While the professor knows a subset of the modules available in Python, chances are the professor will have to look up the available modules just like you would.', 'This book only explains a portion of the modules available.  For a full listing you should look elsewhere.'])"/> 
+    </form>
+    <div id="question4_1_2_feedback">
+    </div>
+    </div>
+    
+    <div id="question4_1_3">
+    <p>4.1.3: True / False:  All standard Python modules will work in activecode.</p>
+    <form name="question4_1_3_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="question4_1_3_opt_a" />
+    <label for= "question4_1_3_opt_a">  a) True</label><br />
+    
+    <input type="radio" name="group1" value="b" id="question4_1_3_opt_b" />
+    <label for= "question4_1_3_opt_b">  b) False</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('question4_1_3','b',['Only turtle, math, and random have been ported to work in activecode at this time.', 'Only turtle, math, and random have been ported to work in activecode at this time.'])"/> 
+    </form>
+    <div id="question4_1_3_feedback">
+    </div>
+    </div>
+    </div>
+<div class="section" id="more-about-using-modules">
+<h2>More About Using Modules<a class="headerlink" href="#more-about-using-modules" title="Permalink to this headline">¶</a></h2>
+<p>Before we move on to exploring other modules, we should say a bit more about what modules are and how we
+typically use them.  One of the most important things to realize about modules is the fact that they are data objects, just
+like any other data in Python.  Module objects simply contain other Python elements.</p>
+<p>The first thing we need to do when we wish to use a module is perform an <tt class="docutils literal"><span class="pre">import</span></tt>.  In the example above, the statement
+<tt class="docutils literal"><span class="pre">import</span> <span class="pre">turtle</span></tt> creates a new name, <tt class="docutils literal"><span class="pre">turtle</span></tt> and makes it refer to a <cite>module object</cite>.  This looks very much like
+the reference diagrams we saw earlier for simple variables.</p>
+<img alt="../_images/modreference.png" src="../_images/modreference.png" />
+<p>In order to use something contained in a module, we use the <cite>dot</cite> notation, providing the module name and the specific item joined together with a &#8220;dot&#8221;.  For example, to use the <tt class="docutils literal"><span class="pre">Turtle</span></tt> class, we say <tt class="docutils literal"><span class="pre">turtle.Turtle</span></tt>.  You should read
+this as: &#8220;In the module turtle, access the Python element called Turtle&#8221;.</p>
+<p>We will now turn our attention to a few other modules that you might find useful.</p>
+<a id="randmodvid_thumb" > <img src="../_static/mathrandommodule.png" /></a>
+<div id="randmodvid" class="video_popup" >
+<video controls  >
+    <source src="http://knuth.luther.edu/~pythonworks/thinkcsVideos/mathrandommodule.mov" type="video/mp4"></source>
+    <source src="http://knuth.luther.edu/~pythonworks/thinkcsVideos/mathrandommodule.webm" type="video/webm"></source>
+    No supported video types
+</video>
+</div>
+<script>
+   jQuery(function($) {
+      $('#randmodvid_thumb').click(function(e) {
+         $('#randmodvid').show();
+         $('#randmodvid_thumb').hide();
+         logBookEvent({'event':'video','act':'play','div_id': 'randmodvid'});
+         // Log the run event
+      });
+   });
+</script>
+</div>
+<div class="section" id="the-math-module">
+<h2>The <cite>math</cite> module<a class="headerlink" href="#the-math-module" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">math</span></tt> module contains the kinds of mathematical functions you&#8217;d typically find on your
+calculator and some mathematical constants
+like <cite>pi</cite> and <cite>e</cite>.
+As we noted above, when we <tt class="docutils literal"><span class="pre">import</span> <span class="pre">math</span></tt>, we create a reference to a module object that contains these elements.</p>
+<img alt="../_images/mathmod.png" src="../_images/mathmod.png" />
+<p>Here are some items from the math module in action.  If you want more information, you can check out the
+<a class="reference external" href="http://docs.python.org/py3k/library/math.html#module-math">Math Module</a> Python Documentation.</p>
+
+<div id="chmodule_02" >
+<textarea cols="50" rows="12" id="chmodule_02_code" class="active_code">
+import math
+
+print(math.pi)
+print(math.e)
+
+print(math.sqrt(2.0))
+
+print(math.sin(math.radians(90)))   # sin of 90 degrees
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chmodule_02)</span> </p>
+<button onclick="runit('chmodule_02',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chmodule_02');">Save</button>
+<button class="ac_opt" onclick="requestCode('chmodule_02');">Load</button>
+<br />
+
+<canvas id="chmodule_02_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chmodule_02_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>Notice another difference between this module and our use of <tt class="docutils literal"><span class="pre">turtle</span></tt>.
+In  <tt class="docutils literal"><span class="pre">turtle</span></tt> we create objects (either <tt class="docutils literal"><span class="pre">Turtle</span></tt> or <tt class="docutils literal"><span class="pre">Screen</span></tt>) and call methods on those objects.  Remember that
+a turtle is a data object (recall <tt class="docutils literal"><span class="pre">alex</span></tt> and <tt class="docutils literal"><span class="pre">tess</span></tt>).  We need to create one in order to use it.  When we say
+<tt class="docutils literal"><span class="pre">alex</span> <span class="pre">=</span> <span class="pre">turtle.Turtle()</span></tt>, we are calling the constructor for the Turtle class which returns a single turtle object.</p>
+<p>Mathematical functions do not need to be constructed.  They simply
+perform a task.
+They are all housed together in a module called <cite>math</cite>.  Once we have imported the math module, anything defined there
+can be used in our program.  Notice that we always use the name of the module followed by a <cite>dot</cite> followed by the
+specific item form the module (<tt class="docutils literal"><span class="pre">math.sqrt</span></tt>).  You can think of this as lastname.firstname where the lastname is the module
+family and the firstname is the individual entry in the module.</p>
+<p>If you have not done so already, take a look at the documentation
+for the math module.</p>
+<p><strong>Check your understanding</strong></p>
+
+    <div id="question4_2_1">
+    <p>4.2.1: Which statement allows you to use the math module in your program?</p>
+    <form name="question4_2_1_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="question4_2_1_opt_a" />
+    <label for= "question4_2_1_opt_a">  a) import math</label><br />
+    
+    <input type="radio" name="group1" value="b" id="question4_2_1_opt_b" />
+    <label for= "question4_2_1_opt_b">  b) include math</label><br />
+    
+    <input type="radio" name="group1" value="c" id="question4_2_1_opt_c" />
+    <label for= "question4_2_1_opt_c">  c) use math</label><br />
+    
+    <input type="radio" name="group1" value="d" id="question4_2_1_opt_d" />
+    <label for= "question4_2_1_opt_d">  d) You don’t need a statement.  You can always use the math module</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('question4_2_1','a',['The module must be imported before you can use anything declared inside the module.', 'The correct term is not include, but you are close.', 'You will be using parts of the module, but that is not the right term.', 'You cannot use a Python module without a statement at the top of your program that explicitly tells Python you want to use the module.'])"/> 
+    </form>
+    <div id="question4_2_1_feedback">
+    </div>
+    </div>
+    </div>
+<div class="section" id="the-random-module">
+<h2>The <cite>random</cite> module<a class="headerlink" href="#the-random-module" title="Permalink to this headline">¶</a></h2>
+<p>We often want to use <strong>random numbers</strong> in programs.  Here are a few typical uses:</p>
+<ul class="simple">
+<li>To play a game of chance where the computer needs to throw some dice, pick a number, or flip a coin,</li>
+<li>To shuffle a deck of playing cards randomly,</li>
+<li>To randomly allow a new enemy spaceship to appear and shoot at you,</li>
+<li>To simulate possible rainfall when we make a computerized model for
+estimating the environmental impact of building a dam,</li>
+<li>For encrypting your banking session on the Internet.</li>
+</ul>
+<p>Python provides a module <tt class="docutils literal"><span class="pre">random</span></tt> that helps with tasks like this.  You can
+take a look at it in the documentation.  Here are the key things we can do with it.</p>
+
+<div id="chmodule_rand" >
+<textarea cols="50" rows="12" id="chmodule_rand_code" class="active_code">
+import random
+
+prob = random.random()
+print(prob)
+
+diceThrow = random.randrange(1,7)       # return an int, one of 1,2,3,4,5,6
+print(diceThrow)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chmodule_rand)</span> </p>
+<button onclick="runit('chmodule_rand',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chmodule_rand');">Save</button>
+<button class="ac_opt" onclick="requestCode('chmodule_rand');">Load</button>
+<br />
+
+<canvas id="chmodule_rand_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chmodule_rand_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>Press the run button a number of times.  Note that the values change each time.  These are random numbers.</p>
+<p>The <tt class="docutils literal"><span class="pre">randrange</span></tt> function generates an integer between its lower and upper
+argument, using the same semantics as <tt class="docutils literal"><span class="pre">range</span></tt> &#8212; so the lower bound is included, but
+the upper bound is excluded.   All the values have an equal probability of occurring
+(i.e. the results are <em>uniformly</em> distributed).</p>
+<p>The <tt class="docutils literal"><span class="pre">random()</span></tt> function returns a floating point number in the range [0.0, 1.0) &#8212; the
+square bracket means &#8220;closed interval on the left&#8221; and the round parenthesis means
+&#8220;open interval on the right&#8221;.  In other words, 0.0 is possible, but all returned
+numbers will be strictly less than 1.0.  It is usual to <em>scale</em> the results after
+calling this method, to get them into a range suitable for your application.</p>
+<p>In the
+case shown here, we&#8217;ve converted the result of the method call to a number in
+the range [0.0, 5.0).  Once more, these are uniformly distributed numbers &#8212; numbers
+close to 0 are just as likely to occur as numbers close to 0.5, or numbers close to 1.0.
+If you continue to press the run button you will see random values between 0.0 and up to but not including 5.0.</p>
+
+<div id="chmodule_rand2" >
+<textarea cols="50" rows="12" id="chmodule_rand2_code" class="active_code">
+import random
+
+prob = random.random()
+result = prob * 5
+print(result)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chmodule_rand2)</span> </p>
+<button onclick="runit('chmodule_rand2',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chmodule_rand2');">Save</button>
+<button class="ac_opt" onclick="requestCode('chmodule_rand2');">Load</button>
+<br />
+
+<canvas id="chmodule_rand2_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chmodule_rand2_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p id="index-0">It is important to note that
+random number generators are based on a <strong>deterministic</strong> algorithm &#8212; repeatable and predictable.
+So they&#8217;re called <strong>pseudo-random</strong> generators &#8212; they are not genuinely random.
+They start with a <em>seed</em> value. Each time you ask for another random number, you&#8217;ll get
+one based on the current seed attribute, and the state of the seed (which is one
+of the attributes of the generator) will be updated.  The good news is that each time you run your program, the seed value
+is likely different meaning that even though the random numbers are being created algorithmically, you will likely
+get random behavior each time you execute.</p>
+<div class="admonition-lab admonition">
+<p class="first admonition-title">Lab</p>
+<ul class="last simple">
+<li><a class="reference external" href="sinlab.html">Sine Wave</a> In this guided lab exercise we will have the turtle plot a sine wave.</li>
+</ul>
+</div>
+<p><strong>Check your understanding</strong></p>
+
+    <div id="question4_4_1">
+    <p>4.4.1: Which of the following is the correct way to reference the value pi within the math module.   Assume you have already imported the math module.</p>
+    <form name="question4_4_1_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="question4_4_1_opt_a" />
+    <label for= "question4_4_1_opt_a">  a) math.pi</label><br />
+    
+    <input type="radio" name="group1" value="b" id="question4_4_1_opt_b" />
+    <label for= "question4_4_1_opt_b">  b) math(pi)</label><br />
+    
+    <input type="radio" name="group1" value="c" id="question4_4_1_opt_c" />
+    <label for= "question4_4_1_opt_c">  c) pi.math</label><br />
+    
+    <input type="radio" name="group1" value="d" id="question4_4_1_opt_d" />
+    <label for= "question4_4_1_opt_d">  d) math->pi</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('question4_4_1','a',['To invoke or reference something contained in a module you use the dot (.) notation.', 'This is the syntax for calling a function, not referencing an item in a module.', 'The module name must come first when accessing values and functions with a module.', 'The -> notation is not used in Python.'])"/> 
+    </form>
+    <div id="question4_4_1_feedback">
+    </div>
+    </div>
+    
+    <div id="question4_4_2">
+    <p>4.4.2: Which module would you most likely use if you were writing a function to simulate rolling dice?</p>
+    <form name="question4_4_2_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="question4_4_2_opt_a" />
+    <label for= "question4_4_2_opt_a">  a) the math module</label><br />
+    
+    <input type="radio" name="group1" value="b" id="question4_4_2_opt_b" />
+    <label for= "question4_4_2_opt_b">  b) the random module</label><br />
+    
+    <input type="radio" name="group1" value="c" id="question4_4_2_opt_c" />
+    <label for= "question4_4_2_opt_c">  c) the turtle module</label><br />
+    
+    <input type="radio" name="group1" value="d" id="question4_4_2_opt_d" />
+    <label for= "question4_4_2_opt_d">  d) the game module</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('question4_4_2','b',['While you might want to use the math module for other numerical computations in your program, it does not contain functions that are likely to help you simulate a dice roll.', 'You would likely call the function random.randrange.', 'The turtle module, while producing interesting graphics, is unlikely to help you here.', 'Python does not have a game module.'])"/> 
+    </form>
+    <div id="question4_4_2_feedback">
+    </div>
+    </div>
+    
+    <div id="question4_4_3">
+    <p>4.4.3: The correct code to generate a random number between 1 and 100 (inclusive) is:</p>
+    <form name="question4_4_3_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="question4_4_3_opt_a" />
+    <label for= "question4_4_3_opt_a">  a) prob = random.randrange(1, 101)</label><br />
+    
+    <input type="radio" name="group1" value="b" id="question4_4_3_opt_b" />
+    <label for= "question4_4_3_opt_b">  b) prob = random.randrange(1, 100)</label><br />
+    
+    <input type="radio" name="group1" value="c" id="question4_4_3_opt_c" />
+    <label for= "question4_4_3_opt_c">  c) prob = random.randrange(0, 101)</label><br />
+    
+    <input type="radio" name="group1" value="d" id="question4_4_3_opt_d" />
+    <label for= "question4_4_3_opt_d">  d) prob = random.randrange(0, 100)</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('question4_4_3','a',['This will generate a number between 1 and 101, but does not include 101.', 'This will generate a number between 1 and 100, but does not include 100.  The highest value generated will be 99.', 'This will generate a number between 0 and 100.  The lowest value generated is 0.  The highest value generated will be 100.', 'This will generate a number between 0 and 100, but does not include 100.  The lowest value generated is 0 and the highest value generated will be 99.'])"/> 
+    </form>
+    <div id="question4_4_3_feedback">
+    </div>
+    </div>
+    
+    <div id="question4_4_4">
+    <p>4.4.4: One reason that lotteries don’t use computers to generate random numbers is:</p>
+    <form name="question4_4_4_form" method="get" action="" onsubmit="return false;">
+    
+    <input type="radio" name="group1" value="a" id="question4_4_4_opt_a" />
+    <label for= "question4_4_4_opt_a">  a) There is no computer on the stage for the drawing.</label><br />
+    
+    <input type="radio" name="group1" value="b" id="question4_4_4_opt_b" />
+    <label for= "question4_4_4_opt_b">  b) Because computers don’t really generate random numbers, they generate pseudo-random numbers.</label><br />
+    
+    <input type="radio" name="group1" value="c" id="question4_4_4_opt_c" />
+    <label for= "question4_4_4_opt_c">  c) They would just generate the same numbers over and over again.</label><br />
+    
+    <input type="radio" name="group1" value="d" id="question4_4_4_opt_d" />
+    <label for= "question4_4_4_opt_d">  d) The computer can’t tell what values were already selected, so it might generate all 5’s instead of 5 unique numbers.</label><br />
+    
+    <input type="button" name="do answer" 
+           value="Check Me" onclick="checkMCMF('question4_4_4','b',['They could easily put one there.', 'Computers generate random numbers using a deterministic algorithm.  This means that if anyone ever found out the algorithm they could accurately predict the next value to be generated and would always win the lottery.', 'This might happen if the same seed value was used over and over again, but they could make sure this was not the case.', 'While a programmer would need to ensure the computer did not select the same number more than once, it is easy to ensure this.'])"/> 
+    </form>
+    <div id="question4_4_4_feedback">
+    </div>
+    </div>
+    </div>
+<div class="section" id="glossary">
+<h2>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h2>
+<dl class="glossary docutils">
+<dt id="term-deterministic">deterministic</dt>
+<dd>A process that is repeatable and predictable.</dd>
+<dt id="term-documentation">documentation</dt>
+<dd>A place where you can go to get detailed information about aspects of your
+programming language.</dd>
+<dt id="term-module">module</dt>
+<dd>A file containing Python definitions and statements intended for use in
+other Python programs. The contents of a module are made available to
+the other program by using the <em>import</em> statement.</dd>
+<dt id="term-pseudo-random-number">pseudo-random number</dt>
+<dd>A number that is not genuinely random but is instead created algorithmically.</dd>
+<dt id="term-random-number">random number</dt>
+<dd>A number that is generated in such a way as to exhibit statistical randomness.</dd>
+<dt id="term-random-number-generator">random number generator</dt>
+<dd>A function that will provide you with random numbers, usually between 0 and 1.</dd>
+<dt id="term-standard-library">standard library</dt>
+<dd>A collection of modules that are part of the normal installation of Python.</dd>
+</dl>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../Labs/sinlab.html" title="Plotting a sine Wave"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../PythonTurtle/helloturtle.html" title="Hello, Little Turtles!"
+             >previous</a> |</li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Brad Miller, David Ranum.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32029811-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>

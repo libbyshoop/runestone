@@ -1,0 +1,2384 @@
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Lists &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/edu-python.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/simplemodal.js"></script>
+    <script type="text/javascript" src="../_static/jquery.textarea.js"></script>
+    <script type="text/javascript" src="../_static/edu-python.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.js"></script>
+    <script type="text/javascript" src="../_static/builtin.js"></script>
+    <script type="text/javascript" src="../_static/assess.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../index.html" />
+    <link rel="next" title="Working with Data Files" href="../Files/files.html" />
+    <link rel="prev" title="Strings" href="../Strings/strings.html" />
+<script type="text/javascript"> 
+eBookConfig = {}
+eBookConfig.host = 'http://141.140.167.226:8000' ? 'http://141.140.167.226:8000' : 'http://127.0.0.1:8000',
+eBookConfig.app = eBookConfig.host+'/courselib',
+eBookConfig.ajaxURL = eBookConfig.app+'/ajax/',
+eBookConfig.course = 'COMP123F12-01',
+eBookConfig.logLevel = 10,
+eBookConfig.loginRequired = true
+</script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../Files/files.html" title="Working with Data Files"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../Strings/strings.html" title="Strings"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Lists</a><ul>
+<li><a class="reference internal" href="#list-values">List Values</a></li>
+<li><a class="reference internal" href="#list-length">List Length</a></li>
+<li><a class="reference internal" href="#id1">Accessing Elements</a></li>
+<li><a class="reference internal" href="#list-membership">List Membership</a></li>
+<li><a class="reference internal" href="#concatenation-and-repetition">Concatenation and Repetition</a></li>
+<li><a class="reference internal" href="#list-slices">List Slices</a></li>
+<li><a class="reference internal" href="#lists-are-mutable">Lists are Mutable</a></li>
+<li><a class="reference internal" href="#list-deletion">List Deletion</a></li>
+<li><a class="reference internal" href="#objects-and-references">Objects and References</a></li>
+<li><a class="reference internal" href="#aliasing">Aliasing</a></li>
+<li><a class="reference internal" href="#cloning-lists">Cloning Lists</a></li>
+<li><a class="reference internal" href="#repetition-and-references">Repetition and References</a></li>
+<li><a class="reference internal" href="#list-methods">List Methods</a></li>
+<li><a class="reference internal" href="#the-return-of-l-systems">The Return of L-Systems</a></li>
+<li><a class="reference internal" href="#append-versus-concatenate">Append versus Concatenate</a></li>
+<li><a class="reference internal" href="#lists-and-for-loops">Lists and <tt class="docutils literal"><span class="pre">for</span></tt> loops</a></li>
+<li><a class="reference internal" href="#using-lists-as-parameters">Using Lists as Parameters</a></li>
+<li><a class="reference internal" href="#pure-functions">Pure Functions</a></li>
+<li><a class="reference internal" href="#which-is-better">Which is Better?</a></li>
+<li><a class="reference internal" href="#functions-that-produce-lists">Functions that Produce Lists</a></li>
+<li><a class="reference internal" href="#list-comprehensions">List Comprehensions</a></li>
+<li><a class="reference internal" href="#nested-lists">Nested Lists</a></li>
+<li><a class="reference internal" href="#strings-and-lists">Strings and Lists</a></li>
+<li><a class="reference internal" href="#list-type-conversion-function"><tt class="docutils literal"><span class="pre">list</span></tt> Type Conversion Function</a></li>
+<li><a class="reference internal" href="#tuples-and-mutability">Tuples and Mutability</a></li>
+<li><a class="reference internal" href="#tuple-assignment">Tuple Assignment</a></li>
+<li><a class="reference internal" href="#tuples-as-return-values">Tuples as Return Values</a></li>
+<li><a class="reference internal" href="#glossary">Glossary</a></li>
+<li><a class="reference internal" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../Strings/strings.html"
+                        title="previous chapter">Strings</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../Files/files.html"
+                        title="next chapter">Working with Data Files</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/Lists/lists.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul><!--<div id="runestonebox">
+  <h3>Runestone Links</h3>
+  <ul>
+    <li>
+      <a href="https://github.com/bnmnetp/runestone/issues/new">Report a Problem</a>
+    </li>
+    <li>
+      <a href="http://runestoneinteractive.org">About Runestone</a>
+    </li>
+    <li>
+      <a href="/courselib/admin/index">Instructors Page</a>
+    </li>
+  </ul>
+</div>
+-->
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="lists">
+<span id="index-0"></span><h1>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h1>
+<p>A <strong>list</strong> is a sequential collection of Python data values, where each value is identified by an
+index. The values that make up a list are called its <strong>elements</strong>. Lists are
+similar to strings, which are ordered collections of characters, except that the
+elements of a list can have any type and for any one list, the items can be of different types.</p>
+<div class="section" id="list-values">
+<span id="index-1"></span><h2>List Values<a class="headerlink" href="#list-values" title="Permalink to this headline">¶</a></h2>
+<p>There are several ways to create a new list.  The simplest is to enclose the
+elements in square brackets ( <tt class="docutils literal"><span class="pre">[</span></tt> and <tt class="docutils literal"><span class="pre">]</span></tt>).</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
+<span class="p">[</span><span class="s">&quot;spam&quot;</span><span class="p">,</span> <span class="s">&quot;bungee&quot;</span><span class="p">,</span> <span class="s">&quot;swallow&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The first example is a list of four integers. The second is a list of three
+strings. As we said above, the elements of a list don&#8217;t have to be the same type.  The following
+list contains a string, a float, an integer, and
+another list.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="s">&quot;hello&quot;</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>A list within another list is said to be <strong>nested</strong> and the inner list is often called a <strong>sublist</strong>.
+Finally, there is a special list that contains no elements. It is called the
+empty list, and is denoted <tt class="docutils literal"><span class="pre">[]</span></tt>.</p>
+<p>As you would expect, we can also assign list values to variables and pass lists as parameters to functions.</p>
+
+<div id="chp09_01" >
+<textarea cols="50" rows="12" id="chp09_01_code" class="active_code">
+vocabulary = ["iteration", "selection", "control"]
+numbers = [17, 123]
+empty = []
+mixedlist = ["hello", 2.0, 5*2, [10, 20]]
+
+print(numbers)
+print(mixedlist)
+newlist = [ numbers, vocabulary ]
+print(newlist)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chp09_01)</span> </p>
+<button onclick="runit('chp09_01',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chp09_01');">Save</button>
+<button class="ac_opt" onclick="requestCode('chp09_01');">Load</button>
+<br />
+
+<canvas id="chp09_01_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chp09_01_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<span class="target" id="accessing-elements"></span></div>
+<div class="section" id="list-length">
+<span id="index-2"></span><h2>List Length<a class="headerlink" href="#list-length" title="Permalink to this headline">¶</a></h2>
+<p>As with strings, the function <tt class="docutils literal"><span class="pre">len</span></tt> returns the length of a list (the number
+of items in the list).  However, since lists can have items which are themselves lists, it important to note
+that <tt class="docutils literal"><span class="pre">len</span></tt> only returns the top-most length.  In other words, sublists are considered to be a single
+item when counting the length of the list.</p>
+
+<div id="chp09_01a" >
+<textarea cols="50" rows="12" id="chp09_01a_code" class="active_code">
+alist =  ["hello", 2.0, 5, [10, 20]]
+print(len(alist))
+print(len(['spam!', 1, ['Brie', 'Roquefort', 'Pol le Veq'], [1, 2, 3]]))
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chp09_01a)</span> </p>
+<button onclick="runit('chp09_01a',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chp09_01a');">Save</button>
+<button class="ac_opt" onclick="requestCode('chp09_01a');">Load</button>
+<br />
+
+<canvas id="chp09_01a_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chp09_01a_pre" class="active_out">
+
+</pre>
+
+</div>
+
+</div>
+<div class="section" id="id1">
+<h2>Accessing Elements<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>The syntax for accessing the elements of a list is the same as the syntax for
+accessing the characters of a string.  We use the index operator ( <tt class="docutils literal"><span class="pre">[]</span></tt> &#8211; not to
+be confused with an empty list). The expression inside the brackets specifies
+the index. Remember that the indices start at 0.  Any integer expression can be used
+as an index and as with strings, negative index values will locate items from the right instead
+of from the left.</p>
+
+<div id="chp09_02" >
+<textarea cols="50" rows="12" id="chp09_02_code" class="active_code">
+numbers = [17, 123, 87, 34, 66, 8398, 44]
+print(numbers[2])
+print(numbers[9-8])
+print(numbers[-2])
+print(numbers[len(numbers)-1]
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chp09_02)</span> </p>
+<button onclick="runit('chp09_02',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chp09_02');">Save</button>
+<button class="ac_opt" onclick="requestCode('chp09_02');">Load</button>
+<br />
+
+<canvas id="chp09_02_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chp09_02_pre" class="active_out">
+
+</pre>
+
+</div>
+
+</div>
+<div class="section" id="list-membership">
+<h2>List Membership<a class="headerlink" href="#list-membership" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">in</span></tt> and <tt class="docutils literal"><span class="pre">not</span> <span class="pre">in</span></tt> are boolean operators that test membership in a sequence. We
+used them previously with strings and they also work here.</p>
+
+<div id="chp09_4" >
+<textarea cols="50" rows="12" id="chp09_4_code" class="active_code">
+fruit = ["apple","orange","banana","cherry"]
+
+print("apple" in fruit)
+print("pear" in fruit)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chp09_4)</span> </p>
+<button onclick="runit('chp09_4',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chp09_4');">Save</button>
+<button class="ac_opt" onclick="requestCode('chp09_4');">Load</button>
+<br />
+
+<canvas id="chp09_4_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chp09_4_pre" class="active_out">
+
+</pre>
+
+</div>
+
+</div>
+<div class="section" id="concatenation-and-repetition">
+<h2>Concatenation and Repetition<a class="headerlink" href="#concatenation-and-repetition" title="Permalink to this headline">¶</a></h2>
+<p>Again, as with strings, the <tt class="docutils literal"><span class="pre">+</span></tt> operator concatenates lists.
+Similarly, the <tt class="docutils literal"><span class="pre">*</span></tt> operator repeats the items in a list a given number of times.</p>
+
+<div id="chp09_5" >
+<textarea cols="50" rows="12" id="chp09_5_code" class="active_code">
+fruit = ["apple","orange","banana","cherry"]
+print([1,2] + [3,4])
+print(fruit+[6,7,8,9])
+
+print([0] * 4)
+print([1,2,["hello","goodbye"]]*2)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chp09_5)</span> </p>
+<button onclick="runit('chp09_5',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chp09_5');">Save</button>
+<button class="ac_opt" onclick="requestCode('chp09_5');">Load</button>
+<br />
+
+<canvas id="chp09_5_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chp09_5_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>It is important to see that these operators create new lists from the elements of the operand lists.  If you concatenate a list with 2 items and a list with 4 items, you will get a new list with 6 items (not a list with two sublists).  Similarly, repetition of a list of 2 items 4 times will give a list with 8 items.</p>
+<p>One way for us to make this more clear is to run a part of this example in codelens.  As you step thru the code, you will see the variables being created and the lists that they refer to.  Pay particular attention to the <cite>id</cite> tag that is shown after the data type descriptor (<tt class="docutils literal"><span class="pre">list</span> <span class="pre">(id</span> <span class="pre">=</span> <span class="pre">12)</span></tt>).  The <strong>id</strong> in Python corresponds to a unique identifier for that particular object.  You can tell if you have different objects by comparing the ids.</p>
+
+<table border="1" id="pyOutputPane_chp09_concatid" class="pyOutputPane">
+<tr>
+<td valign="top">
+Source Code
+<br />
+
+<div id="pyCodeOutputDiv_chp09_concatid" class="pyCodeOutputDiv">
+<table id="pyCodeOutput_chp09_concatid" class="pyCodeOutput"></table>
+
+</div>
+
+<div id="vcrControls_chp09_concatid" class="vcrControls">
+  <button id="jmpFirstInstr_chp09_concatid", type="button">&lt;&lt; First</button>
+  <button id="jmpStepBack_chp09_concatid", type="button">&lt; Back</button>
+  Step <span id="curInstr_chp09_concatid">?</span> of <span id="totalInstrs_chp09_concatid">?</span>
+  <button id="jmpStepFwd_chp09_concatid", type="button">Forward &gt;</button>
+  <button id="jmpLastInstr_chp09_concatid", type="button">Last &gt;&gt;</button>
+
+  <p><span id="warningOutput_chp09_concatid" class="warningOutput"></span></p>
+</div>
+</td></tr>
+<tr>
+<td valign="top">
+
+<div id="dataViz_chp09_concatid"></div>
+
+</td>
+</tr>
+<tr>
+<td>
+<div id="errorOutput_chp09_concatid" class="errorOutput"></div>
+
+Program output:
+<br/>
+<pre id="pyStdout_chp09_concatid" class="active_out"></pre>
+</td>
+</tr>
+</table>
+<p class="cl_caption"><span class="ac_caption_text"> </span></p>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    myvis = new PythonTutor.Visualizer("fruit = [\"apple\",\"orange\",\"banana\",\"cherry\"]\nnumlist = [6,7]\nnewlist = fruit + numlist\nprint(newlist)\n\nzeros = [0] * 4\nprint(zeros)",[{"globals": {}, "stdout": "", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"fruit": ["LIST", 8, "apple", "orange", "banana", "cherry"]}, "stdout": "", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"fruit": ["LIST", 8, "apple", "orange", "banana", "cherry"], "numlist": ["LIST", 9, 6, 7]}, "stdout": "", "func_name": "<module>", "line": 3, "stack_locals": [], "event": "step_line"}, {"globals": {"newlist": ["LIST", 10, "apple", "orange", "banana", "cherry", 6, 7], "fruit": ["LIST", 8, "apple", "orange", "banana", "cherry"], "numlist": ["LIST", 9, 6, 7]}, "stdout": "", "func_name": "<module>", "line": 4, "stack_locals": [], "event": "step_line"}, {"globals": {"newlist": ["LIST", 10, "apple", "orange", "banana", "cherry", 6, 7], "fruit": ["LIST", 8, "apple", "orange", "banana", "cherry"], "numlist": ["LIST", 9, 6, 7]}, "stdout": "['apple', 'orange', 'banana', 'cherry', 6, 7]\n", "func_name": "<module>", "line": 6, "stack_locals": [], "event": "step_line"}, {"globals": {"newlist": ["LIST", 10, "apple", "orange", "banana", "cherry", 6, 7], "fruit": ["LIST", 8, "apple", "orange", "banana", "cherry"], "zeros": ["LIST", 11, 0, 0, 0, 0], "numlist": ["LIST", 9, 6, 7]}, "stdout": "['apple', 'orange', 'banana', 'cherry', 6, 7]\n", "func_name": "<module>", "line": 7, "stack_locals": [], "event": "step_line"}, {"globals": {"newlist": ["LIST", 10, "apple", "orange", "banana", "cherry", 6, 7], "fruit": ["LIST", 8, "apple", "orange", "banana", "cherry"], "zeros": ["LIST", 11, 0, 0, 0, 0], "numlist": ["LIST", 9, 6, 7]}, "stdout": "['apple', 'orange', 'banana', 'cherry', 6, 7]\n[0, 0, 0, 0]\n", "func_name": "<module>", "line": 7, "stack_locals": [], "event": "return"}],'chp09_concatid');
+});
+
+</script>
+<p>The statement <tt class="docutils literal"><span class="pre">newlist</span> <span class="pre">=</span> <span class="pre">fruit</span> <span class="pre">+</span> <span class="pre">numlist</span></tt> creates a new list object with the contents of the list <tt class="docutils literal"><span class="pre">fruit</span></tt> followed by the contents of the list <tt class="docutils literal"><span class="pre">numlist</span></tt>. We can see it is a new list by looking at the ids.  The id of <tt class="docutils literal"><span class="pre">newlist</span></tt> is not the same as the others.  It is extremely important to know whether you are creating a new list or just modifying an existing list.  Again, the ids can help.</p>
+<p>In Python, there is a built-in function that can be called on any object to return its unique id.  The function is appropriately called <tt class="docutils literal"><span class="pre">id</span></tt> and takes a single parameter, the object that you are interested in knowing about.  You can see in the example below that a real id is usually a very large integer value (corresponding to an address in memory).</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">id</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
+<span class="go">4300840544</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-slices">
+<h2>List Slices<a class="headerlink" href="#list-slices" title="Permalink to this headline">¶</a></h2>
+<p>The slice operation we saw with strings also work on lists.  Remember that the first index is the starting point for the slice and the second number is one index past the end of the slice (up to but not including that element).</p>
+
+<div id="chp09_6" >
+<textarea cols="50" rows="12" id="chp09_6_code" class="active_code">
+a_list = ['a', 'b', 'c', 'd', 'e', 'f']
+print(a_list[1:3])
+print(a_list[:4])
+print(a_list[3:])
+print(a_list[:])
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chp09_6)</span> </p>
+<button onclick="runit('chp09_6',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chp09_6');">Save</button>
+<button class="ac_opt" onclick="requestCode('chp09_6');">Load</button>
+<br />
+
+<canvas id="chp09_6_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chp09_6_pre" class="active_out">
+
+</pre>
+
+</div>
+
+</div>
+<div class="section" id="lists-are-mutable">
+<span id="index-3"></span><h2>Lists are Mutable<a class="headerlink" href="#lists-are-mutable" title="Permalink to this headline">¶</a></h2>
+<p>Unlike strings, lists are <strong>mutable</strong>.  This means we can change an item in a list by accessing
+it directly as part of the assignment statement. Using the indexing operator (square brackets) on the left side of an assignment, we can
+update one of the list items.</p>
+
+<div id="ch09_7" >
+<textarea cols="50" rows="12" id="ch09_7_code" class="active_code">
+fruit = ["banana", "apple", "cherry"]
+print(fruit)
+
+fruit[0] = "pear"
+fruit[-1] = "orange"
+print(fruit)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch09_7)</span> </p>
+<button onclick="runit('ch09_7',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch09_7');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch09_7');">Load</button>
+<br />
+
+<canvas id="ch09_7_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch09_7_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>An
+assignment to an element of a list is called <strong>item assignment</strong>. Item
+assignment does not work for strings.  Recall that strings are immutable.</p>
+<p>Here is the same example in codelens so that you can step thru the statements and see the changes to the list elements.</p>
+
+<table border="1" id="pyOutputPane_item_assign" class="pyOutputPane">
+<tr>
+<td valign="top">
+Source Code
+<br />
+
+<div id="pyCodeOutputDiv_item_assign" class="pyCodeOutputDiv">
+<table id="pyCodeOutput_item_assign" class="pyCodeOutput"></table>
+
+</div>
+
+<div id="vcrControls_item_assign" class="vcrControls">
+  <button id="jmpFirstInstr_item_assign", type="button">&lt;&lt; First</button>
+  <button id="jmpStepBack_item_assign", type="button">&lt; Back</button>
+  Step <span id="curInstr_item_assign">?</span> of <span id="totalInstrs_item_assign">?</span>
+  <button id="jmpStepFwd_item_assign", type="button">Forward &gt;</button>
+  <button id="jmpLastInstr_item_assign", type="button">Last &gt;&gt;</button>
+
+  <p><span id="warningOutput_item_assign" class="warningOutput"></span></p>
+</div>
+</td></tr>
+<tr>
+<td valign="top">
+
+<div id="dataViz_item_assign"></div>
+
+</td>
+</tr>
+<tr>
+<td>
+<div id="errorOutput_item_assign" class="errorOutput"></div>
+
+Program output:
+<br/>
+<pre id="pyStdout_item_assign" class="active_out"></pre>
+</td>
+</tr>
+</table>
+<p class="cl_caption"><span class="ac_caption_text"> </span></p>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    myvis = new PythonTutor.Visualizer("fruit = [\"banana\", \"apple\", \"cherry\"]\nprint(fruit)\n\nfruit[0] = \"pear\"\nfruit[-1] = \"orange\"\nprint(fruit)",[{"globals": {}, "stdout": "", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"fruit": ["LIST", 12, "banana", "apple", "cherry"]}, "stdout": "", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"fruit": ["LIST", 12, "banana", "apple", "cherry"]}, "stdout": "['banana', 'apple', 'cherry']\n", "func_name": "<module>", "line": 4, "stack_locals": [], "event": "step_line"}, {"globals": {"fruit": ["LIST", 12, "pear", "apple", "cherry"]}, "stdout": "['banana', 'apple', 'cherry']\n", "func_name": "<module>", "line": 5, "stack_locals": [], "event": "step_line"}, {"globals": {"fruit": ["LIST", 12, "pear", "apple", "orange"]}, "stdout": "['banana', 'apple', 'cherry']\n", "func_name": "<module>", "line": 6, "stack_locals": [], "event": "step_line"}, {"globals": {"fruit": ["LIST", 12, "pear", "apple", "orange"]}, "stdout": "['banana', 'apple', 'cherry']\n['pear', 'apple', 'orange']\n", "func_name": "<module>", "line": 6, "stack_locals": [], "event": "return"}],'item_assign');
+});
+
+</script>
+<p>By combining assignment with the slice operator we can update several elements at once.</p>
+
+<div id="ch09_8" >
+<textarea cols="50" rows="12" id="ch09_8_code" class="active_code">
+alist = ['a', 'b', 'c', 'd', 'e', 'f']
+alist[1:3] = ['x', 'y']
+print(alist)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch09_8)</span> </p>
+<button onclick="runit('ch09_8',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch09_8');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch09_8');">Load</button>
+<br />
+
+<canvas id="ch09_8_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch09_8_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>We can also remove elements from a list by assigning the empty list to them.</p>
+
+<div id="ch09_9" >
+<textarea cols="50" rows="12" id="ch09_9_code" class="active_code">
+alist = ['a', 'b', 'c', 'd', 'e', 'f']
+alist[1:3] = []
+print(alist)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch09_9)</span> </p>
+<button onclick="runit('ch09_9',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch09_9');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch09_9');">Load</button>
+<br />
+
+<canvas id="ch09_9_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch09_9_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>We can even insert elements into a list by squeezing them into an empty slice at the
+desired location.</p>
+
+<div id="ch09_10" >
+<textarea cols="50" rows="12" id="ch09_10_code" class="active_code">
+alist = ['a', 'd', 'f']
+alist[1:1] = ['b', 'c']
+print(alist)
+alist[4:4] = ['e']
+print(alist)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch09_10)</span> </p>
+<button onclick="runit('ch09_10',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch09_10');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch09_10');">Load</button>
+<br />
+
+<canvas id="ch09_10_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch09_10_pre" class="active_out">
+
+</pre>
+
+</div>
+
+</div>
+<div class="section" id="list-deletion">
+<span id="index-4"></span><h2>List Deletion<a class="headerlink" href="#list-deletion" title="Permalink to this headline">¶</a></h2>
+<p>Using slices to delete list elements can be awkward, and therefore error-prone.
+Python provides an alternative that is more readable.
+The <tt class="docutils literal"><span class="pre">del</span></tt> statement removes an element from a list by using its position.</p>
+
+<div id="ch09_11" >
+<textarea cols="50" rows="12" id="ch09_11_code" class="active_code">
+a = ['one', 'two', 'three']
+del a[1]
+print(a)
+
+alist = ['a', 'b', 'c', 'd', 'e', 'f']
+del alist[1:5]
+print(alist)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch09_11)</span> </p>
+<button onclick="runit('ch09_11',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch09_11');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch09_11');">Load</button>
+<br />
+
+<canvas id="ch09_11_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch09_11_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>As you might expect, <tt class="docutils literal"><span class="pre">del</span></tt> handles negative indices and causes a runtime
+error if the index is out of range.
+In addition, you can use a slice as an index for <tt class="docutils literal"><span class="pre">del</span></tt>.
+As usual, slices select all the elements up to, but not including, the second
+index.</p>
+</div>
+<div class="section" id="objects-and-references">
+<span id="index-5"></span><h2>Objects and References<a class="headerlink" href="#objects-and-references" title="Permalink to this headline">¶</a></h2>
+<p>If we execute these assignment statements,</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="s">&quot;banana&quot;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="s">&quot;banana&quot;</span>
+</pre></div>
+</div>
+<p>we know that <tt class="docutils literal"><span class="pre">a</span></tt> and <tt class="docutils literal"><span class="pre">b</span></tt> will refer to a string with the letters
+<tt class="docutils literal"><span class="pre">&quot;banana&quot;</span></tt>. But we don&#8217;t know yet whether they point to the <em>same</em> string.</p>
+<p>There are two possible ways the Python interpreter could arrange its internal states:</p>
+<img alt="List illustration" src="../_images/refdiag1.png" />
+<p>or</p>
+<img alt="List illustration" src="../_images/refdiag2.png" />
+<p>In one case, <tt class="docutils literal"><span class="pre">a</span></tt> and <tt class="docutils literal"><span class="pre">b</span></tt> refer to two different string objects that have the same
+value. In the second case, they refer to the same object. Remember that an object is something a variable can
+refer to.</p>
+<p>We already know that objects can be identified using their unique identifier.  We can also test whether two names refer to the same object using the <em>is</em>
+operator.  The <em>is</em> operator will return true if the two references are to the same object.  In other words, the references are the same.  Try our example from above.</p>
+
+<div id="chp09_is1" >
+<textarea cols="50" rows="12" id="chp09_is1_code" class="active_code">
+a = "banana"
+b = "banana"
+
+print(a is b)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chp09_is1)</span> </p>
+<button onclick="runit('chp09_is1',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chp09_is1');">Save</button>
+<button class="ac_opt" onclick="requestCode('chp09_is1');">Load</button>
+<br />
+
+<canvas id="chp09_is1_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chp09_is1_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>The answer is <tt class="docutils literal"><span class="pre">True</span></tt>.  This tells us that both <tt class="docutils literal"><span class="pre">a</span></tt> and <tt class="docutils literal"><span class="pre">b</span></tt> refer to the same object, and that it
+is the second of the two reference diagrams that describes the relationship.
+Since strings are <em>immutable</em>, Python optimizes resources by making two names
+that refer to the same string value refer to the same object.</p>
+<p>This is not the case with lists.  Consider the following example.  Here, <tt class="docutils literal"><span class="pre">a</span></tt> and <tt class="docutils literal"><span class="pre">b</span></tt> refer to two different lists, each of which happens to have the same element values.</p>
+
+<div id="chp09_is2" >
+<textarea cols="50" rows="12" id="chp09_is2_code" class="active_code">
+a = [81,82,83]
+b = [81,82,83]
+
+print(a is b)
+
+print(a == b)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chp09_is2)</span> </p>
+<button onclick="runit('chp09_is2',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chp09_is2');">Save</button>
+<button class="ac_opt" onclick="requestCode('chp09_is2');">Load</button>
+<br />
+
+<canvas id="chp09_is2_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chp09_is2_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>The reference diagram for this example looks like this:</p>
+<img alt="Reference diagram for equal different lists" src="../_images/refdiag3.png" />
+<p><tt class="docutils literal"><span class="pre">a</span></tt> and <tt class="docutils literal"><span class="pre">b</span></tt> have the same value but do not refer to the same object.</p>
+<p>There is one other important thing to notice about this reference diagram.  The variable <tt class="docutils literal"><span class="pre">a</span></tt> is a reference to a <strong>collection of references</strong>.  Those references actually refer to the integer values in the list.  In other words, a list is a collection of references to objects.  Interestingly, even though <tt class="docutils literal"><span class="pre">a</span></tt> and <tt class="docutils literal"><span class="pre">b</span></tt> are two different lists (two different collections of references), the integer object <tt class="docutils literal"><span class="pre">81</span></tt> is shared by both.  Like strings, integers are also immutable so Python optimizes and lets everyone share the same object.</p>
+<p>Here is the example in codelens.  Pay particular attention to the <cite>id</cite> values.</p>
+
+<table border="1" id="pyOutputPane_chp09_istrace" class="pyOutputPane">
+<tr>
+<td valign="top">
+Source Code
+<br />
+
+<div id="pyCodeOutputDiv_chp09_istrace" class="pyCodeOutputDiv">
+<table id="pyCodeOutput_chp09_istrace" class="pyCodeOutput"></table>
+
+</div>
+
+<div id="vcrControls_chp09_istrace" class="vcrControls">
+  <button id="jmpFirstInstr_chp09_istrace", type="button">&lt;&lt; First</button>
+  <button id="jmpStepBack_chp09_istrace", type="button">&lt; Back</button>
+  Step <span id="curInstr_chp09_istrace">?</span> of <span id="totalInstrs_chp09_istrace">?</span>
+  <button id="jmpStepFwd_chp09_istrace", type="button">Forward &gt;</button>
+  <button id="jmpLastInstr_chp09_istrace", type="button">Last &gt;&gt;</button>
+
+  <p><span id="warningOutput_chp09_istrace" class="warningOutput"></span></p>
+</div>
+</td></tr>
+<tr>
+<td valign="top">
+
+<div id="dataViz_chp09_istrace"></div>
+
+</td>
+</tr>
+<tr>
+<td>
+<div id="errorOutput_chp09_istrace" class="errorOutput"></div>
+
+Program output:
+<br/>
+<pre id="pyStdout_chp09_istrace" class="active_out"></pre>
+</td>
+</tr>
+</table>
+<p class="cl_caption"><span class="ac_caption_text"> </span></p>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    myvis = new PythonTutor.Visualizer("a = [81,82,83]\nb = [81,82,83]\n\nprint(a is b)\n\nprint(a == b)",[{"globals": {}, "stdout": "", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"a": ["LIST", 13, 81, 82, 83]}, "stdout": "", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"a": ["LIST", 13, 81, 82, 83], "b": ["LIST", 14, 81, 82, 83]}, "stdout": "", "func_name": "<module>", "line": 4, "stack_locals": [], "event": "step_line"}, {"globals": {"a": ["LIST", 13, 81, 82, 83], "b": ["LIST", 14, 81, 82, 83]}, "stdout": "False\n", "func_name": "<module>", "line": 6, "stack_locals": [], "event": "step_line"}, {"globals": {"a": ["LIST", 13, 81, 82, 83], "b": ["LIST", 14, 81, 82, 83]}, "stdout": "False\nTrue\n", "func_name": "<module>", "line": 6, "stack_locals": [], "event": "return"}],'chp09_istrace');
+});
+
+</script>
+</div>
+<div class="section" id="aliasing">
+<span id="index-6"></span><h2>Aliasing<a class="headerlink" href="#aliasing" title="Permalink to this headline">¶</a></h2>
+<p>Since variables refer to objects, if we assign one variable to another, both
+variables refer to the same object:</p>
+
+<div id="listalias1" >
+<textarea cols="50" rows="12" id="listalias1_code" class="active_code">
+a = [81, 82, 83]
+b = a
+print(a is b)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (listalias1)</span> </p>
+<button onclick="runit('listalias1',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('listalias1');">Save</button>
+<button class="ac_opt" onclick="requestCode('listalias1');">Load</button>
+<br />
+
+<canvas id="listalias1_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="listalias1_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>In this case, the reference diagram looks like this:</p>
+<img alt="State snapshot for multiple references (aliases) to a list" src="../_images/refdiag4.png" />
+<p>Because the same list has two different names, <tt class="docutils literal"><span class="pre">a</span></tt> and <tt class="docutils literal"><span class="pre">b</span></tt>, we say that it
+is <strong>aliased</strong>. Changes made with one alias affect the other.  In the codelens example below, the <cite>ids</cite> of <tt class="docutils literal"><span class="pre">a</span></tt> and <tt class="docutils literal"><span class="pre">b</span></tt> become the same after executing the assignment statement <tt class="docutils literal"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">a</span></tt>.</p>
+
+<table border="1" id="pyOutputPane_chp09_is3" class="pyOutputPane">
+<tr>
+<td valign="top">
+Source Code
+<br />
+
+<div id="pyCodeOutputDiv_chp09_is3" class="pyCodeOutputDiv">
+<table id="pyCodeOutput_chp09_is3" class="pyCodeOutput"></table>
+
+</div>
+
+<div id="vcrControls_chp09_is3" class="vcrControls">
+  <button id="jmpFirstInstr_chp09_is3", type="button">&lt;&lt; First</button>
+  <button id="jmpStepBack_chp09_is3", type="button">&lt; Back</button>
+  Step <span id="curInstr_chp09_is3">?</span> of <span id="totalInstrs_chp09_is3">?</span>
+  <button id="jmpStepFwd_chp09_is3", type="button">Forward &gt;</button>
+  <button id="jmpLastInstr_chp09_is3", type="button">Last &gt;&gt;</button>
+
+  <p><span id="warningOutput_chp09_is3" class="warningOutput"></span></p>
+</div>
+</td></tr>
+<tr>
+<td valign="top">
+
+<div id="dataViz_chp09_is3"></div>
+
+</td>
+</tr>
+<tr>
+<td>
+<div id="errorOutput_chp09_is3" class="errorOutput"></div>
+
+Program output:
+<br/>
+<pre id="pyStdout_chp09_is3" class="active_out"></pre>
+</td>
+</tr>
+</table>
+<p class="cl_caption"><span class="ac_caption_text"> </span></p>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    myvis = new PythonTutor.Visualizer("a = [81,82,83]\nb = [81,82,83]\n\nprint(a == b)\nprint(a is b)\n\nb = a\nprint(a == b)\nprint(a is b)\n\nb[0] = 5\nprint(a)",[{"globals": {}, "stdout": "", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"a": ["LIST", 15, 81, 82, 83]}, "stdout": "", "func_name": "<module>", "line": 2, "stack_locals": [], "event": "step_line"}, {"globals": {"a": ["LIST", 15, 81, 82, 83], "b": ["LIST", 13, 81, 82, 83]}, "stdout": "", "func_name": "<module>", "line": 4, "stack_locals": [], "event": "step_line"}, {"globals": {"a": ["LIST", 15, 81, 82, 83], "b": ["LIST", 13, 81, 82, 83]}, "stdout": "True\n", "func_name": "<module>", "line": 5, "stack_locals": [], "event": "step_line"}, {"globals": {"a": ["LIST", 15, 81, 82, 83], "b": ["LIST", 13, 81, 82, 83]}, "stdout": "True\nFalse\n", "func_name": "<module>", "line": 7, "stack_locals": [], "event": "step_line"}, {"globals": {"a": ["LIST", 15, 81, 82, 83], "b": ["LIST", 15, 81, 82, 83]}, "stdout": "True\nFalse\n", "func_name": "<module>", "line": 8, "stack_locals": [], "event": "step_line"}, {"globals": {"a": ["LIST", 15, 81, 82, 83], "b": ["LIST", 15, 81, 82, 83]}, "stdout": "True\nFalse\nTrue\n", "func_name": "<module>", "line": 9, "stack_locals": [], "event": "step_line"}, {"globals": {"a": ["LIST", 15, 81, 82, 83], "b": ["LIST", 15, 81, 82, 83]}, "stdout": "True\nFalse\nTrue\nTrue\n", "func_name": "<module>", "line": 11, "stack_locals": [], "event": "step_line"}, {"globals": {"a": ["LIST", 15, 5, 82, 83], "b": ["LIST", 15, 5, 82, 83]}, "stdout": "True\nFalse\nTrue\nTrue\n", "func_name": "<module>", "line": 12, "stack_locals": [], "event": "step_line"}, {"globals": {"a": ["LIST", 15, 5, 82, 83], "b": ["LIST", 15, 5, 82, 83]}, "stdout": "True\nFalse\nTrue\nTrue\n[5, 82, 83]\n", "func_name": "<module>", "line": 12, "stack_locals": [], "event": "return"}],'chp09_is3');
+});
+
+</script>
+<p>Although this behavior can be useful, it is sometimes unexpected or
+undesirable. In general, it is safer to avoid aliasing when you are working
+with mutable objects. Of course, for immutable objects, there&#8217;s no problem.
+That&#8217;s why Python is free to alias strings and integers when it sees an opportunity to
+economize.</p>
+</div>
+<div class="section" id="cloning-lists">
+<span id="index-7"></span><h2>Cloning Lists<a class="headerlink" href="#cloning-lists" title="Permalink to this headline">¶</a></h2>
+<p>If we want to modify a list and also keep a copy of the original, we need to be
+able to make a copy of the list itself, not just the reference. This process is
+sometimes called <strong>cloning</strong>, to avoid the ambiguity of the word copy.</p>
+<p>The easiest way to clone a list is to use the slice operator.</p>
+<p>Taking any slice of <tt class="docutils literal"><span class="pre">a</span></tt> creates a new list. In this case the slice happens to
+consist of the whole list.</p>
+
+<table border="1" id="pyOutputPane_chp09_is4" class="pyOutputPane">
+<tr>
+<td valign="top">
+Source Code
+<br />
+
+<div id="pyCodeOutputDiv_chp09_is4" class="pyCodeOutputDiv">
+<table id="pyCodeOutput_chp09_is4" class="pyCodeOutput"></table>
+
+</div>
+
+<div id="vcrControls_chp09_is4" class="vcrControls">
+  <button id="jmpFirstInstr_chp09_is4", type="button">&lt;&lt; First</button>
+  <button id="jmpStepBack_chp09_is4", type="button">&lt; Back</button>
+  Step <span id="curInstr_chp09_is4">?</span> of <span id="totalInstrs_chp09_is4">?</span>
+  <button id="jmpStepFwd_chp09_is4", type="button">Forward &gt;</button>
+  <button id="jmpLastInstr_chp09_is4", type="button">Last &gt;&gt;</button>
+
+  <p><span id="warningOutput_chp09_is4" class="warningOutput"></span></p>
+</div>
+</td></tr>
+<tr>
+<td valign="top">
+
+<div id="dataViz_chp09_is4"></div>
+
+</td>
+</tr>
+<tr>
+<td>
+<div id="errorOutput_chp09_is4" class="errorOutput"></div>
+
+Program output:
+<br/>
+<pre id="pyStdout_chp09_is4" class="active_out"></pre>
+</td>
+</tr>
+</table>
+<p class="cl_caption"><span class="ac_caption_text"> </span></p>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    myvis = new PythonTutor.Visualizer("a = [81,82,83]\n\nb = a[:]       # make a clone using slice\nprint(a == b)\nprint(a is b)\n\nb[0] = 5\n\nprint(a)\nprint(b)",[{"globals": {}, "stdout": "", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"a": ["LIST", 16, 81, 82, 83]}, "stdout": "", "func_name": "<module>", "line": 3, "stack_locals": [], "event": "step_line"}, {"globals": {"a": ["LIST", 16, 81, 82, 83], "b": ["LIST", 17, 81, 82, 83]}, "stdout": "", "func_name": "<module>", "line": 4, "stack_locals": [], "event": "step_line"}, {"globals": {"a": ["LIST", 16, 81, 82, 83], "b": ["LIST", 17, 81, 82, 83]}, "stdout": "True\n", "func_name": "<module>", "line": 5, "stack_locals": [], "event": "step_line"}, {"globals": {"a": ["LIST", 16, 81, 82, 83], "b": ["LIST", 17, 81, 82, 83]}, "stdout": "True\nFalse\n", "func_name": "<module>", "line": 7, "stack_locals": [], "event": "step_line"}, {"globals": {"a": ["LIST", 16, 81, 82, 83], "b": ["LIST", 17, 5, 82, 83]}, "stdout": "True\nFalse\n", "func_name": "<module>", "line": 9, "stack_locals": [], "event": "step_line"}, {"globals": {"a": ["LIST", 16, 81, 82, 83], "b": ["LIST", 17, 5, 82, 83]}, "stdout": "True\nFalse\n[81, 82, 83]\n", "func_name": "<module>", "line": 10, "stack_locals": [], "event": "step_line"}, {"globals": {"a": ["LIST", 16, 81, 82, 83], "b": ["LIST", 17, 5, 82, 83]}, "stdout": "True\nFalse\n[81, 82, 83]\n[5, 82, 83]\n", "func_name": "<module>", "line": 10, "stack_locals": [], "event": "return"}],'chp09_is4');
+});
+
+</script>
+<p>Now we are free to make changes to <tt class="docutils literal"><span class="pre">b</span></tt> without worrying about <tt class="docutils literal"><span class="pre">a</span></tt>.  Note also that the <cite>id</cite> of b is different from the <tt class="docutils literal"><span class="pre">id</span></tt> of a.  It is an entirely different list.</p>
+</div>
+<div class="section" id="repetition-and-references">
+<h2>Repetition and References<a class="headerlink" href="#repetition-and-references" title="Permalink to this headline">¶</a></h2>
+<p>We have already seen the repetition operator working on strings as well as lists.  For example,</p>
+
+<div id="repref1" >
+<textarea cols="50" rows="12" id="repref1_code" class="active_code">
+origlist = [45, 76, 34, 55]
+print(origlist*3)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (repref1)</span> </p>
+<button onclick="runit('repref1',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('repref1');">Save</button>
+<button class="ac_opt" onclick="requestCode('repref1');">Load</button>
+<br />
+
+<canvas id="repref1_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="repref1_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>With a list, the repetition operator creates copies of the references.  Although this may seem simple enough, when we allow a list to refer to another list, a subtle problem can arise.</p>
+<p>Consider the following extension on the previous example.</p>
+
+<div id="repref2" >
+<textarea cols="50" rows="12" id="repref2_code" class="active_code">
+origlist = [45, 76, 34, 55]
+print(origlist*3)
+
+newlist = [origlist] * 3
+
+print(newlist)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (repref2)</span> </p>
+<button onclick="runit('repref2',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('repref2');">Save</button>
+<button class="ac_opt" onclick="requestCode('repref2');">Load</button>
+<br />
+
+<canvas id="repref2_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="repref2_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p><tt class="docutils literal"><span class="pre">newlist</span></tt> is a list of three references to <tt class="docutils literal"><span class="pre">origlist</span></tt> that were created by the repetition operator.  The reference diagram is shown below.</p>
+<img alt="Repetition of a nested list" src="../_images/refrep1.png" />
+<p>Now, what happens if we modify a value in <tt class="docutils literal"><span class="pre">origlist</span></tt>.</p>
+
+<div id="repref3" >
+<textarea cols="50" rows="12" id="repref3_code" class="active_code">
+origlist = [45, 76, 34, 55]
+
+newlist = [origlist] * 3
+
+print(newlist)
+
+origlist[1] = 99
+
+print(newlist)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (repref3)</span> </p>
+<button onclick="runit('repref3',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('repref3');">Save</button>
+<button class="ac_opt" onclick="requestCode('repref3');">Load</button>
+<br />
+
+<canvas id="repref3_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="repref3_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p><tt class="docutils literal"><span class="pre">newlist</span></tt> shows the change in three places.  This can easily be seen by noting that in the reference diagram, there is only one <tt class="docutils literal"><span class="pre">origlist</span></tt>, so any changes to it appear in all three references from <tt class="docutils literal"><span class="pre">newlist</span></tt>.</p>
+<img alt="Same reference" src="../_images/refrep2.png" />
+<p>Here is the same example in codelens.  Step through the code until paying particular attention to the result of executing the assignment statement <tt class="docutils literal"><span class="pre">origlist[1]</span> <span class="pre">=</span> <span class="pre">99</span></tt>.</p>
+
+<table border="1" id="pyOutputPane_reprefstep" class="pyOutputPane">
+<tr>
+<td valign="top">
+Source Code
+<br />
+
+<div id="pyCodeOutputDiv_reprefstep" class="pyCodeOutputDiv">
+<table id="pyCodeOutput_reprefstep" class="pyCodeOutput"></table>
+
+</div>
+
+<div id="vcrControls_reprefstep" class="vcrControls">
+  <button id="jmpFirstInstr_reprefstep", type="button">&lt;&lt; First</button>
+  <button id="jmpStepBack_reprefstep", type="button">&lt; Back</button>
+  Step <span id="curInstr_reprefstep">?</span> of <span id="totalInstrs_reprefstep">?</span>
+  <button id="jmpStepFwd_reprefstep", type="button">Forward &gt;</button>
+  <button id="jmpLastInstr_reprefstep", type="button">Last &gt;&gt;</button>
+
+  <p><span id="warningOutput_reprefstep" class="warningOutput"></span></p>
+</div>
+</td></tr>
+<tr>
+<td valign="top">
+
+<div id="dataViz_reprefstep"></div>
+
+</td>
+</tr>
+<tr>
+<td>
+<div id="errorOutput_reprefstep" class="errorOutput"></div>
+
+Program output:
+<br/>
+<pre id="pyStdout_reprefstep" class="active_out"></pre>
+</td>
+</tr>
+</table>
+<p class="cl_caption"><span class="ac_caption_text"> </span></p>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    myvis = new PythonTutor.Visualizer("origlist = [45, 76, 34, 55]\n\nnewlist = [origlist] * 3\n\nprint(newlist)\n\noriglist[1] = 99\n\nprint(newlist)",[{"globals": {}, "stdout": "", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"origlist": ["LIST", 18, 45, 76, 34, 55]}, "stdout": "", "func_name": "<module>", "line": 3, "stack_locals": [], "event": "step_line"}, {"globals": {"newlist": ["LIST", 19, ["LIST", 18, 45, 76, 34, 55], ["LIST", 18, 45, 76, 34, 55], ["LIST", 18, 45, 76, 34, 55]], "origlist": ["LIST", 18, 45, 76, 34, 55]}, "stdout": "", "func_name": "<module>", "line": 5, "stack_locals": [], "event": "step_line"}, {"globals": {"newlist": ["LIST", 19, ["LIST", 18, 45, 76, 34, 55], ["LIST", 18, 45, 76, 34, 55], ["LIST", 18, 45, 76, 34, 55]], "origlist": ["LIST", 18, 45, 76, 34, 55]}, "stdout": "[[45, 76, 34, 55], [45, 76, 34, 55], [45, 76, 34, 55]]\n", "func_name": "<module>", "line": 7, "stack_locals": [], "event": "step_line"}, {"globals": {"newlist": ["LIST", 19, ["LIST", 18, 45, 99, 34, 55], ["LIST", 18, 45, 99, 34, 55], ["LIST", 18, 45, 99, 34, 55]], "origlist": ["LIST", 18, 45, 99, 34, 55]}, "stdout": "[[45, 76, 34, 55], [45, 76, 34, 55], [45, 76, 34, 55]]\n", "func_name": "<module>", "line": 9, "stack_locals": [], "event": "step_line"}, {"globals": {"newlist": ["LIST", 19, ["LIST", 18, 45, 99, 34, 55], ["LIST", 18, 45, 99, 34, 55], ["LIST", 18, 45, 99, 34, 55]], "origlist": ["LIST", 18, 45, 99, 34, 55]}, "stdout": "[[45, 76, 34, 55], [45, 76, 34, 55], [45, 76, 34, 55]]\n[[45, 99, 34, 55], [45, 99, 34, 55], [45, 99, 34, 55]]\n", "func_name": "<module>", "line": 9, "stack_locals": [], "event": "return"}],'reprefstep');
+});
+
+</script>
+</div>
+<div class="section" id="list-methods">
+<span id="index-8"></span><h2>List Methods<a class="headerlink" href="#list-methods" title="Permalink to this headline">¶</a></h2>
+<p>The dot operator can also be used to access built-in methods of list objects.
+<tt class="docutils literal"><span class="pre">append</span></tt> is a list method which adds the argument passed to it to the end of
+the list. Continuing with this example, we show several other list methods.  Many of them are
+easy to understand.</p>
+
+<div id="chp09_meth1" >
+<textarea cols="50" rows="12" id="chp09_meth1_code" class="active_code">
+mylist = []
+mylist.append(5)
+mylist.append(27)
+mylist.append(3)
+mylist.append(12)
+print(mylist)
+
+mylist.insert(1, 12)
+print(mylist)
+print(mylist.count(12))
+
+print(mylist.index(3))
+print(mylist.count(5))
+
+mylist.reverse()
+print(mylist)
+
+mylist.sort()
+print(mylist)
+
+mylist.remove(5)
+print(mylist)
+
+lastitem = mylist.pop()
+print(lastitem)
+print(mylist)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chp09_meth1)</span> </p>
+<button onclick="runit('chp09_meth1',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chp09_meth1');">Save</button>
+<button class="ac_opt" onclick="requestCode('chp09_meth1');">Load</button>
+<br />
+
+<canvas id="chp09_meth1_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chp09_meth1_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>There are two ways to use the <tt class="docutils literal"><span class="pre">pop</span></tt> method.  The first, with no parameter, will remove and return the
+last item of the list.  If you provide a parameter for the position, <tt class="docutils literal"><span class="pre">pop</span></tt> will remove and return the
+item at that position.  Either way the list is changed.</p>
+<p>The following table provides a summary of the list methods shown above.  Be sure
+to experiment with these methods to gain a better understanding of what they do.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="17%" />
+<col width="14%" />
+<col width="57%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Method</th>
+<th class="head">Parameters</th>
+<th class="head">Result</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>append</td>
+<td>item</td>
+<td>mutator</td>
+<td>Adds a new item to the end of a list</td>
+</tr>
+<tr class="row-odd"><td>insert</td>
+<td>position, item</td>
+<td>mutator</td>
+<td>Inserts a new item at the position given</td>
+</tr>
+<tr class="row-even"><td>pop</td>
+<td>none</td>
+<td>hybrid</td>
+<td>Removes and returns the last item</td>
+</tr>
+<tr class="row-odd"><td>pop</td>
+<td>position</td>
+<td>hybrid</td>
+<td>Removes and returns the item at position</td>
+</tr>
+<tr class="row-even"><td>sort</td>
+<td>none</td>
+<td>mutator</td>
+<td>Modifies a list to be sorted</td>
+</tr>
+<tr class="row-odd"><td>reverse</td>
+<td>none</td>
+<td>mutator</td>
+<td>Modifies a list to be in reverse order</td>
+</tr>
+<tr class="row-even"><td>index</td>
+<td>item</td>
+<td>return idx</td>
+<td>Returns the position of first occurrence of item</td>
+</tr>
+<tr class="row-odd"><td>count</td>
+<td>item</td>
+<td>return ct</td>
+<td>Returns the number of occurrences of item</td>
+</tr>
+<tr class="row-even"><td>remove</td>
+<td>item</td>
+<td>mutator</td>
+<td>Removes the first occurrence of item</td>
+</tr>
+</tbody>
+</table>
+<p>Details for these and others
+can be found in the <a class="reference external" href="http://docs.python.org/py3k/library/stdtypes.html#sequence-types-str-bytes-bytearray-list-tuple-range">Python Documentation</a>.</p>
+<p>It is important to note that <tt class="docutils literal"><span class="pre">append</span></tt>, <tt class="docutils literal"><span class="pre">sort</span></tt>,
+and <tt class="docutils literal"><span class="pre">reverse</span></tt> all return <tt class="docutils literal"><span class="pre">None</span></tt>.  This means that re-assigning <tt class="docutils literal"><span class="pre">mylist</span></tt> to the result of sorting <tt class="docutils literal"><span class="pre">mylist</span></tt> will result in losing the entire list.</p>
+
+<div id="chp09_meth2" >
+<textarea cols="50" rows="12" id="chp09_meth2_code" class="active_code">
+mylist = []
+mylist.append(5)
+mylist.append(27)
+mylist.append(3)
+mylist.append(12)
+print(mylist)
+
+mylist = mylist.sort()   #probably an error
+print(mylist)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chp09_meth2)</span> </p>
+<button onclick="runit('chp09_meth2',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chp09_meth2');">Save</button>
+<button class="ac_opt" onclick="requestCode('chp09_meth2');">Load</button>
+<br />
+
+<canvas id="chp09_meth2_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chp09_meth2_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<div class="admonition-scratch-editor admonition">
+<p class="first admonition-title">Scratch Editor</p>
+<div class="last">
+<button id="butt_scratch_9_1" onclick="createActiveCode('scratch_9_1',''); $('#butt_scratch_9_1').hide();">Open Editor</button>
+<div id="scratch_9_1"></div>
+<br />
+</div></div>
+</div>
+<div class="section" id="the-return-of-l-systems">
+<h2>The Return of L-Systems<a class="headerlink" href="#the-return-of-l-systems" title="Permalink to this headline">¶</a></h2>
+<p>Lets return the the L-systems we introduced in the previous chapter and
+introduce a very interesting new feature that requires the use of lists.</p>
+<p>Suppose we have the following grammar:</p>
+<div class="highlight-python"><pre>X
+X --&gt; F[-X]+X
+F --&gt; FF</pre>
+</div>
+<p>This L-system looks very similar to the old L-system except that we&#8217;ve added
+one change.  We&#8217;ve added the characters &#8216;[&#8216; and &#8216;]&#8217;.  The meaning of these
+characters adds a very interesting new dimension to our L-Systems.  The &#8216;[&#8216;
+character indicates that we want to save the state of our turtle,
+namely its position and its heading so that we can come back to this position
+later.  The &#8216;]&#8217; tells the turtle to warp to the most recently saved position.
+The way that we will accomplish this is to use lists.  We can save the
+heading and position of the turtle as a list of 3 elements.  <tt class="docutils literal"><span class="pre">[heading</span> <span class="pre">x</span>
+<span class="pre">y]</span></tt>  The first index position in the list holds the heading,
+the second index position in the list holds the x coordinate,
+and the third index position holds the y coordinate.</p>
+<p>Now, if we create an empty list and every time we see a &#8216;[&#8216; we append the
+list that contains <tt class="docutils literal"><span class="pre">[heading,</span> <span class="pre">x,</span> <span class="pre">y]</span></tt> we create a history of saved places
+the turtle has been where the most recently saved location will always be at
+the end of the list.  When we find a &#8216;]&#8217; in the string we use the pop
+function to remove the the most recently appended information.</p>
+<p>Lets modify our <tt class="docutils literal"><span class="pre">drawLsystem</span></tt> function to begin to implement this new
+behavior.</p>
+
+<div id="list_lsys1" >
+<textarea cols="50" rows="12" id="list_lsys1_code" class="active_code">
+import turtle
+
+def drawLsystem(aTurtle,instructions,angle,distance):
+    savedInfoList = []
+    for cmd in instructions:
+        if cmd == 'F':
+            aTurtle.forward(distance)
+        elif cmd == 'B':
+            aTurtle.backward(distance)
+        elif cmd == '+':
+            aTurtle.right(angle)
+        elif cmd == '-':
+            aTurtle.left(angle)
+        elif cmd == '[':
+            savedInfoList.append([aTurtle.heading(),aTurtle.xcor(),aTurtle.ycor()])
+            print(savedInfoList)
+        elif cmd == ']':
+            newInfo = savedInfoList.pop()
+            print(newInfo)
+            print(savedInfoList)
+        else:
+            print('Error:', cmd, 'is an unknown command')
+
+t = turtle.Turtle()
+inst = "FF[-F[-X]+X]+F[-X]+X"
+drawLsystem(t,inst,60,20)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (list_lsys1)</span> </p>
+<button onclick="runit('list_lsys1',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('list_lsys1');">Save</button>
+<button class="ac_opt" onclick="requestCode('list_lsys1');">Load</button>
+<br />
+
+<canvas id="list_lsys1_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="list_lsys1_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>When we run this example we can see that the picture is not very interesting,
+but notice what gets printed out, and how the saved information about the
+turtle gets added and removed from the end of the list.  In the next example
+we&#8217;ll make use of the information from the list to save and restore the
+turtle&#8217;s position and heading when needed.  We&#8217;ll use a longer example here
+so you get an idea of what the kind of drawing the L-System can really make.</p>
+
+<div id="list_lsys2" >
+<textarea cols="50" rows="12" id="list_lsys2_code" class="active_code">
+import turtle
+
+def drawLsystem(aTurtle,instructions,angle,distance):
+    savedInfoList = []
+    for cmd in instructions:
+        if cmd == 'F':
+            aTurtle.forward(distance)
+        elif cmd == 'B':
+            aTurtle.backward(distance)
+        elif cmd == '+':
+            aTurtle.right(angle)
+        elif cmd == '-':
+            aTurtle.left(angle)
+        elif cmd == '[':
+            savedInfoList.append([aTurtle.heading(),aTurtle.xcor(),aTurtle.ycor()])
+            print(savedInfoList)
+        elif cmd == ']':
+            newInfo = savedInfoList.pop()
+            aTurtle.setheading(newInfo[0])
+            aTurtle.setposition(newInfo[1],newInfo[2])
+        else:
+            print('Error:', cmd, 'is an unknown command')
+
+t = turtle.Turtle()
+inst = "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF[-FFFFFFFFFFFFFFFF[-FFFFFFFF[-FFFF[-FF[-F[-X]+X]+F[-X]+X]+FF[-F[-X]+X]+F[-X]+X]+FFFF[-FF[-F[-X]+X]+F[-X]+X]+FF[-F[-X]+X]+F[-X]+X]+FFFFFFFF[-FFFF[-FF[-F[-X]+X]+F[-X]+X]+FF[-F[-X]+X]+F[-X]+X]+FFFF[-FF[-F[-X]+X]+F[-X]+X]+FF[-F[-X]+X]+F[-X]+X]+FFFFFFFFFFFFFFFF[-FFFFFFFF[-FFFF[-FF[-F[-X]+X]+F[-X]+X]+FF[-F[-X]+X]+F[-X]+X]+FFFF[-FF[-F[-X]+X]+F[-X]+X]+FF[-F[-X]+X]+F[-X]+X]+FFFFFFFF[-FFFF[-FF[-F[-X]+X]+F[-X]+X]+FF[-F[-X]+X]+F[-X]+X]+FFFF[-FF[-F[-X]+X]+F[-X]+X]+FF[-F[-X]+X]+F[-X]+X"
+t.setposition(0,-200)
+t.left(90)
+drawLsystem(t,inst,30,2)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (list_lsys2)</span> </p>
+<button onclick="runit('list_lsys2',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('list_lsys2');">Save</button>
+<button class="ac_opt" onclick="requestCode('list_lsys2');">Load</button>
+<br />
+
+<canvas id="list_lsys2_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="list_lsys2_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>Rather than use the <tt class="docutils literal"><span class="pre">inst</span></tt> string supplied here, use the code from the string
+chapter, and write your own applyRules function to implement this L-system.
+This example only uses 6 expansions.  Try it out with a larger number of
+expansions.  You may also want to try this example with different values for
+the angle and distance parameters.</p>
+<div class="admonition-scratch-editor admonition">
+<p class="first admonition-title">Scratch Editor</p>
+<div class="last">
+<button id="butt_scratch_9_2" onclick="createActiveCode('scratch_9_2',''); $('#butt_scratch_9_2').hide();">Open Editor</button>
+<div id="scratch_9_2"></div>
+<br />
+</div></div>
+</div>
+<div class="section" id="append-versus-concatenate">
+<h2>Append versus Concatenate<a class="headerlink" href="#append-versus-concatenate" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">append</span></tt> method adds a new item to the end of a list.  It is also possible to add a new item to the end of a list by using the concatenation operator.  However, you need to be careful.</p>
+<p>Consider the following example.  The original list has 3 integers.  We want to add the word &#8220;cat&#8221; to the end of the list.</p>
+
+<table border="1" id="pyOutputPane_appcon1" class="pyOutputPane">
+<tr>
+<td valign="top">
+Source Code
+<br />
+
+<div id="pyCodeOutputDiv_appcon1" class="pyCodeOutputDiv">
+<table id="pyCodeOutput_appcon1" class="pyCodeOutput"></table>
+
+</div>
+
+<div id="vcrControls_appcon1" class="vcrControls">
+  <button id="jmpFirstInstr_appcon1", type="button">&lt;&lt; First</button>
+  <button id="jmpStepBack_appcon1", type="button">&lt; Back</button>
+  Step <span id="curInstr_appcon1">?</span> of <span id="totalInstrs_appcon1">?</span>
+  <button id="jmpStepFwd_appcon1", type="button">Forward &gt;</button>
+  <button id="jmpLastInstr_appcon1", type="button">Last &gt;&gt;</button>
+
+  <p><span id="warningOutput_appcon1" class="warningOutput"></span></p>
+</div>
+</td></tr>
+<tr>
+<td valign="top">
+
+<div id="dataViz_appcon1"></div>
+
+</td>
+</tr>
+<tr>
+<td>
+<div id="errorOutput_appcon1" class="errorOutput"></div>
+
+Program output:
+<br/>
+<pre id="pyStdout_appcon1" class="active_out"></pre>
+</td>
+</tr>
+</table>
+<p class="cl_caption"><span class="ac_caption_text"> </span></p>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    myvis = new PythonTutor.Visualizer("origlist = [45,32,88]\n\noriglist.append(\"cat\")\n\nprint(origlist)",[{"globals": {}, "stdout": "", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"origlist": ["LIST", 20, 45, 32, 88]}, "stdout": "", "func_name": "<module>", "line": 3, "stack_locals": [], "event": "step_line"}, {"globals": {"origlist": ["LIST", 20, 45, 32, 88, "cat"]}, "stdout": "", "func_name": "<module>", "line": 5, "stack_locals": [], "event": "step_line"}, {"globals": {"origlist": ["LIST", 20, 45, 32, 88, "cat"]}, "stdout": "[45, 32, 88, 'cat']\n", "func_name": "<module>", "line": 5, "stack_locals": [], "event": "return"}],'appcon1');
+});
+
+</script>
+<p>Here we have used <tt class="docutils literal"><span class="pre">append</span></tt> which simply modifies the list.  In order to use concatenation, we need to write an assignment statement that uses the accumulator pattern:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">origlist</span> <span class="o">=</span> <span class="n">origlist</span> <span class="o">+</span> <span class="p">[</span><span class="s">&quot;cat&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Note that the word &#8220;cat&#8221; needs to be placed in a list since the concatenation operator needs two lists to do its work.</p>
+
+<table border="1" id="pyOutputPane_appcon2" class="pyOutputPane">
+<tr>
+<td valign="top">
+Source Code
+<br />
+
+<div id="pyCodeOutputDiv_appcon2" class="pyCodeOutputDiv">
+<table id="pyCodeOutput_appcon2" class="pyCodeOutput"></table>
+
+</div>
+
+<div id="vcrControls_appcon2" class="vcrControls">
+  <button id="jmpFirstInstr_appcon2", type="button">&lt;&lt; First</button>
+  <button id="jmpStepBack_appcon2", type="button">&lt; Back</button>
+  Step <span id="curInstr_appcon2">?</span> of <span id="totalInstrs_appcon2">?</span>
+  <button id="jmpStepFwd_appcon2", type="button">Forward &gt;</button>
+  <button id="jmpLastInstr_appcon2", type="button">Last &gt;&gt;</button>
+
+  <p><span id="warningOutput_appcon2" class="warningOutput"></span></p>
+</div>
+</td></tr>
+<tr>
+<td valign="top">
+
+<div id="dataViz_appcon2"></div>
+
+</td>
+</tr>
+<tr>
+<td>
+<div id="errorOutput_appcon2" class="errorOutput"></div>
+
+Program output:
+<br/>
+<pre id="pyStdout_appcon2" class="active_out"></pre>
+</td>
+</tr>
+</table>
+<p class="cl_caption"><span class="ac_caption_text"> </span></p>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    myvis = new PythonTutor.Visualizer("origlist = [45,32,88]\n\noriglist = origlist + [\"cat\"]\n\nprint(origlist)",[{"globals": {}, "stdout": "", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"origlist": ["LIST", 21, 45, 32, 88]}, "stdout": "", "func_name": "<module>", "line": 3, "stack_locals": [], "event": "step_line"}, {"globals": {"origlist": ["LIST", 22, 45, 32, 88, "cat"]}, "stdout": "", "func_name": "<module>", "line": 5, "stack_locals": [], "event": "step_line"}, {"globals": {"origlist": ["LIST", 22, 45, 32, 88, "cat"]}, "stdout": "[45, 32, 88, 'cat']\n", "func_name": "<module>", "line": 5, "stack_locals": [], "event": "return"}],'appcon2');
+});
+
+</script>
+<p>It is also important to see that with append, the original list is simply modified.  You can see this by watching the <cite>id</cite> of <tt class="docutils literal"><span class="pre">origlist</span></tt>.  It stays the same before and after the append.</p>
+<p>On the other hand, with concatenation, you will see that the <cite>id</cite> of the original list is not the same as the <cite>id</cite> of the result after the assignment statement. Step through both examples very slowly to see this important difference.</p>
+<span class="target" id="index-9"></span></div>
+<div class="section" id="lists-and-for-loops">
+<span id="index-10"></span><h2>Lists and <tt class="docutils literal"><span class="pre">for</span></tt> loops<a class="headerlink" href="#lists-and-for-loops" title="Permalink to this headline">¶</a></h2>
+<p>It is also possible to perform <strong>list traversal</strong> using iteration by item as well as iteration by index.</p>
+
+<div id="chp09_03a" >
+<textarea cols="50" rows="12" id="chp09_03a_code" class="active_code">
+fruits = ["apple","orange","banana","cherry"]
+
+for afruit in fruits:     # by item
+    print(afruit)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chp09_03a)</span> </p>
+<button onclick="runit('chp09_03a',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chp09_03a');">Save</button>
+<button class="ac_opt" onclick="requestCode('chp09_03a');">Load</button>
+<br />
+
+<canvas id="chp09_03a_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chp09_03a_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>It almost reads like natural language: For (every) fruit in (the list of) fruits,
+print (the name of the) fruit.</p>
+<p>We can also use the indices to access the items in an iterative fashion.</p>
+
+<div id="chp09_03b" >
+<textarea cols="50" rows="12" id="chp09_03b_code" class="active_code">
+fruits = ["apple","orange","banana","cherry"]
+
+for position in range(len(fruits)):     # by index
+    print(fruits[position])
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chp09_03b)</span> </p>
+<button onclick="runit('chp09_03b',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chp09_03b');">Save</button>
+<button class="ac_opt" onclick="requestCode('chp09_03b');">Load</button>
+<br />
+
+<canvas id="chp09_03b_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chp09_03b_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>In this example, each time through the loop, the variable <tt class="docutils literal"><span class="pre">position</span></tt> is used as an index into the
+list, printing the <tt class="docutils literal"><span class="pre">position</span></tt>-eth element. Note that we used <tt class="docutils literal"><span class="pre">len</span></tt> as the upper bound on the range
+so that we can iterate correctly no matter how many items are in the list.</p>
+<p>Any sequence expression can be used in a <tt class="docutils literal"><span class="pre">for</span></tt> loop.  For example, the <tt class="docutils literal"><span class="pre">range</span></tt> function returns a sequence of integers.</p>
+
+<div id="chp09_for3" >
+<textarea cols="50" rows="12" id="chp09_for3_code" class="active_code">
+for number in range(20):
+    if number % 3 == 0:
+        print(number)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chp09_for3)</span> </p>
+<button onclick="runit('chp09_for3',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chp09_for3');">Save</button>
+<button class="ac_opt" onclick="requestCode('chp09_for3');">Load</button>
+<br />
+
+<canvas id="chp09_for3_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chp09_for3_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>This example prints all the multiples of 3 between 0 and 19.</p>
+<p>Since lists are mutable, it is often desirable to traverse a list, modifying
+each of its elements as you go. The following code squares all the numbers from <tt class="docutils literal"><span class="pre">1</span></tt> to
+<tt class="docutils literal"><span class="pre">5</span></tt> using iteration by position.</p>
+
+<div id="chp09_for4" >
+<textarea cols="50" rows="12" id="chp09_for4_code" class="active_code">
+numbers = [1, 2, 3, 4, 5]
+print(numbers)
+
+for i in range(len(numbers)):
+    numbers[i] = numbers[i]**2
+
+print(numbers)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chp09_for4)</span> </p>
+<button onclick="runit('chp09_for4',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chp09_for4');">Save</button>
+<button class="ac_opt" onclick="requestCode('chp09_for4');">Load</button>
+<br />
+
+<canvas id="chp09_for4_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chp09_for4_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>Take a moment to think about <tt class="docutils literal"><span class="pre">range(len(numbers))</span></tt> until you understand how
+it works. We are interested here in both the <em>value</em> and its <em>index</em> within the
+list, so that we can assign a new value to it.</p>
+<div class="admonition-scratch-editor admonition">
+<p class="first admonition-title">Scratch Editor</p>
+<div class="last">
+<button id="butt_scratch_9_3" onclick="createActiveCode('scratch_9_3',''); $('#butt_scratch_9_3').hide();">Open Editor</button>
+<div id="scratch_9_3"></div>
+<br />
+</div></div>
+</div>
+<div class="section" id="using-lists-as-parameters">
+<span id="index-11"></span><h2>Using Lists as Parameters<a class="headerlink" href="#using-lists-as-parameters" title="Permalink to this headline">¶</a></h2>
+<p>Functions which take lists as arguments and change them during execution are
+called <strong>modifiers</strong> and the changes they make are called <strong>side effects</strong>.
+Passing a list as an argument actually passes a reference to the list, not a
+copy of the list. Since lists are mutable changes made to the
+elements referenced by the parameter change
+the same list that the argument is referencing.
+For example, the function below takes a list as an
+argument and multiplies each element in the list by 2:</p>
+
+<div id="chp09_parm1" >
+<textarea cols="50" rows="12" id="chp09_parm1_code" class="active_code">
+def doubleStuff(aList):
+    """ Overwrite each element in aList with double its value. """
+    for position in range(len(aList)):
+        aList[position] = 2 * aList[position]
+
+things = [2, 5, 9]
+print(things)
+doubleStuff(things)
+print(things)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chp09_parm1)</span> </p>
+<button onclick="runit('chp09_parm1',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chp09_parm1');">Save</button>
+<button class="ac_opt" onclick="requestCode('chp09_parm1');">Load</button>
+<br />
+
+<canvas id="chp09_parm1_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chp09_parm1_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>The parameter <tt class="docutils literal"><span class="pre">aList</span></tt> and the variable <tt class="docutils literal"><span class="pre">things</span></tt> are aliases for the
+same object.</p>
+<img alt="State snapshot for multiple references to a list as a parameter" src="../_images/references4.png" />
+<p>Since the list object is shared by two references, there is only one copy.
+If a function modifies the elements of a list parameter, the caller sees the change since the change
+is occurring to the original.</p>
+<p>This can be easily seen in codelens.  Note that after the call to <tt class="docutils literal"><span class="pre">doubleStuff</span></tt>, the <cite>id</cite> of the formal parameter <tt class="docutils literal"><span class="pre">aList</span></tt> is the same as the <cite>id</cite> of <tt class="docutils literal"><span class="pre">things</span></tt>.</p>
+
+<table border="1" id="pyOutputPane_chp09_parm1_trace" class="pyOutputPane">
+<tr>
+<td valign="top">
+Source Code
+<br />
+
+<div id="pyCodeOutputDiv_chp09_parm1_trace" class="pyCodeOutputDiv">
+<table id="pyCodeOutput_chp09_parm1_trace" class="pyCodeOutput"></table>
+
+</div>
+
+<div id="vcrControls_chp09_parm1_trace" class="vcrControls">
+  <button id="jmpFirstInstr_chp09_parm1_trace", type="button">&lt;&lt; First</button>
+  <button id="jmpStepBack_chp09_parm1_trace", type="button">&lt; Back</button>
+  Step <span id="curInstr_chp09_parm1_trace">?</span> of <span id="totalInstrs_chp09_parm1_trace">?</span>
+  <button id="jmpStepFwd_chp09_parm1_trace", type="button">Forward &gt;</button>
+  <button id="jmpLastInstr_chp09_parm1_trace", type="button">Last &gt;&gt;</button>
+
+  <p><span id="warningOutput_chp09_parm1_trace" class="warningOutput"></span></p>
+</div>
+</td></tr>
+<tr>
+<td valign="top">
+
+<div id="dataViz_chp09_parm1_trace"></div>
+
+</td>
+</tr>
+<tr>
+<td>
+<div id="errorOutput_chp09_parm1_trace" class="errorOutput"></div>
+
+Program output:
+<br/>
+<pre id="pyStdout_chp09_parm1_trace" class="active_out"></pre>
+</td>
+</tr>
+</table>
+<p class="cl_caption"><span class="ac_caption_text"> </span></p>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    myvis = new PythonTutor.Visualizer("def doubleStuff(aList):\n    \"\"\" Overwrite each element in aList with double its value. \"\"\"\n    for position in range(len(aList)):\n        aList[position] = 2 * aList[position]\n\nthings = [2, 5, 9]\nprint(things)\ndoubleStuff(things)\nprint(things)",[{"globals": {}, "stdout": "", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"doubleStuff": ["function", 23, "<function doubleStuff at 0x4448848>"]}, "stdout": "", "func_name": "<module>", "line": 6, "stack_locals": [], "event": "step_line"}, {"globals": {"things": ["LIST", 24, 2, 5, 9], "doubleStuff": ["function", 23, "<function doubleStuff at 0x4448848>"]}, "stdout": "", "func_name": "<module>", "line": 7, "stack_locals": [], "event": "step_line"}, {"globals": {"things": ["LIST", 24, 2, 5, 9], "doubleStuff": ["function", 23, "<function doubleStuff at 0x4448848>"]}, "stdout": "[2, 5, 9]\n", "func_name": "<module>", "line": 8, "stack_locals": [], "event": "step_line"}, {"globals": {"things": ["LIST", 24, 2, 5, 9], "doubleStuff": ["function", 23, "<function doubleStuff at 0x4448848>"]}, "stdout": "[2, 5, 9]\n", "func_name": "doubleStuff", "line": 1, "stack_locals": [["doubleStuff", {"aList": ["LIST", 24, 2, 5, 9]}]], "event": "call"}, {"globals": {"things": ["LIST", 24, 2, 5, 9], "doubleStuff": ["function", 23, "<function doubleStuff at 0x4448848>"]}, "stdout": "[2, 5, 9]\n", "func_name": "doubleStuff", "line": 3, "stack_locals": [["doubleStuff", {"aList": ["LIST", 24, 2, 5, 9]}]], "event": "step_line"}, {"globals": {"things": ["LIST", 24, 2, 5, 9], "doubleStuff": ["function", 23, "<function doubleStuff at 0x4448848>"]}, "stdout": "[2, 5, 9]\n", "func_name": "doubleStuff", "line": 4, "stack_locals": [["doubleStuff", {"position": 0, "aList": ["LIST", 24, 2, 5, 9]}]], "event": "step_line"}, {"globals": {"things": ["LIST", 24, 4, 5, 9], "doubleStuff": ["function", 23, "<function doubleStuff at 0x4448848>"]}, "stdout": "[2, 5, 9]\n", "func_name": "doubleStuff", "line": 3, "stack_locals": [["doubleStuff", {"position": 0, "aList": ["LIST", 24, 4, 5, 9]}]], "event": "step_line"}, {"globals": {"things": ["LIST", 24, 4, 5, 9], "doubleStuff": ["function", 23, "<function doubleStuff at 0x4448848>"]}, "stdout": "[2, 5, 9]\n", "func_name": "doubleStuff", "line": 4, "stack_locals": [["doubleStuff", {"position": 1, "aList": ["LIST", 24, 4, 5, 9]}]], "event": "step_line"}, {"globals": {"things": ["LIST", 24, 4, 10, 9], "doubleStuff": ["function", 23, "<function doubleStuff at 0x4448848>"]}, "stdout": "[2, 5, 9]\n", "func_name": "doubleStuff", "line": 3, "stack_locals": [["doubleStuff", {"position": 1, "aList": ["LIST", 24, 4, 10, 9]}]], "event": "step_line"}, {"globals": {"things": ["LIST", 24, 4, 10, 9], "doubleStuff": ["function", 23, "<function doubleStuff at 0x4448848>"]}, "stdout": "[2, 5, 9]\n", "func_name": "doubleStuff", "line": 4, "stack_locals": [["doubleStuff", {"position": 2, "aList": ["LIST", 24, 4, 10, 9]}]], "event": "step_line"}, {"globals": {"things": ["LIST", 24, 4, 10, 18], "doubleStuff": ["function", 23, "<function doubleStuff at 0x4448848>"]}, "stdout": "[2, 5, 9]\n", "func_name": "doubleStuff", "line": 3, "stack_locals": [["doubleStuff", {"position": 2, "aList": ["LIST", 24, 4, 10, 18]}]], "event": "step_line"}, {"globals": {"things": ["LIST", 24, 4, 10, 18], "doubleStuff": ["function", 23, "<function doubleStuff at 0x4448848>"]}, "stdout": "[2, 5, 9]\n", "func_name": "doubleStuff", "line": 3, "stack_locals": [["doubleStuff", {"__return__": null, "position": 2, "aList": ["LIST", 24, 4, 10, 18]}]], "event": "return"}, {"globals": {"things": ["LIST", 24, 4, 10, 18], "doubleStuff": ["function", 23, "<function doubleStuff at 0x4448848>"]}, "stdout": "[2, 5, 9]\n", "func_name": "<module>", "line": 9, "stack_locals": [], "event": "step_line"}, {"globals": {"things": ["LIST", 24, 4, 10, 18], "doubleStuff": ["function", 23, "<function doubleStuff at 0x4448848>"]}, "stdout": "[2, 5, 9]\n[4, 10, 18]\n", "func_name": "<module>", "line": 9, "stack_locals": [], "event": "return"}],'chp09_parm1_trace');
+});
+
+</script>
+</div>
+<div class="section" id="pure-functions">
+<span id="pure-func-mod"></span><span id="index-12"></span><h2>Pure Functions<a class="headerlink" href="#pure-functions" title="Permalink to this headline">¶</a></h2>
+<p>A <strong>pure function</strong> does not produce side effects. It communicates with the
+calling program only through parameters, which it does not modify, and a return
+value. Here is the <tt class="docutils literal"><span class="pre">doubleStuff</span></tt> function from the previous section written as a pure function.
+To use the pure function version of <tt class="docutils literal"><span class="pre">double_stuff</span></tt> to modify <tt class="docutils literal"><span class="pre">things</span></tt>,
+you would assign the return value back to <tt class="docutils literal"><span class="pre">things</span></tt>.</p>
+
+<div id="ch09_mod2" >
+<textarea cols="50" rows="12" id="ch09_mod2_code" class="active_code">
+def doubleStuff(a_list):
+    """ Return a new list in which contains doubles of the elements in a_list. """
+    new_list = []
+    for value in a_list:
+        new_elem = 2 * value
+        new_list.append(new_elem)
+    return new_list
+
+things = [2, 5, 9]
+print(things)
+things = doubleStuff(things)
+print(things)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch09_mod2)</span> </p>
+<button onclick="runit('ch09_mod2',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch09_mod2');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch09_mod2');">Load</button>
+<br />
+
+<canvas id="ch09_mod2_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch09_mod2_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>Once again, codelens helps us to see the actual references and objects as they are passed and returned.</p>
+
+<table border="1" id="pyOutputPane_ch09_mod3" class="pyOutputPane">
+<tr>
+<td valign="top">
+Source Code
+<br />
+
+<div id="pyCodeOutputDiv_ch09_mod3" class="pyCodeOutputDiv">
+<table id="pyCodeOutput_ch09_mod3" class="pyCodeOutput"></table>
+
+</div>
+
+<div id="vcrControls_ch09_mod3" class="vcrControls">
+  <button id="jmpFirstInstr_ch09_mod3", type="button">&lt;&lt; First</button>
+  <button id="jmpStepBack_ch09_mod3", type="button">&lt; Back</button>
+  Step <span id="curInstr_ch09_mod3">?</span> of <span id="totalInstrs_ch09_mod3">?</span>
+  <button id="jmpStepFwd_ch09_mod3", type="button">Forward &gt;</button>
+  <button id="jmpLastInstr_ch09_mod3", type="button">Last &gt;&gt;</button>
+
+  <p><span id="warningOutput_ch09_mod3" class="warningOutput"></span></p>
+</div>
+</td></tr>
+<tr>
+<td valign="top">
+
+<div id="dataViz_ch09_mod3"></div>
+
+</td>
+</tr>
+<tr>
+<td>
+<div id="errorOutput_ch09_mod3" class="errorOutput"></div>
+
+Program output:
+<br/>
+<pre id="pyStdout_ch09_mod3" class="active_out"></pre>
+</td>
+</tr>
+</table>
+<p class="cl_caption"><span class="ac_caption_text"> </span></p>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    myvis = new PythonTutor.Visualizer("def doubleStuff(a_list):\n    \"\"\" Return a new list in which contains doubles of the elements in a_list. \"\"\"\n    new_list = []\n    for value in a_list:\n        new_elem = 2 * value\n        new_list.append(new_elem)\n    return new_list\n\nthings = [2, 5, 9]\nprint(things)\nthings = doubleStuff(things)\nprint(things)",[{"globals": {}, "stdout": "", "func_name": "<module>", "line": 1, "stack_locals": [], "event": "step_line"}, {"globals": {"doubleStuff": ["function", 25, "<function doubleStuff at 0x4a1b938>"]}, "stdout": "", "func_name": "<module>", "line": 9, "stack_locals": [], "event": "step_line"}, {"globals": {"things": ["LIST", 26, 2, 5, 9], "doubleStuff": ["function", 25, "<function doubleStuff at 0x4a1b938>"]}, "stdout": "", "func_name": "<module>", "line": 10, "stack_locals": [], "event": "step_line"}, {"globals": {"things": ["LIST", 26, 2, 5, 9], "doubleStuff": ["function", 25, "<function doubleStuff at 0x4a1b938>"]}, "stdout": "[2, 5, 9]\n", "func_name": "<module>", "line": 11, "stack_locals": [], "event": "step_line"}, {"globals": {"things": ["LIST", 26, 2, 5, 9], "doubleStuff": ["function", 25, "<function doubleStuff at 0x4a1b938>"]}, "stdout": "[2, 5, 9]\n", "func_name": "doubleStuff", "line": 1, "stack_locals": [["doubleStuff", {"a_list": ["LIST", 26, 2, 5, 9]}]], "event": "call"}, {"globals": {"things": ["LIST", 26, 2, 5, 9], "doubleStuff": ["function", 25, "<function doubleStuff at 0x4a1b938>"]}, "stdout": "[2, 5, 9]\n", "func_name": "doubleStuff", "line": 3, "stack_locals": [["doubleStuff", {"a_list": ["LIST", 26, 2, 5, 9]}]], "event": "step_line"}, {"globals": {"things": ["LIST", 26, 2, 5, 9], "doubleStuff": ["function", 25, "<function doubleStuff at 0x4a1b938>"]}, "stdout": "[2, 5, 9]\n", "func_name": "doubleStuff", "line": 4, "stack_locals": [["doubleStuff", {"new_list": ["LIST", 27], "a_list": ["LIST", 26, 2, 5, 9]}]], "event": "step_line"}, {"globals": {"things": ["LIST", 26, 2, 5, 9], "doubleStuff": ["function", 25, "<function doubleStuff at 0x4a1b938>"]}, "stdout": "[2, 5, 9]\n", "func_name": "doubleStuff", "line": 5, "stack_locals": [["doubleStuff", {"new_list": ["LIST", 27], "a_list": ["LIST", 26, 2, 5, 9], "value": 2}]], "event": "step_line"}, {"globals": {"things": ["LIST", 26, 2, 5, 9], "doubleStuff": ["function", 25, "<function doubleStuff at 0x4a1b938>"]}, "stdout": "[2, 5, 9]\n", "func_name": "doubleStuff", "line": 6, "stack_locals": [["doubleStuff", {"new_elem": 4, "new_list": ["LIST", 27], "a_list": ["LIST", 26, 2, 5, 9], "value": 2}]], "event": "step_line"}, {"globals": {"things": ["LIST", 26, 2, 5, 9], "doubleStuff": ["function", 25, "<function doubleStuff at 0x4a1b938>"]}, "stdout": "[2, 5, 9]\n", "func_name": "doubleStuff", "line": 4, "stack_locals": [["doubleStuff", {"new_elem": 4, "new_list": ["LIST", 27, 4], "a_list": ["LIST", 26, 2, 5, 9], "value": 2}]], "event": "step_line"}, {"globals": {"things": ["LIST", 26, 2, 5, 9], "doubleStuff": ["function", 25, "<function doubleStuff at 0x4a1b938>"]}, "stdout": "[2, 5, 9]\n", "func_name": "doubleStuff", "line": 5, "stack_locals": [["doubleStuff", {"new_elem": 4, "new_list": ["LIST", 27, 4], "a_list": ["LIST", 26, 2, 5, 9], "value": 5}]], "event": "step_line"}, {"globals": {"things": ["LIST", 26, 2, 5, 9], "doubleStuff": ["function", 25, "<function doubleStuff at 0x4a1b938>"]}, "stdout": "[2, 5, 9]\n", "func_name": "doubleStuff", "line": 6, "stack_locals": [["doubleStuff", {"new_elem": 10, "new_list": ["LIST", 27, 4], "a_list": ["LIST", 26, 2, 5, 9], "value": 5}]], "event": "step_line"}, {"globals": {"things": ["LIST", 26, 2, 5, 9], "doubleStuff": ["function", 25, "<function doubleStuff at 0x4a1b938>"]}, "stdout": "[2, 5, 9]\n", "func_name": "doubleStuff", "line": 4, "stack_locals": [["doubleStuff", {"new_elem": 10, "new_list": ["LIST", 27, 4, 10], "a_list": ["LIST", 26, 2, 5, 9], "value": 5}]], "event": "step_line"}, {"globals": {"things": ["LIST", 26, 2, 5, 9], "doubleStuff": ["function", 25, "<function doubleStuff at 0x4a1b938>"]}, "stdout": "[2, 5, 9]\n", "func_name": "doubleStuff", "line": 5, "stack_locals": [["doubleStuff", {"new_elem": 10, "new_list": ["LIST", 27, 4, 10], "a_list": ["LIST", 26, 2, 5, 9], "value": 9}]], "event": "step_line"}, {"globals": {"things": ["LIST", 26, 2, 5, 9], "doubleStuff": ["function", 25, "<function doubleStuff at 0x4a1b938>"]}, "stdout": "[2, 5, 9]\n", "func_name": "doubleStuff", "line": 6, "stack_locals": [["doubleStuff", {"new_elem": 18, "new_list": ["LIST", 27, 4, 10], "a_list": ["LIST", 26, 2, 5, 9], "value": 9}]], "event": "step_line"}, {"globals": {"things": ["LIST", 26, 2, 5, 9], "doubleStuff": ["function", 25, "<function doubleStuff at 0x4a1b938>"]}, "stdout": "[2, 5, 9]\n", "func_name": "doubleStuff", "line": 4, "stack_locals": [["doubleStuff", {"new_elem": 18, "new_list": ["LIST", 27, 4, 10, 18], "a_list": ["LIST", 26, 2, 5, 9], "value": 9}]], "event": "step_line"}, {"globals": {"things": ["LIST", 26, 2, 5, 9], "doubleStuff": ["function", 25, "<function doubleStuff at 0x4a1b938>"]}, "stdout": "[2, 5, 9]\n", "func_name": "doubleStuff", "line": 7, "stack_locals": [["doubleStuff", {"new_elem": 18, "new_list": ["LIST", 27, 4, 10, 18], "a_list": ["LIST", 26, 2, 5, 9], "value": 9}]], "event": "step_line"}, {"globals": {"things": ["LIST", 26, 2, 5, 9], "doubleStuff": ["function", 25, "<function doubleStuff at 0x4a1b938>"]}, "stdout": "[2, 5, 9]\n", "func_name": "doubleStuff", "line": 7, "stack_locals": [["doubleStuff", {"new_elem": 18, "new_list": ["LIST", 27, 4, 10, 18], "a_list": ["LIST", 26, 2, 5, 9], "value": 9, "__return__": ["LIST", 27, 4, 10, 18]}]], "event": "return"}, {"globals": {"things": ["LIST", 27, 4, 10, 18], "doubleStuff": ["function", 25, "<function doubleStuff at 0x4a1b938>"]}, "stdout": "[2, 5, 9]\n", "func_name": "<module>", "line": 12, "stack_locals": [], "event": "step_line"}, {"globals": {"things": ["LIST", 27, 4, 10, 18], "doubleStuff": ["function", 25, "<function doubleStuff at 0x4a1b938>"]}, "stdout": "[2, 5, 9]\n[4, 10, 18]\n", "func_name": "<module>", "line": 12, "stack_locals": [], "event": "return"}],'ch09_mod3');
+});
+
+</script>
+<div class="admonition-scratch-editor admonition">
+<p class="first admonition-title">Scratch Editor</p>
+<div class="last">
+<button id="butt_scratch_9_4" onclick="createActiveCode('scratch_9_4',''); $('#butt_scratch_9_4').hide();">Open Editor</button>
+<div id="scratch_9_4"></div>
+<br />
+</div></div>
+</div>
+<div class="section" id="which-is-better">
+<h2>Which is Better?<a class="headerlink" href="#which-is-better" title="Permalink to this headline">¶</a></h2>
+<p>Anything that can be done with modifiers can also be done with pure functions.
+In fact, some programming languages only allow pure functions. There is some
+evidence that programs that use pure functions are faster to develop and less
+error-prone than programs that use modifiers. Nevertheless, modifiers are
+convenient at times, and in some cases, functional programs are less efficient.</p>
+<p>In general, we recommend that you write pure functions whenever it is
+reasonable to do so and resort to modifiers only if there is a compelling
+advantage. This approach might be called a <em>functional programming style</em>.</p>
+</div>
+<div class="section" id="functions-that-produce-lists">
+<h2>Functions that Produce Lists<a class="headerlink" href="#functions-that-produce-lists" title="Permalink to this headline">¶</a></h2>
+<p>The pure version of <tt class="docutils literal"><span class="pre">doubleStuff</span></tt> above made use of an
+important <strong>pattern</strong> for your toolbox. Whenever you need to
+write a function that creates and returns a list, the pattern is
+usually:</p>
+<div class="highlight-python"><pre>initialize a result variable to be an empty list
+loop
+   create a new element
+   append it to result
+return the result</pre>
+</div>
+<p>Let us show another use of this pattern.  Assume you already have a function
+<tt class="docutils literal"><span class="pre">is_prime(x)</span></tt> that can test if x is prime.  Now, write a function
+to return a list of all prime numbers less than n:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">primes_upto</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Return a list of all prime numbers less than n. &quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">is_prime</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-comprehensions">
+<h2>List Comprehensions<a class="headerlink" href="#list-comprehensions" title="Permalink to this headline">¶</a></h2>
+<p>The previous example creates a list from a sequence of values based on some selection criteria.  An easy way to do this type of processing in Python is to use a <strong>list comprehension</strong>.  List comprehensions are concise ways to create lists.  The general syntax is:</p>
+<div class="highlight-python"><pre>[&lt;expression&gt; for &lt;item&gt; in &lt;sequence&gt; if  &lt;condition&gt;]</pre>
+</div>
+<p>where the if clause is optional.  For example,</p>
+
+<div id="listcomp1" >
+<textarea cols="50" rows="12" id="listcomp1_code" class="active_code">
+mylist = [1,2,3,4,5]
+
+yourlist = [item ** 2 for item in mylist]
+
+print(yourlist)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (listcomp1)</span> </p>
+<button onclick="runit('listcomp1',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('listcomp1');">Save</button>
+<button class="ac_opt" onclick="requestCode('listcomp1');">Load</button>
+<br />
+
+<canvas id="listcomp1_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="listcomp1_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>The expression describes each element of the list that is being built.  The <tt class="docutils literal"><span class="pre">for</span></tt> clause iterates thru each item in a sequence.  The items are filtered by the <tt class="docutils literal"><span class="pre">if</span></tt> clause if there is one.  In the example above, the <tt class="docutils literal"><span class="pre">for</span></tt> statement lets <tt class="docutils literal"><span class="pre">item</span></tt> take on all the values in the list <tt class="docutils literal"><span class="pre">mylist</span></tt>.  Each item is then squared before it is added to the list that is being built.  The result is a list of squares of the values in <tt class="docutils literal"><span class="pre">mylist</span></tt>.</p>
+<p>To write the <tt class="docutils literal"><span class="pre">primes_upto</span></tt> function we will use the <tt class="docutils literal"><span class="pre">is_prime</span></tt> function to filter the sequence of integers coming from the <tt class="docutils literal"><span class="pre">range</span></tt> function.  In other words, for every integer from 2 up to but not including <tt class="docutils literal"><span class="pre">n</span></tt>, if the integer is prime, keep it in the list.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">primes_upto</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Return a list of all prime numbers less than n using a list comprehension. &quot;&quot;&quot;</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">num</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="p">)</span> <span class="k">if</span> <span class="n">is_prime</span><span class="p">(</span><span class="n">num</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+<div class="admonition-scratch-editor admonition">
+<p class="first admonition-title">Scratch Editor</p>
+<div class="last">
+<button id="butt_scratch_9_5" onclick="createActiveCode('scratch_9_5',''); $('#butt_scratch_9_5').hide();">Open Editor</button>
+<div id="scratch_9_5"></div>
+<br />
+</div></div>
+</div>
+<div class="section" id="nested-lists">
+<span id="index-13"></span><h2>Nested Lists<a class="headerlink" href="#nested-lists" title="Permalink to this headline">¶</a></h2>
+<p>A nested list is a list that appears as an element in another list. In this
+list, the element with index 3 is a nested list.
+If we print(<tt class="docutils literal"><span class="pre">nested[3]</span></tt>), we get <tt class="docutils literal"><span class="pre">[10,</span> <span class="pre">20]</span></tt>. To extract an element from the
+nested list, we can proceed in two steps.  First, extract the nested list, then extract the item
+of interest.  It is also possible to combine those steps using bracket operators that evaluate from
+left to right.</p>
+
+<div id="chp09_nest" >
+<textarea cols="50" rows="12" id="chp09_nest_code" class="active_code">
+nested = ["hello", 2.0, 5, [10, 20]]
+innerlist = nested[3]
+print(innerlist)
+item = innerlist[1]
+print(item)
+
+print(nested[3][1])
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chp09_nest)</span> </p>
+<button onclick="runit('chp09_nest',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chp09_nest');">Save</button>
+<button class="ac_opt" onclick="requestCode('chp09_nest');">Load</button>
+<br />
+
+<canvas id="chp09_nest_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chp09_nest_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<span class="target" id="index-14"></span></div>
+<div class="section" id="strings-and-lists">
+<span id="index-15"></span><h2>Strings and Lists<a class="headerlink" href="#strings-and-lists" title="Permalink to this headline">¶</a></h2>
+<p>Two of the most useful methods on strings involve lists of
+strings. The <tt class="docutils literal"><span class="pre">split</span></tt> method
+breaks a string into a list of words.  By
+default, any number of whitespace characters is considered a word boundary.</p>
+
+<div id="ch09_split1" >
+<textarea cols="50" rows="12" id="ch09_split1_code" class="active_code">
+song = "The rain in Spain..."
+wds = song.split()
+print(wds)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch09_split1)</span> </p>
+<button onclick="runit('ch09_split1',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch09_split1');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch09_split1');">Load</button>
+<br />
+
+<canvas id="ch09_split1_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch09_split1_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>An optional argument called a <strong>delimiter</strong> can be used to specify which
+characters to use as word boundaries. The following example uses the string
+<tt class="docutils literal"><span class="pre">ai</span></tt> as the delimiter:</p>
+
+<div id="ch09_split2" >
+<textarea cols="50" rows="12" id="ch09_split2_code" class="active_code">
+song = "The rain in Spain..."
+wds = song.split('ai')
+print(wds)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch09_split2)</span> </p>
+<button onclick="runit('ch09_split2',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch09_split2');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch09_split2');">Load</button>
+<br />
+
+<canvas id="ch09_split2_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch09_split2_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>Notice that the delimiter doesn&#8217;t appear in the result.</p>
+<p>The inverse of the <tt class="docutils literal"><span class="pre">split</span></tt> method is <tt class="docutils literal"><span class="pre">join</span></tt>.  You choose a
+desired <strong>separator</strong> string, (often called the <em>glue</em>)
+and join the list with the glue between each of the elements.</p>
+
+<div id="ch09_join" >
+<textarea cols="50" rows="12" id="ch09_join_code" class="active_code">
+wds = ["red", "blue", "green"]
+glue = ';'
+s = glue.join(wds)
+print(s)
+print(wds)
+
+print("***".join(wds))
+print("".join(wds))
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch09_join)</span> </p>
+<button onclick="runit('ch09_join',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch09_join');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch09_join');">Load</button>
+<br />
+
+<canvas id="ch09_join_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch09_join_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>The list that you glue together (<tt class="docutils literal"><span class="pre">wds</span></tt> in this example) is not modified.  Also,
+you can use empty glue or multi-character strings as glue.</p>
+<div class="admonition-scratch-editor admonition">
+<p class="first admonition-title">Scratch Editor</p>
+<div class="last">
+<button id="butt_scratch_9_6" onclick="createActiveCode('scratch_9_6',''); $('#butt_scratch_9_6').hide();">Open Editor</button>
+<div id="scratch_9_6"></div>
+<br />
+</div></div>
+</div>
+<div class="section" id="list-type-conversion-function">
+<h2><tt class="docutils literal"><span class="pre">list</span></tt> Type Conversion Function<a class="headerlink" href="#list-type-conversion-function" title="Permalink to this headline">¶</a></h2>
+<p>Python has a built-in type conversion function called
+<tt class="docutils literal"><span class="pre">list</span></tt> that tries to turn whatever you give it
+into a list.  For example, try the following:</p>
+
+<div id="ch09_list1" >
+<textarea cols="50" rows="12" id="ch09_list1_code" class="active_code">
+xs = list("Crunchy Frog")
+print(xs)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch09_list1)</span> </p>
+<button onclick="runit('ch09_list1',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch09_list1');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch09_list1');">Load</button>
+<br />
+
+<canvas id="ch09_list1_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch09_list1_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>The string &#8220;Crunchy Frog&#8221; is turned into a list by taking each character in the string and placing it in a list.  In general, any sequence can be turned into a list using this function.  The result will be a list containing the elements in the original sequence.  It is not legal to use the <tt class="docutils literal"><span class="pre">list</span></tt> conversion function on any argument that is not a sequence.</p>
+<p>It is also important to point out that the <tt class="docutils literal"><span class="pre">list</span></tt> conversion function will place each element of the original sequence in the new list.  When working with strings, this is very different than the result of the <tt class="docutils literal"><span class="pre">split</span></tt> method.  Whereas <tt class="docutils literal"><span class="pre">split</span></tt> will break a string into a list of &#8220;words&#8221;, <tt class="docutils literal"><span class="pre">list</span></tt> will always break it into a list of characters.</p>
+</div>
+<div class="section" id="tuples-and-mutability">
+<h2>Tuples and Mutability<a class="headerlink" href="#tuples-and-mutability" title="Permalink to this headline">¶</a></h2>
+<p>So far you have seen two types of sequential collections: strings, which are made up of
+characters; and lists, which are made up of elements of any type.  One of the
+differences we noted is that the elements of a list can be modified, but the
+characters in a string cannot. In other words, strings are <strong>immutable</strong> and
+lists are <strong>mutable</strong>.</p>
+<p>A <strong>tuple</strong>, like a list, is a sequence of items of any type. Unlike lists,
+however, tuples are immutable. Syntactically, a tuple is a comma-separated
+sequence of values.  Although it is not necessary, it is conventional to
+enclose tuples in parentheses:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">julia</span> <span class="o">=</span> <span class="p">(</span><span class="s">&quot;Julia&quot;</span><span class="p">,</span> <span class="s">&quot;Roberts&quot;</span><span class="p">,</span> <span class="mi">1967</span><span class="p">,</span> <span class="s">&quot;Duplicity&quot;</span><span class="p">,</span> <span class="mi">2009</span><span class="p">,</span> <span class="s">&quot;Actress&quot;</span><span class="p">,</span> <span class="s">&quot;Atlanta, Georgia&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Tuples are useful for representing what other languages often call <em>records</em> &#8212;
+some related information that belongs together, like your student record.  There is
+no description of what each of these <em>fields</em> means, but we can guess.  A tuple
+lets us &#8220;chunk&#8221; together related information and use it as a single thing.</p>
+<p>Tuples support the same sequence operations as strings and
+lists.
+For example, the index operator selects an element from a tuple.</p>
+<p>As with strings, if we try to use item assignment to modify one of the elements of the
+tuple, we get an error.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">julia</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;X&#39;</span>
+<span class="ne">TypeError</span><span class="p">:</span> <span class="s">&#39;tuple&#39;</span> <span class="nb">object</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">item</span> <span class="n">assignment</span>
+</pre></div>
+</div>
+<p>Of course, even if we can&#8217;t modify the elements of a tuple, we can make a variable
+reference a new tuple holding different information.  To construct the new tuple,
+it is convenient that we can slice parts of the old tuple and join up the
+bits to make the new tuple.  So <tt class="docutils literal"><span class="pre">julia</span></tt> has a new recent film, and we might want
+to change her tuple.  We can easily slice off the parts we want and concatenate them with
+the new tuple.</p>
+
+<div id="ch09_tuple1" >
+<textarea cols="50" rows="12" id="ch09_tuple1_code" class="active_code">
+julia = ("Julia", "Roberts", 1967, "Duplicity", 2009, "Actress", "Atlanta, Georgia")
+print(julia[2])
+print(julia[2:6])
+
+print(len(julia))
+
+julia = julia[:3] + ("Eat Pray Love", 2010) + julia[5:]
+print(julia)
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (ch09_tuple1)</span> </p>
+<button onclick="runit('ch09_tuple1',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('ch09_tuple1');">Save</button>
+<button class="ac_opt" onclick="requestCode('ch09_tuple1');">Load</button>
+<br />
+
+<canvas id="ch09_tuple1_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="ch09_tuple1_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>To create a tuple with a single element (but you&#8217;re probably not likely
+to do that too often), we have to include the final comma, because without
+the final comma, Python treats the <tt class="docutils literal"><span class="pre">(5)</span></tt> below as an integer in parentheses:</p>
+
+<div id="chp09_tuple2" >
+<textarea cols="50" rows="12" id="chp09_tuple2_code" class="active_code">
+tup = (5,)
+print(type(tup))
+
+x = (5)
+print(type(x))
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chp09_tuple2)</span> </p>
+<button onclick="runit('chp09_tuple2',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chp09_tuple2');">Save</button>
+<button class="ac_opt" onclick="requestCode('chp09_tuple2');">Load</button>
+<br />
+
+<canvas id="chp09_tuple2_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chp09_tuple2_pre" class="active_out">
+
+</pre>
+
+</div>
+
+</div>
+<div class="section" id="tuple-assignment">
+<span id="index-16"></span><h2>Tuple Assignment<a class="headerlink" href="#tuple-assignment" title="Permalink to this headline">¶</a></h2>
+<p>Python has a very powerful <strong>tuple assignment</strong> feature that allows a tuple of variables
+on the left of an assignment to be assigned values from a tuple
+on the right of the assignment.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">surname</span><span class="p">,</span> <span class="n">birth_year</span><span class="p">,</span> <span class="n">movie</span><span class="p">,</span> <span class="n">movie_year</span><span class="p">,</span> <span class="n">profession</span><span class="p">,</span> <span class="n">birth_place</span><span class="p">)</span> <span class="o">=</span> <span class="n">julia</span>
+</pre></div>
+</div>
+<p>This does the equivalent of seven assignment statements, all on one easy line.
+One requirement is that the number of variables on the left must match the number
+of elements in the tuple.</p>
+<p>Once in a while, it is useful to swap the values of two variables.  With
+conventional assignment statements, we have to use a temporary variable. For
+example, to swap <tt class="docutils literal"><span class="pre">a</span></tt> and <tt class="docutils literal"><span class="pre">b</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">temp</span> <span class="o">=</span> <span class="n">a</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">b</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">temp</span>
+</pre></div>
+</div>
+<p>Tuple assignment solves this problem neatly:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The left side is a tuple of variables; the right side is a tuple of values.
+Each value is assigned to its respective variable. All the expressions on the
+right side are evaluated before any of the assignments. This feature makes
+tuple assignment quite versatile.</p>
+<p>Naturally, the number of variables on the left and the number of values on the
+right have to be the same.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">ValueError: need more than 3 values to unpack</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tuples-as-return-values">
+<span id="index-17"></span><h2>Tuples as Return Values<a class="headerlink" href="#tuples-as-return-values" title="Permalink to this headline">¶</a></h2>
+<p>Functions can return tuples as return values. This is very useful &#8212; we often want to
+know some batsman&#8217;s highest and lowest score, or we want to find the mean and the standard
+deviation, or we want to know the year, the month, and the day, or if we&#8217;re doing some
+some ecological modeling we may want to know the number of rabbits and the number
+of wolves on an island at a given time.  In each case, a function (which
+can only return a single value), can create a single tuple holding multiple elements.</p>
+<p>For example, we could write a function that returns both the area and the circumference
+of a circle of radius r.</p>
+
+<div id="chp09_tuple3" >
+<textarea cols="50" rows="12" id="chp09_tuple3_code" class="active_code">
+def circleInfo(r):
+    """ Return (circumference, area) of a circle of radius r """
+    c = 2 * 3.14159 * r
+    a = 3.14159 * r * r
+    return (c, a)
+
+print(circleInfo(10))
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (chp09_tuple3)</span> </p>
+<button onclick="runit('chp09_tuple3',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('chp09_tuple3');">Save</button>
+<button class="ac_opt" onclick="requestCode('chp09_tuple3');">Load</button>
+<br />
+
+<canvas id="chp09_tuple3_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="chp09_tuple3_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<div class="admonition-scratch-editor admonition">
+<p class="first admonition-title">Scratch Editor</p>
+<div class="last">
+<button id="butt_scratch_9_7" onclick="createActiveCode('scratch_9_7',''); $('#butt_scratch_9_7').hide();">Open Editor</button>
+<div id="scratch_9_7"></div>
+<br />
+</div></div>
+</div>
+<div class="section" id="glossary">
+<h2>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h2>
+<dl class="glossary docutils">
+<dt id="term-aliases">aliases</dt>
+<dd>Multiple variables that contain references to the same object.</dd>
+<dt id="term-clone">clone</dt>
+<dd>To create a new object that has the same value as an existing object.
+Copying a reference to an object creates an alias but doesn&#8217;t clone the
+object.</dd>
+<dt id="term-delimiter">delimiter</dt>
+<dd>A character or string used to indicate where a string should be split.</dd>
+<dt id="term-element">element</dt>
+<dd>One of the values in a list (or other sequence). The bracket operator
+selects elements of a list.</dd>
+<dt id="term-index">index</dt>
+<dd>An integer variable or value that indicates an element of a list.</dd>
+<dt id="term-list">list</dt>
+<dd>A collection of objects, where each object is identified by an index.
+Like other types <tt class="docutils literal"><span class="pre">str</span></tt>, <tt class="docutils literal"><span class="pre">int</span></tt>, <tt class="docutils literal"><span class="pre">float</span></tt>, etc. there is also a
+<tt class="docutils literal"><span class="pre">list</span></tt> type-converter function that tries to turn its argument into a
+list.</dd>
+<dt id="term-list-traversal">list traversal</dt>
+<dd>The sequential accessing of each element in a list.</dd>
+<dt id="term-modifier">modifier</dt>
+<dd>A function which changes its arguments inside the function body. Only
+mutable types can be changed by modifiers.</dd>
+<dt id="term-mutable-data-type">mutable data type</dt>
+<dd>A data type in which the elements can be modified. All mutable types
+are compound types. Lists are mutable data types; strings are not.</dd>
+<dt id="term-nested-list">nested list</dt>
+<dd>A list that is an element of another list.</dd>
+<dt id="term-object">object</dt>
+<dd>A thing to which a variable can refer.</dd>
+<dt id="term-pattern">pattern</dt>
+<dd>A sequence of statements, or a style of coding something that has
+general applicability in a number of different situations.  Part of
+becoming a mature Computer Scientist is to learn and establish the
+patterns and algorithms that form your toolkit.  Patterns often
+correspond to your &#8220;mental chunking&#8221;.</dd>
+<dt id="term-pure-function">pure function</dt>
+<dd>A function which has no side effects. Pure functions only make changes
+to the calling program through their return values.</dd>
+<dt id="term-sequence">sequence</dt>
+<dd>Any of the data types that consist of an ordered collection of elements, with
+each element identified by an index.</dd>
+<dt id="term-side-effect">side effect</dt>
+<dd>A change in the state of a program made by calling a function that is
+not a result of reading the return value from the function. Side
+effects can only be produced by modifiers.</dd>
+</dl>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Draw a reference diagram for <tt class="docutils literal"><span class="pre">a</span></tt> and <tt class="docutils literal"><span class="pre">b</span></tt> before and after the third line of
+the following python code is executed:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[:]</span>
+<span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create a list called <tt class="docutils literal"><span class="pre">myList</span></tt> with the following six items: 76, 92.3, &#8220;hello&#8221;, True, 4, 76.</p>
+
+<button id="butt_ex_9_2" onclick="createActiveCode('ex_9_2',''); $('#butt_ex_9_2').hide();">Open Editor</button>
+<div id="ex_9_2"></div>
+<br />
+</li>
+<li><p class="first">Write Python statements to do the following:</p>
+<ol class="loweralpha simple">
+<li>Append &#8220;apple&#8221; and 76 to the list.</li>
+<li>Insert the value &#8220;cat&#8221; at position 3.</li>
+<li>Insert the value 99 at the start of the list.</li>
+<li>Find the index of &#8220;hello&#8221;.</li>
+<li>Count the number of 76s in the list.</li>
+<li>Remove the first occurrence of 76 from the list.</li>
+<li>Remove True from the list using <tt class="docutils literal"><span class="pre">pop</span></tt> and <tt class="docutils literal"><span class="pre">index</span></tt>.</li>
+</ol>
+
+<button id="butt_ex_9_3" onclick="createActiveCode('ex_9_3',''); $('#butt_ex_9_3').hide();">Open Editor</button>
+<div id="ex_9_3"></div>
+<br />
+</li>
+<li><p class="first">Create a list containing 100 random integers between 0 and 1000 (use iteration, append, and the random module).  Write a function called <tt class="docutils literal"><span class="pre">average</span></tt> that will take the list as a parameter and return the average.</p>
+
+<button id="butt_ex_9_4" onclick="createActiveCode('ex_9_4',''); $('#butt_ex_9_4').hide();">Open Editor</button>
+<div id="ex_9_4"></div>
+<br />
+</li>
+<li><p class="first">Write a Python function that will take a the list of integers from the previous problem and return the maximum value.  (Note: there is a builtin function named <tt class="docutils literal"><span class="pre">max</span></tt> but pretend you cannot use it.)</p>
+<blockquote>
+<div>
+<button id="butt_ex_9_5" onclick="createActiveCode('ex_9_5',''); $('#butt_ex_9_5').hide();">Open Editor</button>
+<div id="ex_9_5"></div>
+<br />
+</div></blockquote>
+</li>
+<li><p class="first">Write a function to count how many odd numbers are in a list.</p>
+<blockquote>
+<div>
+<button id="butt_ex_9_6" onclick="createActiveCode('ex_9_6',''); $('#butt_ex_9_6').hide();">Open Editor</button>
+<div id="ex_9_6"></div>
+<br />
+</div></blockquote>
+</li>
+<li><p class="first">Sum up all the even numbers in a list.</p>
+<blockquote>
+<div>
+<button id="butt_ex_9_7" onclick="createActiveCode('ex_9_7',''); $('#butt_ex_9_7').hide();">Open Editor</button>
+<div id="ex_9_7"></div>
+<br />
+</div></blockquote>
+</li>
+<li><p class="first">Sum up all the negative numbers in a list.</p>
+<blockquote>
+<div>
+<button id="butt_ex_9_8" onclick="createActiveCode('ex_9_8',''); $('#butt_ex_9_8').hide();">Open Editor</button>
+<div id="ex_9_8"></div>
+<br />
+</div></blockquote>
+</li>
+<li><p class="first">Count how many words in a list have length 5.</p>
+<blockquote>
+<div>
+<button id="butt_ex_9_9" onclick="createActiveCode('ex_9_9',''); $('#butt_ex_9_9').hide();">Open Editor</button>
+<div id="ex_9_9"></div>
+<br />
+</div></blockquote>
+</li>
+<li><p class="first">Sum all the elements in a list up to but not including the first even number.</p>
+<blockquote>
+<div>
+<button id="butt_ex_9_10" onclick="createActiveCode('ex_9_10',''); $('#butt_ex_9_10').hide();">Open Editor</button>
+<div id="ex_9_10"></div>
+<br />
+</div></blockquote>
+</li>
+<li><p class="first">Count how many words occur in a list up to and including the first occurrence of the word &#8220;sam&#8221;.</p>
+<blockquote>
+<div>
+<button id="butt_ex_9_11" onclick="createActiveCode('ex_9_11',''); $('#butt_ex_9_11').hide();">Open Editor</button>
+<div id="ex_9_11"></div>
+<br />
+</div></blockquote>
+</li>
+<li><p class="first">Although Python provides us with many list methods, it is good practice and very instructive to think about how they are implemented.  Implement a Python function that works like the following:</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>count</li>
+<li>in</li>
+<li>reverse</li>
+<li>index</li>
+<li>insert</li>
+</ol>
+
+<button id="butt_ex_9_12" onclick="createActiveCode('ex_9_12',''); $('#butt_ex_9_12').hide();">Open Editor</button>
+<div id="ex_9_12"></div>
+<br />
+</div></blockquote>
+</li>
+<li><p class="first">Write a function <tt class="docutils literal"><span class="pre">replace(s,</span> <span class="pre">old,</span> <span class="pre">new)</span></tt> that replaces all occurences of
+<tt class="docutils literal"><span class="pre">old</span></tt> with <tt class="docutils literal"><span class="pre">new</span></tt> in a string <tt class="docutils literal"><span class="pre">s</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">test</span><span class="p">(</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;Mississippi&#39;</span><span class="p">,</span> <span class="s">&#39;i&#39;</span><span class="p">,</span> <span class="s">&#39;I&#39;</span><span class="p">),</span> <span class="s">&#39;MIssIssIppI&#39;</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="s">&#39;I love spom!  Spom is my favorite food.  Spom, spom, spom, yum!&#39;</span>
+<span class="n">test</span><span class="p">(</span><span class="n">replace</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s">&#39;om&#39;</span><span class="p">,</span> <span class="s">&#39;am&#39;</span><span class="p">),</span>
+       <span class="s">&#39;I love spam!  Spam is my favorite food.  Spam, spam, spam, yum!&#39;</span><span class="p">)</span>
+
+<span class="n">test</span><span class="p">(</span><span class="n">replace</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s">&#39;o&#39;</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">),</span>
+       <span class="s">&#39;I lave spam!  Spam is my favarite faad.  Spam, spam, spam, yum!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><em>Hint</em>: use the <tt class="docutils literal"><span class="pre">split</span></tt> and <tt class="docutils literal"><span class="pre">join</span></tt> methods.</p>
+<blockquote>
+<div>
+<button id="butt_ex_9_13" onclick="createActiveCode('ex_9_13',''); $('#butt_ex_9_13').hide();">Open Editor</button>
+<div id="ex_9_13"></div>
+<br />
+</div></blockquote>
+</li>
+<li><p class="first">Here are the rules for an L-system that creates something that resembles
+a common garden herb.  Implement the following rules and try it.  Use an
+angle of 25.7 degrees.:</p>
+<div class="highlight-python"><pre>H
+H --&gt; HFX[+H][-H]
+X --&gt; X[-FFF][+FFF]FX</pre>
+</div>
+
+<button id="butt_ex_9_14" onclick="createActiveCode('ex_9_14',''); $('#butt_ex_9_14').hide();">Open Editor</button>
+<div id="ex_9_14"></div>
+<br />
+</li>
+<li><p class="first">Here is another L-System.  Use an Angle of 25:</p>
+<div class="highlight-python"><pre>F
+F --&gt; F[-F]F[+F]F</pre>
+</div>
+
+<button id="butt_ex_9_15" onclick="createActiveCode('ex_9_15',''); $('#butt_ex_9_15').hide();">Open Editor</button>
+<div id="ex_9_15"></div>
+<br />
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../Files/files.html" title="Working with Data Files"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../Strings/strings.html" title="Strings"
+             >previous</a> |</li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Brad Miller, David Ranum.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32029811-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>

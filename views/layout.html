@@ -1,13 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
+
 Design by Free CSS Templates
 http://www.freecsstemplates.org
 Released for free under a Creative Commons Attribution 2.5 License
 
-Name       : Abrasive
-Description: A two-column, fixed-width design with dirty looks.
+Title      : Branches
 Version    : 1.0
-Released   : 20081122
+Released   : 20081010
+Description: A two-column, fixed-width and lightweight template ideal for 1024x768 resolutions. Suitable for blogs and small websites.
 
 -->
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -15,7 +16,7 @@ Released   : 20081122
   <title>
    {{=response.title or request.application}}
   </title>
-  {{response.files.append(URL(request.application,'static','plugin_layouts/layouts/Abrasive/style.css'))}}
+  {{response.files.append(URL(request.application,'static','plugin_layouts/layouts/Branches/default.css'))}}
   {{response.files.append(URL('static','plugin_layouts/superfish.js'))}}
   {{include 'web2py_ajax.html'}}
       <script type="text/javascript">
@@ -41,93 +42,62 @@ div.error { background-color: red; color: white; padding: 3px; }
   {{try:}}{{=auth.navbar(action=URL('default','user'))}}{{except:pass}}
 
   <div id="wrapper">
+   <!-- start header -->
    <div id="header">
     <div id="logo">
     <img src="{{=URL(c='static',f='_images/rsi_logo.jpg')}}">
     </div>
-    <!-- end #logo -->
     <div id="menu">
      {{=MENU(response.menu,_class='web2py-menu')}}
     <script>
       jQuery(document).ready(function(){jQuery('ul.web2py-menu').superfish({delay:400});});
     </script>
     </div>
-    <!-- end #menu -->
    </div>
-   <!-- end #header -->
-   <div id="page">
-    <div id="bgtop">
-     <div id="bgbottom">
-      <div id="content">
-       <div class="flash">{{=response.flash or ''}}</div>
-       {{include}}
-      </div>
-      <!-- end #content -->
-      <div id="sidebar">
-       <ul>
-        <li>
-         <h2>
-          Open Library
-         </h2>
-         <ul>
-          <li>
-           <a href="/{{=request.application}}/static/thinkcspy/index.html">
-            How to Think Like a Computer Scientist: Interactive Edition
-           </a>
-          </li>
-          <li>
-           <a href="/{{=request.application}}/static/pythonds/index.html">
-            Problem Solving with Algorithms and Data Structures
-           </a>
-          </li>
-          <li>
-           <a href="/{{=request.application}}/static/java4python/index.html">
-            Java for Python Programmers
-           </a>
-          </li>
-         </ul>
-        </li>
-        <li>
-         <h2>
-          More Info
-         </h2>
-         <ul>
-          <li>
-           <a href="/{{=request.application}}/default/about">
-            About Us
-           </a>
-          </li>
-          <li>
-           <a href="/{{=request.application}}/default/ack">
-            Acknowledgements
-           </a>
-          </li>
-          </ul>
-          </li>        
 
+   <!-- end header -->
+  </div>
+  <!-- start page -->
+  <div id="page">
+   <!-- start content -->
+   <div id="content">
+    <div class="flash">{{=response.flash or ''}}</div>
+    {{include}}
+   </div>
+   <!-- end content -->
+   <!-- start sidebar -->
+   <div id="sidebar"> <!--
+    <ul>
+     <li id="search">
+      <h2>
+       <b class="text1">
+        Search
+       </b>
+      </h2>
+      <form method="get" action="">
+       <fieldset>
+        <input type="text" id="s" name="s" value="" />
+        <input type="submit" id="x" value="Search" />
+       </fieldset>
+      </form>-->
+     </li>
+     <li>
+      <h2>
+       <strong>
+        Important
+       </strong>
+      Links
+      </h2>
+      <ul>
+       <li>
+        <a href="http://moodle.macalester.edu/">
+         Moodle
+        </a> 
+       </li>
+      </ul>
+    </li>
 
-        <li>
-         <h2>
-          Students
-         </h2>
-         <ul>
-          <li>
-           <a href="{{=URL(c='default',f='user/register')}}">
-            Register
-           </a>
-          </li>
-          <li>
-           <a href="https://github.com/bnmnetp/runestone/issues/new">
-            Report a problem
-           </a>
-          </li>
-         </ul>
-        </li>
-
-
-
-
-        <li>
+    <li>
          <h2>
           Instructors
          </h2>
@@ -137,69 +107,28 @@ div.error { background-color: red; color: white; padding: 3px; }
             Instructor's Dashboard
            </a>
           </li>
-          <li>
-           <a href="https://github.com/bnmnetp/runestone/issues/new">
-            Submit an Exercise
-           </a>
-          </li>
          </ul>
-        </li>
+    </li>
 
-        <li>
-         <h2>
-          Authors &amp; Developers
-         </h2>
-         <ul>
-          <li>
-           <a href="http://runestoneinteractive.org">
-            Source for everything
-           </a>
-          </li>
-          <li>
-           <a href="/{{=request.application}}/default/docs">
-            Documentation
-           </a>
-          </li>
-         </ul>
-        </li>
-
-       </ul>
-      </div>
-      <!-- end #sidebar -->
-      <div style="clear: both;">
-       &nbsp;
-      </div>
-     </div>
-    </div>
    </div>
-   <!-- end #page -->
-   <div id="footer">
-    <p>
-     Copyright (c) 2012 Brad Miller and David Ranum
-     <a href="http://www.nodethirtythree.com/">
-      NodeThirtyThree
-     </a>
-     and
-     <a href="http://www.freecsstemplates.org/">
-      FreeCSSTemplates
-     </a>
-    </p>
-   </div>
-   <!-- end #footer -->
+   <!-- end sidebar -->
   </div>
-  <!-- end #wrapper -->
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-32029811-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
+  <div>
+   <div style="clear: both;">
+    &nbsp;
+   </div>
+  </div>
+  <!-- end page -->
+  <!-- start footer -->
+  <div id="footer">
+   <p id="legal">
+    (c) 2012 Macalester College. Design by
+    <a href="http://www.freecsstemplates.org/">
+     Free CSS Templates
+    </a>
+    .
+   </p>
+  </div>
+  <!-- end footer -->
  </body>
 </html>

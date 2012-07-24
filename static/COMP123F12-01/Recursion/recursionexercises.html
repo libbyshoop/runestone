@@ -1,0 +1,318 @@
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Summary &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/edu-python.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/simplemodal.js"></script>
+    <script type="text/javascript" src="../_static/jquery.textarea.js"></script>
+    <script type="text/javascript" src="../_static/edu-python.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.js"></script>
+    <script type="text/javascript" src="../_static/builtin.js"></script>
+    <script type="text/javascript" src="../_static/assess.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../index.html" />
+<script type="text/javascript"> 
+eBookConfig = {}
+eBookConfig.host = 'http://141.140.167.226:8000' ? 'http://141.140.167.226:8000' : 'http://127.0.0.1:8000',
+eBookConfig.app = eBookConfig.host+'/courselib',
+eBookConfig.ajaxURL = eBookConfig.app+'/ajax/',
+eBookConfig.course = 'COMP123F12-01',
+eBookConfig.logLevel = 10,
+eBookConfig.loginRequired = true
+</script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Summary</a></li>
+<li><a class="reference internal" href="#key-terms">Key Terms</a></li>
+<li><a class="reference internal" href="#discussion-questions">Discussion Questions</a></li>
+<li><a class="reference internal" href="#programming-exercises">Programming Exercises</a></li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/Recursion/recursionexercises.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul><!--<div id="runestonebox">
+  <h3>Runestone Links</h3>
+  <ul>
+    <li>
+      <a href="https://github.com/bnmnetp/runestone/issues/new">Report a Problem</a>
+    </li>
+    <li>
+      <a href="http://runestoneinteractive.org">About Runestone</a>
+    </li>
+    <li>
+      <a href="/courselib/admin/index">Instructors Page</a>
+    </li>
+  </ul>
+</div>
+-->
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="summary">
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we have looked at examples of several recursive
+algorithms. These algorithms were chosen to expose you to several
+different problems where recursion is an effective problem-solving
+technique. The key points to remember from this chapter are as follows:</p>
+<ul class="simple">
+<li>All recursive algorithms must have a base case.</li>
+<li>A recursive algorithm must change its state and make progress toward
+the base case.</li>
+<li>A recursive algorithm must call itself (recursively).</li>
+<li>Recursion can take the place of iteration in some cases.</li>
+<li>Recursive algorithms often map very naturally to a formal expression
+of the problem you are trying to solve.</li>
+<li>Recursion is not always the answer. Sometimes a recursive solution
+may be more computationally expensive than an alternative algorithm.</li>
+</ul>
+</div>
+<div class="section" id="key-terms">
+<h1>Key Terms<a class="headerlink" href="#key-terms" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils">
+<colgroup>
+<col width="37%" />
+<col width="33%" />
+<col width="29%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>base case</td>
+<td>decrypt</td>
+<td>dynamic programming</td>
+</tr>
+<tr class="row-even"><td>recursion</td>
+<td>recursive call</td>
+<td>stack frame</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="discussion-questions">
+<h1>Discussion Questions<a class="headerlink" href="#discussion-questions" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li>Draw a call stack for the Tower of Hanoi problem. Assume that you
+start with a stack of three disks.</li>
+<li>Using the recursive rules as described, draw a
+Sierpinski triangle using paper and pencil.</li>
+<li>Using the dynamic programming algorithm for making change, find the
+smallest number of coins that you can use to make 33 cents in change.
+In addition to the usual coins assume that you have an 8 cent coin.</li>
+</ol>
+</div>
+<div class="section" id="programming-exercises">
+<h1>Programming Exercises<a class="headerlink" href="#programming-exercises" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic">
+<li><p class="first">Write a recursive function to compute the factorial of a number.</p>
+</li>
+<li><p class="first">Write a recursive function to reverse a list.</p>
+</li>
+<li><p class="first">Modify the recursive tree program using one or all of the following
+ideas:</p>
+<ul class="simple">
+<li>Modify the thickness of the branches so that as the <tt class="docutils literal"><span class="pre">branchLen</span></tt>
+gets smaller, the line gets thinner.</li>
+<li>Modify the color of the branches so that as the <tt class="docutils literal"><span class="pre">branchLen</span></tt> gets
+very short it is colored like a leaf.</li>
+<li>Modify the angle used in turning the turtle so that at each branch
+point the angle is selected at random in some range. For example
+choose the angle between 15 and 45 degrees. Play around to see
+what looks good.</li>
+<li>Modify the <tt class="docutils literal"><span class="pre">branchLen</span></tt> recursively so that instead of always
+subtracting the same amount you subtract a random amount in some
+range.</li>
+</ul>
+<p>If you implement all of the above ideas you will have a very
+realistic looking tree.</p>
+</li>
+<li><p class="first">Find or invent an algorithm for drawing a fractal mountain. Hint: One
+approach to this uses triangles again.</p>
+</li>
+<li><p class="first">Write a recursive function to compute the Fibonacci sequence. How
+does the performance of the recursive function compare to that of an
+iterative version?</p>
+</li>
+<li><p class="first">Implement a solution to the Tower of Hanoi using three stacks to keep
+track of the disks.</p>
+</li>
+<li><p class="first">Using the turtle graphics module, write a recursive program to
+display a Hilbert curve.</p>
+</li>
+<li><p class="first">Using the turtle graphics module, write a recursive program to
+display a Koch snowflake.</p>
+</li>
+<li><p class="first">Write a program to solve the following problem: You have two jugs: a
+4-gallon jug and a 3-gallon jug. Neither of the jugs have markings on
+them. There is a pump that can be used to fill the jugs with water.
+How can you get exactly two gallons of water in the 4-gallon jug?</p>
+</li>
+<li><p class="first">Generalize the problem above so that the parameters to your solution
+include the sizes of each jug and the final amount of water to be
+left in the larger jug.</p>
+</li>
+<li><p class="first">Write a program that solves the following problem: Three missionaries
+and three cannibals come to a river and find a boat that holds two
+people. Everyone must get across the river to continue on the
+journey. However, if the cannibals ever outnumber the missionaries on
+either bank, the missionaries will be eaten. Find a series of
+crossings that will get everyone safely to the other side of the
+river.</p>
+</li>
+<li><p class="first">Modify the Tower of Hanoi program using turtle graphics to animate
+the movement of the disks. Hint: You can make multiple turtles and
+have them shaped like rectangles.</p>
+</li>
+<li><p class="first">Pascal’s triangle is a number triangle with numbers arranged in
+staggered rows such that</p>
+<div class="math">
+\[a_{nr} = {n! \over{r! (n-r)!}}\]</div>
+<p>This equation is the equation for a binomial coefficient. You can
+build Pascal’s triangle by adding the two numbers that are diagonally
+above a number in the triangle. An example of Pascal’s triangle is
+shown below.</p>
+<div class="highlight-python"><pre>        1
+      1   1
+    1   2   1
+  1   3   3   1
+1   4   6   4   1</pre>
+</div>
+<p>Write a program that prints out Pascal’s triangle. Your program
+should accept a parameter that tells how many rows of the triangle to
+print.</p>
+</li>
+<li><p class="first">Suppose you are a computer scientist/art thief who has broken into a
+major art gallery. All you have with you to haul out your stolen art
+is your knapsack which only holds <span class="math">\(W\)</span> pounds of art, but for
+every piece of art you know its value and its weight. Write a dynamic
+programming function to help you maximize your profit. Here is a
+sample problem for you to use to get started: Suppose your knapsack
+can hold a total weight of 20. You have 5 items as follows:</p>
+<div class="highlight-python"><pre>item     weight      value
+  1        2           3
+  2        3           4
+  3        4           8
+  4        5           8
+  5        9          10</pre>
+</div>
+</li>
+<li><p class="first">This problem is called the string edit distance problem, and is quite
+useful in many areas of research. Suppose that you want to transform
+the word “algorithm” into the word “alligator.” For each letter you
+can either copy the letter from one word to another at a cost of 5,
+you can delete a letter at cost of 20, or insert a letter at a cost
+of 20. The total cost to transform one word into another is used by
+spell check programs to provide suggestions for words that are close
+to one another. Use dynamic programming techniques to develop an
+algorithm that gives you the smallest edit distance between any two
+words.</p>
+</li>
+</ol>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Brad Miller, David Ranum.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32029811-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>

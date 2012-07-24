@@ -1,0 +1,239 @@
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Foreword &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/edu-python.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/simplemodal.js"></script>
+    <script type="text/javascript" src="../_static/jquery.textarea.js"></script>
+    <script type="text/javascript" src="../_static/edu-python.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.js"></script>
+    <script type="text/javascript" src="../_static/builtin.js"></script>
+    <script type="text/javascript" src="../_static/assess.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../index.html" />
+    <link rel="next" title="Preface to the Third Edition" href="preface.html" />
+    <link rel="prev" title="Preface to the Interactive Edition" href="prefaceinteractive.html" />
+<script type="text/javascript"> 
+eBookConfig = {}
+eBookConfig.host = 'http://141.140.167.226:8000' ? 'http://141.140.167.226:8000' : 'http://127.0.0.1:8000',
+eBookConfig.app = eBookConfig.host+'/courselib',
+eBookConfig.ajaxURL = eBookConfig.app+'/ajax/',
+eBookConfig.course = 'COMP123F12-01',
+eBookConfig.logLevel = 10,
+eBookConfig.loginRequired = true
+</script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="preface.html" title="Preface to the Third Edition"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="prefaceinteractive.html" title="Preface to the Interactive Edition"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="prefaceinteractive.html"
+                        title="previous chapter">Preface to the Interactive Edition</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="preface.html"
+                        title="next chapter">Preface to the Third Edition</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/FrontBackMatter/foreword.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul><!--<div id="runestonebox">
+  <h3>Runestone Links</h3>
+  <ul>
+    <li>
+      <a href="https://github.com/bnmnetp/runestone/issues/new">Report a Problem</a>
+    </li>
+    <li>
+      <a href="http://runestoneinteractive.org">About Runestone</a>
+    </li>
+    <li>
+      <a href="/courselib/admin/index">Instructors Page</a>
+    </li>
+  </ul>
+</div>
+-->
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="foreword">
+<h1>Foreword<a class="headerlink" href="#foreword" title="Permalink to this headline">¶</a></h1>
+<p>By David Beazley</p>
+<p>As an educator, researcher, and book author, I am delighted to see the
+completion of this book. Python is a fun and extremely easy-to-use programming
+language that has steadily gained in popularity over the last few years.
+Developed over ten years ago by Guido van Rossum, Python&#8217;s simple syntax and
+overall feel is largely derived from ABC, a teaching language that was
+developed in the 1980&#8217;s. However, Python was also created to solve real
+problems and it borrows a wide variety of features from programming languages
+such as C++, Java, Modula-3, and Scheme. Because of this, one of Python&#8217;s most
+remarkable features is its broad appeal to professional software developers,
+scientists, researchers, artists, and educators.</p>
+<p>Despite Python&#8217;s appeal to many different communities, you may still wonder why
+Python? or why teach programming with Python? Answering these questions is no
+simple task&#8212;especially when popular opinion is on the side of more
+masochistic alternatives such as C++ and Java.  However, I think the most
+direct answer is that programming in Python is simply a lot of fun and more
+productive.</p>
+<p>When I teach computer science courses, I want to cover important concepts in
+addition to making the material interesting and engaging to students.
+Unfortunately, there is a tendency for introductory programming courses to
+focus far too much attention on mathematical abstraction and for students to
+become frustrated with annoying problems related to low-level details of
+syntax, compilation, and the enforcement of seemingly arcane rules. Although
+such abstraction and formalism is important to professional software engineers
+and students who plan to continue their study of computer science, taking such
+an approach in an introductory course mostly succeeds in making computer
+science boring. When I teach a course, I don&#8217;t want to have a room of
+uninspired students. I would much rather see them trying to solve interesting
+problems by exploring different ideas, taking unconventional approaches,
+breaking the rules, and learning from their mistakes. In doing so, I don&#8217;t want
+to waste half of the semester trying to sort out obscure syntax problems,
+unintelligible compiler error messages, or the several hundred ways that a
+program might generate a general protection fault.</p>
+<p>One of the reasons why I like Python is that it provides a really nice balance
+between the practical and the conceptual. Since Python is interpreted,
+beginners can pick up the language and start doing neat things almost
+immediately without getting lost in the problems of compilation and linking.
+Furthermore, Python comes with a large library of modules that can be used to
+do all sorts of tasks ranging from web-programming to graphics. Having such a
+practical focus is a great way to engage students and it allows them to
+complete significant projects. However, Python can also serve as an excellent
+foundation for introducing important computer science concepts. Since Python
+fully supports procedures and classes, students can be gradually introduced to
+topics such as procedural abstraction, data structures, and object-oriented
+programming &#8212; all of which are applicable to later courses on Java or C++.
+Python even borrows a number of features from functional programming languages
+and can be used to introduce concepts that would be covered in more detail in
+courses on Scheme and Lisp.</p>
+<p>In reading Jeffrey&#8217;s preface, I am struck by his comments that Python allowed
+him to see a higher level of success and a lower level of frustration and that
+he was able to move faster with better results.  Although these comments refer
+to his introductory course, I sometimes use Python for these exact same reasons
+in advanced graduate level computer science courses at the University of
+Chicago. In these courses, I am constantly faced with the daunting task of
+covering a lot of difficult course material in a blistering nine week quarter.
+Although it is certainly possible for me to inflict a lot of pain and suffering
+by using a language like C++, I have often found this approach to be
+counterproductive&#8212;especially when the course is about a topic unrelated to
+just programming. I find that using Python allows me to better focus on the
+actual topic at hand while allowing students to complete substantial class
+projects.</p>
+<p>Although Python is still a young and evolving language, I believe that it has a
+bright future in education. This book is an important step in that direction.
+David Beazley University of Chicago Author of the <em>Python Essential Reference</em></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="preface.html" title="Preface to the Third Edition"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="prefaceinteractive.html" title="Preface to the Interactive Edition"
+             >previous</a> |</li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Brad Miller, David Ranum.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32029811-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>

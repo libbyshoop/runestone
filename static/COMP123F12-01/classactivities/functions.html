@@ -1,0 +1,500 @@
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Overview &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/edu-python.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/simplemodal.js"></script>
+    <script type="text/javascript" src="../_static/jquery.textarea.js"></script>
+    <script type="text/javascript" src="../_static/edu-python.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.js"></script>
+    <script type="text/javascript" src="../_static/builtin.js"></script>
+    <script type="text/javascript" src="../_static/assess.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../index.html" />
+<script type="text/javascript"> 
+eBookConfig = {}
+eBookConfig.host = 'http://141.140.167.226:8000' ? 'http://141.140.167.226:8000' : 'http://127.0.0.1:8000',
+eBookConfig.app = eBookConfig.host+'/courselib',
+eBookConfig.ajaxURL = eBookConfig.app+'/ajax/',
+eBookConfig.course = 'COMP123F12-01',
+eBookConfig.logLevel = 10,
+eBookConfig.loginRequired = true
+</script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Overview</a></li>
+<li><a class="reference internal" href="#important-ideas-about-functions">Important ideas about functions</a></li>
+<li><a class="reference internal" href="#practice-defining-functions">Practice defining functions</a></li>
+<li><a class="reference internal" href="#functions-calling-functions-happy-robots">Functions calling functions: Happy Robots</a></li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/classactivities/functions.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul><!--<div id="runestonebox">
+  <h3>Runestone Links</h3>
+  <ul>
+    <li>
+      <a href="https://github.com/bnmnetp/runestone/issues/new">Report a Problem</a>
+    </li>
+    <li>
+      <a href="http://runestoneinteractive.org">About Runestone</a>
+    </li>
+    <li>
+      <a href="/courselib/admin/index">Instructors Page</a>
+    </li>
+  </ul>
+</div>
+-->
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <p><strong>Calling and Defining Function</strong></p>
+<p><strong>Comp 123</strong></p>
+<div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<p>These activities will practice with using and writing functions,
+and will talk about how function calls work inside the computer,
+and a &#8220;happy robots&#8221; metaphor for understanding function calls.</p>
+<p>Be sure to download the <tt class="docutils literal"><span class="pre">functionscode.py</span></tt> file from Moodle.</p>
+</div>
+<div class="section" id="important-ideas-about-functions">
+<h1>Important ideas about functions<a class="headerlink" href="#important-ideas-about-functions" title="Permalink to this headline">¶</a></h1>
+<p>Functions we define, like the scripts we have been writing before
+this, are a way of describing an <em>algorithm</em> to the computer. A
+function has the benefit of doing all its work in its own &#8220;space,&#8221;
+which is separate from the main, global space.</p>
+<p>Let me use a metaphor to describe the difference between scripts
+and functions. Suppose you have a friend who is an artist, and you
+ask this friend to paint a picture for you. Running a script in
+Python is like inviting your friend to come into your room and
+paint a picture for you: the result may be fine, but paint may get
+splashed on other things. In the same way, a script running in
+Python may add variables to the global namespace, and may overwrite
+variables that already existed there.</p>
+<p>On the other hand, calling a function is like asking your friend to
+paint the picture in her studio: you tell her what kind of picture
+you&#8217;d like, she does the work in her own space, and returns the
+resulting picture to you. Whatever the artist did while painting
+the picture, it happened in her own space.</p>
+<p>Read the following function.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>By itself, a function definition does not do anything, any more
+than reading a recipe for cherry pie causes the pie to materialize
+on the kitchen counter. In order to execute, or invoke, this
+function, we need to &#8220;call&#8221; it. A function is called by listing its
+name and then, in parentheses, giving any input values the function
+needs. We&#8217;ve already seen some examples of this, with built-in
+Python functions like <tt class="docutils literal"><span class="pre">abs</span></tt> and <tt class="docutils literal"><span class="pre">move</span></tt>.</p>
+<p>When we call a function we pass it inputs that it needs to do its
+work. Some functions just do their work and end, but many functions
+return actual useful values (Downey calls these
+&#8220;fruitful functions&#8221;). In order to use those values, either for
+further computations or to show them to the user, we need to assign
+the value to a variable, or pass it to another expression or
+statement. Let me use another metaphor to explain what I mean: you
+can think about calling and returning values with a function as
+being like a game of catch: you throw the input parameter values to
+the function when you call it, and the function throws the return
+value back to you. You need to catch the return value in order to
+use it.</p>
+<p>Try to predict what values the function calls below would return.
+Then test yourself by typing the function into IDLE and trying out
+the examples. After running the module, click on the window
+containing the interactive shell, and type the following
+statements, one at a time. Note that I show a variety of ways to
+catch the value returned by the function {foo}.</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span class="n">val1</span> <span class="o">=</span> <span class="n">foo</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">17</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">val1</span>
+<span class="k">print</span> <span class="n">foo</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">17</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">foo</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">val2</span> <span class="o">=</span><span class="n">foo</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&quot;The value of foo(10,20, 10) is&quot;</span><span class="p">,</span> <span class="n">val2</span>
+</pre></div>
+</div>
+
+<div id="func_01" >
+<textarea cols="50" rows="12" id="func_01_code" class="active_code">
+def foo(x, y, z):
+    q = max(x, y)
+    r = max(y, z)
+    s = max(x, z)
+    return min(q, r, s)
+
+val1 = foo(10, 15, 17)
+print val1
+print foo(15, 10, 17)
+print foo(17, 10, 15)
+val2 =foo(10, 20, 10)
+print "The value of foo(10,20, 10) is", val2
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (func_01)</span> </p>
+<button onclick="runit('func_01',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('func_01');">Save</button>
+<button class="ac_opt" onclick="requestCode('func_01');">Load</button>
+<br />
+
+<canvas id="func_01_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="func_01_pre" class="active_out">
+
+</pre>
+
+</div>
+
+</div></blockquote>
+<p>Try changing the function above by putting in <tt class="docutils literal"><span class="pre">print</span></tt> statements as
+shown below.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">&quot;Starting foo with x =&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s">&quot;y =&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s">&quot;z=&quot;</span><span class="p">,</span> <span class="n">z</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&quot;q =&quot;</span><span class="p">,</span> <span class="n">q</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&quot;r =&quot;</span><span class="p">,</span> <span class="n">r</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&quot;s =&quot;</span><span class="p">,</span> <span class="n">s</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+    <span class="k">print</span> <span class="k">print</span> <span class="s">&quot;Ending foo with value&quot;</span><span class="p">,</span> <span class="n">ans</span>
+    <span class="k">return</span> <span class="n">ans</span>
+</pre></div>
+</div>
+
+<div id="func_02" >
+<textarea cols="50" rows="12" id="func_02_code" class="active_code">
+def foo(x, y, z):
+    print "Starting foo with x =", x, "y =", y, "z=", z
+    q = max(x, y)
+    print "q =", q
+    r = max(y, z)
+    print "r =", r
+    s = max(x, z)
+    print "s =", s
+    ans = min(q, r, s)
+    print "Ending foo with value", ans
+    return ans
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (func_02)</span> </p>
+<button onclick="runit('func_02',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('func_02');">Save</button>
+<button class="ac_opt" onclick="requestCode('func_02');">Load</button>
+<br />
+
+<canvas id="func_02_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="func_02_pre" class="active_out">
+
+</pre>
+
+</div>
+
+<p>Now you can see what happens: when a function is called, the values
+that are passed as arguments are <em>temporarily</em> set, or &#8220;bound&#8221; to
+the parameter variables. Then, the function&#8217;s body is executed with
+those bindings in place. The {return} statement tells the function
+what value to send back as the value of its call. The value of a
+function call takes its place in any expression that uses it, much
+like the value of <tt class="docutils literal"><span class="pre">5</span> <span class="pre">*</span> <span class="pre">2</span></tt> takes its place in the larger
+expression <tt class="docutils literal"><span class="pre">(5</span> <span class="pre">*</span> <span class="pre">2)</span> <span class="pre">+</span> <span class="pre">3</span></tt>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">A value that is returned by an expression or a
+function call is different from a value that is printed by an
+expression or a function call. When printed, the value appears to
+us, the users, but is no longer available for the program to use. A
+value that is returned can be used in other expressions, or other
+function calls.</p>
+</div>
+<p>Compare these two functions and then try the calls in the Python
+shell.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">poly1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+<span class="k">def</span> <span class="nf">poly2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">print</span> <span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+<span class="c"># Which of these two expressions will work correctly? Why?</span>
+
+ <span class="n">poly1</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span> <span class="n">poly1</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+ <span class="n">poly2</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">poly2</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+
+<div id="func_03" >
+<textarea cols="50" rows="12" id="func_03_code" class="active_code">
+
+
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (func_03)</span> </p>
+<button onclick="runit('func_03',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('func_03');">Save</button>
+<button class="ac_opt" onclick="requestCode('func_03');">Load</button>
+<br />
+
+<canvas id="func_03_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="func_03_pre" class="active_out">
+
+</pre>
+
+</div>
+
+</div>
+<div class="section" id="practice-defining-functions">
+<h1>Practice defining functions<a class="headerlink" href="#practice-defining-functions" title="Permalink to this headline">¶</a></h1>
+<p>Practice defining functions with the following examples. The first
+one is plain Python, after that get a Scribbler and try the rest.
+Put your definitions in the <tt class="docutils literal"><span class="pre">functionscode.py</span></tt> file.</p>
+<ol class="arabic">
+<li><p class="first">Define a function called <tt class="docutils literal"><span class="pre">printName</span></tt> that takes a single input,
+a string. It should print a welcome message that says <tt class="docutils literal"><span class="pre">Welcome</span> <span class="pre">to</span>
+<span class="pre">Comp</span> <span class="pre">123,</span></tt> and then the name See the example below:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">printName</span><span class="p">(</span><span class="s">&quot;Froggie&quot;</span><span class="p">)</span>
+<span class="go">Welcome to Comp 123, Froggie</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">printName</span><span class="p">(</span><span class="s">&quot;Elsa&quot;</span><span class="p">)</span>
+<span class="go">Welcome to Comp 123, Elsa</span>
+</pre></div>
+</div>
+
+<button id="butt_func_04" onclick="createActiveCode('func_04',''); $('#butt_func_04').hide();">Open Editor</button>
+<div id="func_04"></div>
+<br />
+</li>
+<li><p class="first">Define a <tt class="docutils literal"><span class="pre">repeatString</span></tt> function that takes a string as input,
+and an integer, <tt class="docutils literal"><span class="pre">n</span></tt>. It should return a new string that is a copy
+of the input string, copied <tt class="docutils literal"><span class="pre">n</span></tt> times.</p>
+<p>Once you have defined the function, it should behave as in the
+following example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">repeatString</span><span class="p">(</span><span class="s">&#39;hank&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">&#39;hankhankhank&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">repeatString</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="go">&#39;          &#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">repeatString</span><span class="p">(</span><span class="s">&quot;A man, a plan, a canal - Panama!&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">&#39;&#39;</span>
+</pre></div>
+</div>
+
+<button id="butt_func_05" onclick="createActiveCode('func_05',''); $('#butt_func_05').hide();">Open Editor</button>
+<div id="func_05"></div>
+<br />
+</li>
+<li><p class="first">Define a function called <tt class="docutils literal"><span class="pre">ave3</span></tt> that takes three numbers as
+inputs: <tt class="docutils literal"><span class="pre">x</span></tt>,``y``,``z``. It should compute the average of the three
+by adding them up and dividing by <tt class="docutils literal"><span class="pre">3.0</span></tt>. It should <em>return</em> the
+resulting value.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ave3</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">)</span>
+<span class="go">3.0</span>
+</pre></div>
+</div>
+
+<button id="butt_func_06" onclick="createActiveCode('func_06',''); $('#butt_func_06').hide();">Open Editor</button>
+<div id="func_06"></div>
+<br />
+</li>
+</ol>
+<p><em>Challenge functions for those who get done quickly</em></p>
+<ol class="arabic">
+<li><p class="first">Define a function that takes two strings as its inputs. It
+should return the total length of the two strings. The built-in
+{len} function will report the length of a string:
+<tt class="docutils literal"><span class="pre">len(&quot;abc&quot;)</span> <span class="pre">=</span> <span class="pre">3</span></tt>.</p>
+
+<button id="butt_func_07" onclick="createActiveCode('func_07',''); $('#butt_func_07').hide();">Open Editor</button>
+<div id="func_07"></div>
+<br />
+</li>
+<li><p class="first">Suppose a country&#8217;s tax code calls for a flat income tax rate of
+12% on the first $50,000 of income. Any income over $50,000 has a
+tax rate of 20%. Thus, if I make $75,000 in income in a year, then
+my income tax will be <span class="math">\(50,000 * 0.12 + 25,000 * 0.2\)</span>, or
+$11,000. Define a function {incomeTax} that takes two numbers as
+inputs. The first number is the person&#8217;s income up to $50,000. The
+second input number is the part of the person&#8217;s income that exceeds
+$50,000. The function should return the income tax owed (based on
+the formula above). See the examples below:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">incomeTax</span><span class="p">(</span><span class="mi">50000</span><span class="p">,</span> <span class="mi">25000</span><span class="p">)</span>
+<span class="go">11000.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">incomeTax</span><span class="p">(</span><span class="mi">42000</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">5040.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">incomeTax</span><span class="p">(</span><span class="mi">50000</span><span class="p">,</span> <span class="mi">130000</span><span class="p">)</span>
+<span class="go">32000.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">incomeTax</span><span class="p">(</span><span class="mi">12000</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">1440.0</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+
+<button id="butt_func_08" onclick="createActiveCode('func_08',''); $('#butt_func_08').hide();">Open Editor</button>
+<div id="func_08"></div>
+<br />
+</li>
+</ol>
+</div>
+<div class="section" id="functions-calling-functions-happy-robots">
+<h1>Functions calling functions: Happy Robots<a class="headerlink" href="#functions-calling-functions-happy-robots" title="Permalink to this headline">¶</a></h1>
+<p>Calling a single function and having it return is often pretty easy
+to understand. But what if one function calls a second, which calls
+a third, and so on. Take a look at the set of functions in
+<tt class="docutils literal"><span class="pre">functionscode.py</span> <span class="pre">``</span> <span class="pre">that</span> <span class="pre">start</span> <span class="pre">with</span> <span class="pre">the</span> <span class="pre">``song</span></tt> function. Without
+running the program, try to predict what the output would be. Then
+run it, to see how you did!</p>
+<p>How does the computer keep track of which function has called which
+other one? Downey talks about &#8220;stack frames,&#8221; which are the tool
+used by the computer to keep track of function calls. Each time a
+function is called, the computer allocates a &#8220;stack frame&#8221; that
+contains information about both the called function, and the place
+in the calling program where control and the function&#8217;s value
+should return once the function call is over.</p>
+<p>I like to use a metaphor instead of the details of stack frames; I
+call it the Happy Robots metaphor. This is how it works:</p>
+<p>When a function is defined, its definition is stored away in the in
+Python&#8217;s global namespace, which is a table where functions and
+other values can be looked up by name. Now, suppose that someone
+asks Python to evaluate a function call. Imagine that somewhere in
+the computer is a collection of happy robots, just waiting for a
+chance to execute some code. When the function call happens, one of
+the robots is selected and assigned that call.</p>
+<p>The robot always does four things:</p>
+<ol class="arabic simple">
+<li>It gets a <em>copy</em> of the function definition from the namespace,</li>
+<li>It stores within itself the values for each input parameter from
+the function call, making its own temporary local namespace,</li>
+<li>It works through the steps of the function definition, perhaps
+creating new happy robots for any function calls within it, and</li>
+<li>It returns control, and possibly a value, to the point where the
+function call took place.</li>
+</ol>
+<p>Information passes two directions: to the called function by way of
+its parameters, and from the called function by way of its returned
+value (the game of catch, remember?). The computer keeps track of
+the happy robots that represent functions that have been called,
+but have not yet returned.</p>
+<p>The picture below shows the set of happy robots that would be
+created for the program in <tt class="docutils literal"><span class="pre">song.py</span></tt>. Generally, happy robots on
+the same row would be called in sequence, left to right.</p>
+<img alt="../_images/happyrobots.jpg" src="../_images/happyrobots.jpg" />
+<p>If there is time, we will work through how this example works
+together in class.</p>
+
+<button id="butt_func_09" onclick="createActiveCode('func_09',''); $('#butt_func_09').hide();">Open Editor</button>
+<div id="func_09"></div>
+<br />
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Brad Miller, David Ranum.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32029811-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>

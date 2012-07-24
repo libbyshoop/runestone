@@ -377,6 +377,7 @@ class FillInTheBlank(Directive):
         #if 'feedback' not in self.options:
         #    self.options['feedback'] = 'No Hints'
         fbl = []
+        """  TEMPORARY TEST TO GET AROUND AND ERROR WHEN MAKING HTML
         for k in sorted(self.options.keys()):
             if 'feedback' in k:
                 pair = eval(self.options[k])
@@ -384,6 +385,7 @@ class FillInTheBlank(Directive):
                 p1 = p1.replace("'",'&acute;')
                 newpair = (pair[0],p1)
                 fbl.append(newpair)
+                """
 
         if 'casei' in self.options:
             self.options['casei'] = 'true'

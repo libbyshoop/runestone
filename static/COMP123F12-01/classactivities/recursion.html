@@ -1,0 +1,267 @@
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Recursion &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/edu-python.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/simplemodal.js"></script>
+    <script type="text/javascript" src="../_static/jquery.textarea.js"></script>
+    <script type="text/javascript" src="../_static/edu-python.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.js"></script>
+    <script type="text/javascript" src="../_static/builtin.js"></script>
+    <script type="text/javascript" src="../_static/assess.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../index.html" />
+<script type="text/javascript"> 
+eBookConfig = {}
+eBookConfig.host = 'http://141.140.167.226:8000' ? 'http://141.140.167.226:8000' : 'http://127.0.0.1:8000',
+eBookConfig.app = eBookConfig.host+'/courselib',
+eBookConfig.ajaxURL = eBookConfig.app+'/ajax/',
+eBookConfig.course = 'COMP123F12-01',
+eBookConfig.logLevel = 10,
+eBookConfig.loginRequired = true
+</script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/classactivities/recursion.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul><!--<div id="runestonebox">
+  <h3>Runestone Links</h3>
+  <ul>
+    <li>
+      <a href="https://github.com/bnmnetp/runestone/issues/new">Report a Problem</a>
+    </li>
+    <li>
+      <a href="http://runestoneinteractive.org">About Runestone</a>
+    </li>
+    <li>
+      <a href="/courselib/admin/index">Instructors Page</a>
+    </li>
+  </ul>
+</div>
+-->
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="recursion">
+<h1>Recursion<a class="headerlink" href="#recursion" title="Permalink to this headline">¶</a></h1>
+<p><strong>COMP 123</strong></p>
+<ol class="arabic">
+<li><p class="first"><strong>Design the function.</strong></p>
+<p>Before starting to write any code, or even think through the
+recursive process, you need to be sure you understand what you are
+trying to do. Answer the following questions:</p>
+<ol class="arabic">
+<li><p class="first">What will you name the function? How many input parameter
+variables should it have? What should their names be? What type of
+data should they be? If there is a value returned, what type should
+it be?</p>
+<p>Write a comment that describes these things, and write the first
+line of the function definition.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># factorial is a function that takes a single input parameter, n,</span>
+<span class="c"># which should be an integer &gt;= 0. It returns an integer value,</span>
+<span class="c"># the factorial of n: n! = n * n-1 * ... * 2 * 1. 0! = 1, by definition</span>
+<span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">What is the function supposed to do?</p>
+<p>Write out two or three examples for different inputs, and put those
+calls after the definition, as tests.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c"># should be 6</span>
+<span class="k">print</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c"># should be 30</span>
+<span class="k">print</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c"># should be 1</span>
+<span class="k">print</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c"># should be 0</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Think about which input parameter is going to change as the
+program repeats, and which should stay the same. We call this
+parameter (or these parameters if more than one changes) the &#8220;loop
+variables.&#8221;</p>
+</li>
+</ol>
+</li>
+<li><p class="first"><strong>Determine the *Base Case* input and result.</strong></p>
+<p>Think about all the possible values the loop variable could take
+on. For which values is the result obvious or easy to calculate?
+This is the <em>Base Case</em>.</p>
+<ol class="arabic">
+<li><p class="first">How could you test the loop variable to see if it is one of
+these really simple cases? Write a boolean expression that performs
+that test.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">What do you want to do when the loop variable is this simple
+case? Write the code for what to do, to compute the answer or
+produce the right result.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="k">return</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>To use recursion, you must rephrase the original question in
+terms of a smaller sub-problem of the same kind. In writing a
+recursive function, you then make a leap of faith. You <em>assume</em>
+that the function you are writing will work correctly on the
+smaller sub-problem, and build a solution to the full, original
+problem from that. The next two steps take you through this
+process, to create the <em>Recursive Case</em>.</p>
+</li>
+<li><p class="first"><strong>Determine the natural recursive sub-problem.</strong></p>
+<p>Suppose that the loop variables is not one of the simple cases, but
+reflects a larger problem. What could you do to the loop variable
+to make it slightly smaller, and closer to being one of those
+simple cases?</p>
+<p>Add to your program an <tt class="docutils literal"><span class="pre">else</span></tt> case that contains a recursive call
+to the procedure, with a value for each input parameter. If the
+parameter is not supposed to change, then simply put the variable
+back in without altering it. But the loop variable should be
+replaced by an expression that simplifies it.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+ <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+     <span class="k">return</span> <span class="mi">1</span>
+ <span class="k">else</span><span class="p">:</span>
+     <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>Determine how to modify the sub-problem&#8217;s result.</strong></p>
+<p>Apply a bit of faith at this point. Assume that the recursive call
+on the sub-problem does what it is supposed to do. Now, compare what
+the recursion has done for the sub-problem to what the original
+problem needed to do.</p>
+<p>Write expressions and/or statements that add to the result computed
+by the recursive call (for the sub-problem) in order to produce the
+right complete result.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># factorial is a function that takes a single input parameter, n,</span>
+<span class="c"># which should be an integer &gt;= 0. It returns an integer value,</span>
+<span class="c"># the factorial of n: n! = n * n-1 * ... * 2 * 1. 0! = 1, by definition</span>
+
+<span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">return</span> <span class="mi">1</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c"># should be 6</span>
+<span class="k">print</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c"># should be 30</span>
+<span class="k">print</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c"># should be 1</span>
+<span class="k">print</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c"># should be 0</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Brad Miller, David Ranum.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32029811-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>

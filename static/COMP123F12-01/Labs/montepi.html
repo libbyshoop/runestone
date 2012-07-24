@@ -1,0 +1,255 @@
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Approximating the Value of Pi &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/edu-python.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/simplemodal.js"></script>
+    <script type="text/javascript" src="../_static/jquery.textarea.js"></script>
+    <script type="text/javascript" src="../_static/edu-python.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.js"></script>
+    <script type="text/javascript" src="../_static/builtin.js"></script>
+    <script type="text/javascript" src="../_static/assess.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../index.html" />
+    <link rel="up" title="Decisions and Selection" href="../Selection/selection.html" />
+    <link rel="next" title="Iteration Revisited" href="../MoreAboutIteration/moreiteration.html" />
+    <link rel="prev" title="Decisions and Selection" href="../Selection/selection.html" />
+<script type="text/javascript"> 
+eBookConfig = {}
+eBookConfig.host = 'http://141.140.167.226:8000' ? 'http://141.140.167.226:8000' : 'http://127.0.0.1:8000',
+eBookConfig.app = eBookConfig.host+'/courselib',
+eBookConfig.ajaxURL = eBookConfig.app+'/ajax/',
+eBookConfig.course = 'COMP123F12-01',
+eBookConfig.logLevel = 10,
+eBookConfig.loginRequired = true
+</script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../MoreAboutIteration/moreiteration.html" title="Iteration Revisited"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../Selection/selection.html" title="Decisions and Selection"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+          <li><a href="../Selection/selection.html" accesskey="U">Decisions and Selection</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Approximating the Value of Pi</a><ul>
+<li><a class="reference internal" href="#setup">Setup</a></li>
+<li><a class="reference internal" href="#throwing-darts">Throwing Darts</a></li>
+<li><a class="reference internal" href="#counting-darts">Counting Darts</a></li>
+<li><a class="reference internal" href="#the-value-of-pi">The Value of Pi</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../Selection/selection.html"
+                        title="previous chapter">Decisions and Selection</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../MoreAboutIteration/moreiteration.html"
+                        title="next chapter">Iteration Revisited</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/Labs/montepi.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul><!--<div id="runestonebox">
+  <h3>Runestone Links</h3>
+  <ul>
+    <li>
+      <a href="https://github.com/bnmnetp/runestone/issues/new">Report a Problem</a>
+    </li>
+    <li>
+      <a href="http://runestoneinteractive.org">About Runestone</a>
+    </li>
+    <li>
+      <a href="/courselib/admin/index">Instructors Page</a>
+    </li>
+  </ul>
+</div>
+-->
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="approximating-the-value-of-pi">
+<h1>Approximating the Value of Pi<a class="headerlink" href="#approximating-the-value-of-pi" title="Permalink to this headline">¶</a></h1>
+<p>Almost everyone has heard of the famous mathematical constant called <strong>Pi</strong>.  We use it most often to find the circumference or the area of a circle.  For simplicity, the value that is commonly used for pi is 3.14.  However, it turns out that pi is what mathematicians call an <strong>irrational number</strong>, meaning that that it has an infinite, nonrepeating number of decimal digits. The value is</p>
+<p>3.1415926535897932384626433832795028841971693993751058209749445923078164062...</p>
+<p>In this lab, we will approximate the value of pi using a technique known as <strong>Monte Carlo Simulation</strong>.  This means that we will use random numbers to simulate a &#8220;game of chance&#8221;.  The result of this game will be an approximation for pi.</p>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>The game that we will use for this simulation is &#8220;darts&#8221;.  We will &#8220;randomly&#8221; throw a number of darts at a specially configured dartboard.  The set up for our board is shown below.  In the figure, you can see that we have a round dartboard mounted on a square piece of wood.  The dartboard has a radius of one unit.  The piece of wood is exactly two units square so that the round board fits perfectly inside the square.</p>
+<img alt="../_images/dartboards.png" src="../_images/dartboards.png" />
+<p>But how will this help us to approximate pi?  Consider the area of the circular dartboard.  It has a radius of one so
+its area is pi.  The area of the square piece of wood is 4 (2 x 2).  The ratio of the area of the circle to the area of the square is pi/4.  If we throw a whole bunch of darts and let them randomly land on the square piece of wook, some will also land on the dartboard.  The number of darts that land on the dartboard, divided by the number that we throw total, will be in the ratio described above (pi/4).  Multiply by 4 and we have pi.</p>
+</div>
+<div class="section" id="throwing-darts">
+<h2>Throwing Darts<a class="headerlink" href="#throwing-darts" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have our dartboard setup, we can throw darts.  We will assume that we are good enough at throwing darts that we always hit the wood.  However, sometimes the darts will hit the dartboard and sometimes they  will miss.</p>
+<p>Inorder to simulate throwing the darts, we can generate two random numbers between zero and one.  The first will be the &#8220;x coordinate&#8221; of the dart and the second will be the &#8220;y coordinate&#8221;.  However, we have a problem.  The coordinates for the dartboard go from -1 to 1.</p>
+<p>How can we turn a random number between 0 to 1 into a random number between -1 and 1?</p>
+<p>The program has been started for you.  You need to fill in the part that will &#8220;throw the dart&#8221;.  Once you know the x,y coordinate, have the turtle move to that location and make a <tt class="docutils literal"><span class="pre">dot</span></tt>.  Note that the tail is already up so it will not leave a line.</p>
+
+<div id="piguessstart" >
+<textarea cols="50" rows="12" id="piguessstart_code" class="active_code">
+import turtle
+import math
+import random
+
+fred = turtle.Turtle()
+fred.up()
+
+wn = turtle.Screen()
+wn.setworldcoordinates(-1,-1,1,1)
+
+numdarts = 10
+for i in range(numdarts):
+    randx = random.random()
+    randy = random.random()
+
+    x =
+    y =
+
+wn.exitonclick()
+
+</textarea>
+<p class="ac_caption"><span class="ac_caption_text"> (piguessstart)</span> </p>
+<button onclick="runit('piguessstart',this, undefined);">Run</button>
+<button class="ac_opt" onclick="saveEditor('piguessstart');">Save</button>
+<button class="ac_opt" onclick="requestCode('piguessstart');">Load</button>
+<br />
+
+<canvas id="piguessstart_canvas" height="400" width="400" style="border-style: solid; display: none"></canvas>
+
+<pre id="piguessstart_pre" class="active_out">
+
+</pre>
+
+</div>
+
+</div>
+<div class="section" id="counting-darts">
+<h2>Counting Darts<a class="headerlink" href="#counting-darts" title="Permalink to this headline">¶</a></h2>
+<p>We already know the total number of darts being thrown.  The variable <tt class="docutils literal"><span class="pre">numdarts</span></tt> keeps this for us.  What we need to figure out is how many darts land in the circle?  Since the circle is centered at (0,0) and it has a radius of 1, the question is really simply a matter of checking to see whether the dart has landed within 1 unit of the center.  Luckily, there is a turtle method called <tt class="docutils literal"><span class="pre">distance</span></tt> that will return the distance from the turtle to any other position.  It needs the x,y for the other position.</p>
+<p>For example, <tt class="docutils literal"><span class="pre">fred.distance(12,5)</span></tt> would return the distance from fred&#8217;s current position to position (12,5).</p>
+<p>Now we simply need to use this method in a conditional to ask whether fred is within 1 unit from the center.  If so, color the dart <tt class="docutils literal"><span class="pre">red</span></tt>, otherwise, color it <tt class="docutils literal"><span class="pre">blue</span></tt>.  Also, if we find that it is in the circle, count it.  Create an accumulator variable, call it <tt class="docutils literal"><span class="pre">insideCount</span></tt>, initialize it to zero, and then increment it when necessary.  Remember that the increment is a form of the accumulator pattern using reassignment.</p>
+</div>
+<div class="section" id="the-value-of-pi">
+<h2>The Value of Pi<a class="headerlink" href="#the-value-of-pi" title="Permalink to this headline">¶</a></h2>
+<p>After the loop has completed and visualization has been drawn, we still need to actually compute pi and print it.  Use the relationship given above.</p>
+<p>Run your program with larger values of <tt class="docutils literal"><span class="pre">numdarts</span></tt> to see if the approximation gets better.  If you want to speed things up for large values of <tt class="docutils literal"><span class="pre">numdarts</span></tt>, set the tracer to be 100 using <tt class="docutils literal"><span class="pre">fred.tracer(100)</span></tt>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../MoreAboutIteration/moreiteration.html" title="Iteration Revisited"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../Selection/selection.html" title="Decisions and Selection"
+             >previous</a> |</li>
+        <li><a href="../index.html">How to Think Like a Computer Scientist</a> &raquo;</li>
+          <li><a href="../Selection/selection.html" >Decisions and Selection</a> &raquo;</li>
+<li class="right"><span class="loginout"><a href="/courselib/default/user/logout">logout</a></span>| </li>
+
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Brad Miller, David Ranum.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32029811-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>

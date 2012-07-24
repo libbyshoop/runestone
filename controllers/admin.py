@@ -36,7 +36,7 @@ def gradeassignment():
     else:
         q = db(db.code.course_id == auth.user.course_id)
 
-    rset = db.executesql('''select acid, sid, grade, id from code as T 
+    rset = db.executesql('''select acid, code, sid, grade, id from code as T
         where course_id = '%s' and  acid = '%s' and timestamp = 
              (select max(timestamp) from code where sid=T.sid and acid=T.acid);''' % 
              (auth.user.course_id,acid))
