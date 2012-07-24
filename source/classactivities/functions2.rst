@@ -14,7 +14,8 @@ It will also ask you to practice with writing functions that are
 called by other functions.
 
 .. note:: All the code that is in this activity may be found in the
-          :download:`functions2.py <functions2.py>` file!** Open this file in an IDLE editor window.
+
+          :download:`functions2.py <functions2.py>` file! Open this file in an IDLE editor window.
 
 Variables: global, parameter, and local
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
