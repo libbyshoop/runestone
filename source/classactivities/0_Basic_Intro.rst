@@ -31,31 +31,10 @@ variables in math, but not identical. Think of a variable as being
 a name for a box in the computer's memory, where you can stick a
 value of some kind.
 
+.. activecode:: act_intro_1
 
-    +-------------------------------+-----------------------------------------------------------------+
-    |     ``5 + 2``                 |  Compute the sum of two numbers.                                |
-    +-------------------------------+-----------------------------------------------------------------+
-    |     ``x = 100``               |  Assign the value 100 to variable x.                            |
-    +-------------------------------+-----------------------------------------------------------------+
-    |     ``(2 * x) - 33``          |  Compute the value :math:`2x - 33`.                             |
-    +-------------------------------+-----------------------------------------------------------------+
-    |     ``2 ** 4``                |  Compute the value :math:`2^4`, (\*\* means exponentiation)     |
-    +-------------------------------+-----------------------------------------------------------------+
-    |     ``z = (x - (5 * 4))``     |  Assign the value of the expression to variable z.              |
-    +-------------------------------+-----------------------------------------------------------------+
-    |     ``print 10 * 3, x, z``    |  Print the values of each expression on a line.                 |
-    +-------------------------------+-----------------------------------------------------------------+
-    |     ``strng = 'Hello there'`` |  Assign variable strng to be the string.                        |
-    +-------------------------------+-----------------------------------------------------------------+
-
-
-.. actex:: act_intro_1
-
-    a=5
-    b=2
-    print(a+b) #Compute the sum of two numbers.
+    print(5+2) #Compute the sum of two numbers.
     x=100 #Assign the value 100 to variable x.
-    print("x=100")
     print(2*x)-33 #Compute the value 2x-33
     print(2**4) # Compute the value
     z=(x-(5*4)) #Assign the value of the expression to variable z.
@@ -160,8 +139,7 @@ Try the following in the editor to see how division works.
 
 .. actex:: act_intro_3
 
-    print(25.0/3)
-    # Try the remaining here
+
 
 
 
@@ -240,8 +218,6 @@ line long.
 We won't do much with string operations today, but here are a
 couple to keep in mind:
 
-
-
     +--------------------------+---------------------------------------------------+
     |``len('foo')``            |  returns the number of characters in its argument |
     +--------------------------+---------------------------------------------------+
@@ -258,9 +234,6 @@ couple to keep in mind:
     |``s[3:5]``                |    returns a substring starting at 3 and          |
     |                          |      ending before 5                              |
     +--------------------------+---------------------------------------------------+
-
-
-
 
 A string script
 ^^^^^^^^^^^^^^^
