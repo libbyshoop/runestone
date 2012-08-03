@@ -9,7 +9,7 @@ trying to debug, this activity will focus on strategies for
 debugging programs, and in particular will introduce the debugger
 in Wing.
 
-When a script or program you write doesn't run and produce the
+When a program you write doesn't run and produce the
 correct result, you need to debug it. If there are syntax errors,
 so that you cannot even load the Python file into the shell, then
 those must be handled first. After that, you need to debug problems
@@ -18,8 +18,7 @@ produced.
 
 Get a copy of the 
 :download:`debuggingstuff.py <debuggingstuff.py>` file, which contains the
-longer code segments you'll use for this activity. This file is on
-moodle near this activity. Since you are going to correct errors in
+longer code segments you'll use for this activity. Since you are going to correct errors in
 this file, you will want to `save a new copy of it by using the
 file-save-as option and saving this as` `fixed\_debuggingstuff.py`.
 You will want to get back to the buggy version during this
@@ -38,20 +37,20 @@ printed in the Python shell. Error messages start with the word
 "Traceback," and give the computer's best information about the
 error.
 
-.. note:: the following example 'scripts' are to illustrate
+.. note:: The following example 'programs' are to illustrate
           points. You should be in the habit of writing functions by now for
           most of your work.
 
 Example 1:
 ^^^^^^^^^^
 
-Examine the script below. When run, this script generated the error
+Examine the sourcecode below. When run, this generated the error
 message that appears below that. Note that in Wing's editor this
-script underlined all of line 4.
+program underlined all of line 4.
 
 .. sourcecode:: python
 
-    # script with bugs
+    # program with bugs
 
     x = 3
      y = 4
@@ -75,12 +74,12 @@ expected.
 Example 2:
 ^^^^^^^^^^
 
-Here is another script with a more obscure error message. In this
+Here is another program with a more obscure error message. In this
 case the 5 and the character after it were underlined in red.
 
 .. sourcecode:: python
 
-    # script with bugs
+    # program with bugs
 
     if x > 5
     print 2
@@ -100,7 +99,7 @@ In this case, it is missing the colon at the end of the if
 conditional line.
 
 Notice, also, that there actually are two syntax errors in this
-script, but Python will always stop and report only the first error
+program, but Python will always stop and report only the first error
 it finds.
 
 Example 3:
@@ -235,7 +234,7 @@ Prerequisites to using the debugger
 The debugger only works with saved files, so the first thing you
 must do is to save your code as a file with the `.py` extension.
 Also, your program must run itself automatically when you click the
-`Run` button. If you are writing a script, there is no problem, but
+`Run` button. If you are writing a program, there is no problem, but
 if you are defining a function, then you *must* include a call to
 the function after the definition, in the file.
 
@@ -354,7 +353,7 @@ code for that function. The `Step Over` button will treat the
 function call as a single step, and will go on to the next line in
 this function.
 
-The `Step Out` button will move line by line through script
+The `Step Out` button will move line by line through program
 statements, but if the debugger is currently stepping through a
 function because of a function call, `Step Out` will stop going
 line by line and will simply run the remaining lines, stopping

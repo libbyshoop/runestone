@@ -287,6 +287,17 @@ Here are some *How to think like a computer scientist* observations:
   ideas.   They're not always explicit in the code.  
 * And, uh-huh, two turtles may not be enough for a herd, but you get the idea! 
 
+**Check your understanding**
+
+.. mchoicemf:: test_question3_2_1
+   :answer_a: True
+   :answer_b: False
+   :correct: b
+   :feedback_a: You can create and use as many turtles as you like.  As long as they have different names, you can operate them independently, and make them move in any order you like.  To convince yourself this is true, try interleaving the instructions for alex and tess in ActiveCode box 3.
+   :feedback_b: You can create and use as many turtles as you like.  As long as they have different names, you can operate them independently, and make them move in any order you like.  If you are not totally convinced, try interleaving the instructions for alex and tess in ActiveCode box 3.
+
+   True or False: You can only have one active turtle at a time.  If you create a second one, you will no longer be able to access or use the first.
+
 
 .. index:: for loop
   
@@ -316,8 +327,9 @@ message for each friend.
 .. activecode:: ch03_4
     :nocanvas:
 
-    for friendName in ["Joe", "Amy", "Brad", "Angelina", "Zuki", "Thandi", "Paris"]:
-        print("Hi ", friendName, "  Please come to my party on Saturday!")
+    for friendName in ["Joe", "Amy", "Brad",
+                       "Angelina", "Zuki", "Thandi", "Paris"]:
+        print("Hi ", friendName, ",  Please come to my party on Saturday!")
       
 
 Take a look at the output produced when you press the ``run`` button.  There is one line printed for each friend.  Here's how it works:
@@ -340,16 +352,6 @@ Take a look at the output produced when you press the ``run`` button.  There is 
 * At the end of each execution of the body of the loop, Python returns 
   to the ``for`` statement, to see if there are more items to be handled.
 
-**Check your understanding**
-
-.. mchoicemf:: test_question3_2_1
-   :answer_a: True
-   :answer_b: False
-   :correct: b
-   :feedback_a: You can create and use as many turtles as you like.  As long as they have different names, you can operate them independently, and make them move in any order you like.  To convince yourself this is true, try interleaving the instructions for alex and tess in ActiveCode box 3. 
-   :feedback_b: You can create and use as many turtles as you like.  As long as they have different names, you can operate them independently, and make them move in any order you like.  If you are not totally convinced, try interleaving the instructions for alex and tess in ActiveCode box 3.
-
-   True or False: You can only have one active turtle at a time.  If you create a second one, you will no longer be able to access or use the first.
 
 .. index:: control flow, flow of execution
   
@@ -382,8 +384,9 @@ the buttons.  You can see the value of ``friendName`` change as the loop iterate
 
 .. codelens:: vtest
 
-    for friendName in ["Joe", "Amy", "Brad", "Angelina", "Zuki", "Thandi", "Paris"]:
-        print("Hi " + friendName + "  Please come to my party!")
+    for friendName in ["Joe", "Amy", "Brad",
+                       "Angelina", "Zuki", "Thandi", "Paris"]:
+        print("Hi " + friendName + ",  Please come to my party!")
 
 .. index:: range function, chunking
 
@@ -468,7 +471,7 @@ In this case, the value of ``aColor`` is used to change the color attribute of `
    In the following code, how many lines does this code print? 
    <pre>
    for number in [5, 4, 3, 2, 1, 0]:
-       print("I have", number, "cookies.  Iím going to eat one.")
+       print("I have", number, "cookies.  I am going to eat one.")
    </pre>
    
 .. mchoicemf:: test_question3_4_2
@@ -496,7 +499,7 @@ In this case, the value of ``aColor`` is used to change the color attribute of `
       In the following code, what is the value of number the second time Python executes the loop?
       <pre>
          for number in [5, 4, 3, 2, 1, 0]:
-             print("I have", number, "cookies.  Iím going to eat one.")
+             print("I have", number, "cookies.  I am going to eat one.")
       </pre>
 
 .. mchoicemf:: test_question3_4_4

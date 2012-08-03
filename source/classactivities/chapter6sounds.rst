@@ -1,5 +1,0 @@
-Multiples choice Questions
-===========================
-
-
-

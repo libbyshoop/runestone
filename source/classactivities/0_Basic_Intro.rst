@@ -7,44 +7,174 @@ Overview
 --------
 Today you will learn a bit about Python, and some basic kinds of data Python can manipulate. You’ll learn
 how to store values in variables, and how to build expressions that can be evaluated to produce a value. You
-will learn how to put sequences of Python statements and expressions in a file, called a script, which can be
+will learn how to put sequences of Python statements and expressions in a program which can be
 saved and re-run at a later point.
+.. TODO remove script reference
 
 Python
 ------
 Python provides an interactive shell that we use to communicate with it, much like a calculator provides an
 interface that we use to communicate with it. With Python, you can type a series of Python statements into
 the shell, and get immediate responses to each one. You can also package up a series of statements as a
-script. When you run the script, Python executes each statement in order. Most modern operating systems
-allow you to run a Python script as if it were an executable application, just by double-clicking on the Python
-file containing the script. Behind the scenes, the Python shell is started up, and the statements are executed
+program. When you run the program, Python executes each statement in order. Most modern operating systems
+allow you to run a Python program as if it were an executable application, just by choosing *run*.
+Behind the scenes, the Python shell is started up, and the statements are executed
 in the shell one after another.
-We can also write programs other than scripts in Python, but we’ll get to that later.
+
+.. TODO rewrite this entire paragraph
 
 
 Try these examples
 ^^^^^^^^^^^^^^^^^^
+.. TODO edit this as well
 
-Try the examples below in the editor, typing each one
-in turn. Note: variables in computer science are similar to
+Try the examples below in the activecode area, typing each one
+in turn. Note how variables in computer science are similar to
 variables in math, but not identical. Think of a variable as being
 a name for a box in the computer's memory, where you can stick a
 value of some kind.
 
-.. activecode:: act_intro_1
+.. sourcecode:: python
 
     print(5+2) #Compute the sum of two numbers.
     x=100 #Assign the value 100 to variable x.
     print(2*x)-33 #Compute the value 2x-33
     print(2**4) # Compute the value
     z=(x-(5*4)) #Assign the value of the expression to variable z.
-    print 10*3,x,z #Print the values of each expression on a line.
+    print(10*3,x,z) #Print the values of each expression on a line.
     strng="Hello there" #Assign variable strng to be the string.
-    print strng #print strng
+    print(strng) #print strng
+
+.. activecode:: act_intro_1
 
 
-Create your own script
-^^^^^^^^^^^^^^^^^^^^^^
+
+Common Errors
+-------------
+Here are a few errors you might encounter in python. Look through the examples below and determine what type of error each one has.
+
+Common Error A
+^^^^^^^^^^^^^^^
+Step forward through the following program until an error occurs.
+
+.. codelens:: act_code_01
+
+    a=5
+    b=10
+    c=20
+    a=0
+    e=30
+    print(e/a)
+
+
+.. mchoicemf:: question1_01
+   :answer_a: Syntax error
+   :answer_b: Semantic error
+   :answer_c: Runtime error
+   :correct: c
+   :feedback_a: A syntax error is an error in the structure of the python code that can be detected before the program is executed. This is not a syntax error as the structure of the code is good.
+   :feedback_b: This is not an error in logic.
+   :feedback_c: Python cannot tell if you are trying to divide by 0 until the program is run.
+
+   What kind of an error is this?
+
+Common Error B
+^^^^^^^^^^^^^^^
+
+.. activecode:: act_code_02
+
+    x=3
+    y=4
+    z=10
+     print(x,y,z)
+
+.. mchoicemf:: question1_02
+   :answer_a: Syntax error
+   :answer_b: Runtime error
+   :answer_c: Semantic error
+   :correct: a
+   :feedback_a: The incorrect indentation in the print statement is a problem with the formal structure of the program.
+   :feedback_b: This is not a runtime error as it is a problem with the formal structure of the program.
+   :feedback_c: This is a problem with the formal structure of the program, not in the logic of the program.
+
+   What kind of an error is this?
+
+Common Error C
+^^^^^^^^^^^^^^^
+Why is the following code incorrect?
+
+.. activecode:: act_code_03
+
+    #This program converts a value in centigrade to fahrenheit
+    centigrade=30
+    fraction=5/9
+    fahrenheit=(centigrade*fraction)+32
+    print(fahrenheit)
+
+.. mchoicemf:: question1_03
+   :answer_a: Runtime error
+   :answer_b: Syntax error
+   :answer_c: Semantic error
+   :correct: c
+   :feedback_a: This is an error in logic as the program doesnt produce the correct answer. So it is not a run-time error.
+   :feedback_b: The formal structure of the program is correct.
+   :feedback_c: The fraction should be 9/5 not 5/9. This is a semantic error which is why the program produced a wrong answer.
+
+   What kind of an error is this?
+
+Common Error D
+^^^^^^^^^^^^^^^
+How helpful is the error message when you run the following? Look real carefully if you can figure out what's wrong. Remove the last line and see what error message occurs.
+
+.. activecode:: act_code_04
+
+    a=5
+    b=10
+    c=7
+    d=16
+    print((a*d)/(b/c)
+    print("goodbye")
+
+.. mchoicemf:: question1_04
+   :answer_a: Runtime error
+   :answer_b: Syntax error
+   :answer_c: Semantic error
+   :correct: b
+   :feedback_a: Unbalanced parenthesis is a problem with the formal structure of the program, not a runtime error and can be figured out before program execution.
+   :feedback_b: Unbalanced parenthesis is an error in the structure of the python code that can be detected before the program is executed.
+   :feedback_c: This is a problem with the formal structure of the program and not in its logic.
+
+   What kind of an error is this?
+
+Common Error E
+^^^^^^^^^^^^^^^
+
+.. codelens:: act_code_05
+
+    strng="Hi there"
+    sentence="The quick brown fox jumps over the lazy dog"
+    print(string)
+
+
+.. mchoicemf:: question1_05
+   :answer_a: Syntax error
+   :answer_b: semantic error
+   :answer_c: runtime error
+   :correct: c
+   :feedback_a: A syntax error is an error in the structure of the python code that can be detected before the program is executed. This is not a syntax error as the structure of the code is good.
+   :feedback_b: This is not an error in logic and the code doesnt produce the wrong answer.
+   :feedback_c: Python cannot tell if string is not defined until the program is run.
+
+   What kind of an error is this?
+
+
+Try More on your own
+^^^^^^^^^^^^^^^^^^^^^^^
+For more practice, try generating your own errors.
+
+Create your own program
+-----------------------
+.. TODO change scripts to program and editor
 
 Suppose I want to fence in my backyard. Given the length and width
 of the space, I can figure out how much fencing I need by computing
@@ -52,139 +182,21 @@ the perimeter of the rectangle. Define a variable ``w`` to hold the
 value 50 (the width in feet of my yard), and define variable ``l`` to
 be the value 75 (the length in feet of my yard). Then write a
 Python expression to calculate how many feet of fencing I would
-need to enclose my yard. Try it out in the shell.
+need to enclose my yard. Try it out in the editor below.
 
-Choose "New Window" to open an editor window. Copy the statements
-you used to compute the length of fencing into this window. Make
+Copy the statements
+you used to compute the length of fencing. Make
 sure each statement starts at the beginning of the line (no leading
-spaces). Save this file as ``fencing.py``, and then try running the
-script. To run your script in the Python shell, select "Run Module"
-from the "Run" menu. Does it work? When you run a script from a
-file, Python automatically suppresses the values of each expression
-in the file. Thus, if you want to see the result of your
+spaces). To run your program, select "Run". Does it work? When you run a program, Python automatically suppresses the values of each expression
+. Thus, if you want to see the result of your
 calculations, you will need to add ``print`` statements to see the
 final result. Next, change the values of ``w`` and ``l`` to new values.
-Does the script work correctly on these new values? Add a comment
-above your Python statements that describes what your script does.
+Does the program work correctly on these new values? Add a comment
+above your Python statements that describes what your program does.
 
 .. actex:: act_intro_2
 
 
-
-
-Data Types
-----------
-
-Numbers
-^^^^^^^
-
-Python has two main kinds of numbers: integers, and real, or
-floating point, numbers. (There are other kinds of numbers, as
-well, but we probably won't use any of them). Below is a table
-showing basic numeric operations. Many more common mathematical
-operations are in the math module, which you can add in when you
-need it.
-
-
-
-    +--------------------------+---------------------------------------------------+
-    | Example                  | Meaning                                           |
-    +==========================+===================================================+
-    | 3 + 12                   | Adds two numbers, returning the result            |
-    +--------------------------+---------------------------------------------------+
-    | 45 - 19                  | Subtracts second from first, returning the result |
-    +--------------------------+---------------------------------------------------+
-    | 5\*100                   | Multiplies two numbers, returning the result      |
-    +--------------------------+---------------------------------------------------+
-    | 55.0 / 2                 | Divides first by the second, returning the result |
-    +--------------------------+---------------------------------------------------+
-    |  30 % 4                  | Computes the remainder of first divided by second |
-    +--------------------------+---------------------------------------------------+
-    |  2**3                    | Raises first to the power of the second           |
-    |                          |                                                   |
-    +--------------------------+---------------------------------------------------+
-    |  max(1, 5, 3)            | A function that returns the largest of values     |
-    +--------------------------+---------------------------------------------------+
-    |  min(1, 5, 3)            | A function that returns the smallest of values    |
-    +--------------------------+---------------------------------------------------+
-    |  abs(-3)                 | A function that returns the absolute value of     |
-    |                          |  its argument                                     |
-    +--------------------------+---------------------------------------------------+
-    |  int(3.2)                | Converts its argument to an integer               |
-    +--------------------------+---------------------------------------------------+
-    |  float(2)                | Converts its argument to a floating point         |
-    +--------------------------+---------------------------------------------------+
-
-
-Integers and floats are treated as different, though related, kinds
-of data. This is why we have explicit operators to convert from one
-type to the other.
-
- .. note:: You might not see exactly the same result; floating point results can differ from one machine to another.
-           We will say more later about controlling the appearance of floating point output.
-           See also `Floating Point Arithmetic Issues and Limitations`_ for a full discussion of some of the subtleties of floating point numbers and their representations.
-
-
-.. _Floating Point Arithmetic Issues and Limitations: http://docs.python.org/release/3.1.5/tutorial/floatingpoint.html#tut-fp-issues
-
-Try the following in the editor to see how division works.
-
-.. sourcecode:: python
-
-    25.0/3
-    25.0/3.0
-    25/3.0
-    25/3
-    25%3
-
-.. actex:: act_intro_3
-
-
-
-
-
-Try a new script
-^^^^^^^^^^^^^^^^
-
-Consider the problem of making change: figuring out how many bills
-and coins to give someone to make a specific amount of money. This
-example asks you to make a script to solve this problem. You might
-start by discussing this question with a neighbor, and developing
-together your ideas for how to solve the problem, in English or
-pseudocode. The key idea to making change is to take the quotient
-and remainder of an amount by the next monetary unit. For example,
-given $7.32, represented as 732 cents. If we take the quotient of
-732 by 100 (for one dollar bills), then we get 7, and the remainder
-of 732 divided by 100 is 32. Then take the part left over, and
-repeat for the next coin: quarters. Divide 32 by 25, and get 1, and
-the remainder is 7 cents. Continue in this manner.
-
-Now, see if you can write a Python script, a series of expressions
-or statements in Python, that do this calculation and print out the
-results. Open a new editor window in Wing, or add this to an existing file.
-Define a variable, ``money``, that contains a money amount, in cents
-(like 732 for $7.32, for example).
-
-Then, create a series of Python statements that calculate and print
-how to give change for the money value, in dollars, quarters,
-dimes, nickels, and pennies. The best solution will use integer
-division and the remainder operation.
-
-Below is an example of what might print when this script is run:
-
-.. sourcecode:: python
-
-    Making change for 732 cents:
-    Dollars: 7
-    Quarters: 1
-    Dimes: 0
-    Nickels: 1
-    Pennies: 2
-
-
-Once you get the script working for 732, change the value of
-``money`` and test your script on other values to be sure it works
-more generally.
 
 
 
@@ -238,14 +250,14 @@ couple to keep in mind:
 A string script
 ^^^^^^^^^^^^^^^
 
-Create a script that starts with:
+Create a program that starts with:
 
 .. sourcecode:: python
 
     sentence = 'We must go to the movies on Saturday'
 
 
-The script should pull out the last word in the sentence, using the
+The program should pull out the last word in the sentence, using the
 substring operation from above, and should print a new string
 formed by concatenating the last word with itself 4 times.
 

@@ -22,6 +22,7 @@ helps to make changes to sounds, images and videos.
 This is how JES’s default page looks like.
 
 .. figure:: Images/image1.png
+   :scale: 50%
    :align: center
    :alt:
 
@@ -42,6 +43,7 @@ you what this window is all about.
    in functions that you can find under the JES Functions menu.
 
 .. figure:: Images/image0.png
+   :scale: 50%
    :align: center
    :alt:
 

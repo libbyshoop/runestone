@@ -1,5 +1,5 @@
-Debugging from Chapter 1
-========================
+Debugging
+=========
 What is Debugging?
 ------------------
 
@@ -124,7 +124,7 @@ looking at the output of the program and trying to figure out what it is doing.
 
 .. mchoicemf:: question1_8_1
    :answer_a: Attempting to divide by 0
-   :answer_b: Forgetting a semi-colon at the end of a statement where one is required
+   :answer_b: Forgetting a colon at the end of a statement where one is required
    :answer_c: Forgetting to divide by 100 when printing a percentage amount.
    :correct: c
    :feedback_a: A semantic error is an error in logic. The program does not produce the correct output because the problem is not solved correctly. This would be considered a run-time error.

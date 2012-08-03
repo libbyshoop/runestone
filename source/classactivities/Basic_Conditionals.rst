@@ -53,28 +53,11 @@ common boolean operators are shown in the table below.
 Try this:
 ^^^^^^^^^
 
-Type each of the statements or expressions below in the python shell.
-Then copy or type the expressions into a Python file (an
-editor window), and add a comment after each one that describes
+Type each of the statements or expressions below in the editor.
+Add a comment after each one that describes
 what question is being asked, and what the answer should be.
 
 .. sourcecode:: python
-
-    #. first we'll assign three variables to values
-    x = 25
-    y = 30
-    s ='boolean'
-    # now we'll ask questions about them
-    x <= y
-    x + 5 > y
-    x %2 == 0
-    s[2] > 'g'
-    len(s) == 7
-    'e' in s
-    'c' in s
-    'boo' in s
-
-.. actex:: act_condit_1
 
     #. first we'll assign three variables to values
     x = 25
@@ -89,6 +72,11 @@ what question is being asked, and what the answer should be.
     print('e' in s)
     print('c' in s)
     print('boo' in s)
+
+.. actex:: act_condit_1
+
+
+
 
 Boolean operators
 ^^^^^^^^^^^^^^^^^
@@ -119,11 +107,11 @@ following are `True`, and which `False`? Can you explain why?
 
     x=25
     y=30
-    (x % 5 == 0) and (y % 5 == 0)
-    (s[0] == 'b') or (len(s) >= 10)
+    print((x % 5 == 0) and (y % 5 == 0))
+    print((s[0] == 'b') or (len(s) >= 10))
     nums = [15, 20, 25, 30]
-    (x in nums) and not (y in nums)
-    (x >= 15) and (x <= 50)
+    print((x in nums) and not (y in nums))
+    print((x >= 15) and (x <= 50))
 
 
 .. admonition:: True or False

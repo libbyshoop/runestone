@@ -12,7 +12,7 @@ Install Python and Wing
 -----------------------
 - A downloaded copy of Wing IDE.
 
-- A supported version of Python. We are using Python 2.6.7.
+- A supported version of Python. We are using Python 3.
 
 
 Getting started
@@ -22,6 +22,7 @@ Wing Starts automatically with a blank default page. This is how it
 looks at first.
 
 .. figure:: Images/image03.png
+   :scale: 50%
    :align: center
    :alt:
 
@@ -31,6 +32,7 @@ code by clicking on the green icon as shown below.
 
 .. figure:: Images/image02.png
    :align: center
+   :scale: 50%
    :alt:
 
 
@@ -43,6 +45,7 @@ Some quick things about Wing
    to match by default for Python or you can get the indentation from the source menu.
 
 .. figure:: Images/image01.png
+   :scale: 50%
    :align: center
    :alt:
 
@@ -50,6 +53,7 @@ Some quick things about Wing
    opening multiple files at the same time.
 
 .. figure:: Images/image04.png
+   :scale: 50%
    :align: center
    :alt:
 
@@ -57,6 +61,7 @@ Some quick things about Wing
    menu.
 
 .. figure:: Images/image00.png
+   :scale: 50%
    :align: center
    :alt:
 

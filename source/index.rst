@@ -23,6 +23,30 @@ General Introduction
 
    GeneralIntro/introduction.rst
 
+Debugging
+:::::::::
+
+.. toctree::
+    :maxdepth: 2
+
+    classactivities/debugfromchap1.rst
+
+Fundamental Data types
+:::::::::::::::::::::::
+
+.. toctree::
+    :maxdepth: 2
+
+    SimplePythonData/simpledata.rst
+
+Variables
+::::::::::
+
+.. toctree::
+    :maxdepth: 2
+
+    SimplePythonData/Variables.rst
+
 Activity 1
 ----------
 
@@ -31,21 +55,40 @@ Activity 1
 
     classactivities/0_Basic_Intro.rst
 
-Simple Python Data
-::::::::::::::::::
-
-.. toctree::
-   :maxdepth: 2
-
-   SimplePythonData/simpledata.rst
-
-Activity 2(Basic_Conditionals)
-------------------------------
+Statements and Expressions
+:::::::::::::::::::::::::::
 
 .. toctree::
     :maxdepth: 2
 
-    classactivities/Basic_Conditionals.rst
+    SimplePythonData/Statements_expressions.rst
+
+
+Input
+::::::
+
+.. toctree::
+    :maxdepth: 2
+
+    SimplePythonData/Input.rst
+
+Activity 2
+----------
+
+.. toctree::
+    :maxdepth: 2
+
+    classactivities/activity2.rst
+
+Glossary: Fundamental Data types, Variables, Statements and Expressions, Input
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+.. toctree::
+    :maxdepth: 2
+
+    SimplePythonData/Glossary.rst
+
+
 
 Python Turtle Graphics
 :::::::::::::::::::::::
@@ -55,13 +98,29 @@ Python Turtle Graphics
 
    PythonTurtle/helloturtle.rst
 
-Activity 3(Basic_Functions)
----------------------------
+Activity 3 (Turtle Lab)
+::::::::::::::::::::::::
 
 .. toctree::
     :maxdepth: 2
 
-    classactivities/funcKinesthetic.rst
+    Labs/lab03_01.rst
+
+Introduction to Wing
+::::::::::::::::::::
+
+.. toctree::
+    :maxdepth: 2
+
+    classactivities/IntroductionWing.rst
+
+Debugging in Wing
+------------------
+
+.. toctree::
+    :maxdepth: 2
+
+    classactivities/WingDebugger.rst
 
 
 Python Modules
@@ -72,6 +131,15 @@ Python Modules
 
    PythonModules/modules.rst
 
+Ardrone2 Activities
+-------------------
+
+.. toctree::
+    :maxdepth: 2
+
+    arlib/documentation.rst
+
+
 Functions
 :::::::::
 
@@ -79,6 +147,15 @@ Functions
    :maxdepth: 2
 
    Functions/functions.rst
+   Functions/morefunctions.rst
+
+Activity 4 (Basic_Functions)
+-----------------------------
+
+.. toctree::
+    :maxdepth: 2
+
+    classactivities/funcKinesthetic.rst
 
 Activity 4
 -----------
@@ -96,6 +173,14 @@ Selection
    :maxdepth: 2
 
    Selection/selection.rst
+
+Activity 5 (Basic_Conditionals)
+::::::::::::::::::::::::::::::::
+
+.. toctree::
+    :maxdepth: 2
+
+    classactivities/Basic_Conditionals.rst
 
 
 More About Iteration
@@ -140,6 +225,32 @@ Lists
 
    Lists/lists.rst
 
+Activity 7
+-----------
+
+.. toctree::
+    :maxdepth: 2
+
+    classactivities/datatypes.rst
+    classactivities/datatypesPractice.rst
+
+JES Activities
+:::::::::::::::
+
+.. toctree::
+    :maxdepth: 2
+
+    classactivities/IntroToJES.rst
+    classactivities/JESIntro.rst
+    classactivities/LoopOverRanges.rst
+    classactivities/rotatereverse.rst
+    classactivities/posterblur.rst
+    classactivities/BlendingImageSound.rst
+    classactivities/backgroundsubst.rst
+    classactivities/MakingPictures.rst
+    classactivities/MakingSounds.rst
+    classactivities/MakingPicturesandSounds.rst
+
 
 Files
 :::::
@@ -158,14 +269,13 @@ Dictionaries
 
    Dictionaries/dictionaries.rst
 
-Activity 7(Data types)
-----------------------
+Dictionaries Activities
+-----------------------
 
 .. toctree::
     :maxdepth: 2
 
-    classactivities/datatypes.rst
-    classactivities/datatypesPractice.rst
+    classactivities/DictionaryActivity.rst
 
 Recursion
 :::::::::
@@ -280,30 +390,9 @@ Graphs and Graph Algorithms
    Graphs/graphexercises.rst
 
 
-Debugging Activity
--------------------
 
-.. toctree::
-    :maxdepth: 2
 
-    classactivities/WingDebugger.rst
 
-Activity 9
-----------
-
-.. toctree::
-    :maxdepth: 2
-
-    classactivities/IntroToJES.rst
-    classactivities/JESIntro.rst
-    classactivities/backgroundsubst.rst
-    classactivities/BlendingImageSound.rst
-    classactivities/LoopOverRanges.rst
-    classactivities/MakingPictures.rst
-    classactivities/MakingSounds.rst
-    classactivities/MakingPicturesandSounds.rst
-    classactivities/posterblur.rst
-    classactivities/rotatereverse.rst
 
 Media
 -----
@@ -323,21 +412,7 @@ FilesAndText
     classactivities/fileWrite.rst
     classactivities/dataInTables.rst
 
-Introduction To Wing
---------------------
 
-.. toctree::
-    :maxdepth: 2
-
-    classactivities/IntroductionWing.rst
-
-Book Questions
---------------
-
-.. toctree::
-    :maxdepth: 2
-
-    classactivities/chapter6sounds.rst
 
 WMR Activities
 --------------

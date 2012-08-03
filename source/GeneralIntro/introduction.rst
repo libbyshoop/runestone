@@ -188,6 +188,7 @@ most programs are more interesting than this one.
 	`Installing Python for Linux <http://youtu.be/RLPYBxfAud4>`__ shows you how to install from the Linux
 	command line.
 	`Using Python <http://youtu.be/kXbpB5_ywDw>`__ shows you some details about the Python shell and source code.
+.. TODO fix this later on.
 
 **Check your understanding**
 
@@ -268,8 +269,6 @@ Press *Load* to return your program to its previously saved state.
 In addition to activecode, you can also execute Python code with the assistance of a unique visualization tool.  This tool, known as **codelens**, allows you to control the step by step execution of a program.  It also lets you see the values of
 all variables as they are created and modified.  The following example shows codelens in action on the same program as we saw above.  Note that in activecode, the source code executes from beginning to end and you can see the final result.  In codelens you can see and control the step by step progress. Try this by choosing the *Forward* two times, observing what you see in the Program output area.
 
-.. _firstexample:
-
 .. codelens:: firstexample
 
     print("My first program adds two numbers, 2 and 3:")
@@ -278,6 +277,7 @@ all variables as they are created and modified.  The following example shows cod
 
 The examples in this book use a mixture of the standard Python  interpreter, source code, activecode, and codelens.  You
 will be able to tell which is which by looking for either the Python prompt (>>>) in the case of a shell mode program, the *run* button for the activecode, or the *forward/backward* buttons for codelens.  In some cases, you will see source code in this book or will be asked to create source code that you will execute in a python development environment designed for running your source code (more on that later).
+.. TODO rearrange order
 
 **Check your understanding**
 
@@ -340,9 +340,14 @@ conditional execution
 repetition
     Perform some action repeatedly, usually with some variation.
 
+The program shown in this activecode uses one of the above parts of typical programs, which is output. Note how the print statements will return values to the output display area when you choose *run*.
 
-The above program :ref:`firstexample<firstexample>` returns an output due to the print statements as we can see in the program area.
+.. activecode:: firstexample
 
+    print("My first program adds two numbers, 2 and 3:")
+    print(2 + 3)
+
+Besides output, you will learn about the rest of the programs listed above.
 Believe it or not, that's pretty much all there is to it. Every program you've
 ever used, no matter how complicated, is made up of instructions that look more
 or less like these. Thus, we can describe programming as the process of
@@ -428,7 +433,7 @@ Comments
 --------
 
 As programs get bigger and more complicated, they get more difficult to read.
-Formal languages are dense, and it is often difficult to look at a piece of
+It is often difficult to look at a piece of
 code and figure out what it is doing, or why.
 For this reason, it is a good idea to add notes to your programs to explain in
 natural language what the program is doing.  These notes are called comments.
