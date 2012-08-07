@@ -1,5 +1,5 @@
-Debugging with Wing
-===================
+Activity 11: Debugging with Wing
+================================
 
 Overview
 --------
