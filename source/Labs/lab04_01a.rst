@@ -79,13 +79,16 @@ number of sides.  Lets just assume that 360 sides is going to be good enough
 for any circle.  Plus, it just makes sense that a circle has 360 degrees,
 one side for each degree should give us a nice round circle.
 
-Now that we have the number of sides figured out we can use a big of math to
+Now that we have the number of sides figured out we can use a bit of math to
 figure out the length of each of those sides. Since we are given the radius
 we know how large the circumference of the circle is.  Right?  You may
-remember from math class that the circumference of a circle is 2 * pi *
-radius.  If we know the circumference and the number of sides (360),
+remember from math class that the circumference of a circle is :math: `2\pi r`,
+where r is the radius.  If we know the circumference and the number of sides (360),
 then the length of each side should be an equal proportion of the
-circumference.  circumference / 360.
+circumference:
+
+..math:: 
+    `sideLength = circumference / 360`
 
 Here's the final solution:
 
@@ -121,5 +124,6 @@ on the turtle's current position when drawCircle is called.  Modify the
 program above to make it so.
 
 Finally, write another function ``drawFilledCircle`` that takes a turtle,
-a radius, and a color to fill in the circle.
+a radius, and a color to fill in the circle.  Discuss the solution with your neighbor or 
+your instructor before attempting it.  Add it to the code above.
 
