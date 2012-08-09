@@ -5,8 +5,11 @@
 
 {{ if 'static' in request.env.query_string:}}
 <h2>Welcome</h2>
-<p>It appears you are trying to get to a class for which you must log in.  If you have already registered, please login below.  Otherwise you can <a href="{{=URL(f='user/register')}}">Register</a> here.</p>
+<p>It appears you are trying to get to a class for which you must log in.  If you have already registered, please login below.
+    Otherwise you can <a href="{{=URL(f='user/register')}}">Register</a> here.</p>
+
 {{else:}}
+<!--
 <table cellpadding="10px">
   <tr>
 <td>
@@ -21,6 +24,7 @@
 </td>
 </tr>
 </table>
+-->
 {{pass}}
 <h2>Try These Interactive Books</h2>
 <ul class="booktitle">

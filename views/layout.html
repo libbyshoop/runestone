@@ -45,7 +45,15 @@ div.error { background-color: red; color: white; padding: 3px; }
    <!-- start header -->
    <div id="header">
     <div id="logo">
+        <h1>
+            {{=response.title or request.application}}
+        </h1>
+        <h2>
+            {{=response.subtitle or '=response.subtitle'}}
+        </h2>
+    <!--
     <img src="{{=URL(c='static',f='_images/rsi_logo.jpg')}}">
+     -->
     </div>
     <div id="menu">
      {{=MENU(response.menu,_class='web2py-menu')}}
@@ -79,8 +87,8 @@ div.error { background-color: red; color: white; padding: 3px; }
         <input type="text" id="s" name="s" value="" />
         <input type="submit" id="x" value="Search" />
        </fieldset>
-      </form>-->
-     </li>
+      </form>
+     </li>-->
      <li>
       <h2>
        <strong>
