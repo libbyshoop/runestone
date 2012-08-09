@@ -270,26 +270,7 @@ Challenge Activities
    .. actex:: act_condit_4
 
 
-#. There are several different ways for generating random numbers
-   in Python. The `random` module contains a function `random` that
-   returns a random value between 0.0 and 1.0. For convenience, the
-   Myro module also contains a function, called `randomNumber()` that
-   returns a random value between 0.1 and 1.0.
-
-   Create a function called `randomMove` using Myro and the
-   Scribblers. It should generate two random values between 0.0 and
-   1.0, assigning them to variables. These values will be speeds for
-   the left motor and the right motor of the robot. It should then use
-   the `motors` command to run the robot for two seconds with those
-   speeds. Use the `wait` command to control the two seconds of
-   running, and then use `stop` to turn the motors off. (Google Myro
-   Reference if you need help using these functions).
-
-   *Extra:* Can you convert the random values to the range from -1.0
-   to +1.0, and try the function with those values? How does it
-   differ?
-
-   .. actex:: act_condit_5
+   .. removed myro activity from here
 
 #. Letter grades in the US are commonly assigned according to
    "deciles:" a score that is greater than or equal to 90% is given an

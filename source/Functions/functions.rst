@@ -1455,8 +1455,4 @@ Exercises
     .. actex:: scratch_9
 
 
-.. toctree::
-    :hidden:
 
-    ../Labs/lab04_01
-    ../Labs/lab04_01a

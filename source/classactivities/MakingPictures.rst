@@ -195,8 +195,7 @@ sign as one step in this new program). This will only really work
 if you have a plain background for the picture. To erase a drawn
 picture, draw a rectangle that is the background color over it. To
 make the blinking take some time, import the `time` module, and use
-the `sleep` function within it, which acts much like the `wait`
-function Myro provides, except it is normal Python. See the
+the `sleep` function within it. See the
 `drawingWithPauses` function for an example.
 
 .. sourcecode:: python

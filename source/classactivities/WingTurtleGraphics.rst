@@ -4,7 +4,7 @@ Activity 4: Using Turtle Graphics with the Wing IDE
 Background
 ----------
 
-You have already used the Python turtle graphics library and the random library within the book for this course, using your browser and the python active code editor.  Now let's try an *Integrated Development Environment*, or IDE.  An IDE is a progam designed to aid the process of developing programs in langugaes such as Python.  We will use the Wing 101 IDE.
+You have already used the Python turtle graphics library and the random library within the book for this course, using your browser and the python active code editor.  Now let's try an *Integrated Development Environment*, or IDE.  An IDE is a progam designed to aid the process of developing programs in languages such as Python.  We will use the Wing 101 IDE.
 
 You will now need to edit your Python programs inside of this Wing 101 IDE and run them there, similar to how you ran your programs in the activecode areas in the book.  The results display in a separate area of the IDE, or in the case of Turtle Graphics, a new window pops up with the output displayed.
 
@@ -23,6 +23,7 @@ This is designed to be a simple test to be certain that you can get the program 
 
 
 .. sourcecode:: python
+
 	import turtle            # allows us to use the turtles library
 	wn = turtle.Screen()     # creates a graphics window
 

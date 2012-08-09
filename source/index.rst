@@ -47,8 +47,8 @@ Variables
 
     SimplePythonData/Variables.rst
 
-Activity 1
-----------
+Activity 1 (Basic Python and Debugging)
+---------------------------------------
 
 .. toctree::
     :maxdepth: 2
@@ -72,8 +72,8 @@ Input
 
     SimplePythonData/Input.rst
 
-Activity 2
-----------
+Activity 2 (Developing a program making change)
+-----------------------------------------------
 
 .. toctree::
     :maxdepth: 2
@@ -114,14 +114,13 @@ Introduction to Wing
 
     classactivities/IntroductionWing.rst
 
-Debugging in Wing
-------------------
+Activity 4 (Turtle Graphics in Wing)
+------------------------------------
 
 .. toctree::
     :maxdepth: 2
 
-    classactivities/WingDebugger.rst
-
+    classactivities/WingTurtleGraphics.rst
 
 Python Modules
 :::::::::::::::
@@ -131,7 +130,7 @@ Python Modules
 
    PythonModules/modules.rst
 
-Ardrone2 Activities
+Activity 5 (Drone)
 -------------------
 
 .. toctree::
@@ -149,15 +148,15 @@ Functions
    Functions/functions.rst
    Functions/morefunctions.rst
 
-Activity 4 (Basic_Functions)
------------------------------
+Activity 7 (Kinesthetic function)
+---------------------------------
 
 .. toctree::
     :maxdepth: 2
 
     classactivities/funcKinesthetic.rst
 
-Activity 4
+Activity 8
 -----------
 
 .. toctree::
@@ -165,6 +164,14 @@ Activity 4
 
     classactivities/functions.rst
     classactivities/functions2.rst
+
+Activity 9 (Turtle Draw Circles)
+--------------------------------
+
+.. toctree::
+    :maxdepth: 2
+
+    Labs/lab04_01a.rst
 
 Selection
 ::::::::::
@@ -174,14 +181,21 @@ Selection
 
    Selection/selection.rst
 
-Activity 5 (Basic_Conditionals)
-::::::::::::::::::::::::::::::::
+Activity 10 (Booleans and Conditionals)
+---------------------------------------
 
 .. toctree::
     :maxdepth: 2
 
     classactivities/Basic_Conditionals.rst
 
+Activity 11 (Debugging in Wing)
+:::::::::::::::::::::::::::::::
+
+.. toctree::
+    :maxdepth: 2
+
+    classactivities/WingDebugger.rst
 
 More About Iteration
 ::::::::::::::::::::
@@ -191,16 +205,16 @@ More About Iteration
 
    MoreAboutIteration/moreiteration.rst
 
-Activity 5(Function loops)
---------------------------
+Activity 12 (Function loops)
+----------------------------
 
 .. toctree::
     :maxdepth: 2
 
     classactivities/functionsloops.rst
 
-Activity 6(Iterations and loops)
---------------------------------
+Activity 13 (Iterations and loops)
+----------------------------------
 
 .. toctree::
     :maxdepth: 2
@@ -225,7 +239,7 @@ Lists
 
    Lists/lists.rst
 
-Activity 7
+Activity 14
 -----------
 
 .. toctree::
@@ -234,8 +248,8 @@ Activity 7
     classactivities/datatypes.rst
     classactivities/datatypesPractice.rst
 
-JES Activities
-:::::::::::::::
+JES Multimedia Activities
+::::::::::::::::::::::::::
 
 .. toctree::
     :maxdepth: 2
@@ -251,6 +265,13 @@ JES Activities
     classactivities/MakingSounds.rst
     classactivities/MakingPicturesandSounds.rst
 
+Media Example Functions
+-----------------------
+
+.. toctree::
+    :maxdepth: 2
+
+    classactivities/Chapter4-5-samples.rst
 
 Files
 :::::
@@ -259,6 +280,18 @@ Files
    :maxdepth: 2
 
    Files/files.rst
+
+FilesAndText (Activity 15)
+--------------------------
+
+.. toctree::
+    :maxdepth: 2
+
+    classactivities/textprocessing.rst
+    classactivities/fileWrite.rst
+    classactivities/dataInTables.rst
+
+
 
 
 Dictionaries
@@ -269,13 +302,48 @@ Dictionaries
 
    Dictionaries/dictionaries.rst
 
-Dictionaries Activities
------------------------
+Dictionaries (Activity 16)
+--------------------------
 
 .. toctree::
     :maxdepth: 2
 
     classactivities/DictionaryActivity.rst
+
+WMR Activities
+--------------
+
+.. toctree::
+    :maxdepth: 2
+
+    classactivities/wmr/MapReduceIntro.rst
+    classactivities/wmr/WmrActivities.rst
+    classactivities/wmr/wmr_py.rst
+
+Recursion
+:::::::::
+
+.. toctree::
+   :maxdepth: 2
+
+   Recursion/recursionsimple.rst
+   Recursion/graphical.rst
+   Recursion/recursioncomplex.rst
+   Recursion/recursionexercises.rst
+
+Activity 17 (Recursion)
+-----------------------
+
+.. toctree::
+    :maxdepth: 2
+
+    classactivities/recurFourSteps.rst
+    classactivities/recurKinesthetic.rst
+    classactivities/recursion.rst
+    classactivities/recurexamples.rst
+    classactivities/recursions.rst
+
+.. note:: All of the following chapters are optional for Macalester Comp 123.
 
 Recursion
 :::::::::
@@ -327,28 +395,7 @@ Basic Data Structures
    BasicDS/linkedlists.rst
    BasicDS/basic_ex.rst
 
-Recursion
-:::::::::
 
-.. toctree::
-   :maxdepth: 2
-
-   Recursion/recursionsimple.rst
-   Recursion/graphical.rst
-   Recursion/recursioncomplex.rst
-   Recursion/recursionexercises.rst
-
-Activity 8(Recursion)
----------------------
-
-.. toctree::
-    :maxdepth: 2
-
-    classactivities/recurFourSteps.rst
-    classactivities/recurKinesthetic.rst
-    classactivities/recursion.rst
-    classactivities/recurexamples.rst
-    classactivities/recursions.rst
 
 
 
@@ -394,35 +441,6 @@ Graphs and Graph Algorithms
 
 
 
-Media
------
-
-.. toctree::
-    :maxdepth: 2
-
-    classactivities/Chapter4-5-samples.rst
-
-FilesAndText
-------------
-
-.. toctree::
-    :maxdepth: 2
-
-    classactivities/textprocessing.rst
-    classactivities/fileWrite.rst
-    classactivities/dataInTables.rst
-
-
-
-WMR Activities
---------------
-
-.. toctree::
-    :maxdepth: 2
-
-    classactivities/wmr/MapReduceIntro.rst
-    classactivities/wmr/WmrActivities.rst
-    classactivities/wmr/wmr_py.rst
 
 
 Acknowledgements

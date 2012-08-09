@@ -7,20 +7,17 @@ Overview
 --------
 
 These activities will practice with writing functions, both in
-plain Python and using Myro, and will introduce loops, both `while`
+plain Python, and will introduce loops, both `while`
 and `for` loops, which are a way of making the computer repeat a
 set of actions over and over.
 
 Plain Python
 -------------
 
-Open a new window in IDLE, and put all your work for this activity
-in the file.
-
 
 #. Read the following function, and then predict what the values
    would be when the function calls below are run. Then test yourself
-   by typing the function into IDLE and trying out the examples.
+   by typing the function into the activecode area and trying out the examples.
 
    .. sourcecode:: python
 
@@ -37,11 +34,6 @@ in the file.
 
    .. activecode:: act_floops_1
 
-        def foo(x, y, z):
-            q = max(x, y)
-            r = max(y, z)
-            s = max(x, z)
-            return min(q, r, s)
 
 
 #. Consider the mathematical polynomial function:
@@ -120,7 +112,7 @@ loop sequence. Look at the examples and questions below.
 
 
 #. Look at the following loops. For each one, figure out what it
-   does. After you work through it by hand, open the editor and call it.
+   does. After you work through it by hand, try the loops in activecode and run it.
 
    .. sourcecode:: python
 
@@ -139,103 +131,8 @@ loop sequence. Look at the examples and questions below.
          for c in 'razzamatazz':
             print c.upper()
 
-   .. actex:: act_floops_5
-
-       # loop 1
-       for i in range(10):
-          print i, i ** 2
+   .. activecode:: act_floops_5
 
 
-       # loop 2
-       i = 0
-       while i < 10:
-           print i, i ** 2
-           i=i+1
 
-       # loop 3
-       for c in 'razzamatazz':
-           print c.upper()
-
-
-#. Create a loop, using either `while` or `for` that prints the
-   even numbers from 1 to 10. Then use that as a model to create a
-   function called `evensToN` that takes a single number, `n`, as
-   input, and prints the even numbers from 1 to `n`.
-
-   .. actex:: act_floops_6
-
-#. Create a function that takes two numbers as input. Within, use a
-   `while` loop that repeats until the first number is greater than
-   the second number. Each time through the loop, print the numbers,
-   then add one to the first number, and subtract one from the second
-   number.
-
-   .. actex:: act_floops_7
-
-Myro
-----
-
-Get your hands on a robot, and try out these exercises in writing
-functions.
-
-
-#. Look at the following function. Try to figure out what it will
-   do, then try it out to check yourself.
-
-   .. sourcecode:: python
-
-       def dance(speed):
-          beep()
-          turnRight(speed, 1)
-          beep()
-          turnLeft(speed,2)
-          beep()
-          turnRight(speed, 2)
-          beep()
-          turnLeft(1)
-          beep()
-          beep()
-          beep()
-          stop()
-
-   .. actex:: act_floops_8
-
-#. Implement a `yoyo` function that makes the robot move forward
-   and then back twice. It should take two inputs, the speed for the
-   robot and how long to wait before returning.
-
-   .. actex:: act_floops_9
-
-#. Create a function `moveAndPic` that takes in a turn time as its
-   input. It should cause the robot to take a picture, show the
-   picture, and then turn left for the input turn time. It should
-   repeat this process four times (you don't have to use a loop here,
-   but you may if you've already figured them out).
-
-   .. actex:: act_floops_10
-
-#. Create a function, `driveSquare` that tries to have the robot
-   move in a square. It should take a speed value as its input. Note
-   that Real Robots Don't Drive Straight, so be forgiving!
-
-  .. actex:: act_floops_11
-
-Loops
-^^^^^
-
-Reading the Loops section above for information about the basic
-structure of `while` and `for` loops. Then try the following:
-
-
-#. Modify the `moveAndPic` function from earlier so it also takes
-   in a number `n`, and uses a loop to repeat the turning and taking
-   pictures `n` times, instead of 4 times.
-
-   .. actex:: act_floops_12
-
-#. Using the `yoyo` and `dance` functions from before, create a
-   function called `danceRoutine` that repeats some combination of
-   yoyo-ing and dancing some number of times.
-
-   .. actex:: act_floops_13
 

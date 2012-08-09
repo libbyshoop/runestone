@@ -47,53 +47,39 @@ While Loops
 Look at the following loops, embedded in functions. For each one,
 try to figure out what it does before putting it into Python. Then
 check yourself by opening the `iteration.py` file and loading these
-examples. Run them on some sample inputs.
+examples. Try them in the activecode below.
 
-.. sourcecode:: python
+#.    .. sourcecode:: python
 
-    # loop 1
+        # loop 1
 
-    def printEveryOther(x):
-        while x >= 0: # x is the loop variable
-           print x
-           x = x - 2 # when indentation stops, while loop is over
-        print "Done!"
-    # end of printEveryOther
+        def printEveryOther(x):
+            while x >= 0: # x is the loop variable
+               print x
+               x = x - 2 # when indentation stops, while loop is over
+            print "Done!"
+        # end of printEveryOther
 
-.. activecode:: act_iteration_01
+    .. activecode:: act_iteration_01
 
-     # loop 1
-    def printEveryOther(x):
-        while x >= 0: # x is the loop variable
-           print x
-           x = x - 2 # when indentation stops, while loop is over
-        print "Done!"
-    # end of printEveryOther
 
-.. sourcecode:: python
 
-    # loop 2
+#.    .. sourcecode:: python
 
-    def printBigNums(numList):
-        i = 0
-        while i < len(numList): # i is the loop variable
-            if numList[i] > 10:
-                print i, numList[i]
-            i = i + 1
-        # end of while loop
-    # end of printBigNums
+        # loop 2
 
-.. activecode:: act_iteration_02
+        def printBigNums(numList):
+            i = 0
+            while i < len(numList): # i is the loop variable
+                if numList[i] > 10:
+                    print i, numList[i]
+                i = i + 1
+            # end of while loop
+        # end of printBigNums
 
-    # loop 2
-    def printBigNums(numList):
-        i = 0
-        while i < len(numList): # i is the loop variable
-            if numList[i] > 10:
-                print i, numList[i]
-            i = i + 1
-        # end of while loop
-    # end of printBigNums
+    .. activecode:: act_iteration_02
+
+
 
 You can go through the function step by step.
 
@@ -164,7 +150,7 @@ Accumulator variables
 Sometimes we need to use a loop to *accumulate* a answer. In this
 case, a common pattern is to have an "accumulator variable" that is
 set to some initial value before the loop, and then updated each
-time through the loop. See the examples below.
+time through the loop. Try the example in the activecode below.
 
 .. sourcecode:: python
 
@@ -178,17 +164,6 @@ time through the loop. See the examples below.
         return total
 
 .. activecode:: act_iteration_05
-
-    def sumNums(numList):
-        index = 0 # the loop variable
-        total = 0 # the accumulator variable
-        while index < len(numList):
-            total = total + numList[index] # add next value to accumulator
-            index = index + 1
-        # end of while loop
-        return total
-
-
 
 
 Try this:
@@ -208,14 +183,15 @@ below.
 
 .. actex:: act_iteration_06
 
-While loops in Myro
---------------------
+.. changed myro to turtle here
 
-Get your hands on a robot, and try out these exercises in writing
-functions.
+While loops using Turtle in Wing
+--------------------------------
 
+Try out these exercises in writing
+functions with turtle in Wing.
 
-#. To trace a square, as you did in an earlier activity, the robot
+#. To trace a square, as you did in an earlier activity, the turtle
    must move forward a fixed time, turn left a fixed time that is more
    or less 90 degrees, and then repeat that process four times. Create
    a function `traceSquare` that takes no inputs (or you could specify
@@ -224,18 +200,6 @@ functions.
    times.
 
    .. actex:: act_iteration_07
-
-#. Look in the online Myro Reference (put 'Myro Reference' into
-   Google) to see the `timeRemaining` function form Myro provides. Use
-   this function as the test expression in a `while` loop to write a
-   function called `circle` that takes one input parameter. The input
-   should be a number of seconds, and the function should make the
-   robot move in a circle for the input number of seconds. Note that
-   the easiest way to make the robot circle is to use the `motors`
-   command and specify a slower speed for the left motor compared to
-   the right motor.
-
-   .. actex:: act_iteration_08
 
 
 For loops
@@ -260,17 +224,14 @@ some of your own.
 
 .. sourcecode:: python
 
-    range(5)
-    range(10, 20)
-    range(10, 40, 4)
-    range(12, 6, -1)
-
-.. activecode:: act_iteration_09
-
     print(range(5))
     print(range(10, 20))
     print(range(10, 40, 4))
     print(range(12, 6, -1))
+
+.. activecode:: act_iteration_09
+
+
 
 
 
@@ -342,7 +303,7 @@ at the point where the `break` occurred. The program continues on
 with any Python statements that come after the loop.
 
 The program below breaks out of the `for` loop as soon as the total
-gets above 100.
+gets above 100. Try this program in the activecode area.
 
 .. sourcecode:: python
 
@@ -359,19 +320,6 @@ gets above 100.
         return total
 
 .. activecode:: act_iteration_13
-
-    def cappedTotal(numList):
-        """Takes in a list of numbers and adds the numbers up. If it gets to a result that is more than 100, then the loop stops and it returns 100"""
-        total = 0
-        for val in numList:
-            total = total + val
-            if total > 100:
-                total = 100
-                break
-            # end if statement
-        # end for loop
-        return total
-
 
 
 Try this:

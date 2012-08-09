@@ -438,7 +438,6 @@ out in the editor.
     print(sentence.strip('.!?,;')) # remove leading and following matching chars
 
 
-
 List methods
 ^^^^^^^^^^^^
 

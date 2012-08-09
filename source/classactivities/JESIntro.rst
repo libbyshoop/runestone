@@ -6,8 +6,7 @@ Overview
 
 This activity introduces you to the JES application for programming
 Python, and some basic commands for working with images and sounds.
-Most of these functions are integrated into Myro, [1]_ so you can
-use Calico to do some of this, but JES has some nice features for
+JES has some nice features for
 working with images and sounds that Calico lacks. The JES software
 can be downloaded from the link on the Moodle site. Be sure when
 installing JES on your own computer that you install version 4.3
@@ -395,7 +394,6 @@ increase or decrease the range of random values?
     -104
 
 
-
 Challenge problems
 ------------------
 
@@ -437,6 +435,5 @@ Create a function `allPositive` that takes a sound object as its
 input. It should convert all negative values to positive. What is
 the effect of this change?
 
-.. [1]
-   Mark Guzdial is involved in both the Myro and JES projects
+
 

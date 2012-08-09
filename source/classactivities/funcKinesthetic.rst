@@ -22,9 +22,9 @@ program, taking on the role of a Happy Robot.
             tables10 = calcNumTables(numGuests, 10)
             print "You would need", tables10,"tables for 10"
 
-        def calcNumTables(guests, tableSize): # Number of tables is number of guests divided by guests per table
+        def calcNumTables(guests, tableSize):    # Number of tables is number of guests divided by guests per table
             estTables = guests /float(tableSize) # that may be a real number, so round UP
-            tables =math.ceil(estTables) # return it as an integer return tables
+            tables =math.ceil(estTables)         # return it as an integer return tables
             return tables
 
 

@@ -123,7 +123,7 @@ turn_right(): This function makes the drone rotate right.
 
 reset(): This function toggles the drone emergency state. You would see the lights turn red and then green.
 
-set_speed(): This function sets the drone speed. The default speed for drone is 0.2. In order to increase or decrease the speed, you can set the speed using floating point numbers between 0 to 1. For indoor flying make sure the speed is not exceeding  0.4.
+set_speed(): This function sets the drone speed. The default speed for drone is 0.2. In order to increase or decrease the speed, you can set the speed using floating point numbers between 0 to 1.
 
 hover(): Make the drone hover.
 

@@ -58,7 +58,7 @@ values.
     grid[(1,1)]
 
 
-.. actex:: act_datatypes_7
+.. actex:: act_dict_1
 
 
 Dictionaries have few functions that operate on them, but many
@@ -104,6 +104,49 @@ values at once.
     dict2.clear()
 
 
-.. actex:: act_datatypes_11
+.. actex:: act_dict_2
 
+Activities to try
+-----------------
 
+#. Suppose we define a dictionary like the following, which has
+   names as keys, and ages as the associated value (see below for an
+   example). Define a function *hadBirthday* that takes two inputs:
+   the first one is one of these dictionaries, and the second one is a
+   name, as a string. It should look up the value for the input name,
+   and change the dictionary so that the person is listed as one year
+   older.
+
+   .. sourcecode:: python
+
+       >>> agesDict = {'Mary': 15, 'Franco': 25, 'Yuki': 30, 'Morris': 12}
+       >>> hadBirthday(agesDict, 'Morris')
+       >>> agesDict {'Morris': 13,'Mary': 15, 'Yuki': 30, 'Franco': 25}
+       >>> hadBirthday(agesDict,'Yuki')
+       >>> agesDict {'Morris': 13, 'Mary': 15, 'Yuki': 31, 'Franco': 25}
+       >>> hadBirthday(agesDict, 'Alonzo')
+       >>> agesDict
+       {'Morris': 13, 'Mary': 15, 'Yuki': 31, 'Franco': 25}
+
+   .. actex:: act_dict_3
+
+#. Suppose you use a dictionary to organize your books. The
+   dictionary key values are: *'wish-list'*, *'owned'*, *'read'*,
+   *'read-over-and-over'*. The value for each key is a list containing
+   the titles of books in that category (see example below). Define a
+   function *nowRead* that takes the dictionary and a book title as
+   input. It should remove the book from the *owned* category, if it
+   is there, and add it to the *read* category. Define other functions
+   for changing a book from one category to another, or write one
+   general function that allows any movement between categories, by
+   taking in extra inputs that tell what the relevant categories are.
+
+   .. sourcecode:: python
+
+       >>> books = {'wish-list': ["How Things Work", "The Hunger Games"],
+       'owned': ["Vehicles", "Godel, Escher, Bach"], 'read': ["Dune",
+       "Swizzler", "Eragon"], 'read-over-and-over': ["The Hobbit"]}
+       >>>nowRead(books, "Vehicles")
+       >>> books['read'] ["Dune", "Swizzler","Eragon", "Vehicles"]
+
+   .. actex:: act_dict_4

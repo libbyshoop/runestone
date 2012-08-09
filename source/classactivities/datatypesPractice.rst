@@ -6,12 +6,11 @@ Datatypes Practice
 Overview
 --------
 
-Now that you have seen lists and dictionaries, and learned about
-operators, functions, and methods on lists, strings, and
-dictionaries, it's time to put those ideas into practice.
+Now that you have seen lists, and learned about
+operators, functions, and methods on lists and strings, it's time to put those ideas into practice.
 
 This activity will ask you to write a series of functions that
-operate on strings, lists and dictionaries. This will let you
+operate on strings and lists. This will let you
 practice the operations you have seen in the reading.
 
 Functions to Try
@@ -75,26 +74,7 @@ Functions to Try
 
    .. actex:: act_practice_3
 
-#. Suppose we define a dictionary like the following, which has
-   names as keys, and ages as the associated value (see below for an
-   example). Define a function *hadBirthday* that takes two inputs:
-   the first one is one of these dictionaries, and the second one is a
-   name, as a string. It should look up the value for the input name,
-   and change the dictionary so that the person is listed as one year
-   older.
 
-   .. sourcecode:: python
-
-       >>> agesDict = {'Mary': 15, 'Franco': 25, 'Yuki': 30, 'Morris': 12}
-       >>> hadBirthday(agesDict, 'Morris')
-       >>> agesDict {'Morris': 13,'Mary': 15, 'Yuki': 30, 'Franco': 25}
-       >>> hadBirthday(agesDict,'Yuki')
-       >>> agesDict {'Morris': 13, 'Mary': 15, 'Yuki': 31, 'Franco': 25}
-       >>> hadBirthday(agesDict, 'Alonzo')
-       >>> agesDict
-       {'Morris': 13, 'Mary': 15, 'Yuki': 31, 'Franco': 25}
-
-   .. actex:: act_practice_4
 
 
 Challenge Functions
@@ -163,23 +143,3 @@ In case some of you are looking for a harder challenge...
 
    .. actex:: act_practice_6
 
-#. Suppose you use a dictionary to organize your books. The
-   dictionary key values are: *'wish-list'*, *'owned'*, *'read'*,
-   *'read-over-and-over'*. The value for each key is a list containing
-   the titles of books in that category (see example below). Define a
-   function *nowRead* that takes the dictionary and a book title as
-   input. It should remove the book from the *owned* category, if it
-   is there, and add it to the *read* category. Define other functions
-   for changing a book from one category to another, or write one
-   general function that allows any movement between categories, by
-   taking in extra inputs that tell what the relevant categories are.
-
-   .. sourcecode:: python
-
-       >>> books = {'wish-list': ["How Things Work", "The Hunger Games"],
-       'owned': ["Vehicles", "Godel, Escher, Bach"], 'read': ["Dune",
-       "Swizzler", "Eragon"], 'read-over-and-over': ["The Hobbit"]}
-       >>>nowRead(books, "Vehicles")
-       >>> books['read'] ["Dune", "Swizzler","Eragon", "Vehicles"]
-
-   .. actex:: act_practice_7
