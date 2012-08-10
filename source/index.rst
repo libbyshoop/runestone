@@ -53,7 +53,7 @@ Activity 1 (Basic Python and Debugging)
 .. toctree::
     :maxdepth: 2
 
-    classactivities/Activity1&2/activity1.rst
+    classactivities/Activity1_2/activity1.rst
 
 Statements and Expressions
 :::::::::::::::::::::::::::
@@ -78,7 +78,7 @@ Activity 2 (Developing a program making change)
 .. toctree::
     :maxdepth: 2
 
-    classactivities/Activity1&2/activity2.rst
+    classactivities/Activity1_2/activity2.rst
 
 Glossary: Fundamental Data types, Variables, Statements and Expressions, Input
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -120,7 +120,7 @@ Activity 4 (Turtle Graphics in Wing)
 .. toctree::
     :maxdepth: 2
 
-    classactivities/Activity3&4/WingTurtleGraphics.rst
+    classactivities/Activity3_4/WingTurtleGraphics.rst
 
 Python Modules
 :::::::::::::::
@@ -155,7 +155,7 @@ Activity 7 (Kinesthetic function)
 .. toctree::
     :maxdepth: 2
 
-    classactivities/Activity7&8/funcKinesthetic.rst
+    classactivities/Activity7_8/funcKinesthetic.rst
 
 Activity 8
 -----------
@@ -163,8 +163,8 @@ Activity 8
 .. toctree::
     :maxdepth: 2
 
-    classactivities/Activity7&8/functions.rst
-    classactivities/Activity7&8/functions2.rst
+    classactivities/Activity7_8/functions.rst
+    classactivities/Activity7_8/functions2.rst
 
 Activity 9 (Turtle Draw Circles)
 --------------------------------
@@ -188,7 +188,7 @@ Activity 10 (Booleans and Conditionals)
 .. toctree::
     :maxdepth: 2
 
-    classactivities/Activity9,10,11/Basic_Conditionals.rst
+    classactivities/Activity9_10_11/Basic_Conditionals.rst
 
 Activity 11 (Debugging in Wing)
 :::::::::::::::::::::::::::::::
@@ -196,7 +196,7 @@ Activity 11 (Debugging in Wing)
 .. toctree::
     :maxdepth: 2
 
-    classactivities/Activity9,10,11/WingDebugger.rst
+    classactivities/Activity9_10_11/WingDebugger.rst
 
 More About Iteration
 ::::::::::::::::::::
@@ -212,7 +212,7 @@ Activity 12 (Function loops)
 .. toctree::
     :maxdepth: 2
 
-    classactivities/Activity12&13/functionsloops.rst
+    classactivities/Activity12_13/functionsloops.rst
 
 Activity 13 (Iterations and loops)
 ----------------------------------
@@ -220,8 +220,8 @@ Activity 13 (Iterations and loops)
 .. toctree::
     :maxdepth: 2
 
-    classactivities/Activity12&13/iteration.rst
-    classactivities/Activity12&13/loops.rst
+    classactivities/Activity12_13/iteration.rst
+    classactivities/Activity12_13/loops.rst
 
 
 Strings
