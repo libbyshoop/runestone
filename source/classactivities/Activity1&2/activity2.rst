@@ -1,6 +1,8 @@
 Data Types
 ==========
 
+**COMP 123**
+
 Operations on Numbers
 ----------------------
 

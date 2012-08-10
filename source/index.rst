@@ -53,7 +53,7 @@ Activity 1 (Basic Python and Debugging)
 .. toctree::
     :maxdepth: 2
 
-    classactivities/0_Basic_Intro.rst
+    classactivities/activity1.rst
 
 Statements and Expressions
 :::::::::::::::::::::::::::
