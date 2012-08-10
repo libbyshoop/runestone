@@ -239,8 +239,8 @@ Lists
 
    Lists/lists.rst
 
-Activity 14
------------
+String and Lists (Activity 14)
+------------------------------
 
 .. toctree::
     :maxdepth: 2
