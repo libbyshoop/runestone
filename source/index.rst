@@ -53,7 +53,7 @@ Activity 1 (Basic Python and Debugging)
 .. toctree::
     :maxdepth: 2
 
-    classactivities/activity1.rst
+    classactivities/Activity1&2/activity1.rst
 
 Statements and Expressions
 :::::::::::::::::::::::::::
@@ -78,7 +78,7 @@ Activity 2 (Developing a program making change)
 .. toctree::
     :maxdepth: 2
 
-    classactivities/activity2.rst
+    classactivities/Activity1&2/activity2.rst
 
 Glossary: Fundamental Data types, Variables, Statements and Expressions, Input
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -120,7 +120,7 @@ Activity 4 (Turtle Graphics in Wing)
 .. toctree::
     :maxdepth: 2
 
-    classactivities/WingTurtleGraphics.rst
+    classactivities/Activity3&4/WingTurtleGraphics.rst
 
 Python Modules
 :::::::::::::::
@@ -155,7 +155,7 @@ Activity 7 (Kinesthetic function)
 .. toctree::
     :maxdepth: 2
 
-    classactivities/funcKinesthetic.rst
+    classactivities/Activity7&8/funcKinesthetic.rst
 
 Activity 8
 -----------
@@ -163,8 +163,8 @@ Activity 8
 .. toctree::
     :maxdepth: 2
 
-    classactivities/functions.rst
-    classactivities/functions2.rst
+    classactivities/Activity7&8/functions.rst
+    classactivities/Activity7&8/functions2.rst
 
 Activity 9 (Turtle Draw Circles)
 --------------------------------
