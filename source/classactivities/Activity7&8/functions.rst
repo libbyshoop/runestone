@@ -299,7 +299,7 @@ created for the program in `song.py`. Generally, happy robots on
 the same row would be called in sequence, left to right.
 
 
-.. image:: Images/happyrobots.jpg
+.. image:: classactivities/Images/happyrobots.jpg
 
 
 If there is time, we will work through how this example works

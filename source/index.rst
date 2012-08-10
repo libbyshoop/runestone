@@ -188,7 +188,7 @@ Activity 10 (Booleans and Conditionals)
 .. toctree::
     :maxdepth: 2
 
-    classactivities/Basic_Conditionals.rst
+    classactivities/Activity9,10,11/Basic_Conditionals.rst
 
 Activity 11 (Debugging in Wing)
 :::::::::::::::::::::::::::::::
@@ -196,7 +196,7 @@ Activity 11 (Debugging in Wing)
 .. toctree::
     :maxdepth: 2
 
-    classactivities/WingDebugger.rst
+    classactivities/Activity9,10,11/WingDebugger.rst
 
 More About Iteration
 ::::::::::::::::::::
@@ -212,7 +212,7 @@ Activity 12 (Function loops)
 .. toctree::
     :maxdepth: 2
 
-    classactivities/functionsloops.rst
+    classactivities/Activity12&13/functionsloops.rst
 
 Activity 13 (Iterations and loops)
 ----------------------------------
@@ -220,8 +220,8 @@ Activity 13 (Iterations and loops)
 .. toctree::
     :maxdepth: 2
 
-    classactivities/iteration.rst
-    classactivities/loops.rst
+    classactivities/Activity12&13/iteration.rst
+    classactivities/Activity12&13/loops.rst
 
 
 Strings
@@ -246,8 +246,8 @@ String and Lists (Activity 14)
 .. toctree::
     :maxdepth: 2
 
-    classactivities/datatypes.rst
-    classactivities/datatypesPractice.rst
+    classactivities/Activity14/datatypes.rst
+    classactivities/Activity14/datatypesPractice.rst
 
 JES Multimedia Activities
 ::::::::::::::::::::::::::
