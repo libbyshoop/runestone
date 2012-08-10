@@ -275,8 +275,8 @@ doesn't exist?
 Letter Frequency
 ----------------
 
-Chapter 13 in Downey talks about analyzing texts based on the words
-within them. We're going to work our way in that direction, but
+We're going to work our way by analyzing texts based on the words
+within them, but
 we're going to start with letters, rather than words.
 
 Create a program whose main function is `letterFreq`. It should
@@ -345,8 +345,7 @@ Try this:
 ^^^^^^^^^
 
 Change your program from the last section so that it works on words
-in the text, rather than letters. Call your function `wordCount`
-and have it take in the file name. You must change the dictionary,
+in the text, rather than letters. You must change the dictionary,
 so that its keys are word strings, rather than letter strings. The
 hardest part of this is separating words from punctuation: look at
 the `split` and `strip` string methods for help with this.
@@ -363,10 +362,7 @@ code from in a file in Wing:
 
 .. activecode:: act_text
 
-        text = 'one fish, two fish, red fish, blue fish'
-        words = text.split()
-        for word in words:
-            print word
+
 
 .. codelens:: act_text1
 

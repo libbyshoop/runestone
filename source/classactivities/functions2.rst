@@ -13,26 +13,19 @@ and return values work.
 It will also ask you to practice with writing functions that are
 called by other functions.
 
-.. note:: All the code that is in this activity may be found in the
 
+.. .. note:: All the code that is in this activity may be found in the
           :download:`functions2.py <functions2.py>` file! Open this file in an IDLE editor window.
 
 Variables: global, parameter, and local
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Open a new editor window- this will become the basis of the file
-that you will hand in for this activity, so be sure to put your
-name in its file name when you save it. Copy the code below from
-the functions2.py file (variable assignment, function definition,
-and call to function) into the new editor window. Then run the
-script using "Run Module", and see what happens.
-
 Global variables are the variables you define outside of any
 function definition, either typing the variable assignment into the
-interactive shell, or putting it in a script, outside of a
+interactive shell, or putting it in a program, outside of a
 function. In the example below, *x* is a global variable. Global
 variable assignment go into the "global namespace", and may be
-accessed by any other Python script, statement, expression, or
+accessed by any other Python program, statement, expression, or
 function that occurs *after* the assignment takes place. Thus,
 *sillyFn* can refer to *x* inside its body.
 
@@ -66,7 +59,7 @@ belongs only to this particular happy robot: only to this function
 call. In the example above, a local namespace is created, and *a*
 is assigned the value of *-2* in that namespace. The variable *a*
 does not exist in the global namespace (you can try typing *a* into
-the shell after running this script: Python will tell you it
+the shell after running this program: Python will tell you it
 doesn't know a value for *a*).
 
 The function *sillyFn* also has a local variable, *b*. Local
@@ -83,13 +76,13 @@ value.
 Try this:
 ^^^^^^^^^
 
-Add the code below to the file from before. Try to predict what
-values will be printed before running the script. Check your work
-by running the script.
+Add the code below in the activecode area. Try to predict what
+values will be printed before running the program. Check your work
+by running the program.
 
 .. sourcecode:: python
 
-    #these 3 variables are 'global' in this script
+    #these 3 variables are 'global' in this program
     a = 6
     b = 15
     c = 25
@@ -103,17 +96,7 @@ by running the script.
 
 .. activecode:: act_func2_1
 
-    #these 3 variables are 'global' in this script
-    a = 6
-    b = 15
-    c = 25
-    def moreSilly(c, d):        #c, d become local to the function
-        print a
-        print c
-        b = 2 * d
-        print b
-    moreSilly(1, 4)
-    print b
+
 
 
 Fruitful functions: handling returned values
@@ -122,9 +105,7 @@ Fruitful functions: handling returned values
 Here is a simple program made up of two functions. The first
 function does some work and prints the result, it is not a
 "fruitful function." The second function does a calculation and
-returns a value, it *is* a fruitful function. (Note: This code was
-used in a video Prof. Fox made that talks about this same
-material.)
+returns a value, it *is* a fruitful function.
 
 .. sourcecode:: python
 
@@ -137,14 +118,6 @@ material.)
         return 2 * b + a
 
 .. actex:: act_func2_2
-
-    def main():
-        x = 5
-        ans = helper(x, 10)
-        print ans
-
-    def helper(a, b):
-        return 2 * b + a
 
 
 
@@ -247,26 +220,7 @@ should print the total cost at the bottom. I've given you the
 
 .. activecode:: act_func2_5
 
-    # this is a bit ugly, but bear with it
-    def carpetEstimate(wid1,
-    len1, price1, wid2, len2, price2, wid3, len3, price3):
-        area1 = rectArea(wid1, len1)
-        cost1 = roomCost(area1, price1)
-        area2 = rectArea(wid2, len2)
-        cost2 = roomCost(area2, price2)
-        area3 = rectArea(wid3, len3)
-        cost3 = roomCost(area3, price3)
-        print "Room 1"
-        print " Area =", area1
-        print " Cost =", cost1, "dollars"
-        print "Room 2"
-        print " Area =", area2
-        print " Cost =",cost2, "dollars"
-        print "Room 3"
-        print " Area =",area3
-        print " Cost =", cost3, "dollars"
-        print "------------"
-        print "Total cost =",cost1 + cost2 + cost3, "dollars"
+
 
 
 

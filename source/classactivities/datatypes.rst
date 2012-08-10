@@ -169,8 +169,6 @@ characters.
 Accessing the characters in a string
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Use chapter 8 in Downey as a reference for string operations.
-
 Each character in a string has a position. Python, like most
 computer languages, starts counting at zero (I can explain why, if
 you like). So the first character in string ``"Wanda Fishman"``,
@@ -203,7 +201,7 @@ how it works.
 .. actex:: act_datatypes_2
 
 
-One thing Downey doesn't mention is the use of negative indices.
+One thing this book doesn't mention is the use of negative indices.
 Try *str1[-2]* and other negative numbers. How do negative indices
 work? What is the value of *str1[5:1:-1]*?
 
@@ -262,7 +260,6 @@ strings, among other uses. Try out the examples below
 List basics
 -----------
 
-See chapter 10 in Downey for more information about lists.
 
 A list is just a collection of data. It is linear, the data is
 order from first to last. It is changeable, you can add or remove

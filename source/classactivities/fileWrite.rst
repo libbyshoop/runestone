@@ -149,7 +149,7 @@ reverse order to a new file:
 Challenge section: Word Play
 ----------------------------
 
-Most of Chapter 9 in Downey is a "case study." It looks at one
+Most of this activity is a "case study." It looks at one
 application of reading from a file. It uses a file to store a big
 list of words, one word per line. On Moodle you can find the
 complete file of legal crossword puzzle words, called

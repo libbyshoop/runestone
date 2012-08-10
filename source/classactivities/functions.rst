@@ -16,17 +16,17 @@ Be sure to download the
 Important ideas about functions
 -------------------------------
 
-Functions we define, like the scripts we have been writing before
+Functions we define, like the programs we have been writing before
 this, are a way of describing an *algorithm* to the computer. A
 function has the benefit of doing all its work in its own "space,"
 which is separate from the main, global space.
 
-Let me use a metaphor to describe the difference between scripts
+Let me use a metaphor to describe the difference between programs
 and functions. Suppose you have a friend who is an artist, and you
-ask this friend to paint a picture for you. Running a script in
+ask this friend to paint a picture for you. Running a program in
 Python is like inviting your friend to come into your room and
 paint a picture for you: the result may be fine, but paint may get
-splashed on other things. In the same way, a script running in
+splashed on other things. In the same way, a program running in
 Python may add variables to the global namespace, and may overwrite
 variables that already existed there.
 
@@ -57,8 +57,7 @@ Python functions like `abs` and `move`.
 
 When we call a function we pass it inputs that it needs to do its
 work. Some functions just do their work and end, but many functions
-return actual useful values (Downey calls these
-"fruitful functions"). In order to use those values, either for
+return actual useful values. In order to use those values, either for
 further computations or to show them to the user, we need to assign
 the value to a variable, or pass it to another expression or
 statement. Let me use another metaphor to explain what I mean: you
@@ -69,10 +68,8 @@ value back to you. You need to catch the return value in order to
 use it.
 
 Try to predict what values the function calls below would return.
-Then test yourself by typing the function into the editor and trying out
-the examples. After running the module, click on the window
-containing the interactive shell, and run the following
-statements, one at a time. Note that I show a variety of ways to
+Then test yourself by typing the function into the activecode and trying out
+the examples. Note that I show a variety of ways to
 catch the value returned by the function foo.
 
  .. sourcecode:: python
@@ -85,16 +82,9 @@ catch the value returned by the function foo.
       print "The value of foo(10,20, 10) is", val2
 
 
- .. actex:: act_func_01
+ .. activecode:: act_func_01
 
-    def foo(x, y, z):
-        q = max(x, y)
-        r = max(y, z)
-        s = max(x, z)
-        return min(q, r, s)
 
-    #Function calling
-    #your code here
 
 
  .. codelens:: act_func_01
@@ -130,7 +120,7 @@ shown below.
         print "Ending foo with value", ans
         return ans
 
-.. actex:: act_func_02
+.. activecode:: act_func_02
 
 
 
@@ -150,8 +140,7 @@ expression `(5 * 2) + 3`.
       value that is returned can be used in other expressions, or other
       function calls.
 
-Compare these two functions and then try the calls in the Python
-shell.
+Compare these two functions and then try the calls in the activecode.
 
 .. sourcecode:: python
 
@@ -173,8 +162,8 @@ Practice defining functions
 ---------------------------
 
 Practice defining functions with the following examples. The first
-one is plain Python, after that get a Scribbler and try the rest.
-Put your definitions in the `functionscode.py` file.
+one is plain Python, and try the rest.
+Put your definitions in the editor below.
 
 
 #. Define a function called `printName` that takes a single input,
@@ -261,12 +250,12 @@ Functions calling functions: Happy Robots
 Calling a single function and having it return is often pretty easy
 to understand. But what if one function calls a second, which calls
 a third, and so on. Take a look at the set of functions in
-`functionscode.py`  that start with the `song` function. Without
+:download:`functionscode.py <functionscode.py>`  that start with the `song` function. Without
 running the program, try to predict what the output would be. Then
 run it, to see how you did!
 
 How does the computer keep track of which function has called which
-other one? Downey talks about "stack frames," which are the tool
+other one? The book talks about "stack frames," which are the tool
 used by the computer to keep track of function calls. Each time a
 function is called, the computer allocates a "stack frame" that
 contains information about both the called function, and the place

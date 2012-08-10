@@ -158,8 +158,7 @@ Conditional statements
 
 We often use boolean expressions in conditional statements, `if`
 statements, to cause the computer to choose one or another sets of
-actions. Look at sections 5.4 through 5.6 in Downey to remind
-yourself of the syntax for `if` statements.
+actions.
 
 Try this:
 ^^^^^^^^^
@@ -198,9 +197,11 @@ file, and run it.
      else:
         print x
 
+Exercises
+----------
 
-Activity 1: Cropping Values
-----------------------------
+Cropping Values
+---------------
 
 Create a function called `crop` that has one parameter variable.
 When `crop` is called, it should be passed a number as input. If
@@ -222,34 +223,9 @@ inputs:
 .. actex:: act_condit_2
 
 
-Activity 2: Tele-operated Robot
--------------------------------
 
-"Tele-operation" of robots means controlling a robot from a
-distance. This is used for entertainment and education: some
-science museums have robots you can connect to over the Internet
-and operate. It is also used for hazardous situations and
-environments: bomb squads, search and rescue, deep-sea exploration,
-space exploration.
-
-Create a little function that could be used for simple
-tele-operation of the Scribblers. The function, `go`, should have
-one input parameter. When it is called, the user should pass in a
-single string, one of: `"f"`, `"b"`, `"l"`, and `"r"`.
-
-If the string is `"f"` then the robot should move forward for one
-second. If the string is `"b"` then the robot should move backward
-for one second. If the string is `"r"` then the robot should turn
-about forty five degrees to the right , and if the string is `"l"`
-then the robot should turn about forty five degrees to the left.
-Test your program by having the robot navigate all the way around
-the classroom.
-
-.. actex:: act_condit_3
-
-Challenge Activities
+Challenge Exercises
 --------------------
-
 
 #. Create a function `middleValue` that has three parameter
    variables: it should be passed three numbers when it is called. The
@@ -285,3 +261,29 @@ Challenge Activities
    letter grade.
 
    .. actex:: act_condit_6
+
+Hopping drone
+--------------
+
+In this activity, you will learn how to control a robot from a
+distance. This is used for entertainment and education: some
+science museums have robots you can connect to over the Internet
+and operate. It is also used for hazardous situations and
+environments: bomb squads, search and rescue, deep-sea exploration,
+space exploration.
+
+Create a little function that could be used for simple
+tele-operation of ardrone. The function, `go`, should have
+one input parameter. When it is called, the user should pass in a
+single string, one of: `"f"`, `"b"`, `"l"`, and `"r"`.
+
+If the string is `"f"` then the robot should move forward for one
+second. If the string is `"b"` then the robot should move backward
+for one second. If the string is `"r"` then the robot should turn
+about forty five degrees to the right , and if the string is `"l"`
+then the robot should turn about forty five degrees to the left.
+Test your program by having the robot navigate all the way around
+the classroom.
+
+.. actex:: act_condit_3
+
