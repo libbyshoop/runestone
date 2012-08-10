@@ -101,11 +101,11 @@ It has a rechargeable battery and a USB port. There are a few steps to connect y
 
 Some functions
 ---------------
-There are a set of functions that can be useful to you when you write your code to make drone do certain movements. This can be found in
+There are a set of functions that can be useful to you when you write your program to fly the drone. This can be found in
 libardrone.
 
 takeoff(): This allows the drone to take off. This function gets the drone off the ground. In order to let it balance itself, you should give
-at least 5 seconds by using the sleep function.
+at least 5 seconds by importing time and using the sleep function.
 
 sleep(): This suspends execution for a given number of seconds. In order to give a more precise sleep time, you can use floating point number.
 
@@ -121,9 +121,9 @@ turn_left(): This function makes the drone rotate left.
 
 turn_right(): This function makes the drone rotate right.
 
-reset(): This function toggles the drone emergency state. You would see the lights turn red and then green.
+reset(): This function gets the drone to an emergency state. You would see the lights turn red and then green.
 
-set_speed(): This function sets the drone speed. The default speed for drone is 0.2. In order to increase or decrease the speed, you can set the speed using floating point numbers between 0 to 1.
+set_speed(): This function sets the drone speed. The default speed for drone is 0.2.
 
 hover(): Make the drone hover.
 

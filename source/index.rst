@@ -137,6 +137,7 @@ Activity 5 (Drone)
     :maxdepth: 2
 
     arlib/documentation.rst
+    arlib/droneactivity.rst
 
 
 Functions
