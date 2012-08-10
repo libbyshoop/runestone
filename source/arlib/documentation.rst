@@ -99,10 +99,14 @@ It has a rechargeable battery and a USB port. There are a few steps to connect y
 
 - Once the connection is successful, you can run your codes on wing.
 
+Typical first program
+---------------------
+Here is a typical first program :download:`firsttrial.py<arlib/firsttrial.py>`. In this program, the drone takes off, moves forward, turns left, hovers for sometime, moves up, move down, hover again and finally land and halt.
+
 Some functions
 ---------------
 There are a set of functions that can be useful to you when you write your program to fly the drone. This can be found in
-libardrone.
+:download:`libardrone<arlib/libardrone.py>`.
 
 takeoff(): This allows the drone to take off. This function gets the drone off the ground. In order to let it balance itself, you should give
 at least 5 seconds by importing time and using the sleep function.
@@ -130,4 +134,5 @@ hover(): Make the drone hover.
 land(): It makes the drone land.
 
 halt(): This makes the drone halt.
+
 
