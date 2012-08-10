@@ -117,7 +117,7 @@ functions.
 
     brickheight: The height of each brick.
 
-    .. figure:: Images/turtle.png
+    .. figure:: turtle.png
         :align: center
         :alt:
 
